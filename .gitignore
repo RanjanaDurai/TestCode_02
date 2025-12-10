@@ -1,0 +1,33 @@
+# .NET / Visual Studio
+bin/
+obj/
+*.csproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Playwright browsers (HUGE — never commit!)
+bin/Debug/net*/chromium-*/
+bin/Debug/net*/firefox-*/
+bin/Debug/net*/webkit-*/
+bin/Debug/net*/playwright.driver/
+bin/Debug/net*/playwright.ps1
+bin/Debug/net*/playwright.sh
+
+# Playwright trace/screenshots (if you commit them by mistake)
+trace/
+screenshots/
+test-results/
+
+# Allure / Reports
+Reports/
+allure-results/
+allure-report/
+
+# Logs
+Logs/
+
+# OS junk
+Thumbs.db
+.DS_Store
