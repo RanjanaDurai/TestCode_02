@@ -1,8 +1,9 @@
-/*using Microsoft.Playwright;
+using Microsoft.Playwright;
 using System.Threading.Tasks;
 using WiseMigrateTests.Pages.Landing;
 using WiseMigrateTests.Pages.PreRequisites;
 using WiseMigrateTests.TestHooks;
+using WiseMigrateTests.Utils;
 
 namespace WiseMigrateTests.Pages.Login
 {
@@ -25,8 +26,9 @@ namespace WiseMigrateTests.Pages.Login
 
             await _landingPage.NavigateToLandingPageAsync();
             await _basicSetup.WaitForPageAsync(2);
-            await _page.ClickAsync("text.contains('Generate Migration Plan for Your Enterprise')");
+            await _page.GetByText("Generate Migration Plan for Your Enterprise").ClickAsync();
             await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+            await _page.WaitForSelectorAsync("input[type='email']");
                         
         }
 
@@ -38,14 +40,39 @@ namespace WiseMigrateTests.Pages.Login
 
         public async Task ValidateEmptyUserName(IPage page)
         {
-            await page.GotoAsync(_basicSetup.LoginPageUrl);
-            await _basicSetup.LoginAsync();
+            await NavigateToLoginPageAsync();
+            var user = ConfigReader.GetCredential("empty_username");
+            await _basicSetup.LoginAsync(user.Username, user.Password);
         
         }
 
         public async Task ValidateEmptyPassword(IPage page)
         {
-            
+            await NavigateToLoginPageAsync();
+            var user = ConfigReader.GetCredential("empty_password");
+            await _basicSetup.LoginAsync(user.Username, user.Password);            
+        }
+
+        public async Task ValidateMigrateAdminAccount(IPage page)
+        {
+            await NavigateToLoginPageAsync();
+            var user = ConfigReader.GetCredential("migrateadmin");
+            await _basicSetup.LoginAsync(user.Username, user.Password);
+        }
+
+        public async Task ValidateSuperAdminAccount(IPage page)
+        {
+            await NavigateToLoginPageAsync();
+            var user = ConfigReader.GetCredential("superadmin");
+            await _basicSetup.LoginAsync(user.Username, user.Password);
+        }
+
+
+        public async Task ValidateInValidCredentials(IPage page)
+        {
+            await NavigateToLoginPageAsync();
+            var user = ConfigReader.GetCredential("invalid");
+            await _basicSetup.LoginAsync(user.Username, user.Password);
         }
         
         public async Task MicrosoftSignInAsync(IPage page)
@@ -55,4 +82,4 @@ namespace WiseMigrateTests.Pages.Login
         }
     }
 }
-*/
+

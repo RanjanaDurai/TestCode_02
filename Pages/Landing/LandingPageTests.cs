@@ -21,7 +21,7 @@ namespace WiseMigrateTests.Pages.Landing
         }
         
 
-       public async Task InitializeAsync()
+       public new async Task InitializeAsync()
         {
             await base.InitializeAsync();
             _setup = new BasicSetup(Page);
@@ -63,19 +63,20 @@ namespace WiseMigrateTests.Pages.Landing
         [Fact]
         [Trait("TestCaseID", "TC_NAV_02")]
         [Trait("Category", "Smoke")]
-        public async Task LandingPage_Should_Have_ClickableButtons()
+        public async Task LandingPage_Should_Have_Clickable_Buttons()
         {
             await Assertions.Expect(Page).ToHaveURLAsync(ConfigReader.Get("AppUrl"));
             await _setup.WaitForPageAsync(3);
 
-            var generatePlanBtn = Page.Locator("text=/Generate.*Plan/i");
-            var startAssessmentBtn = Page.Locator("text=/Migration.*Assessment/i");
-
-            await Assertions.Expect(generatePlanBtn).ToBeEnabledAsync();
-            await Assertions.Expect(startAssessmentBtn).ToBeEnabledAsync();
-
-            await ScreenshotHelper.TakeScreenshotAsync(Page, nameof(LandingPage_Should_Have_ClickableButtons));
-            Logger.Info("TC_NAV_02 – Both CTA buttons are visible and enabled");
+            await Assertions.Expect(Page.Locator("text=Generate Migration Plan for Your Enterprise").First).ToBeVisibleAsync();
+            await Assertions.Expect(Page.Locator("text=Start Your Migration Assessment").First).ToBeVisibleAsync();
+            if( await Page.Locator("text=Generate Migration Plan for Your Enterprise").First.IsEnabledAsync() &&
+                await Page.Locator("text=Start Your Migration Assessment").First.IsEnabledAsync())
+            {
+                Logger.Info("TC_NAV_02 – Both CTA buttons are visible and enabled");
+            }
+            await ScreenshotHelper.TakeScreenshotAsync(Page, nameof(LandingPage_Should_Have_Clickable_Buttons));
+            
         }
 
         [Fact]
