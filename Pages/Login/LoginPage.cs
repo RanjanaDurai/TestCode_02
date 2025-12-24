@@ -41,7 +41,7 @@ namespace WiseMigrateTests.Pages.Login
         public async Task ValidateEmptyUserName(IPage page)
         {
             await NavigateToLoginPageAsync();
-            var user = ConfigReader.GetCredential("empty_username");
+            var user = WiseMigrateTests.Utils.ConfigReader.GetCredential("empty_username");
             await _basicSetup.LoginAsync(user.Username, user.Password);
         
         }
@@ -49,21 +49,21 @@ namespace WiseMigrateTests.Pages.Login
         public async Task ValidateEmptyPassword(IPage page)
         {
             await NavigateToLoginPageAsync();
-            var user = ConfigReader.GetCredential("empty_password");
+            var user = WiseMigrateTests.Utils.ConfigReader.GetCredential("empty_password");
             await _basicSetup.LoginAsync(user.Username, user.Password);            
         }
 
         public async Task ValidateMigrateAdminAccount(IPage page)
         {
             await NavigateToLoginPageAsync();
-            var user = ConfigReader.GetCredential("migrateadmin");
+            var user = WiseMigrateTests.Utils.ConfigReader.GetCredential("migrateadmin");
             await _basicSetup.LoginAsync(user.Username, user.Password);
         }
 
         public async Task ValidateSuperAdminAccount(IPage page)
         {
             await NavigateToLoginPageAsync();
-            var user = ConfigReader.GetCredential("superadmin");
+            var user = WiseMigrateTests.Utils.ConfigReader.GetCredential("superadmin");
             await _basicSetup.LoginAsync(user.Username, user.Password);
         }
 
@@ -71,7 +71,7 @@ namespace WiseMigrateTests.Pages.Login
         public async Task ValidateInValidCredentials(IPage page)
         {
             await NavigateToLoginPageAsync();
-            var user = ConfigReader.GetCredential("invalid");
+            var user = WiseMigrateTests.Utils.ConfigReader.GetCredential("invalid");
             await _basicSetup.LoginAsync(user.Username, user.Password);
         }
         

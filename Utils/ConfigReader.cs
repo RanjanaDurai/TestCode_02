@@ -82,7 +82,7 @@ namespace WiseMigrateTests.Utils
             return cred ?? throw new KeyNotFoundException($"No credential found with role containing '{role}'");
         }
 
-        public static Credential GetRandomActiveCredential()
+        public static Credential GetRandomCredential()
         {
             var active = LoadCredentials().ToList();
             if (!active.Any())
@@ -90,6 +90,7 @@ namespace WiseMigrateTests.Utils
 
             return active[new Random().Next(active.Count)];
         }
-
+        
+       
     }
 }
