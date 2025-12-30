@@ -1,6 +1,4 @@
 using Microsoft.Playwright;
-using System;
-using System.Threading.Tasks;
 
 namespace WiseMigrateTests.Pages.Project
 {
@@ -12,13 +10,6 @@ namespace WiseMigrateTests.Pages.Project
         {
             _page = page;
         }
-
-        private ILocator ProjectName => _page.Locator("input").Nth(0);
-        private ILocator CustomerName => _page.Locator("input").Nth(1);
-        private ILocator Description => _page.Locator("textarea");
-
-        private ILocator CreateButton =>
-            _page.Locator("button", new() { HasText = "Create Project" });
 
         public async Task WaitForPageAsync()
         {
@@ -32,58 +23,45 @@ namespace WiseMigrateTests.Pages.Project
 
         public async Task FillProjectDetails(string projectName, string customer, string description)
         {
-            await ProjectName.FillAsync(projectName);
-            await CustomerName.FillAsync(customer);
-            await Description.FillAsync(description);
-
-            // MudBlazor stabilization
-            await _page.WaitForTimeoutAsync(800);
+            await _page.Locator("input").Nth(0).FillAsync(projectName);
+            await _page.Locator("input").Nth(1).FillAsync(customer);
+            await _page.Locator("textarea").FillAsync(description);
         }
 
-        public async Task ClickCreateAsync()
+        // ✅ SIMPLE & CORRECT CLICK
+        public async Task ClickCreateProjectAsync()
         {
-            await CreateButton.ScrollIntoViewIfNeededAsync();
-            await CreateButton.ClickAsync(new() { Force = true });
+            var createBtn = _page.GetByRole(AriaRole.Button, new() { Name = "Create Project" });
+
+            await createBtn.WaitForAsync();
+            await createBtn.ScrollIntoViewIfNeededAsync();
+
+            // normal click (no JS hacks)
+            await createBtn.ClickAsync();
+
+            // SPA navigation
+            await _page.WaitForURLAsync("**/data-gathering**", new()
+            {
+                Timeout = 60000
+            });
         }
 
-        public async Task WaitForCreationSuccessAsync()
+        public async Task ClickNextAsync()
         {
-            await _page.WaitForFunctionAsync(
-                "() => window.location.href.includes('data-gathering')",
-                null,
-                new() { Timeout = 60000 }
-            );
+            var nextBtn = _page.GetByRole(AriaRole.Button, new() { Name = "Next" });
+            await nextBtn.ClickAsync();
         }
-        public async Task ClickCancelAndReturnToDashboardAsync()
-{
-    // Cancel button on data-gathering page
-    var cancelButton = _page.GetByRole(AriaRole.Button, new() { Name = "Cancel" });
 
-    await cancelButton.WaitForAsync();
-    await cancelButton.ClickAsync();
+        public async Task WaitForUploadInfrastructurePageAsync()
+        {
+            await _page.WaitForSelectorAsync("text=Upload Infrastructure Data");
+        }
 
-    // Wait until dashboard is loaded
-    await _page.WaitForURLAsync("**/projects");
-}
-
-public async Task ClickNextOnDataGatheringAsync()
-{
-    var nextButton = _page.GetByRole(AriaRole.Button, new() { Name = "Next" });
-
-    await nextButton.WaitForAsync();
-    await nextButton.ClickAsync();
-}
-
-
-public async Task WaitForUploadInfrastructurePageAsync()
-{
-    // Wait until Upload Infrastructure page header appears
-    await _page.WaitForSelectorAsync("text=Upload Infrastructure Data");
-
-    // Extra safety: ensure we are on data-gathering route
-    await _page.WaitForURLAsync("**/data-gathering**");
-}
-
-
+        public async Task ClickCancelAsync()
+        {
+            var cancelBtn = _page.GetByRole(AriaRole.Button, new() { Name = "Cancel" });
+            await cancelBtn.ClickAsync();
+            await _page.WaitForURLAsync("**/projects");
+        }
     }
 }

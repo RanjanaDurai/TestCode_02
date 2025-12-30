@@ -1,5 +1,4 @@
 using Microsoft.Playwright;
-using System.Threading.Tasks;
 
 namespace WiseMigrateTests.Pages.Project
 {
@@ -12,9 +11,6 @@ namespace WiseMigrateTests.Pages.Project
             _page = page;
         }
 
-        private ILocator CreateProjectButton =>
-            _page.GetByRole(AriaRole.Button, new() { Name = "CREATE NEW PROJECT" });
-
         public async Task WaitForDashboardAsync()
         {
             await _page.WaitForURLAsync("**/projects");
@@ -22,8 +18,14 @@ namespace WiseMigrateTests.Pages.Project
 
         public async Task ClickCreateNewProjectAsync()
         {
-            await CreateProjectButton.WaitForAsync();
-            await CreateProjectButton.ClickAsync();
+            var btn = _page.GetByRole(AriaRole.Button, new() { Name = "CREATE NEW PROJECT" });
+            await btn.WaitForAsync();
+            await btn.ClickAsync();
+        }
+
+        public async Task AssertProjectVisible(string projectName)
+        {
+            await _page.Locator("tr", new() { HasText = projectName }).WaitForAsync();
         }
     }
 }

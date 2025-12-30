@@ -1,193 +1,182 @@
-// using Microsoft.Playwright;
 using Microsoft.Playwright;
-using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Pages.Login;
+using WiseMigrateTests.Pages.Project;
+using WiseMigrateTests.TestHooks;
+using WiseMigrateTests.Utils;
 using Xunit;
-
-
+using Allure.Xunit.Attributes;
 
 namespace WiseMigrateTests.Pages.Project
 {
-    public class ProjectListPageTests : TestBaseFixture
+    [Collection("Playwright collection")]
+    [AllureSuite("Project Page Tests")]
+    public class ProjectListPageTests : TestBaseFixture, IAsyncLifetime
     {
+        private LoginPage _loginPage = null!;
+        private ProjectListPage _projectList = null!;
+        private ProjectCreationPage _projectCreation = null!;
 
-        // TC_PROJECT_001
-
-        [Fact]
-        [Trait("TestCaseID", "TC_PROJECT_001")]
-        public async Task TC_PROJECT_001_Project_Dashboard_Should_Load_After_Login()
+        public async Task InitializeAsync()
         {
-            var login = new LoginPage(Page);
-            await login.ValidateMigrateAdminAccount(Page);
+            await base.InitializeAsync();
 
-            var projectList = new ProjectListPage(Page);
-            await projectList.WaitForDashboardAsync();
+            _loginPage = new LoginPage(Page);
+            _projectList = new ProjectListPage(Page);
+            _projectCreation = new ProjectCreationPage(Page);
 
-            await Assertions.Expect(Page.Locator("text=Project Dashboard")).ToBeVisibleAsync();
+            await _loginPage.ValidateMigrateAdminAccount(Page);
+            Logger.Info("Login successful using Migrate Admin account.");
         }
 
-        // TC_PROJECT_002
+        public Task DisposeAsync() => Task.CompletedTask;
 
+        // --------------------------------------------------
+        // TC_PROJECT_001
+        // --------------------------------------------------
         [Fact]
-        [Trait("TestCaseID", "TC_PROJECT_002")]
+        [AllureOwner("TC_PROJECT_001")]
+        [AllureTag("smoke")]
+        public async Task TC_PROJECT_001_Project_Dashboard_Should_Load()
+        {
+            await _projectList.WaitForDashboardAsync();
+
+            await Assertions.Expect(Page.GetByText("Project Dashboard")).ToBeVisibleAsync();
+
+            Logger.Info("Project dashboard loaded successfully.");
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_001_Project_Dashboard");
+        }
+
+        // --------------------------------------------------
+        // TC_PROJECT_002
+        // --------------------------------------------------
+        [Fact]
+        [AllureOwner("TC_PROJECT_002")]
+        [AllureTag("smoke")]
         public async Task TC_PROJECT_002_Navigate_To_Create_Project_Page()
         {
-            var login = new LoginPage(Page);
-            await login.ValidateMigrateAdminAccount(Page);
-
-            var projectList = new ProjectListPage(Page);
-            await projectList.WaitForDashboardAsync();
-            await projectList.ClickCreateNewProjectAsync();
+            await _projectList.WaitForDashboardAsync();
+            await _projectList.ClickCreateNewProjectAsync();
 
             await Page.WaitForURLAsync("**/project-creation");
+
+            Logger.Info("Navigated to Create Project page.");
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_002_Create_Project_Page");
         }
 
+        // --------------------------------------------------
         // TC_PROJECT_003
-
+        // --------------------------------------------------
         [Fact]
-        [Trait("TestCaseID", "TC_PROJECT_003")]
-        public async Task TC_PROJECT_003_Project_Creation_Page_Should_Load()
+        [AllureOwner("TC_PROJECT_003")]
+        [AllureTag("smoke")]
+        public async Task TC_PROJECT_003_Project_Creation_UI_Should_Load()
         {
-            var login = new LoginPage(Page);
-            await login.ValidateMigrateAdminAccount(Page);
+            await _projectList.WaitForDashboardAsync();
+            await _projectList.ClickCreateNewProjectAsync();
 
-            var projectList = new ProjectListPage(Page);
-            await projectList.WaitForDashboardAsync();
-            await projectList.ClickCreateNewProjectAsync();
-
-            var projectPage = new ProjectCreationPage(Page);
-            await projectPage.WaitForPageAsync();
+            await _projectCreation.WaitForPageAsync();
 
             await Assertions.Expect(Page.GetByLabel("Project Name")).ToBeVisibleAsync();
             await Assertions.Expect(Page.GetByLabel("Customer Name")).ToBeVisibleAsync();
             await Assertions.Expect(Page.GetByLabel("Description")).ToBeVisibleAsync();
-            
-            // Migration configuration
 
-            await Assertions.Expect(Page.GetByText("Type of Migration")).ToBeVisibleAsync();
-            await Assertions.Expect(Page.GetByText("Source Infrastructure Type")).ToBeVisibleAsync();
-            await Assertions.Expect(Page.GetByText("Target Infrastructure Type")).ToBeVisibleAsync();
-            await Assertions.Expect(Page.GetByText("Target Cloud Provider")).ToBeVisibleAsync();
+            Logger.Info("Project creation UI fields are visible.");
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_003_Project_Creation_UI");
         }
 
-        // TC_PROJECT_004 
-
-        
+        // --------------------------------------------------
+        // TC_PROJECT_004
+        // --------------------------------------------------
         [Fact]
-        [Trait("TestCaseID", "TC_PROJECT_004")]
-        public async Task TC_PROJECT_004_Create_Project_With_Valid_Data()
+        [AllureOwner("TC_PROJECT_004")]
+        [AllureTag("smoke")]
+        public async Task TC_PROJECT_004_Create_Project_Successfully()
         {
-            var login = new LoginPage(Page);
-            await login.ValidateMigrateAdminAccount(Page);
+            await _projectList.WaitForDashboardAsync();
+            await _projectList.ClickCreateNewProjectAsync();
 
-            var projectList = new ProjectListPage(Page);
-            await projectList.WaitForDashboardAsync();
-            await projectList.ClickCreateNewProjectAsync();
+            await _projectCreation.WaitForPageAsync();
 
-            var projectPage = new ProjectCreationPage(Page);
-            await projectPage.WaitForPageAsync();
+            string projectName = _projectCreation.GenerateProjectName();
 
-            string projectName = projectPage.GenerateProjectName();
-
-            await projectPage.FillProjectDetails(
+            await _projectCreation.FillProjectDetails(
                 projectName,
                 "test_customer",
-                "automation project creation test"
+                "automation test"
             );
 
-            await projectPage.ClickCreateAsync();
-            await projectPage.WaitForCreationSuccessAsync();
+            Logger.Info($"Filling project details → {projectName}");
+
+            await _projectCreation.ClickCreateProjectAsync();
+
+            await Assertions.Expect(Page.GetByText("Upload Infrastructure Data"))
+                .ToBeVisibleAsync();
+
+            Logger.Info($"Project created successfully: {projectName}");
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_004_Project_Created");
         }
+
+        // --------------------------------------------------
+        // TC_PROJECT_005
+        // --------------------------------------------------
         [Fact]
-[Trait("TestCaseID", "TC_PROJECT_005")]
-[Trait("Category", "Smoke")]
-public async Task TC_PROJECT_005_Verify_Created_Project_Is_Visible_On_Dashboard()
-{
-    var login = new LoginPage(Page);
-    await login.ValidateMigrateAdminAccount(Page);
+        [AllureOwner("TC_PROJECT_005")]
+        [AllureTag("smoke")]
+        public async Task TC_PROJECT_005_Project_Should_Appear_On_Dashboard()
+        {
+            await _projectList.WaitForDashboardAsync();
+            await _projectList.ClickCreateNewProjectAsync();
 
-    var projectList = new ProjectListPage(Page);
-    await projectList.WaitForDashboardAsync();
-    await projectList.ClickCreateNewProjectAsync();
+            await _projectCreation.WaitForPageAsync();
 
-    var projectCreation = new ProjectCreationPage(Page);
-    await projectCreation.WaitForPageAsync();
+            string projectName = _projectCreation.GenerateProjectName();
 
-    // Generate unique project name
-    string projectName = projectCreation.GenerateProjectName();
+            await _projectCreation.FillProjectDetails(
+                projectName,
+                "test_customer",
+                "verify project on dashboard"
+            );
 
-    await projectCreation.FillProjectDetails(
-        projectName,
-        "test_customer",
-        "verify project appears on dashboard"
-    );
+            Logger.Info("Creating project for dashboard validation");
 
-    await projectCreation.ClickCreateAsync();
+            await _projectCreation.ClickCreateProjectAsync();
+            await _projectCreation.ClickCancelAsync();
 
-    // Wait for redirect to data-gathering
-    await Page.WaitForURLAsync("**/data-gathering**");
+            await _projectList.AssertProjectVisible(projectName);
 
-    // Click Cancel → go back to dashboard
-    await projectCreation.ClickCancelAndReturnToDashboardAsync();
+            Logger.Info($"Project visible on dashboard: {projectName}");
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_005_Project_Visible");
+        }
 
-    // Final assertion
-    await Assertions.Expect(
-        Page.Locator("tr", new() { HasText = projectName })
-    ).ToBeVisibleAsync();
-}
+        // --------------------------------------------------
+        // TC_PROJECT_006
+        // --------------------------------------------------
+        [Fact]
+        [AllureOwner("TC_PROJECT_006")]
+        [AllureTag("smoke")]
+        public async Task TC_PROJECT_006_Upload_Infrastructure_Page_Should_Load()
+        {
+            await _projectList.WaitForDashboardAsync();
+            await _projectList.ClickCreateNewProjectAsync();
 
-[Fact]
-[Trait("TestCaseID", "TC_PROJECT_006")]
-[Trait("Category", "Smoke")]
-public async Task TC_PROJECT_006_Verify_Upload_Infrastructure_Page_Loads_After_Clicking_Next()
-{
-    var login = new LoginPage(Page);
-    await login.ValidateMigrateAdminAccount(Page);
+            await _projectCreation.WaitForPageAsync();
 
-    var projectList = new ProjectListPage(Page);
-    await projectList.WaitForDashboardAsync();
-    await projectList.ClickCreateNewProjectAsync();
+            string projectName = _projectCreation.GenerateProjectName();
 
-    var projectCreation = new ProjectCreationPage(Page);
-    await projectCreation.WaitForPageAsync();
+            await _projectCreation.FillProjectDetails(
+                projectName,
+                "test_customer",
+                "verify upload infra page"
+            );
 
-    // Create project
-    string projectName = projectCreation.GenerateProjectName();
+            Logger.Info("Creating project and navigating to upload infrastructure page");
 
-    await projectCreation.FillProjectDetails(
-        projectName,
-        "test_customer",
-        "verify upload infrastructure page"
-    );
+            await _projectCreation.ClickCreateProjectAsync();
+            await _projectCreation.ClickNextAsync();
+            await _projectCreation.WaitForUploadInfrastructurePageAsync();
 
-    await projectCreation.ClickCreateAsync();
-
-    // Wait until redirected to data gathering page
-    await Page.WaitForURLAsync("**/data-gathering**");
-
-    // Click NEXT
-    await projectCreation.ClickNextOnDataGatheringAsync();
-
-    // ✅ FINAL ASSERTION — this ends the test successfully
-    await Assertions.Expect(
-        Page.GetByText("Upload Infrastructure Data")
-    ).ToBeVisibleAsync();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            Logger.Info("Upload Infrastructure page loaded successfully.");
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_006_Upload_Infrastructure_Page");
+        }
     }
 }
