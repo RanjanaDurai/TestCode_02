@@ -67,47 +67,6 @@ namespace WiseMigrateTests.Pages.PreRequisites
             Logger.Info($"Randomly selected from <select>: {randomOption}");
         
         }
-        
-/*
-        public async Task SelectRandomFromSelectAsync(ILocator selectLocator)
-        {
-            // 1. Wait for select to be attached
-            await selectLocator.WaitForAsync(new()
-            {
-                State = WaitForSelectorState.Attached,
-                Timeout = 60000
-            });
-
-            // 2. Wait for UI-side API to populate options
-            await selectLocator.Page.WaitForFunctionAsync(@"
-                () => {
-                    const select = document.querySelector('#organization');
-                    return select && select.options.length > 1;
-                }
-            ");
-
-            // 3. Read UI options
-            var options = await selectLocator.Locator("option").AllTextContentsAsync();
-
-            var validOptions = options
-                .Where(o => !string.IsNullOrWhiteSpace(o) &&
-                            !o.Contains("Select", StringComparison.OrdinalIgnoreCase))
-                .ToList();
-
-            if (!validOptions.Any())
-                throw new Exception("No organizations available in dropdown");
-
-            // 4. Select random
-            var randomOption = validOptions[new Random().Next(validOptions.Count)];
-
-            await selectLocator.SelectOptionAsync(new SelectOptionValue
-            {
-                Value = randomOption
-            });
-
-            Logger.Info($"Selected organization: {randomOption}");
-        }
-        */
 
         public async Task LoginAsync() => await LoginAsync(defaultCredential.Username, defaultCredential.Password);
 
@@ -119,17 +78,20 @@ namespace WiseMigrateTests.Pages.PreRequisites
             await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
         }
 
-        public async Task SignUpAsync(string name, string username, string password)
+        public async Task SignUpAsync(string name, string username, string password, string confirmPassword, bool isOrganizationEmpty=false)
         {
             await _page.FillAsync("input[type='text']",name);
             await _page.FillAsync("input[type='email']", username);
             await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
             await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
             await _page.WaitForTimeoutAsync(1000);
-            var organizationField=_page.Locator("role=combobox");
-            await SelectRandomFromSelectAsync(organizationField);
+            if(!isOrganizationEmpty)
+            {
+                var organizationField=_page.Locator("role=combobox");
+                await SelectRandomFromSelectAsync(organizationField);
+            }
             await _page.Locator("input[type='password']").First.FillAsync(password);
-            await _page.Locator("input[type='password']").Last.FillAsync(password);
+            await _page.Locator("input[type='password']").Last.FillAsync(confirmPassword);
             await _page.ClickAsync("button[type='submit']");
             await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
         }
@@ -139,7 +101,7 @@ namespace WiseMigrateTests.Pages.PreRequisites
             var generatedUsername=Guid.NewGuid().ToString("N")+"@migrate.com";
             var generatedPassword = Guid.NewGuid().ToString("N");
             var cred=Utils.ConfigReader.GetRandomCredential();
-            await SignUpAsync(cred.Role, generatedUsername, generatedPassword);
+            await SignUpAsync(cred.Role, generatedUsername, generatedPassword, generatedPassword);
         }
 
         

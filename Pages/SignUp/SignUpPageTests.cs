@@ -96,6 +96,7 @@ namespace WiseMigrateTests.Pages.SignUp
         {
             await _signUpPage.ValidateRegisterationDuplicateEmail(Page);
             await _setup.WaitForPageAsync(3);
+            await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Registration failed. Please try again or contact support if the issue persists.");
             await Assertions.Expect(Page).ToHaveTitleAsync("Register");
             await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_SIGNUP_05_Registeration_Duplicate_Email");
             Logger.Info("TC_SIGNUP_05: Registeration with duplicate email attempted unsuccessfully.");
@@ -121,11 +122,12 @@ namespace WiseMigrateTests.Pages.SignUp
         [Fact]
         public async Task Validate_Registeration_Mismatching_Password()
         {
-            await _signUpPage.ValidateRegisterationValidCredentials(Page);
+            await _signUpPage.ValidateRegisterationMismatchingPassword(Page);
             await _setup.WaitForPageAsync(3);
             await Assertions.Expect(Page).ToHaveTitleAsync("Register");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_SIGNUP_06_Registeration_Valid_Credentials");
-            Logger.Info("TC_SIGNUP_06: Registeration with valid credentials attempted successfully.");
+            await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Passwords do not match. Please ensure both passwords are identical.");
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_SIGNUP_07_Registeration_Mismatching_Password");
+            Logger.Info("TC_SIGNUP_07: Registeration with mismatching passwords attempted unsuccessfully.");
         } 
 
 
@@ -135,27 +137,13 @@ namespace WiseMigrateTests.Pages.SignUp
         [Fact]
         public async Task Validate_Registeration_Empty_Organization()
         {
-            await _signUpPage.ValidateRegisterationValidCredentials(Page);
+            await _signUpPage.ValidateRegisterationEmptyOrganization(Page);
             await _setup.WaitForPageAsync(3);
+            await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Invalid organization selected. Please choose a valid option.");
             await Assertions.Expect(Page).ToHaveTitleAsync("Register");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_SIGNUP_06_Registeration_Valid_Credentials");
-            Logger.Info("TC_SIGNUP_06: Registeration with valid credentials attempted successfully.");
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_SIGNUP_08_Registeration_Empty_Organization");
+            Logger.Info("TC_SIGNUP_08: Registeration with empty organization attempted successfully.");
         } 
-
-
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
-        [AllureOwner("TC_SIGNUP_10")]
-        [AllureTag("smoke")]
-        [Fact]
-        public async Task MicrosoftSignIn_Page_Must_Load_Successfully()
-        {
-            await _signUpPage.ValidateRegisterationValidCredentials(Page);
-            await _setup.WaitForPageAsync(3);
-            await Assertions.Expect(Page).ToHaveTitleAsync("Register");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_SIGNUP_06_Registeration_Valid_Credentials");
-            Logger.Info("TC_SIGNUP_06: Registeration with valid credentials attempted successfully.");
-        } 
-
         
     }
 }

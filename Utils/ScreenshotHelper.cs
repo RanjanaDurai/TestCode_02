@@ -12,7 +12,6 @@ namespace WiseMigrateTests.Utils
 
         static ScreenshotHelper()
         {
-            // FORCE absolute path in project root
             var projectRoot = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", ".."));
             var relativePath = ConfigReader.Get("ScreenshotPath");
             ScreenshotDir = Path.Combine(projectRoot, relativePath);
@@ -35,6 +34,31 @@ namespace WiseMigrateTests.Utils
 
             var timestamp = DateTime.Now.ToString("yyyyMMdd-HHmmss");
             var safeName = string.Join("_", testName.Split(Path.GetInvalidFileNameChars()));
+
+            var baseFileName = string.IsNullOrEmpty(customName)
+                ? $"{safeName}_"
+                : $"{safeName}_{customName}_";
+
+            var searchPattern = $"{baseFileName}*.png";
+
+            try
+            {
+                var existingFiles = Directory.GetFiles(ScreenshotDir, searchPattern);
+                foreach (var oldFile in existingFiles)
+                {
+                    try
+                    {
+                        File.Delete(oldFile);
+                    }
+                    catch (IOException) { } // Ignore if file is locked
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[ScreenshotHelper] Warning: Could not clean old screenshots: {ex.Message}");
+            }
+            
+
             var fileName = string.IsNullOrEmpty(customName)
                 ? $"{safeName}_{timestamp}.png"
                 : $"{safeName}_{customName}_{timestamp}.png";

@@ -75,11 +75,33 @@ namespace WiseMigrateTests.Pages.Login
             await _basicSetup.LoginAsync(user.Username, user.Password);
         }
         
+        public async Task NavigateToMicrosoftSignInAsync(IPage page)
+        {
+            await NavigateToLoginPageAsync();
+            await _page.GetByText("Sign in with Microsoft").ClickAsync();
+        }
+
+        /*
+        // Automation Feasibility to be determined
         public async Task MicrosoftSignInAsync(IPage page)
         {
-            await Assertions.Expect(page).ToHaveURLAsync(_basicSetup.LoginPageUrl);
-            await page.ClickAsync("text.contains('Sign in with Microsoft')");
+            await NavigateToMicrosoftSignInAsync(page);
+            var user = WiseMigrateTests.Utils.ConfigReader.GetCredential("microsoft_user");
+            await _page.FillAsync("input[type='email']",user.Username);
+            await _page.ClickAsync("input[type='submit']");
+            await _page.FillAsync("input[type='password']", user.Password);
+            await _page.ClickAsync("input[type='submit']");
+            await _page.GetByText("Next").ClickAsync();
+            if (_page.TitleAsync().Result=="My Sign-Ins | Register | Microsoft.com")
+            {
+                await _page.GetByText("Next").ClickAsync();
+                await _page.GetByText("Next").ClickAsync();
+                await _page.GetByText("Next").ClickAsync();
+            }
         }
+
+        */
+
     }
 }
 

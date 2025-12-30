@@ -37,56 +37,53 @@ namespace WiseMigrateTests.Pages.SignUp
 
         public async Task ValidateRegisterationEmptyUserName(IPage page)
         {
-            await NavigateToSignUpPageAsync();
+            //await NavigateToSignUpPageAsync();
             var user = Utils.ConfigReader.GetCredential("empty_username");
-            var generatedPassword = Guid.NewGuid().ToString("N");
-            await _basicSetup.SignUpAsync(user.Role, user.Username, generatedPassword);        
+            await _basicSetup.SignUpAsync(user.Role, user.Username, user.Password, user.Password);      
         }
 
         public async Task ValidateRegisterationEmptyPassword(IPage page)
         {
-            await NavigateToSignUpPageAsync();
+            //await NavigateToSignUpPageAsync();
             var user = Utils.ConfigReader.GetCredential("empty_password");
-            var generatedUsername=Guid.NewGuid().ToString("N")+"@migrate.com";
-            await _basicSetup.SignUpAsync(user.Role, generatedUsername, user.Password);             
+            var generatedUsername=Guid.NewGuid().ToString("N").Substring(0, 10)+"@migrate.com";
+            await _basicSetup.SignUpAsync(user.Role, generatedUsername, user.Password, user.Password);             
         }
 
         public async Task ValidateRegisterationDuplicateEmail(IPage page)
         {
-            await NavigateToSignUpPageAsync();
+            //await NavigateToSignUpPageAsync();
             var username ="DuplicateUser@migrate.com";
             var user = Utils.ConfigReader.GetCredential("standard_user");
             for (int i = 0; i < 2; i++)
-            {await _basicSetup.SignUpAsync(user.Role, username, user.Password);} 
+            {
+                await _basicSetup.SignUpAsync(user.Role, username, user.Password, user.Password);
+            } 
             
         }
 
         public async Task ValidateRegisterationMismatchingPassword(IPage page)
         {
-            await NavigateToSignUpPageAsync();
+            //await NavigateToSignUpPageAsync();
             var user = Utils.ConfigReader.GetCredential("invalid");
-            await _basicSetup.SignUpAsync(user.Role, user.Username, user.Password); 
+            await _basicSetup.SignUpAsync(user.Role, user.Username, user.Password, Guid.NewGuid().ToString().Substring(0, 10)); 
         }
 
         public async Task ValidateRegisterationEmptyOrganization(IPage page)
         {
-             await NavigateToSignUpPageAsync();
+            //await NavigateToSignUpPageAsync();
             var user = Utils.ConfigReader.GetCredential("invalid");
-            await _basicSetup.SignUpAsync(user.Role, user.Username, user.Password); 
+            await _basicSetup.SignUpAsync(user.Role, user.Username, user.Password, user.Password, isOrganizationEmpty:true); 
         }
         
         public async Task ValidateRegisterationValidCredentials(IPage page)
         {
-            await NavigateToSignUpPageAsync();
+            //await NavigateToSignUpPageAsync();
             var user = Utils.ConfigReader.GetCredential("standard_user");
-            var generatedUsername=Guid.NewGuid().ToString("N")+ "@migrate.com";
-            await _basicSetup.SignUpAsync(user.Role, generatedUsername, user.Password); 
+            var generatedUsername=Guid.NewGuid().ToString("N").Substring(0, 10)+ "@migrate.com";
+            await _basicSetup.SignUpAsync(user.Role, generatedUsername, user.Password, user.Password); 
         }
-        public async Task MicrosoftSignInAsync(IPage page)
-        {
-            await Assertions.Expect(page).ToHaveURLAsync(_basicSetup.LoginPageUrl);
-            await page.ClickAsync("text.contains('Sign in with Microsoft')");
-        }
+
     }
 }
 

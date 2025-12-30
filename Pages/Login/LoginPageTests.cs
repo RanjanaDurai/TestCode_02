@@ -55,15 +55,6 @@ namespace WiseMigrateTests.Pages.Login
                 await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_LOGIN_02_LoginPage_Should_Have_Clickable_Buttons_01");
                 Logger.Info("Sign In button is clickable");
             }
-
-            /*
-            await Expect(_loginPage.Locator("text.contains('Sign in with Microsoft')")).ToBeVisibleAsync();
-            if (await Expect(_loginPage.Locator("text.contains('Sign in with Microsoft')")).IsEnabledAsync())
-            {
-                await ScreenshotHelper.TakeScreenshotAsync(_loginPage, "TC_LOGIN_02_LoginPage_Should_Have_Clickable_Buttons_02");
-                await Logger.Info("Microsoft Sign In button is clickable");
-            }
-            */
        }
 
 
@@ -142,5 +133,33 @@ namespace WiseMigrateTests.Pages.Login
             Logger.Info("TC_LOGIN_07: Login with valid credentials successful.");
         }  
 
+        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
+        [AllureOwner("TC_SIGNIN_08")]
+        [AllureTag("smoke")]
+        [Fact]
+        public async Task MicrosoftSignInPage_Must_Load_Successfully()
+        {
+            await _loginPage.NavigateToMicrosoftSignInAsync(Page);
+            await Assertions.Expect(Page).ToHaveTitleAsync("Sign in to your account");
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_SIGNIN_08_MicrosoftSignIn_Page_Must_Load_Successfully");
+            Logger.Info("TC_SIGNIN_08: Microsoft Sign In page loaded successfully.");
+        } 
+
+        /*
+        //Automation feasibility to be assessed.
+        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
+        [AllureOwner("TC_SIGNIN_09")]
+        [AllureTag("smoke")]
+        [Fact]
+        public async Task Validate_Microsoft_SignIn()
+        {
+            await _loginPage.MicrosoftSignInAsync(Page);
+            await _setup.WaitForPageAsync(3);
+            await Assertions.Expect(Page).ToHaveTitleAsync("Wise Migrate");            
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_SIGNIN_09_Microsoft_SignIn_Successful");
+            Logger.Info("TC_SIGNIN_09: Microsoft Sign In successful.");
+        } 
+
+        */
     }
 }
