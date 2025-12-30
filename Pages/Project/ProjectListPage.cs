@@ -11,6 +11,9 @@ namespace WiseMigrateTests.Pages.Project
             _page = page;
         }
 
+        public ILocator CreateNewProjectButton =>
+            _page.GetByRole(AriaRole.Button, new() { Name = "CREATE NEW PROJECT" });
+
         public async Task WaitForDashboardAsync()
         {
             await _page.WaitForURLAsync("**/projects");
@@ -18,12 +21,11 @@ namespace WiseMigrateTests.Pages.Project
 
         public async Task ClickCreateNewProjectAsync()
         {
-            var btn = _page.GetByRole(AriaRole.Button, new() { Name = "CREATE NEW PROJECT" });
-            await btn.WaitForAsync();
-            await btn.ClickAsync();
+            await CreateNewProjectButton.WaitForAsync();
+            await CreateNewProjectButton.ClickAsync();
         }
 
-        public async Task AssertProjectVisible(string projectName)
+        public async Task AssertProjectVisibleAsync(string projectName)
         {
             await _page.Locator("tr", new() { HasText = projectName }).WaitForAsync();
         }
