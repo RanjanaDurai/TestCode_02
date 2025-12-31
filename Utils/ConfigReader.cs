@@ -36,7 +36,6 @@ namespace WiseMigrateTests.Utils
                     .Build();
 
                 var test = _config["AppSettings:AppUrl"];
-                Console.WriteLine($"[ConfigReader] AppUrl loaded: {test ?? "NULL!"}");
                 if (test == null)
                     throw new InvalidOperationException("AppSettings:AppUrl is missing in JSON!");
             }
@@ -73,6 +72,7 @@ namespace WiseMigrateTests.Utils
             return cred ?? throw new KeyNotFoundException($"No credential found with Id = '{id}'");
         }
 
+        /*
         public static Credential GetCredentialByRole(string role)
         {
             var creds = LoadCredentials();
@@ -81,6 +81,7 @@ namespace WiseMigrateTests.Utils
 
             return cred ?? throw new KeyNotFoundException($"No credential found with role containing '{role}'");
         }
+        */
 
         public static Credential GetRandomCredential()
         {
@@ -89,6 +90,11 @@ namespace WiseMigrateTests.Utils
                 throw new InvalidOperationException("No credentials found in appsettings.json");
 
             return active[new Random().Next(active.Count)];
+        }
+
+        public static string GetProjectDetails(string key)
+        {
+            return _config[$"ProjectDetails:{key}"];
         }
         
        

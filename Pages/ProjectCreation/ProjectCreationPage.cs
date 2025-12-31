@@ -1,16 +1,25 @@
 using Microsoft.Playwright;
+using WiseMigrateTests.Pages.Project;
 
-namespace WiseMigrateTests.Pages.Project
+namespace WiseMigrateTests.Pages.ProjectCreation
 {
     public class ProjectCreationPage
     {
         private readonly IPage _page;
+        private readonly ProjectListPage _projectList;
 
         public ProjectCreationPage(IPage page)
         {
             _page = page;
+            _projectList = new ProjectListPage(page);
         }
 
+        
+        public async Task NavigateToProjectCreationPageAsync()
+        {
+            await _projectList.WaitForDashboardAsync();
+            await _projectList.ClickCreateNewProjectAsync();
+        }
         public ILocator ProjectNameInput =>
             _page.Locator("input").Nth(0);
 
@@ -21,7 +30,7 @@ namespace WiseMigrateTests.Pages.Project
             _page.Locator("textarea");
 
         public ILocator CreateProjectButton =>
-            _page.GetByRole(AriaRole.Button, new() { Name = "Create Project" });
+            _page.GetByRole(AriaRole.Button, new() { Name ="Create Project" });
 
         public ILocator NextButton =>
             _page.GetByRole(AriaRole.Button, new() { Name = "Next" });
@@ -60,5 +69,6 @@ namespace WiseMigrateTests.Pages.Project
         {
             await CancelButton.ClickAsync();
         }
+  
     }
 }
