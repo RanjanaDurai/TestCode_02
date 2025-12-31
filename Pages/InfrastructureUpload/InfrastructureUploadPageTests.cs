@@ -1,9 +1,6 @@
-/*
 using Microsoft.Playwright;
 using WiseMigrateTests.Pages.PreRequisites;
 using WiseMigrateTests.Pages.Login;
-using WiseMigrateTests.Pages.Project;
-using WiseMigrateTests.Pages.InfrastructureUpload;
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Utils;
 using Xunit;
@@ -16,10 +13,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
     public class InfrastructureUploadPageTests : TestBaseFixture, IAsyncLifetime
     {
         private LoginPage _loginPage = null!;
-        private ProjectListPage _projectList = null!;
-        private ProjectCreationPage _projectCreation = null!;
-
         private InfrastructureUploadPage _infrastructureUploadPage = null!;
+
         private BasicSetup _basicSetup = null!;
 
         public async Task InitializeAsync()
@@ -27,15 +22,12 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             await base.InitializeAsync();
 
             _loginPage = new LoginPage(Page);
-            _projectList = new ProjectListPage(Page);
             _infrastructureUploadPage = new InfrastructureUploadPage(Page);
             _basicSetup = new BasicSetup(Page);
 
             await _loginPage.ValidateSuperAdminAccount(Page);
             Logger.Info("Logged in as Super Admin");
         }
-
-        public Task DisposeAsync() => Task.CompletedTask;
         
         [Fact]
         [AllureOwner("TC_PROJECT_006")]
@@ -51,4 +43,3 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
     }
 
 }
-*/
