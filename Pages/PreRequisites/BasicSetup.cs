@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text.Json;
 using WiseMigrateTests.Utils;
 using WiseMigrateTests.TestHooks;
+using WiseMigrateTests.Pages.ProjectCreation;
 
 
 namespace WiseMigrateTests.Pages.PreRequisites
@@ -10,6 +11,7 @@ namespace WiseMigrateTests.Pages.PreRequisites
     public class BasicSetup
     {
         private readonly IPage _page;
+         private readonly ProjectCreationPage _projectCreation;
         public string AppUrl => WiseMigrateTests.Utils.ConfigReader.Get("AppUrl");
         public string LoginPageUrl => WiseMigrateTests.Utils.ConfigReader.Get("LoginPageUrl");
         public string Username => WiseMigrateTests.Utils.ConfigReader.Get("Username");
@@ -22,6 +24,7 @@ namespace WiseMigrateTests.Pages.PreRequisites
         public BasicSetup(IPage page)
         {
             _page = page;
+            _projectCreation = new ProjectCreationPage(page);
         }
 
         public async Task NavigateToAppAsync() => await _page.GotoAsync(AppUrl);
@@ -106,6 +109,27 @@ namespace WiseMigrateTests.Pages.PreRequisites
 
         
         public async Task WaitForPageAsync(int seconds) => await Task.Delay(seconds * 1000);
-    }
+    
+        public async Task CreateProjectAsync(string projectName, string customerName="WiseMigrate", string description="Test Project")
+        {
+            await _projectCreation.EnterProjectNameAsync(projectName);
+            await _projectCreation.EnterCustomerNameAsync(customerName);
+            await _projectCreation.EnterDescriptionAsync(description);
 
+            await _projectCreation.ClickCreateProjectAsync();
+
+            await _page.WaitForURLAsync("**/data-gathering**", new()
+            {
+                Timeout = 60000
+            });
+        }
+
+        public async Task CreateProjectAsync( )
+        {
+            var projectName = $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
+            var customerName = Utils.ConfigReader.GetProjectDetails("CustomerName");
+            var description = Utils.ConfigReader.GetProjectDetails("ProjectDescription");
+            await CreateProjectAsync( projectName, customerName, description);
+        }
+    }
 }

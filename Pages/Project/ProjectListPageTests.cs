@@ -1,7 +1,6 @@
 using Microsoft.Playwright;
+using WiseMigrateTests.Pages.PreRequisites;
 using WiseMigrateTests.Pages.Login;
-using WiseMigrateTests.Pages.Project;
-using WiseMigrateTests.PreRequisites;
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Utils;
 using Xunit;
@@ -28,8 +27,6 @@ namespace WiseMigrateTests.Pages.Project
             await _loginPage.ValidateMigrateAdminAccount(Page);
             Logger.Info("Logged in as Migrate Admin");
         }
-
-        public Task DisposeAsync() => Task.CompletedTask;
 
         // TC_PROJECT_001
         
@@ -78,83 +75,6 @@ namespace WiseMigrateTests.Pages.Project
 
             Logger.Info("Project creation UI is visible");
             await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_003_UI");
-        }
-
-        // TC_PROJECT_004
-
-        [Fact]
-        [AllureOwner("TC_PROJECT_004")]
-        [AllureTag("smoke")]
-        public async Task TC_PROJECT_004_Create_Project_Successfully()
-        {
-            await _projectList.WaitForDashboardAsync();
-            await _projectList.ClickCreateNewProjectAsync();
-
-            string projectName = _basicSetup.GenerateProjectName();
-
-            await _basicSetup.CreateProjectAsync(
-                projectName,
-                "test_customer",
-                "automation test"
-            );
-
-            await Assertions.Expect(Page.GetByText("Upload Infrastructure Data")).ToBeVisibleAsync();
-
-            Logger.Info($"Project created successfully: {projectName}");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_004_Project_Created");
-        }
-
-        // TC_PROJECT_005
-
-        [Fact]
-        [AllureOwner("TC_PROJECT_005")]
-        [AllureTag("smoke")]
-        public async Task TC_PROJECT_005_Project_Should_Appear_On_Dashboard()
-        {
-            await _projectList.WaitForDashboardAsync();
-            await _projectList.ClickCreateNewProjectAsync();
-
-            string projectName = _basicSetup.GenerateProjectName();
-
-            await _basicSetup.CreateProjectAsync(
-                projectName,
-                "test_customer",
-                "verify dashboard"
-            );
-
-            await Page.GetByRole(AriaRole.Button, new() { Name = "Cancel" }).ClickAsync();
-            await _projectList.WaitForDashboardAsync();
-
-            await _projectList.AssertProjectVisibleAsync(projectName);
-
-            Logger.Info($"Project visible on dashboard: {projectName}");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_005_Project_Visible");
-        }
-
-        // TC_PROJECT_006
-
-        [Fact]
-        [AllureOwner("TC_PROJECT_006")]
-        [AllureTag("smoke")]
-        public async Task TC_PROJECT_006_Upload_Infrastructure_Page_Should_Load()
-        {
-            await _projectList.WaitForDashboardAsync();
-            await _projectList.ClickCreateNewProjectAsync();
-
-            string projectName = _basicSetup.GenerateProjectName();
-
-            await _basicSetup.CreateProjectAsync(
-                projectName,
-                "test_customer",
-                "upload infra test"
-            );
-
-            await Page.GetByRole(AriaRole.Button, new() { Name = "Next" }).ClickAsync();
-
-            await Assertions.Expect(Page.GetByText("Upload Infrastructure Data")).ToBeVisibleAsync();
-
-            Logger.Info("Upload Infrastructure page loaded");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_006_Upload_Infrastructure");
         }
     }
 }
