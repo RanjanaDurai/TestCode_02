@@ -1,7 +1,8 @@
 using Microsoft.Playwright;
-using WiseMigrateTests.Pages.PreRequisites;
 using WiseMigrateTests.Pages.Login;
 using WiseMigrateTests.Pages.Project;
+using WiseMigrateTests.Pages.ProjectCreation;
+using WiseMigrateTests.Pages.PreRequisites;
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Utils;
 using Xunit;
@@ -18,7 +19,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         private ProjectCreationPage _projectCreation = null!;
         private BasicSetup _basicSetup = null!;
 
-        public async Task InitializeAsync()
+        public new async Task InitializeAsync()
         {
             await base.InitializeAsync();
 
@@ -31,43 +32,38 @@ namespace WiseMigrateTests.Pages.ProjectCreation
             Logger.Info("Logged in as Super Admin");
         }
 
-        public Task DisposeAsync() => Task.CompletedTask;
-
-        // TC_PROJECT_004
+        public new Task DisposeAsync() => Task.CompletedTask;
 
         [Fact]
         [AllureOwner("TC_PROJECT_004")]
         [AllureTag("smoke")]
         public async Task TC_PROJECT_004_Create_Project_Successfully()
         {
-            await _projectList.WaitForDashboardAsync();
+            await _projectList.WaitForDashboardToBeReadyAsync();
             await _projectList.ClickCreateNewProjectAsync();
+
             await _basicSetup.CreateProjectAsync();
-            await Assertions.Expect(Page.GetByText("Upload Infrastructure Data")).ToBeVisibleAsync();
 
-            Logger.Info($"Project created successfully:");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_004_Project_Created");
+            await Assertions.Expect(
+                Page.GetByText("Upload Infrastructure Data")
+            ).ToBeVisibleAsync();
         }
-
-        // TC_PROJECT_005
 
         [Fact]
         [AllureOwner("TC_PROJECT_005")]
         [AllureTag("regression")]
         public async Task TC_PROJECT_005_Project_Should_Appear_On_Dashboard()
         {
-            await _projectList.WaitForDashboardAsync();
+            await _projectList.WaitForDashboardToBeReadyAsync();
             await _projectList.ClickCreateNewProjectAsync();
+
             string projectName = $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
             await _basicSetup.CreateProjectAsync(projectName);
+
             await _projectCreation.ClickCancelAsync();
-            await _projectList.WaitForDashboardAsync();          
+            await _projectList.WaitForDashboardToBeReadyAsync();
+
             await _projectList.AssertProjectVisibleAsync(projectName);
-
-            Logger.Info($"Project visible on dashboard: {projectName}");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_005_Project_Visible");
         }
-
-      }  
-
+    }
 }
