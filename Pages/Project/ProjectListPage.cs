@@ -17,22 +17,17 @@ namespace WiseMigrateTests.Pages.Project
 
         public async Task WaitForDashboardToBeReadyAsync()
         {
-            // Logger.Info("Waiting for Project Dashboard to be fully loaded");
 
-            // 1. Ensure correct URL
             await _page.WaitForURLAsync("**/projects");
 
-            // 2. Ensure dashboard heading is visible
             await Assertions.Expect(
                 _page.GetByRole(AriaRole.Heading, new() { Name = "Project Dashboard" })
             ).ToBeVisibleAsync();
 
-            // 3. Ensure table header is rendered (key signal)
             await Assertions.Expect(
                 _page.GetByRole(AriaRole.Columnheader, new() { Name = "Project Name" })
             ).ToBeVisibleAsync();
 
-            // Logger.Info("Project Dashboard is fully ready");
         }
 
         public async Task ClickCreateNewProjectAsync()

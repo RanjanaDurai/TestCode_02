@@ -1,6 +1,6 @@
 using Microsoft.Playwright;
 using WiseMigrateTests.Pages.PreRequisites;
-using WiseMigrateTests.Pages.Login;     // <-- This was missing!
+using WiseMigrateTests.Pages.Login;     
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Utils;
 using Xunit;
@@ -78,7 +78,7 @@ namespace WiseMigrateTests.Pages.Project
 
         [Fact]
         [AllureOwner("TC_PROJECT_004")]
-        [AllureTag("smoke")]
+        [AllureTag("Regression")]
         public async Task TC_PROJECT_004_Open_Current_Mode()
         {
             Logger.Info("TC_PROJECT_004 started");
@@ -95,7 +95,7 @@ namespace WiseMigrateTests.Pages.Project
 
         [Fact]
         [AllureOwner("TC_PROJECT_005")]
-        [AllureTag("smoke")]
+        [AllureTag("Regression")]
         public async Task TC_PROJECT_005_Open_Future_Mode()
         {
             Logger.Info("TC_PROJECT_005 started");
@@ -111,7 +111,7 @@ namespace WiseMigrateTests.Pages.Project
 
         [Fact]
         [AllureOwner("TC_PROJECT_006")]
-        [AllureTag("smoke")]
+        [AllureTag("Regression")]
         public async Task TC_PROJECT_006_Open_Inventory()
         {
             Logger.Info("TC_PROJECT_006 started");
@@ -126,7 +126,7 @@ namespace WiseMigrateTests.Pages.Project
 
         [Fact]
         [AllureOwner("TC_PROJECT_007")]
-        [AllureTag("smoke")]
+        [AllureTag("Regression")]
         public async Task TC_PROJECT_007_Open_Track_Plan()
         {
             Logger.Info("TC_PROJECT_007 started");
@@ -141,7 +141,7 @@ namespace WiseMigrateTests.Pages.Project
 
         [Fact]
         [AllureOwner("TC_PROJECT_008")]
-        [AllureTag("smoke")]
+        [AllureTag("Regression")]
         public async Task TC_PROJECT_008_Open_Wave_And_Move()
         {
             Logger.Info("TC_PROJECT_008 started");
@@ -156,7 +156,7 @@ namespace WiseMigrateTests.Pages.Project
 
         [Fact]
         [AllureOwner("TC_PROJECT_009")]
-        [AllureTag("smoke")]
+        [AllureTag("Regression")]
         public async Task TC_PROJECT_009_Verify_Project_Actions_Menu()
         {
             Logger.Info("TC_PROJECT_009 started");

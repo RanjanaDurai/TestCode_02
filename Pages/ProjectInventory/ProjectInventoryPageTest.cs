@@ -16,7 +16,7 @@ namespace WiseMigrateTests.Pages.Project
         private LandingPage _landingPage = null!;
         private LoginPage _loginPage = null!;
         private ProjectListPage _projectList = null!;
-        private ProjectInventoryPage _projectActions = null!;
+        private ProjectInventoryPage _ProjectInventory = null!;
 
         public new async Task InitializeAsync()
         {
@@ -25,7 +25,7 @@ namespace WiseMigrateTests.Pages.Project
             _landingPage = new LandingPage(Page);
             _loginPage = new LoginPage(Page);
             _projectList = new ProjectListPage(Page);
-            _projectActions = new ProjectInventoryPage(Page);
+            _ProjectInventory = new ProjectInventoryPage(Page);
 
             await _landingPage.NavigateToLandingPageAsync();
             await _landingPage.ClickGenerateMigrationPlanAsync();
@@ -45,13 +45,13 @@ namespace WiseMigrateTests.Pages.Project
         {
             Logger.Info("TC_Inventory_001 started");
 
-            await _projectActions.ClickInventorySpecificationsAsync();
+            await _ProjectInventory.ClickInventorySpecificationsAsync();
 
             await Assertions.Expect(Page.GetByText("CMO/FMO Inventory")).ToBeVisibleAsync();
 
             await Task.Delay(15000);
 
-            await _projectActions.InitiateMigrationFromInventoryAsync();
+            await _ProjectInventory.InitiateMigrationFromInventoryAsync();
 
             await Assertions.Expect(
                 Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Plan Tracking" })
@@ -75,16 +75,16 @@ namespace WiseMigrateTests.Pages.Project
 
             await Task.Delay(15000);
 
-            await _projectActions.InitiateMigrationFromInventoryAsync();
+            await _ProjectInventory.InitiateMigrationFromInventoryAsync();
 
-            await _projectActions.ClickViewPlanDetailsAsync();
+            await _ProjectInventory.ClickViewPlanDetailsAsync();
 
-            await _projectActions.VerifyMigrationControlCenterLoadedAsync();
+            await _ProjectInventory.VerifyMigrationControlCenterLoadedAsync();
 
-            await _projectActions.OpenDetailedPlanningTabAsync();
-            await _projectActions.OpenTimelineTabAsync();
-            await _projectActions.OpenManageTabAsync();
-            await _projectActions.OpenPoliciesAndRiskTabAsync();
+            await _ProjectInventory.OpenDetailedPlanningTabAsync();
+            await _ProjectInventory.OpenTimelineTabAsync();
+            await _ProjectInventory.OpenManageTabAsync();
+            await _ProjectInventory.OpenPoliciesAndRiskTabAsync();
 
             await ScreenshotHelper.TakeScreenshotAsync(
                 Page,
