@@ -32,11 +32,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         public ILocator CreateProjectButton =>
             _page.GetByRole(AriaRole.Button, new() { Name ="Create Project" });
 
-        public ILocator NextButton =>
-            _page.GetByRole(AriaRole.Button, new() { Name = "Next" });
-
-        public ILocator CancelButton =>
-            _page.GetByRole(AriaRole.Button, new() { Name = "Cancel" });
+        
 
         
         public async Task EnterProjectNameAsync(string name)
@@ -60,15 +56,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
             await CreateProjectButton.ClickAsync();
         }
 
-        public async Task ClickNextAsync()
-        {
-            await NextButton.ClickAsync();
-        }
-
-        public async Task ClickCancelAsync()
-        {
-            await CancelButton.ClickAsync();
-        }
+        
   
     }
 }

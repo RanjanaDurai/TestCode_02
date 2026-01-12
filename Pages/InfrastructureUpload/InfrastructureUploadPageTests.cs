@@ -40,6 +40,65 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             Logger.Info("Upload Infrastructure page loaded");
             await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_006_Upload_Infrastructure");
         }
+
+        [Fact]
+        [AllureOwner("TC_PROJECT_007")]
+        [AllureTag("smoke")]
+        public async Task TC_PROJECT_007_Proceed_Infrastrcuture_Data_Upload()
+        {
+            await _infrastructureUploadPage.NavigateToInfrastructureUploadPageAsync();
+            await _infrastructureUploadPage.selectRadioButtonAsync("No");
+            await _infrastructureUploadPage.ClickNextAsync();
+            await Assertions.Expect(Page.GetByText("Infrastructure Data Upload")).ToBeVisibleAsync();
+        }
+
+        [Fact]
+        [AllureOwner("TC_PROJECT_008")]
+        [AllureTag("smoke")]
+        public async Task TC_PROJECT_008_Proceed_SSOT_Data_Upload()
+        {
+            await _infrastructureUploadPage.NavigateToInfrastructureUploadPageAsync();
+            await _infrastructureUploadPage.selectRadioButtonAsync("Yes");
+            await _infrastructureUploadPage.ClickNextAsync();
+            await Assertions.Expect(Page.GetByText("SSOT Data Upload")).ToBeVisibleAsync();
+        }
+
+        [Fact]
+        [AllureOwner("TC_PROJECT_009")]
+        [AllureTag("regression")]
+        public async Task TC_PROJECT_009_Cancel_Upload_Operation()
+        {
+            await _infrastructureUploadPage.NavigateToInfrastructureUploadPageAsync();
+            await _infrastructureUploadPage.ClickCancelAsync();
+            await Assertions.Expect(Page.GetByText("Project Dashboard")).ToBeVisibleAsync();
+        }
+
+        [Fact]
+        [AllureOwner("TC_PROJECT_010")]
+        [AllureTag("smoke")]
+        public async Task TC_PROJECT_010_Upload_Infrastructure_Data()
+        {
+            await _infrastructureUploadPage.NavigateToInfrastructureUploadPageAsync();
+            await _infrastructureUploadPage.selectRadioButtonAsync("No");
+            await _infrastructureUploadPage.ClickNextAsync();
+            await _infrastructureUploadPage.SetInfrastructureDataAsync("Default Upload Mode");
+            await _basicSetup.WaitForPageAsync(2);
+            await Assertions.Expect(Page.GetByText("Overall Validation Status: Valid")).ToBeVisibleAsync();
+            var elements= Page.Locator(".mud-expand-panel-header");
+            await Assertions.Expect(elements).ToHaveCountAsync(8);
+
+        }
+
+        [Fact]
+        [AllureOwner("TC_PROJECT_011")]
+        [AllureTag("smoke")]
+        public async Task TC_PROJECT_010_Verify_Infrastructure_Data()
+        {
+            await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
+            await _infrastructureUploadPage.ClickVerifyButtonAsync();
+            
+        }
+
     }
 
 }
