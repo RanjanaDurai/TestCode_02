@@ -1,62 +1,78 @@
 using Microsoft.Playwright;
-using WiseMigrateTests.Pages.Project;
+using WiseMigrateTests.Utils;
 
 namespace WiseMigrateTests.Pages.ProjectCreation
 {
     public class ProjectCreationPage
     {
         private readonly IPage _page;
-        private readonly ProjectListPage _projectList;
 
         public ProjectCreationPage(IPage page)
         {
             _page = page;
-            _projectList = new ProjectListPage(page);
         }
 
-        
+        // =========================
+        // NAVIGATION (RESTORED)
+        // =========================
         public async Task NavigateToProjectCreationPageAsync()
         {
-            await _projectList.WaitForDashboardAsync();
-            await _projectList.ClickCreateNewProjectAsync();
-        }
-        public ILocator ProjectNameInput =>
-            _page.Locator("input").Nth(0);
+            await _page.WaitForURLAsync("**/projects/create**", new()
+            {
+                Timeout = 60000
+            });
 
-        public ILocator CustomerNameInput =>
-            _page.Locator("input").Nth(1);
+            await Assertions.Expect(
+                _page.GetByRole(AriaRole.Heading, new() { Name = "Create Project" })
+            ).ToBeVisibleAsync();
 
-        public ILocator DescriptionTextArea =>
-            _page.Locator("textarea");
-
-        public ILocator CreateProjectButton =>
-            _page.GetByRole(AriaRole.Button, new() { Name ="Create Project" });
-
-        
-
-        
-        public async Task EnterProjectNameAsync(string name)
-        {
-            await ProjectNameInput.FillAsync(name);
+            Logger.Info("Navigated to Project Creation page");
         }
 
-        public async Task EnterCustomerNameAsync(string customer)
+        // =========================
+        // LOCATORS
+        // =========================
+        private ILocator ProjectNameInput =>
+            _page.GetByPlaceholder("Enter Project Name");
+
+        private ILocator CustomerNameInput =>
+            _page.GetByPlaceholder("Enter Customer Name");
+
+        private ILocator DescriptionInput =>
+            _page.GetByPlaceholder("Enter Description");
+
+        private ILocator CreateProjectButton =>
+            _page.GetByRole(AriaRole.Button, new() { Name = "CREATE PROJECT" });
+
+        private ILocator CancelButton =>
+            _page.GetByRole(AriaRole.Button, new() { Name = "CANCEL" });
+
+        // =========================
+        // ACTIONS
+        // =========================
+        public async Task EnterProjectNameAsync(string projectName)
         {
-            await CustomerNameInput.FillAsync(customer);
+            await ProjectNameInput.FillAsync(projectName);
+        }
+
+        public async Task EnterCustomerNameAsync(string customerName)
+        {
+            await CustomerNameInput.FillAsync(customerName);
         }
 
         public async Task EnterDescriptionAsync(string description)
         {
-            await DescriptionTextArea.FillAsync(description);
+            await DescriptionInput.FillAsync(description);
         }
 
         public async Task ClickCreateProjectAsync()
         {
-            await CreateProjectButton.ScrollIntoViewIfNeededAsync();
             await CreateProjectButton.ClickAsync();
         }
 
-        
-  
+        public async Task ClickCancelAsync()
+        {
+            await CancelButton.ClickAsync();
+        }
     }
 }
