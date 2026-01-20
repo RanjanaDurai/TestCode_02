@@ -50,7 +50,7 @@ namespace WiseMigrateTests.Pages.Project
         [AllureTag("smoke")]
         public async Task TC_PROJECT_002_Navigate_To_Create_Project_Page()
         {
-            await _projectList.WaitForDashboardAsync();
+            await _projectList.WaitForDashboardToBeReadyAsync();
             await _basicSetup.WaitForPageAsync(2);
             await _projectList.ClickCreateNewProjectAsync();
 
@@ -66,7 +66,7 @@ namespace WiseMigrateTests.Pages.Project
         [AllureTag("smoke")]
         public async Task TC_PROJECT_003_Project_Creation_UI_Should_Load()
         {
-            await _projectList.WaitForDashboardAsync();
+            await _projectList.WaitForDashboardToBeReadyAsync();
             await _basicSetup.WaitForPageAsync(2);
             await _projectList.ClickCreateNewProjectAsync();
 
