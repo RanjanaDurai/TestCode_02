@@ -19,7 +19,11 @@ public static class FileUploadHelper
    private static string GetSingleRandomFile(string directory)
     {
         if (!Directory.Exists(directory))
-            throw new DirectoryNotFoundException($"Directory not found: {directory}");
+        {
+           Console.WriteLine($"Directory not found: {directory}"); 
+           throw new DirectoryNotFoundException($"Directory not found: {directory}");           
+        }
+            
 
         var files = Directory.GetFiles(directory);
         if (files.Length == 0)

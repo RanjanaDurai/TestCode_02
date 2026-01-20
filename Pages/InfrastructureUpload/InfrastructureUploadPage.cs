@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Windows.Markup;
 using Microsoft.Playwright;
 using WiseMigrateTests.Pages.PreRequisites;
@@ -53,7 +54,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         {
             string cmdbFile = FileUploadHelper.GetRandomCMDBFile(); 
             string udZipFile = FileUploadHelper.GetRandomUDZipFile();
-            string appTemplateFile = FileUploadHelper.GetRandomAppTemplateFile(); 
+            string appTemplateFile = FileUploadHelper.GetRandomAppTemplateFile();
+            string ssotFile = FileUploadHelper.GetRandomSSOTFile(); 
 
             switch(value)
             {
@@ -66,6 +68,10 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
                 case string s when s.Equals("App Template Upload", StringComparison.OrdinalIgnoreCase):
                     await _page.SetInputFilesAsync("input[id='appFileInput']", appTemplateFile);
                     break;
+                case string s when s.Equals("SSOT Upload", StringComparison.OrdinalIgnoreCase):
+                    await _page.SetInputFilesAsync("input[id='ssotFileInput']", ssotFile);
+                    break;
+
                 default:
                     await _page.SetInputFilesAsync("input[id='cmdbFileInput']", cmdbFile);
                     await _page.SetInputFilesAsync("input[id='udFileInput']", udZipFile);
@@ -78,7 +84,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
 
         public async Task ClickVerifyButtonAsync()
         {
-            await _page.GetByRole(AriaRole.Button, new() { Name = "Verify" }).ClickAsync();
+            var button =_page.GetByRole(AriaRole.Button, new() { Name = "Verify" });
+            await button.ScrollIntoViewIfNeededAsync();
+            await button.ClickAsync();
         }
 
         public async Task InfrastructureUploadOperationAsync()
@@ -87,6 +95,59 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             await selectRadioButtonAsync("No");
             await ClickNextAsync();
             await SetInfrastructureDataAsync();
+        }
+
+        public async Task SSOTUploadOperationAsync()
+        {
+            await NavigateToInfrastructureUploadPageAsync();
+            await selectRadioButtonAsync("Yes");
+            await ClickNextAsync();
+            await SetInfrastructureDataAsync("SSOT Upload");
+        }
+
+        public async Task ExpandDataPreviewAsync()
+        {
+            var headerElement= _page.Locator(".mud-expand-panel-header");
+            var count= await headerElement.CountAsync();
+            for(int i=0;i<count;i++)
+            {
+                var element= headerElement.Nth(i);
+                await element.Locator("svg.mud-expand-panel-icon").ClickAsync();
+                await Assertions.Expect(_page.Locator(".mud-table-container")).ToBeVisibleAsync();
+            }
+        }
+
+        public async Task ClosePreviewAsync()
+        {
+            var element= _page.GetByRole(AriaRole.Dialog);
+            await element.GetByLabel("Close dialog").ClickAsync();
+        }
+
+        public async Task ClickUploadButtonAsync()
+        {
+            await _page.GetByRole(AriaRole.Button, new() { Name = "Upload Files" }).ClickAsync();
+
+        }
+
+        public async Task GenerateSSOTOperationAsync()
+        {
+            await _page.GetByRole(AriaRole.Button, new() { Name = "Generate SSOT" }).ClickAsync();
+
+        }
+
+        public async Task PreviewSSOTAsync()
+        {
+            await _page.GetByRole(AriaRole.Button, new() { Name = "Preview SSOT" }).ClickAsync();
+        }
+
+        public async Task GenerateArchitectureAsync()
+        {
+            await _page.GetByRole(AriaRole.Button, new() { Name = "Generate Architecture" }).ClickAsync();
+        }
+
+        public async Task ViewArchitectureAsync()
+        {
+            await _page.GetByRole(AriaRole.Button, new() { Name = "View Architecture" }).ClickAsync();
         }
 
        
