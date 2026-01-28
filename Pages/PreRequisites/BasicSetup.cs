@@ -4,6 +4,7 @@ using System.Text.Json;
 using WiseMigrateTests.Utils;
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Pages.ProjectCreation;
+using WiseMigrateTests.Pages.InfrastructureUpload;
 
 
 namespace WiseMigrateTests.Pages.PreRequisites
@@ -12,6 +13,8 @@ namespace WiseMigrateTests.Pages.PreRequisites
     {
         private readonly IPage _page;
          private readonly ProjectCreationPage _projectCreation;
+
+        private readonly InfrastructureUploadPage _infrastructureUploadPage;
         public string AppUrl => WiseMigrateTests.Utils.ConfigReader.Get("AppUrl");
         public string LoginPageUrl => WiseMigrateTests.Utils.ConfigReader.Get("LoginPageUrl");
         public string Username => WiseMigrateTests.Utils.ConfigReader.Get("Username");
@@ -25,6 +28,7 @@ namespace WiseMigrateTests.Pages.PreRequisites
         {
             _page = page;
             _projectCreation = new ProjectCreationPage(page);
+            _infrastructureUploadPage = new InfrastructureUploadPage(page, this);
         }
 
         public async Task NavigateToAppAsync() => await _page.GotoAsync(AppUrl);
@@ -130,6 +134,22 @@ namespace WiseMigrateTests.Pages.PreRequisites
             var customerName = Utils.ConfigReader.GetProjectDetails("CustomerName");
             var description = Utils.ConfigReader.GetProjectDetails("ProjectDescription");
             await CreateProjectAsync( projectName, customerName, description);
+        }
+
+        public async Task InfrastructureUploadPageSetupAsync()
+        {
+            await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
+            await WaitForPageAsync(5);
+            await _infrastructureUploadPage.ClickVerifyButtonAsync();
+            await _infrastructureUploadPage.ClosePreviewAsync();
+            await WaitForPageAsync(1);
+            await _infrastructureUploadPage.ClickUploadButtonAsync();
+            await _infrastructureUploadPage.GenerateSSOTOperationAsync();
+            await WaitForPageAsync(3);
+            await _infrastructureUploadPage.GenerateArchitectureAsync();
+            await WaitForPageAsync(5);
+            await _infrastructureUploadPage.ViewArchitectureAsync();
+
         }
     }
 }

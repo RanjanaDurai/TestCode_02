@@ -18,12 +18,11 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             _page.GetByRole(AriaRole.Button, new() { Name = "Next" });
 
         public ILocator CancelButton =>
-            _page.GetByRole(AriaRole.Button, new() { Name = "Cancel" });
-
-        public InfrastructureUploadPage(IPage page)
+            _page.GetByText("Cancel");
+        public InfrastructureUploadPage(IPage page, BasicSetup basicSetup)
         {
             _page = page;
-            _basicSetup = new BasicSetup(page);
+            _basicSetup = basicSetup;
             _projectCreation= new ProjectCreationPage(page);
         }
 
@@ -48,6 +47,11 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         public async Task ClickCancelAsync()
         {
             await CancelButton.ClickAsync();
+        }
+
+        public async Task ClickBackAsync()
+        {
+            await _page.GetByRole(AriaRole.Button, new() { Name = "Back" }).ClickAsync();
         }
 
         public async Task SetInfrastructureDataAsync(String value ="Default Upload Mode")
@@ -91,7 +95,6 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
 
         public async Task InfrastructureUploadOperationAsync()
         {
-            await NavigateToInfrastructureUploadPageAsync();
             await selectRadioButtonAsync("No");
             await ClickNextAsync();
             await SetInfrastructureDataAsync();
@@ -99,7 +102,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
 
         public async Task SSOTUploadOperationAsync()
         {
-            await NavigateToInfrastructureUploadPageAsync();
+            //await NavigateToInfrastructureUploadPageAsync();
             await selectRadioButtonAsync("Yes");
             await ClickNextAsync();
             await SetInfrastructureDataAsync("SSOT Upload");
@@ -113,7 +116,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 var element= headerElement.Nth(i);
                 await element.Locator("svg.mud-expand-panel-icon").ClickAsync();
-                await Assertions.Expect(_page.Locator(".mud-table-container")).ToBeVisibleAsync();
+                await Assertions.Expect(element.Locator(".mud-table-container")).ToBeVisibleAsync();
             }
         }
 
@@ -150,6 +153,23 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             await _page.GetByRole(AriaRole.Button, new() { Name = "View Architecture" }).ClickAsync();
         }
 
+        public async Task ClickConfirmAsync()
+        {
+            await _page.GetByRole(AriaRole.Button, new() { Name = "Yes"}).ClickAsync();
+        }
+
+        public async Task HandleSSOTReconciliationSelectionAsync()
+        {
+            var dialog = _page.GetByRole(AriaRole.Dialog);
+            var tab= dialog.Locator(".mud-tab");
+            var count = await tab.CountAsync();
+            var randVal=new Random ().Next(0, 2);
+            for(int i=0;i< count;i++)
+            {
+                await dialog.GetByText("Select All").Nth(randVal).ClickAsync();
+            }
+            await dialog.GetByRole(AriaRole.Button, new() { Name = "Save Changes"}).ClickAsync();
+        }
        
     }
 }

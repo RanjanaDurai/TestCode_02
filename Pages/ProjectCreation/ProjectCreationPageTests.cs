@@ -29,14 +29,13 @@ namespace WiseMigrateTests.Pages.ProjectCreation
             _loginPage = new LoginPage(Page);
             _projectList = new ProjectListPage(Page);
             _projectCreation = new ProjectCreationPage(Page);
-            _infrastructureUploadPage = new InfrastructureUploadPage(Page);
+            _infrastructureUploadPage = new InfrastructureUploadPage(Page, _basicSetup);
             _basicSetup = new BasicSetup(Page);
 
             await _loginPage.ValidateSuperAdminAccount(Page);
             Logger.Info("Logged in as Super Admin");
         }
 
-        public new Task DisposeAsync() => Task.CompletedTask;
 
         [Fact]
         [AllureOwner("TC_PROJECT_004")]
