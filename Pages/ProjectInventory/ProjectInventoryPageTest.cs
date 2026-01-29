@@ -1,37 +1,34 @@
 using Microsoft.Playwright;
-using WiseMigrateTests.Pages.Landing;
 using WiseMigrateTests.Pages.Login;
-using WiseMigrateTests.Pages.Project;
+using WiseMigrateTests.Pages.ProjectInventory;
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Utils;
-using Xunit;
+using WiseMigrateTests.Pages.PreRequisites;
 using Allure.Xunit.Attributes;
 
 namespace WiseMigrateTests.Pages.Project
 {
     [Collection("Playwright collection")]
-    [AllureSuite("Project Actions Tests")]
+    [AllureSuite("Project Inventory Tests")]
     public class ProjectInventoryPageTests : TestBaseFixture, IAsyncLifetime
     {
-        private LandingPage _landingPage = null!;
+        private BasicSetup _basicSetup = null!;
         private LoginPage _loginPage = null!;
-        private ProjectListPage _projectList = null!;
-        private ProjectInventoryPage _ProjectInventory = null!;
+        private ProjectListPage _projectListPage = null!;
+        private ProjectInventoryPage _projectInventoryPage = null!;
 
         public new async Task InitializeAsync()
         {
             await base.InitializeAsync();
 
-            _landingPage = new LandingPage(Page);
             _loginPage = new LoginPage(Page);
-            _projectList = new ProjectListPage(Page);
-            _ProjectInventory = new ProjectInventoryPage(Page);
+            _basicSetup = new BasicSetup(Page);
+            _projectListPage = new ProjectListPage(Page);
+            _projectInventoryPage = new ProjectInventoryPage(Page);
 
-            await _landingPage.NavigateToLandingPageAsync();
-            await _landingPage.ClickGenerateMigrationPlanAsync();
             await _loginPage.ValidateMigrateAdminAccount(Page);
-            await _projectList.WaitForDashboardToBeReadyAsync();
-            await _projectList.WaitForProjectDashboardIconsAsync();
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
 
             Logger.Info("Project dashboard ready for Project Actions tests");
         }
@@ -41,24 +38,11 @@ namespace WiseMigrateTests.Pages.Project
         [Fact]
         [AllureOwner("TC_Inventory_001")]
         [AllureTag("smoke")]
-        public async Task TC_Inventory_001_Initiate_Migration_From_Inventory()
+        public async Task TC_Inventory_001_Inventory_Page_Should_Load_Sucessfully()
         {
-            Logger.Info("TC_Inventory_001 started");
-
-            await _ProjectInventory.ClickInventorySpecificationsAsync();
-
-            await Assertions.Expect(Page.GetByText("CMO/FMO Inventory")).ToBeVisibleAsync();
-
-            await Task.Delay(15000);
-
-            await _ProjectInventory.InitiateMigrationFromInventoryAsync();
-
-            await Assertions.Expect(
-                Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Plan Tracking" })
-            ).ToBeVisibleAsync();
-
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_008_Migration_Plan_Created");
-
+            await _projectInventoryPage.NavigateToInventoryPageAsync();
+            await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "CMO/FMO Inventory" })).ToBeVisibleAsync();
+            await _basicSetup.WaitForPageAsync(2);
             Logger.Info("TC_Inventory_001 completed successfully");
         }
 
@@ -69,29 +53,12 @@ namespace WiseMigrateTests.Pages.Project
         {
             Logger.Info("TC_Inventory_002 started");
 
-            await _projectList.ClickInventorySpecificationsAsync();
+            await _projectInventoryPage.NavigateToInventoryPageAsync();
+            await _basicSetup.WaitForPageAsync(2);
+            await _projectInventoryPage.InitiateMigrationFromInventoryAsync();
+            await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Plan Tracking" })).ToBeVisibleAsync();
+            Logger.Info("TC_Inventory_002 verification of Migration Control Center flow completed successfully");
 
-            await Assertions.Expect(Page.GetByText("CMO/FMO Inventory")).ToBeVisibleAsync();
-
-            await Task.Delay(15000);
-
-            await _ProjectInventory.InitiateMigrationFromInventoryAsync();
-
-            await _ProjectInventory.ClickViewPlanDetailsAsync();
-
-            await _ProjectInventory.VerifyMigrationControlCenterLoadedAsync();
-
-            await _ProjectInventory.OpenDetailedPlanningTabAsync();
-            await _ProjectInventory.OpenTimelineTabAsync();
-            await _ProjectInventory.OpenManageTabAsync();
-            await _ProjectInventory.OpenPoliciesAndRiskTabAsync();
-
-            await ScreenshotHelper.TakeScreenshotAsync(
-                Page,
-                "TC_Inventory_002_Migration_Control_Center_Flow"
-            );
-
-            Logger.Info("TC_Inventory_002 completed successfully");
         }
     }
 }

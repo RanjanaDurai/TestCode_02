@@ -51,6 +51,7 @@ namespace WiseMigrateTests.Pages.Project
         public async Task TC_PROJECT_002_Navigate_To_Create_Project_Page()
         {
             await _projectList.WaitForDashboardToBeReadyAsync();
+            await _basicSetup.WaitForPageAsync(2);
             await _projectList.ClickCreateNewProjectAsync();
 
             await Page.WaitForURLAsync("**/project-creation");
@@ -66,6 +67,7 @@ namespace WiseMigrateTests.Pages.Project
         public async Task TC_PROJECT_003_Project_Creation_UI_Should_Load()
         {
             await _projectList.WaitForDashboardToBeReadyAsync();
+            await _basicSetup.WaitForPageAsync(2);
             await _projectList.ClickCreateNewProjectAsync();
 
             await Assertions.Expect(Page.GetByLabel("Project Name")).ToBeVisibleAsync();

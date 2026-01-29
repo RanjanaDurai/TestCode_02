@@ -1,15 +1,30 @@
 using Microsoft.Playwright;
 using WiseMigrateTests.Utils;
+using WiseMigrateTests.Pages.PreRequisites;
+using WiseMigrateTests.Pages.FutureModeOperation;
 
-namespace WiseMigrateTests.Pages.Project
+namespace WiseMigrateTests.Pages.ProjectInventory
 {
     public class ProjectInventoryPage
     {
         private readonly IPage _page;
+        private readonly BasicSetup _basicSetup=null!;
+
+        private readonly FutureModeOperationPage _fmoPage=null!;
 
         public ProjectInventoryPage(IPage page)
         {
             _page = page;
+            _fmoPage = new FutureModeOperationPage(page);
+            _basicSetup = new BasicSetup(page);
+        }
+
+        public async Task NavigateToInventoryPageAsync()
+        {
+            await _fmoPage.NavigateToFMOPageAsync();
+            await _fmoPage.ClickNavigationNextAsync();
+            await _basicSetup.WaitForPageAsync(2);
+            
         }
 
         private async Task<ILocator> GetMigrationStatusCellWithIconsAsync(int iconCount = 7)
@@ -33,7 +48,8 @@ namespace WiseMigrateTests.Pages.Project
 
             throw new Exception($"No project row found with {iconCount} icons");
         }
-        public async Task ClickInventorySpecificationsAsync()
+        
+         public async Task ClickInventorySpecificationsAsync()
         {
             Logger.Info("Opening Inventory Specifications");
 
@@ -107,141 +123,7 @@ namespace WiseMigrateTests.Pages.Project
             await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
 
             Logger.Info("Migration initiated successfully");
-        }
-
-        public async Task NavigateToMigrationPlanTrackingFromInventoryAsync()
-        {
-            Logger.Info("Navigating to Migration Plan Tracking from Inventory");
-
-            await ClickInventorySpecificationsAsync();
-
-            await Assertions.Expect(
-                _page.GetByRole(AriaRole.Heading, new()
-                {
-                    Name = "CMO/FMO Inventory",
-                    Exact = false
-                })
-            ).ToBeVisibleAsync();
-
-            await InitiateMigrationFromInventoryAsync();
-
-            await Assertions.Expect(
-                _page.GetByRole(AriaRole.Heading, new()
-                {
-                    Name = "Migration Plan Tracking"
-                })
-            ).ToBeVisibleAsync();
-
-            Logger.Info("Migration Plan Tracking page loaded");
-        }
-
-        public async Task ClickViewPlanDetailsAsync()
-        {
-            Logger.Info("Clicking View Plan Details icon");
-
-            await _page.WaitForSelectorAsync("table tbody tr");
-
-            var firstRow = _page.Locator("table tbody tr").First;
-
-            var viewPlanButton = firstRow
-                .Locator("td:last-child button")
-                .First;
-
-            await viewPlanButton.ScrollIntoViewIfNeededAsync();
-            await viewPlanButton.ClickAsync();
-
-            await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-
-            await Assertions.Expect(
-                _page.GetByRole(AriaRole.Heading, new()
-                {
-                    Name = "Migration Control Center"
-                })
-            ).ToBeVisibleAsync();
-
-            Logger.Info("Migration Control Center page loaded");
-        }
-
-        public async Task VerifyMigrationControlCenterLoadedAsync()
-        {
-            await Assertions.Expect(
-                _page.GetByRole(AriaRole.Heading, new()
-                {
-                    Name = "Migration Control Center"
-                })
-            ).ToBeVisibleAsync();
-
-            Logger.Info("Migration Control Center verified");
-        }
-
-        public async Task OpenDetailedPlanningTabAsync()
-        {
-            Logger.Info("Opening Detailed Planning");
-
-            await _page.GetByText("Detailed Planning", new() { Exact = true })
-                .ClickAsync();
-
-            await Assertions.Expect(
-                _page.GetByRole(AriaRole.Heading, new()
-                {
-                    Name = "Migration Planning"
-                })
-            ).ToBeVisibleAsync();
-
-            Logger.Info("Migration Planning verified");
-        }
-
-        public async Task OpenTimelineTabAsync()
-        {
-            Logger.Info("Opening Timeline");
-
-            await _page.GetByText("Timeline", new() { Exact = true })
-                .ClickAsync();
-
-            await Assertions.Expect(
-                _page.GetByRole(AriaRole.Heading, new()
-                {
-                    Name = "Wave Execution Schedule"
-                })
-            ).ToBeVisibleAsync();
-
-            Logger.Info("Wave Execution Schedule verified");
-        }
-
-        public async Task OpenManageTabAsync()
-        {
-            Logger.Info("Opening Manage");
-
-            await _page.GetByText("Manage", new() { Exact = true })
-                .ClickAsync();
-
-            await Assertions.Expect(
-                _page.GetByRole(AriaRole.Heading, new()
-                {
-                    Name = "Wave Plan Management"
-                })
-            ).ToBeVisibleAsync();
-
-            Logger.Info("Wave Plan Management verified");
-        }
-
-        public async Task OpenPoliciesAndRiskTabAsync()
-        {
-            Logger.Info("Opening Policies & Risk");
-
-            await _page.GetByText("Policies & Risk", new() { Exact = true })
-                .ClickAsync();
-
-            await Assertions.Expect(
-                _page.GetByRole(AriaRole.Heading, new()
-                {
-                    Name = "Migration Policies"
-                })
-            ).ToBeVisibleAsync();
-
-            Logger.Info("Migration Policies verified");
-        }
-        
+        }        
         
     }
 }

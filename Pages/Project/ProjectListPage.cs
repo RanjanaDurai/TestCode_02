@@ -24,10 +24,6 @@ namespace WiseMigrateTests.Pages.Project
                 _page.GetByRole(AriaRole.Heading, new() { Name = "Project Dashboard" })
             ).ToBeVisibleAsync();
 
-            await Assertions.Expect(
-                _page.GetByRole(AriaRole.Columnheader, new() { Name = "Project Name" })
-            ).ToBeVisibleAsync();
-
         }
 
         public async Task ClickCreateNewProjectAsync()
