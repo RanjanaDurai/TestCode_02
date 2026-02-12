@@ -20,6 +20,8 @@ namespace WiseMigrateTests.Pages.PreRequisites
         public string Username => WiseMigrateTests.Utils.ConfigReader.Get("Username");
         public string Password => WiseMigrateTests.Utils.ConfigReader.Get("Password");
 
+        public string projectName = string.Empty;
+
         public readonly IPlaywright playwright;
 
         public WiseMigrateTests.Utils.ConfigReader.Credential defaultCredential=WiseMigrateTests.Utils.ConfigReader.GetCredential("standard_user");
@@ -130,7 +132,7 @@ namespace WiseMigrateTests.Pages.PreRequisites
 
         public async Task CreateProjectAsync( )
         {
-            var projectName = $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
+            projectName= $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
             var customerName = Utils.ConfigReader.GetProjectDetails("CustomerName");
             var description = Utils.ConfigReader.GetProjectDetails("ProjectDescription");
             await CreateProjectAsync( projectName, customerName, description);
@@ -150,6 +152,23 @@ namespace WiseMigrateTests.Pages.PreRequisites
             await WaitForPageAsync(5);
             await _infrastructureUploadPage.ViewArchitectureAsync();
 
+        }
+
+        public async Task DeleteProjectAsync(string projectName)
+        {
+            if(!string.IsNullOrEmpty(projectName))             
+            {
+                var row = _page.Locator("tr").Filter(new() { Has = _page.GetByText(projectName) });
+                var column =row.Locator("td[data-label='Actions']");
+                await column.ClickAsync();
+                var deleteButton = _page.Locator(".mud-list-item").GetByText("Delete Project").First;
+                await deleteButton.ClickAsync();
+                
+            }
+            else
+            {
+                Logger.Info("Project name is null or empty. Skipping project deletion.");
+            }
         }
     }
 }
