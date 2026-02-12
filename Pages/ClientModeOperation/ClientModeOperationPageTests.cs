@@ -39,6 +39,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         [AllureOwner("TC_CMO_001")]
         [AllureTag("smoke")]
         public async Task TC_CMO_001_CMO_Page_UI_Should_Load()
+        
         {
             await _cmoPage.NavigateToCMOPageAsync();
             await Assertions.Expect(Page.GetByText("Current Mode of Operation - Architectural View")).ToBeVisibleAsync();
