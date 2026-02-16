@@ -3,6 +3,7 @@ using Microsoft.Playwright;
 using System;
 using System.IO;
 using WiseMigrateTests.Utils;
+using Allure.Net.Commons;
 
 namespace WiseMigrateTests.Utils
 {
@@ -72,7 +73,35 @@ namespace WiseMigrateTests.Utils
             });
 
             Console.WriteLine($"[SCREENSHOT] SAVED: {fullPath}");
-            Logger.Info($"Screenshot saved: {fullPath}");
+            var fullAbsolutePath = Path.GetFullPath(fullPath);
+            Logger.Info($"Screenshot saved: {fullAbsolutePath}");
+            
+            if (File.Exists(fullAbsolutePath))
+            {
+                try 
+                {
+                    
+                    Console.WriteLine($"[SCREENSHOT] Attaching full path: {fullAbsolutePath}");
+
+                    AllureApi.AddAttachment(
+                        $"{testName}.png",
+                        "image/png",
+                        fullAbsolutePath
+                    
+                    );
+
+                    Logger.Info($"[SCREENSHOT] ATTACHED to Allure: {fullAbsolutePath}");
+                }
+                catch (Exception attachEx)
+                {
+                    Logger.Error($"Failed to attach screenshot to Allure: {attachEx.Message}");
+                    Console.WriteLine($"Failed to attach screenshot: {attachEx.Message}");
+                }
+            }
+            else
+            {
+                Logger.Warn($"Screenshot file not found for attachment: {fullPath}");
+            }
             return fullPath;
         }
     }

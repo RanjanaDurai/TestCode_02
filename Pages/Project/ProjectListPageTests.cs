@@ -3,7 +3,6 @@ using WiseMigrateTests.Pages.PreRequisites;
 using WiseMigrateTests.Pages.Login;     
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Utils;
-using Xunit;
 using Allure.Xunit.Attributes;
 
 namespace WiseMigrateTests.Pages.Project
@@ -16,10 +15,13 @@ namespace WiseMigrateTests.Pages.Project
         private ProjectListPage _projectList = null!;
         private BasicSetup _basicSetup = null!;
 
+        private AttachmentHelper _attachmentHelper=null!;
+
         public new async Task InitializeAsync()
         {
             await base.InitializeAsync();
 
+            _attachmentHelper = new AttachmentHelper(Context);
             _loginPage = new LoginPage(Page);
             _projectList = new ProjectListPage(Page);
             _basicSetup = new BasicSetup(Page);
@@ -120,7 +122,7 @@ namespace WiseMigrateTests.Pages.Project
 
             await _projectList.ClickInventorySpecificationsAsync();
 
-            await Assertions.Expect(Page.GetByText("CMO/FMO Inventory")).ToBeVisibleAsync();
+            await Assertions.Expect(Page. GetByRole(AriaRole.Heading, new() { Name = "CMO/FMO Inventory" })).ToBeVisibleAsync();
 
             await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_006_Inventory");
             Logger.Info("TC_PROJECT_006 completed successfully");
@@ -147,6 +149,8 @@ namespace WiseMigrateTests.Pages.Project
         public async Task TC_PROJECT_008_Open_Wave_And_Move()
         {
             Logger.Info("TC_PROJECT_008 started");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
 
             await _projectList.ClickWaveAndMoveGroupingPlanAsync();
 
@@ -154,6 +158,7 @@ namespace WiseMigrateTests.Pages.Project
 
             await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_008_Wave_Move");
             Logger.Info("TC_PROJECT_008 completed successfully");
+            },nameof(TC_PROJECT_008_Open_Wave_And_Move));
         }
 
         [Fact]

@@ -17,6 +17,8 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         private ProjectListPage _projectListPage = null!;
 
         private BasicSetup _basicSetup = null!;
+
+        private  AttachmentHelper _attachmentHelper=null!;
         
 
         private MigrationPlanTrackingPage _migrationPlanTrackingPage = null!;
@@ -25,6 +27,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         {
             await base.InitializeAsync();
 
+            _attachmentHelper = new AttachmentHelper(Context);
             _loginPage = new LoginPage(Page);
             _basicSetup = new BasicSetup(Page);
             _projectListPage = new ProjectListPage(Page);
@@ -40,10 +43,13 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         [AllureTag("smoke")]
         public async Task TC_MigrationPlanTracking_001_MigrationPlanTracking_Page_UI_Should_Load()
         {
-            await _migrationPlanTrackingPage.NavigateToMigrationPlanTrackingAsync();
-            await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new(){Name = "Migration Plan Tracking"})).ToBeVisibleAsync();
-            Logger.Info("Migration Plan Tracking page loaded");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_MigrationPlanTracking_001_MigrationPlanTracking_Page_UI");
+            await _attachmentHelper.RunWithTracingAsync( async()=>
+            {
+                await _migrationPlanTrackingPage.NavigateToMigrationPlanTrackingAsync();
+                await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new(){Name = "Migration Plan Tracking"})).ToBeVisibleAsync();
+                Logger.Info("Migration Plan Tracking page loaded");
+                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_MigrationPlanTracking_001_MigrationPlanTracking_Page_UI");
+            }, nameof(TC_MigrationPlanTracking_001_MigrationPlanTracking_Page_UI_Should_Load));
         }
         
         [Fact]
