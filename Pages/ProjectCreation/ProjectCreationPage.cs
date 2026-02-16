@@ -1,6 +1,8 @@
 using Microsoft.Playwright;
 using WiseMigrateTests.Pages.Project;
 using WiseMigrateTests.Utils;
+using System.Text.RegularExpressions;
+
 
 namespace WiseMigrateTests.Pages.ProjectCreation
 {
@@ -16,9 +18,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
             _projectList= new ProjectListPage(page);
         }
 
-        // =========================
         // NAVIGATION (RESTORED)
-        // =========================
         public async Task NavigateToProjectCreationPageAsync()
         {
             await _projectList.WaitForDashboardToBeReadyAsync();
@@ -35,9 +35,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
             Logger.Info("Navigated to Project Creation page");
         }
 
-        // =========================
         // LOCATORS
-        // =========================
         private ILocator ProjectNameInput =>
             _page.GetByRole(AriaRole.Textbox, new() { Name = "Project Name*" });
 
@@ -53,32 +51,40 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         private ILocator CancelButton =>
             _page.GetByRole(AriaRole.Button, new() { Name = "CANCEL" });
 
-        // =========================
         // ACTIONS
-        // =========================
         public async Task EnterProjectNameAsync(string projectName)
         {
             await ProjectNameInput.FillAsync(projectName);
         }
-
         public async Task EnterCustomerNameAsync(string customerName)
         {
             await CustomerNameInput.FillAsync(customerName);
         }
-
         public async Task EnterDescriptionAsync(string description)
         {
             await DescriptionInput.FillAsync(description);
         }
-
         public async Task ClickCreateProjectAsync()
         {
             await CreateProjectButton.ClickAsync();
         }
-
         public async Task ClickCancelAsync()
         {
             await CancelButton.ClickAsync();
+        }
+        private static readonly Random _random = new();
+        public async Task RandomTargetCloudeProvider()
+        {
+            await _page.GetByText("Amazon Web Services").ClickAsync();
+            var options = _page.Locator(".mud-list-item:not(.mud-disabled)");
+            await options.First.WaitForAsync();
+            int count = await options.CountAsync();
+            await options.Nth(_random.Next(count)).ClickAsync();
+        }
+        public async Task ClickBackToDashBoardButton()
+        {
+            await _page.GetByText("Back to Dashboard").ClickAsync();
+            await _page.GetByRole(AriaRole.Button).Filter(new() { HasTextRegex = new Regex("^$") }).Nth(3).ClickAsync();
         }
     }
 }

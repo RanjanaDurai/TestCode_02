@@ -20,7 +20,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         private BasicSetup _basicSetup = null!;
         private ClientModeOperationPage _cmoPage = null!;
 
-        public async Task InitializeAsync()
+        public async new Task InitializeAsync()
         {
             await base.InitializeAsync();
 

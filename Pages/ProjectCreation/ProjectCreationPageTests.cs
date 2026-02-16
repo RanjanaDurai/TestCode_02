@@ -54,7 +54,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
 
         [Fact]
         [AllureOwner("TC_PROJECT_005")]
-        [AllureTag("regression")]
+        [AllureTag("smoke")]
         public async Task TC_PROJECT_005_Project_Should_Appear_On_Dashboard()
         {
             await _projectList.WaitForDashboardToBeReadyAsync();
@@ -68,5 +68,32 @@ namespace WiseMigrateTests.Pages.ProjectCreation
 
             await _projectList.AssertProjectVisibleAsync(projectName);
         }
+
+        // REGRESSION TEST CASES
+
+        [Fact]
+        [AllureOwner("TC_Project_01")]
+        [AllureTag("Regression")]
+        public async Task TC_project_01_SelectRandomTargetCloudeProvider()
+        {
+            await _projectList.ClickCreateNewProjectAsync();
+            await _projectCreation.RandomTargetCloudeProvider();
+
+            Logger.Info("Seleced random cloude provider Successfully");
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_project_01_SelectRandomTargetCloudeProvider");
+        }
+
+        [Fact]
+        [AllureOwner("TC_Project_02")]
+        [AllureTag("Regression")]
+        public async Task TC_project_02_ClickBackTodashboard()
+        {
+            await _projectList.ClickCreateNewProjectAsync();
+            await _projectCreation.ClickBackToDashBoardButton();
+
+            Logger.Info("Clicked Back To Dashboard Button");
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_project_02_ClickBackTodashboard");
+        }
+
     }
 }
