@@ -17,14 +17,11 @@ namespace WiseMigrateTests.Pages.Login
         
         private BasicSetup _setup=null!;
 
-        public LoginPageTests()
-        {
-            
-        }
-
+        private AttachmentHelper _attachmentHelper=null!;
         public new async Task InitializeAsync()
         {
             await base.InitializeAsync();
+            _attachmentHelper= new AttachmentHelper(Context);
             _setup = new BasicSetup(Page);
             _loginPage = new LoginPage(Page);
             await _loginPage.NavigateToLoginPageAsync();
@@ -38,8 +35,11 @@ namespace WiseMigrateTests.Pages.Login
         [Fact]
         public async Task LoginPage_Should_Load_Successfully()
         {
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_LOGIN_01_LoginPage_Should_Load_Successfully");
-            Logger.Info("TC_LOGIN_01: Login page loaded successfully.");
+            await _attachmentHelper.RunWithTracingAsync( async()=>
+            {
+                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_LOGIN_01_LoginPage_Should_Load_Successfully");
+                Logger.Info("TC_LOGIN_01: Login page loaded successfully.");
+            }, nameof(LoginPage_Should_Load_Successfully));
         }
 
 

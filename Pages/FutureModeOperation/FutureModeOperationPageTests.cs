@@ -15,18 +15,15 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
     public class FutureModeOperationPageTests : TestBaseFixture, IAsyncLifetime
     {
         private LoginPage _loginPage = null!;
-
         private ProjectListPage _projectList = null!;
-
         private BasicSetup _basicSetup = null!;
-        private ClientModeOperationPage _cmoPage = null!;
-
         private FutureModeOperationPage _fmoPage = null!;
+        private AttachmentHelper _attachmentHelper=null!;
 
         public async Task InitializeAsync()
         {
             await base.InitializeAsync();
-
+            _attachmentHelper=new AttachmentHelper(Context);
             _loginPage = new LoginPage(Page);
             _basicSetup = new BasicSetup(Page);
             _projectList = new ProjectListPage(Page);
@@ -46,10 +43,13 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [AllureTag("smoke")]
         public async Task TC_FMO_001_FMO_Page_UI_Should_Load()
         {
-            await _fmoPage.NavigateToFMOPageAsync();
-            await Assertions.Expect(Page.GetByText("Future Mode of Operation - Architectural View")).ToBeVisibleAsync();
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_FMO_001_FMO_Page_UI");
-            Logger.Info("FMO Page UI loaded successfully");
+            await _attachmentHelper.RunWithTracingAsync(async()=>
+            { 
+               await _fmoPage.NavigateToFMOPageAsync();
+               await Assertions.Expect(Page.GetByText("Future Mode of Operation - Architectural View")).ToBeVisibleAsync();
+               await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_FMO_001_FMO_Page_UI");
+               Logger.Info("FMO Page UI loaded successfully");
+            },nameof(TC_FMO_001_FMO_Page_UI_Should_Load));
         }
 
         [Fact]

@@ -15,15 +15,14 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
     {
         private LoginPage _loginPage = null!;
         private InfrastructureUploadPage _infrastructureUploadPage = null!;
-
         private BasicSetup _basicSetup = null!;
-
         private ProjectListPage _projectListPage = null!;
+        private AttachmentHelper _attachmentHelper=null!;
 
         public async Task InitializeAsync()
         {
             await base.InitializeAsync();
-
+            _attachmentHelper= new AttachmentHelper(Context);
             _loginPage = new LoginPage(Page);
             _basicSetup = new BasicSetup(Page);
             _projectListPage= new ProjectListPage(Page);
@@ -40,9 +39,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_006_Upload_Infrastructure_Page_Should_Load()
         {
-            //await _infrastructureUploadPage.NavigateToInfrastructureUploadPageAsync();
             await Assertions.Expect(Page.GetByText("Upload Infrastructure Data")).ToBeVisibleAsync();
-
             Logger.Info("Upload Infrastructure page loaded");
             await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_006_Upload_Infrastructure");
         }
@@ -204,22 +201,25 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_016_Validate_Generate_Architecture_Operation()
         {
-            await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await _infrastructureUploadPage.ClickVerifyButtonAsync();
-            await _infrastructureUploadPage.ClosePreviewAsync();
-            await _basicSetup.WaitForPageAsync(1);
-            await _infrastructureUploadPage.ClickUploadButtonAsync();
-            await _basicSetup.WaitForPageAsync(2);
-            await _infrastructureUploadPage.GenerateSSOTOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await _infrastructureUploadPage.PreviewSSOTAsync();
-            await _infrastructureUploadPage.ClosePreviewAsync();
-            await _infrastructureUploadPage.GenerateArchitectureAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await Assertions.Expect(Page.GetByRole(AriaRole.Alert)).ToHaveTextAsync("Architecture generated successfully!.");  
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_016_Validate_Generate_Architecture_Operation");
-            Logger.Info("Architecture generation operation verified successfully.");
+            await _attachmentHelper.RunWithTracingAsync(async()=>
+            {
+                await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await _infrastructureUploadPage.ClickVerifyButtonAsync();
+                await _infrastructureUploadPage.ClosePreviewAsync();
+                await _basicSetup.WaitForPageAsync(1);
+                await _infrastructureUploadPage.ClickUploadButtonAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                await _infrastructureUploadPage.GenerateSSOTOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await _infrastructureUploadPage.PreviewSSOTAsync();
+                await _infrastructureUploadPage.ClosePreviewAsync();
+                await _infrastructureUploadPage.GenerateArchitectureAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await Assertions.Expect(Page.GetByRole(AriaRole.Alert)).ToHaveTextAsync("Architecture generated successfully!.");  
+                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_016_Validate_Generate_Architecture_Operation");
+                Logger.Info("Architecture generation operation verified successfully.");
+            },nameof(TC_PROJECT_016_Validate_Generate_Architecture_Operation));
         }
 
         [Fact]
