@@ -24,7 +24,8 @@ namespace WiseMigrateTests.TestHooks
         public async Task DisposeAsync()
         {   
                 await Page.GotoAsync(_basicSetup.AppUrl + "/projects");
-                await _basicSetup.DeleteProjectAsync(_basicSetup.projectName);
+                var projectName=BasicSetup.projectName;
+                await _basicSetup.DeleteProjectAsync(projectName);
                 await Context.CloseAsync();
         }
     }

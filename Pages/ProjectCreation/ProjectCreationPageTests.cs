@@ -44,7 +44,6 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         {
             await _projectList.WaitForDashboardToBeReadyAsync();
             await _projectList.ClickCreateNewProjectAsync();
-
             await _basicSetup.CreateProjectAsync();
 
             await Assertions.Expect(
