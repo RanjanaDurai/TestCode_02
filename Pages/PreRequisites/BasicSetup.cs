@@ -20,7 +20,7 @@ namespace WiseMigrateTests.Pages.PreRequisites
         public string Username => WiseMigrateTests.Utils.ConfigReader.Get("Username");
         public string Password => WiseMigrateTests.Utils.ConfigReader.Get("Password");
 
-        public string projectName = string.Empty;
+        public static string projectName=string.Empty;
 
         public readonly IPlaywright playwright;
 
@@ -121,7 +121,7 @@ namespace WiseMigrateTests.Pages.PreRequisites
             await _projectCreation.EnterProjectNameAsync(projectName);
             await _projectCreation.EnterCustomerNameAsync(customerName);
             await _projectCreation.EnterDescriptionAsync(description);
-
+            await WaitForPageAsync(10);
             await _projectCreation.ClickCreateProjectAsync();
 
             await _page.WaitForURLAsync("**/data-gathering**", new()
@@ -154,16 +154,17 @@ namespace WiseMigrateTests.Pages.PreRequisites
 
         }
 
-        public async Task DeleteProjectAsync(string projectName)
+        public async Task DeleteProjectAsync(string projectNameGlobal)
         {
-            if(!string.IsNullOrEmpty(projectName))             
+            if(!string.IsNullOrEmpty(projectNameGlobal))             
             {
-                var row = _page.Locator("tr").Filter(new() { Has = _page.GetByText(projectName) });
+                var row = _page.Locator("tr").Filter(new() { Has = _page.GetByText(projectNameGlobal) });
                 var column =row.Locator("td[data-label='Actions']");
                 await column.ClickAsync();
                 var deleteButton = _page.Locator(".mud-list-item").GetByText("Delete Project").First;
                 await deleteButton.ClickAsync();
-                
+                var element= _page.GetByRole(AriaRole.Dialog);
+                await element.GetByRole(AriaRole.Button, new() { Name = "Delete" }).ClickAsync();        
             }
             else
             {
