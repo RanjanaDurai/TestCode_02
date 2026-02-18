@@ -21,6 +21,8 @@ namespace WiseMigrateTests.Pages.PreRequisites
         public string Username => WiseMigrateTests.Utils.ConfigReader.Get("Username");
         public string Password => WiseMigrateTests.Utils.ConfigReader.Get("Password");
 
+        public static string projectName=string.Empty;
+
         public readonly IPlaywright playwright;
 
         public WiseMigrateTests.Utils.ConfigReader.Credential defaultCredential=WiseMigrateTests.Utils.ConfigReader.GetCredential("standard_user");
@@ -120,7 +122,7 @@ namespace WiseMigrateTests.Pages.PreRequisites
             await _projectCreation.EnterProjectNameAsync(projectName);
             await _projectCreation.EnterCustomerNameAsync(customerName);
             await _projectCreation.EnterDescriptionAsync(description);
-
+            await WaitForPageAsync(10);
             await _projectCreation.ClickCreateProjectAsync();
 
             await _page.WaitForURLAsync("**/data-gathering**", new()
@@ -131,7 +133,7 @@ namespace WiseMigrateTests.Pages.PreRequisites
 
         public async Task CreateProjectAsync( )
         {
-            var projectName = $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
+            projectName= $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
             var customerName = Utils.ConfigReader.GetProjectDetails("CustomerName");
             var description = Utils.ConfigReader.GetProjectDetails("ProjectDescription");
             await CreateProjectAsync( projectName, customerName, description);
@@ -151,59 +153,6 @@ namespace WiseMigrateTests.Pages.PreRequisites
             await WaitForPageAsync(5);
             await _infrastructureUploadPage.ViewArchitectureAsync();
 
-        }
-
-        private static readonly Random _random = new();
-        public async Task RandomSelector()
-        {
-            var options = _page.Locator(".mud-list-item:not(.mud-disabled)");
-            await options.First.WaitForAsync();
-            int count = await options.CountAsync();
-            await options.Nth(_random.Next(count)).ClickAsync();
-        }
-
-        private ILocator PreviousMonthButton =>_page.GetByRole(AriaRole.Button, new(){NameRegex = new Regex("^Previous month")});
-        private ILocator NextMonthButton =>_page.GetByRole(AriaRole.Button, new(){NameRegex = new Regex("^Next month")});
-        public async Task SelectLast7DaysRangeAsync()
-        {
-            var today = DateTime.Today;
-            var startDate = today.AddDays(-7);
-
-            Logger.Info($"Selecting range: {startDate:dd MMM yyyy} - {today:dd MMM yyyy}");
-
-            // Select start date
-            await SelectDateAsync(startDate);
-
-            // Select end date (today)
-            await SelectDateAsync(today);
-        }
-
-        private async Task SelectDateAsync(DateTime date)
-        {
-            string day = date.Day.ToString();
-
-            // If month not visible, navigate
-            while (!await IsMonthVisibleAsync(date))
-            {
-                if (date < DateTime.Today)
-                {
-                    await PreviousMonthButton.ClickAsync();
-                }
-                else
-                {
-                    await NextMonthButton.ClickAsync();
-                }
-
-                await _page.WaitForTimeoutAsync(300);
-            }
-            await _page.GetByRole(AriaRole.Button, new() { Name = day }).First.ClickAsync();
-        }
-
-        private async Task<bool> IsMonthVisibleAsync(DateTime date)
-        {
-            string monthYear = date.ToString("MMMM yyyy");
-
-            return await _page.GetByText(monthYear).IsVisibleAsync();
         }
     }
 }

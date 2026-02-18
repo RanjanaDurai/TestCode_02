@@ -1,0 +1,10 @@
+{
+  "allure": {
+    "directory": "allure-results",
+    "links": [
+      "{}/issues/{}",
+      "{}/tms/{}"
+    ],
+    "enable": true
+  }
+}

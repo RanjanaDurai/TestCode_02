@@ -16,15 +16,13 @@ namespace WiseMigrateTests.Pages.Landing
         
         private BasicSetup _setup=null!;
 
-        public LandingPageTests()
-        {
-             
-        }
+        private AttachmentHelper _attachmentHelper=null!;
         
 
        public new async Task InitializeAsync()
         {
             await base.InitializeAsync();
+            _attachmentHelper = new AttachmentHelper(Context);
             _setup = new BasicSetup(Page);
             _landingPage = new LandingPage(Page);
             await _landingPage.NavigateToLandingPageAsync();
@@ -36,16 +34,16 @@ namespace WiseMigrateTests.Pages.Landing
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_NAV_01")]
         [AllureTag("smoke")]
-        //[Fact]
+        [Fact]
         public async Task LandingPage_Should_Load_Successfully()
         {
-            await Assertions.Expect(Page).ToHaveURLAsync(WiseMigrateTests.Utils.ConfigReader.Get("AppUrl"));
-            await _setup.WaitForPageAsync(2);            
-            Logger.Info("TC_NAV_01 – Landing page loaded and URL verified");
-
-            await ScreenshotHelper.TakeScreenshotAsync(
-                Page, 
-                nameof(LandingPage_Should_Load_Successfully)); 
+            await _attachmentHelper.RunWithTracingAsync( async()=>
+            {
+                await Assertions.Expect(Page).ToHaveURLAsync(WiseMigrateTests.Utils.ConfigReader.Get("AppUrl"));
+                await _setup.WaitForPageAsync(2);            
+                Logger.Info("TC_NAV_01 – Landing page loaded and URL verified");
+                await ScreenshotHelper.TakeScreenshotAsync(Page,"LandingPage_Should_Load_Successfully"); 
+            },nameof(LandingPage_Should_Load_Successfully));
         }
 
         /*
