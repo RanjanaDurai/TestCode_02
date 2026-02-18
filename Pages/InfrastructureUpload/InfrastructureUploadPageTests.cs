@@ -20,6 +20,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
 
         private ProjectListPage _projectListPage = null!;
 
+
         public async Task InitializeAsync()
         {
             await base.InitializeAsync();
@@ -30,8 +31,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             _infrastructureUploadPage = new InfrastructureUploadPage(Page, _basicSetup);
 
             await _loginPage.ValidateSuperAdminAccount(Page);
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
+            
             Logger.Info("Logged in as Super Admin");
         }
         
@@ -40,6 +40,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_006_Upload_Infrastructure_Page_Should_Load()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             //await _infrastructureUploadPage.NavigateToInfrastructureUploadPageAsync();
             await Assertions.Expect(Page.GetByText("Upload Infrastructure Data")).ToBeVisibleAsync();
 
@@ -52,6 +54,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_007_Proceed_Infrastrcuture_Data_Upload()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             //await _infrastructureUploadPage.NavigateToInfrastructureUploadPageAsync();
             await _infrastructureUploadPage.selectRadioButtonAsync("No");
             await _infrastructureUploadPage.ClickNextAsync();
@@ -66,6 +70,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_008_Proceed_SSOT_Data_Upload()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.selectRadioButtonAsync("Yes");
             await _infrastructureUploadPage.ClickNextAsync();
             await Assertions.Expect(Page.GetByText("SSOT Data Upload")).ToBeVisibleAsync();
@@ -78,6 +84,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("regression")]
         public async Task TC_PROJECT_009_Cancel_Upload_Operation()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.ClickCancelAsync();
             await Assertions.Expect(Page.GetByText("Project Dashboard")).ToBeVisibleAsync();
             Logger.Info("Cancelled Infrastructure Upload operation.");
@@ -89,6 +97,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_010_Upload_Infrastructure_Data()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(5);
             await Assertions.Expect(Page.GetByText("Overall Validation Status: Valid")).ToBeVisibleAsync();
@@ -104,6 +114,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_011_Verify_Infrastructure_Data()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(3);
             await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -139,6 +151,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_013_Validate_Upload_Infrastructure_Files()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(5);
             await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -158,6 +172,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_014_Validate_SSOT_Generation_Infrastructure_Files()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(5);
             await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -180,6 +196,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_015_Validate_SSOT_Preview_Infrastructure_Files()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(5);
             await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -204,6 +222,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_016_Validate_Generate_Architecture_Operation()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(5);
             await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -227,6 +247,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_017_Validate_View_Architecture_Operation()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(5);
             await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -248,6 +270,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_018_Upload_SSOT_Data()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.SSOTUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(5);
             await Assertions.Expect(Page.GetByText("Overall Validation Status: Valid")).ToBeVisibleAsync();
@@ -262,6 +286,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_019_Verify_SSOT_Data()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.SSOTUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(3);
             await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -296,6 +322,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_021_Validate_Upload_SSOT_File()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.SSOTUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(5);
             await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -313,6 +341,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_022_Validate_SSOT_Architecture_Generation()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.SSOTUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(5);
             await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -332,6 +362,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_23_Validate_View_SSOT_Architecture_Operation()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.SSOTUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(5);
             await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -352,6 +384,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         [AllureTag("smoke")]
         public async Task TC_PROJECT_024_Validate_SSOT_Reconciliation_Operation()
         {
+            await _projectListPage.ClickCreateNewProjectAsync();
+            await _basicSetup.CreateProjectAsync();
             await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(5);
             await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -390,8 +424,94 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             await _infrastructureUploadPage.ViewArchitectureAsync();
             await Assertions.Expect(Page).ToHaveURLAsync(new System.Text.RegularExpressions.Regex("clientrarch")); 
 
-        } 
-   
-   }
+        }
 
+        // REGRESSION TEST CASES 
+
+        [Fact]
+        [AllureOwner("TC_PROJECT_01")]
+        [AllureTag("Regression")]
+        public async Task TC_PROJECT_01_Select_Ramdon_User_In_Activity_log()
+        {
+            await _projectListPage.WaitForDashboardToBeReadyAsync();
+            await _projectListPage.WaitForProjectDashboardIconsAsync();
+            await _projectListPage.ClickGatheringClientInfradata();
+            await _infrastructureUploadPage.ViewActivityLog();
+            await _infrastructureUploadPage.ClickRandomUser();
+            await _basicSetup.RandomSelector();
+
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_01_Select_Ramdon_User_In_Activity_log");
+            Logger.Info("Selected random user succsessfully.");
+        }
+
+        [Fact]
+        [AllureOwner("TC_PROJECT_02")]
+        [AllureTag("Regression")]
+        public async Task TC_PROJECT_02_Select_Ramdon_Status_In_Activity_log()
+        {
+            await _projectListPage.WaitForDashboardToBeReadyAsync();
+            await _projectListPage.WaitForProjectDashboardIconsAsync();
+            await _projectListPage.ClickGatheringClientInfradata();
+            await _infrastructureUploadPage.ViewActivityLog();
+            await _infrastructureUploadPage.ClickRandomStatus();
+            await _basicSetup.RandomSelector();
+
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_02_Select_Ramdon_Status_In_Activity_log");
+            Logger.Info("Selected random status (Pass/fail) successfully in recent activity");
+        }
+
+        [Fact]
+        [AllureOwner("TC_PROJECT_03")]
+        [AllureTag("Regression")]
+        public async Task TC_PROJECT_03_Select_Date_Rang_In_Activity_log()
+        {
+            await _projectListPage.WaitForDashboardToBeReadyAsync();
+            await _projectListPage.WaitForProjectDashboardIconsAsync();
+            await _projectListPage.ClickGatheringClientInfradata();
+            await _infrastructureUploadPage.ViewActivityLog();
+            await _infrastructureUploadPage.ClickDateRange();
+            await _basicSetup.SelectLast7DaysRangeAsync();
+
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_03_Select_Date_Rang_In_Activity_log");
+            Logger.Info("Slected random date range (from past 7 days) succsessfully in recent activity");
+        }
+
+        [Fact]
+        [AllureOwner("TC_PROJECT_04")]
+        [AllureTag("Regression")]
+        public async Task TC_PROJECT_04_Clear_All_Filter()
+        {
+            await _projectListPage.WaitForDashboardToBeReadyAsync();
+            await _projectListPage.WaitForProjectDashboardIconsAsync();
+            await _projectListPage.ClickGatheringClientInfradata();
+            await _infrastructureUploadPage.ViewActivityLog();
+            await _infrastructureUploadPage.ClickRandomUser();
+            await _basicSetup.RandomSelector();
+            await _infrastructureUploadPage.ClickRandomStatus();
+            await _basicSetup.RandomSelector();
+            await _infrastructureUploadPage.ClickDateRange();
+            await _basicSetup.SelectLast7DaysRangeAsync();
+            await Page.GetByRole(AriaRole.Button, new() { Name = "Clear Filters" }).ClickAsync();
+
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_04_Clear_All_Filter");
+            Logger.Info("Successfully cleared all the filter applied in recent activity log");
+
+        }
+
+        [Fact]
+        [AllureOwner("TC_PROJECT_05")]
+        [AllureTag("Regression")]
+        public async Task TC_PROJECT_Close_Recent_Activity_log()
+        {
+            await _projectListPage.WaitForDashboardToBeReadyAsync();
+            await _projectListPage.WaitForProjectDashboardIconsAsync();            
+            await _projectListPage.ClickGatheringClientInfradata();
+            await _infrastructureUploadPage.ViewActivityLog();
+            await Page.Locator(".d-flex.justify-space-between > .mud-button-root").ClickAsync();
+            await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Upload Infrastructure Data" })).ToBeVisibleAsync();
+
+            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_Close_Recent_Activity_log");
+            Logger.Info("Successfully cleared all the filter applied in recent activity log");
+        }
+    }
 }

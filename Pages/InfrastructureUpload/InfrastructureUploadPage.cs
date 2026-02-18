@@ -171,8 +171,35 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             await dialog.GetByRole(AriaRole.Button, new() { Name = "Save Changes"}).ClickAsync();
         }
 
+        // REGRESSION TEST CASES 
 
-        
-       
+        private static readonly Random _random = new();
+        public async Task RandomSelector()
+        {
+            var options = _page.Locator(".mud-list-item:not(.mud-disabled)");
+            await options.First.WaitForAsync();
+            int count = await options.CountAsync();
+            await options.Nth(_random.Next(count)).ClickAsync();
+        }
+        public async Task ClickRandomUser()
+        {
+            await _page.GetByRole(AriaRole.Textbox, new() { Name = "User" }).ClickAsync();
+        }
+        public async Task ViewActivityLog()
+        {
+            await _page.Locator("div:nth-child(3) > .mud-button-root").First.ClickAsync();
+        }
+
+        public async Task ClickRandomStatus()
+        {
+            await _page.GetByRole(AriaRole.Textbox, new() { Name = "Status" }).ClickAsync();
+        }
+
+        public async Task ClickDateRange()
+        {
+            await _page.GetByRole(AriaRole.Button, new() { Name = "Open Date Range Picker" }).ClickAsync();
+        }
+
+
     }
 }

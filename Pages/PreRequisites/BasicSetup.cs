@@ -4,6 +4,7 @@ using System.Text.Json;
 using WiseMigrateTests.Utils;
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Pages.ProjectCreation;
+using System.Text.RegularExpressions;
 using WiseMigrateTests.Pages.InfrastructureUpload;
 
 
@@ -150,6 +151,59 @@ namespace WiseMigrateTests.Pages.PreRequisites
             await WaitForPageAsync(5);
             await _infrastructureUploadPage.ViewArchitectureAsync();
 
+        }
+
+        private static readonly Random _random = new();
+        public async Task RandomSelector()
+        {
+            var options = _page.Locator(".mud-list-item:not(.mud-disabled)");
+            await options.First.WaitForAsync();
+            int count = await options.CountAsync();
+            await options.Nth(_random.Next(count)).ClickAsync();
+        }
+
+        private ILocator PreviousMonthButton =>_page.GetByRole(AriaRole.Button, new(){NameRegex = new Regex("^Previous month")});
+        private ILocator NextMonthButton =>_page.GetByRole(AriaRole.Button, new(){NameRegex = new Regex("^Next month")});
+        public async Task SelectLast7DaysRangeAsync()
+        {
+            var today = DateTime.Today;
+            var startDate = today.AddDays(-7);
+
+            Logger.Info($"Selecting range: {startDate:dd MMM yyyy} - {today:dd MMM yyyy}");
+
+            // Select start date
+            await SelectDateAsync(startDate);
+
+            // Select end date (today)
+            await SelectDateAsync(today);
+        }
+
+        private async Task SelectDateAsync(DateTime date)
+        {
+            string day = date.Day.ToString();
+
+            // If month not visible, navigate
+            while (!await IsMonthVisibleAsync(date))
+            {
+                if (date < DateTime.Today)
+                {
+                    await PreviousMonthButton.ClickAsync();
+                }
+                else
+                {
+                    await NextMonthButton.ClickAsync();
+                }
+
+                await _page.WaitForTimeoutAsync(300);
+            }
+            await _page.GetByRole(AriaRole.Button, new() { Name = day }).First.ClickAsync();
+        }
+
+        private async Task<bool> IsMonthVisibleAsync(DateTime date)
+        {
+            string monthYear = date.ToString("MMMM yyyy");
+
+            return await _page.GetByText(monthYear).IsVisibleAsync();
         }
     }
 }
