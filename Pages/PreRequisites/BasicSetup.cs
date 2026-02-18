@@ -155,6 +155,24 @@ namespace WiseMigrateTests.Pages.PreRequisites
 
         }
 
+        public async Task DeleteProjectAsync(string projectNameGlobal)
+        {
+            if(!string.IsNullOrEmpty(projectNameGlobal))             
+            {
+                var row = _page.Locator("tr").Filter(new() { Has = _page.GetByText(projectNameGlobal) });
+                var column =row.Locator("td[data-label='Actions']");
+                await column.ClickAsync();
+                var deleteButton = _page.Locator(".mud-list-item").GetByText("Delete Project").First;
+                await deleteButton.ClickAsync();
+                var element= _page.GetByRole(AriaRole.Dialog);
+                await element.GetByRole(AriaRole.Button, new() { Name = "Delete" }).ClickAsync();        
+            }
+            else
+            {
+                Logger.Info("Project name is null or empty. Skipping project deletion.");
+            }
+        }
+
         private static readonly Random _random = new();
         public async Task RandomSelector()
         {
