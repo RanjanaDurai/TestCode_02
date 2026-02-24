@@ -13,7 +13,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
 {
     [Collection("Playwright collection")]
     [AllureSuite("Project Creation Page Tests")]
-    public class ProjectCreationPageTests : TestBaseFixture
+    public class ProjectCreationPageTests : TestBaseFixture, IAsyncLifetime
     {
         private LoginPage _loginPage = null!;
         private ProjectListPage _projectList = null!;
@@ -22,7 +22,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         private InfrastructureUploadPage _infrastructureUploadPage = null!;
         // private BasicSetup _basicSetup = null!;
 
-        public async Task InitializeAsync()
+        public  async Task InitializeAsync()
         {
             await base.InitializeAsync();
 
@@ -84,12 +84,8 @@ namespace WiseMigrateTests.Pages.ProjectCreation
                 await _projectList.WaitForDashboardToBeReadyAsync();
                 await _projectList.ClickCreateNewProjectAsync();
 
-                // string projectName = $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
-                // await _basicSetup.CreateProjectAsync(projectName);
-
                 string projectName = $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
                 await _basicSetup.CreateProjectAsync(projectName);
-                _createdProjectName = projectName;
 
                 await _infrastructureUploadPage.ClickCancelAsync();
                 await _projectList.WaitForDashboardToBeReadyAsync();
