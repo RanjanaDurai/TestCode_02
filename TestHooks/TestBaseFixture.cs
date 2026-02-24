@@ -13,7 +13,7 @@ namespace WiseMigrateTests.TestHooks
         protected AttachmentHelper _attachmentHelper = null!;
         protected string? _createdProjectName;
 
-        public virtual async Task InitializeAsync()
+        public async Task InitializeAsync()
         {
             Context = await GlobalTestFixture.Browser!.NewContextAsync();
             Page = await Context.NewPageAsync();
@@ -42,87 +42,49 @@ namespace WiseMigrateTests.TestHooks
             }
         }
 
-        // public async Task DisposeAsync()
-        // {
-        //     try
-        //     {
-        //         await Context.CloseAsync();
-        //     }
-        //     catch
-        //     {
-        //         // ignore cleanup errors
-        //     }
-        // }
-
-
-    //     public async Task DisposeAsync()
-    //     {
-    //         try
-    //         {
-    //             if (_basicSetup != null && !string.IsNullOrEmpty(BasicSetup.projectName))
-    //             {
-    //                 await Page.GotoAsync(_basicSetup.AppUrl + "/projects");
-    //                 await _basicSetup.DeleteProjectAsync(BasicSetup.projectName);
-    //             }
-    //         }
-    //         catch (Exception ex)
-    //         {
-    //             Logger.Warn($"Cleanup failed: {ex.Message}");
-    //         }
-    //         finally
-    //         {
-    //             try
-    //             {
-    //                 await Context.CloseAsync();
-    //             }
-    //             catch { }
-    //         }
-    //     }
-    // }
-// }
-
-        public virtual  async Task DisposeAsync()
-{
-    try
-    {
-        Logger.Info($"[DISPOSE] Starting cleanup for: {_createdProjectName}");
-
-        if (Context != null)
+        
+        public async Task DisposeAsync()
         {
-            if (!string.IsNullOrEmpty(_createdProjectName))
+            try
             {
-                var cleanupPage = await Context.NewPageAsync();
+                Logger.Info($"[DISPOSE] Starting cleanup for: {_createdProjectName}");
 
-                try
+                if (Context != null)
                 {
-                    await cleanupPage.GotoAsync(
-                        _basicSetup.AppUrl + "/projects",
-                        new() { WaitUntil = WaitUntilState.NetworkIdle });
+                    if (!string.IsNullOrEmpty(_createdProjectName))
+                    {
+                        var cleanupPage = await Context.NewPageAsync();
 
-                    var cleanupSetup = new BasicSetup(cleanupPage);
+                        try
+                        {
+                            await cleanupPage.GotoAsync(
+                                _basicSetup.AppUrl + "/projects",
+                                new() { WaitUntil = WaitUntilState.NetworkIdle });
 
-                    await cleanupSetup.DeleteProjectAsync(_createdProjectName);
+                            var cleanupSetup = new BasicSetup(cleanupPage);
+
+                            await cleanupSetup.DeleteProjectAsync(_createdProjectName);
+                        }
+                        catch (Exception ex)
+                        {
+                            Logger.Warn($"[DISPOSE] Cleanup failed: {ex.Message}");
+                        }
+                        finally
+                        {
+                            await cleanupPage.CloseAsync();
+                        }
+                    }
+
+                    await Context.CloseAsync();
                 }
-                catch (Exception ex)
-                {
-                    Logger.Warn($"[DISPOSE] Cleanup failed: {ex.Message}");
-                }
-                finally
-                {
-                    await cleanupPage.CloseAsync();
-                }
+
+                Logger.Info("[DISPOSE] Context closed successfully.");
             }
-
-            await Context.CloseAsync();
+            catch (Exception ex)
+            {
+                Logger.Warn($"[DISPOSE] Dispose error: {ex.Message}");
+            }
         }
-
-        Logger.Info("[DISPOSE] Context closed successfully.");
-    }
-    catch (Exception ex)
-    {
-        Logger.Warn($"[DISPOSE] Dispose error: {ex.Message}");
-    }
-}
     }
 }
 
@@ -162,4 +124,43 @@ namespace WiseMigrateTests.TestHooks
 
         
 //     }
+// }
+
+// public async Task DisposeAsync()
+        // {
+        //     try
+        //     {
+        //         await Context.CloseAsync();
+        //     }
+        //     catch
+        //     {
+        //         // ignore cleanup errors
+        //     }
+        // }
+
+
+    //     public async Task DisposeAsync()
+    //     {
+    //         try
+    //         {
+    //             if (_basicSetup != null && !string.IsNullOrEmpty(BasicSetup.projectName))
+    //             {
+    //                 await Page.GotoAsync(_basicSetup.AppUrl + "/projects");
+    //                 await _basicSetup.DeleteProjectAsync(BasicSetup.projectName);
+    //             }
+    //         }
+    //         catch (Exception ex)
+    //         {
+    //             Logger.Warn($"Cleanup failed: {ex.Message}");
+    //         }
+    //         finally
+    //         {
+    //             try
+    //             {
+    //                 await Context.CloseAsync();
+    //             }
+    //             catch { }
+    //         }
+    //     }
+    // }
 // }
