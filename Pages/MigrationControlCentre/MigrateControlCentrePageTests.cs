@@ -16,7 +16,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
     {
         private LoginPage _loginPage = null!;
         private ProjectListPage _projectListPage = null!;
-        private BasicSetup _basicSetup = null!;
+        // private BasicSetup _basicSetup = null!;
         private MigrationControlCentrePage _migrationControlCentrePage = null!;
         public async Task InitializeAsync()
         {
@@ -34,60 +34,73 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         }
 
         [Fact]
-        [AllureOwner("TC_MigrationControlCentre_001")]
+        [AllureOwner("TC_001_MigrationControlCentre_Page_UI_Should_Load")]
         [AllureTag("smoke")]
-        public async Task TC_MigrationControlCentre_001_MigrationControlCentre_Page_UI_Should_Load()
+        public async Task TC_001_MigrationControlCentre_Page_UI_Should_Load()
         {
-            //await _migrationControlCentrePage.NavigateToMigrationControlCentreAsync();
-            await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Control Center" })).ToBeVisibleAsync();
-            Logger.Info("Migration Control Centre page loaded");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_MigrationControlCentre_001_MigrationControlCentre_Page_UI");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                //await _migrationControlCentrePage.NavigateToMigrationControlCentreAsync();
+                await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Control Center" }))
+                    .ToBeVisibleAsync();
+                Logger.Info("Migration Control Centre page loaded");
+            }, nameof(TC_001_MigrationControlCentre_Page_UI_Should_Load));
         }
-        
-        /*[Fact]
-        [AllureOwner("TC_MigrationControlCentre_002")]
+
+        [Fact]
+        [AllureOwner("TC_002_Navigate_To_Timeline_Tab")]
         [AllureTag("smoke")]
-        public async Task TC_MigrationControlCentre_002_Navigate_To_Detailed_Planning_Tab()
+        public async Task TC_002_Navigate_To_Timeline_Tab()
         {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenTimelineTabAsync();
+                await Assertions.Expect(Page.GetByText("Wave Execution Schedule"))
+                    .ToBeVisibleAsync();
+                Logger.Info("Timeline tab loaded");
+            }, nameof(TC_002_Navigate_To_Timeline_Tab));
+        }
+
+        /*[Fact]
+        [AllureOwner("TC_002_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab)]
+        [AllureTag("smoke")]
+        public async Task TC_002_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
             await _migrationControlCentrePage.OpenDetailedPlanningTabAsync();
             await Assertions.Expect(Page.GetByText("Migration Planning")).ToBeVisibleAsync();
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_MigrationControlCentre_002_DetailedPlanning_Tab_UI");
             Logger.Info("Detailed Planning tab loaded");
+            }, nameof(TC_002_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab));
         }
         */
 
         [Fact]
-        [AllureOwner("TC_MigrationControlCentre_002")]
+        [AllureOwner("TC_003_Navigate_To_Manage_Tab")]
         [AllureTag("smoke")]
-        public async Task TC_MigrationControlCentre_002_Navigate_To_Timeline_Tab()
+        public async Task TC_003_Navigate_To_Manage_Tab()
         {
-            
-            await _migrationControlCentrePage.OpenTimelineTabAsync();
-            await Assertions.Expect(Page.GetByText("Wave Execution Schedule")).ToBeVisibleAsync();
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_MigrationControlCentre_003_Timeline_Tab_UI");
-            Logger.Info("Timeline tab loaded");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenManageTabAsync();
+                await Assertions.Expect(Page.GetByText("Wave Plan Management"))
+                    .ToBeVisibleAsync();
+                Logger.Info("Manage tab loaded");
+            }, nameof(TC_003_Navigate_To_Manage_Tab));
         }
 
         [Fact]
-        [AllureOwner("TC_MigrationControlCentre_003")]
+        [AllureOwner("TC_004_Navigate_To_PoliciesAndRisk_Tab")]
         [AllureTag("smoke")]
-        public async Task TC_MigrationControlCentre_003_Navigate_To_Manage_Tab()
+        public async Task TC_004_Navigate_To_PoliciesAndRisk_Tab()
         {
-            await _migrationControlCentrePage.OpenManageTabAsync();
-            await Assertions.Expect(Page.GetByText("Wave Plan Management")).ToBeVisibleAsync();
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_MigrationControlCentre_004_Manage_Tab_UI");
-            Logger.Info("Manage tab loaded");
-        }
-
-        [Fact]
-        [AllureOwner("TC_MigrationControlCentre_004")]
-        [AllureTag("smoke")]
-        public async Task TC_MigrationControlCentre_004_Navigate_To_PoliciesAndRisk_Tab()
-        {
-            await _migrationControlCentrePage.OpenPoliciesAndRiskTabAsync();
-            await Assertions.Expect(Page.GetByText("Migration Policies")).ToBeVisibleAsync();
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_MigrationControlCentre_005_PoliciesAndRisk_Tab_UI");
-            Logger.Info("Policies and Risk tab loaded");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenPoliciesAndRiskTabAsync();
+                await Assertions.Expect(Page.GetByText("Migration Policies"))
+                    .ToBeVisibleAsync();
+                Logger.Info("Policies and Risk tab loaded");
+            }, nameof(TC_004_Navigate_To_PoliciesAndRisk_Tab));
         }
     }
 }

@@ -15,9 +15,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
     {
         private LoginPage _loginPage = null!;
         private InfrastructureUploadPage _infrastructureUploadPage = null!;
-        private BasicSetup _basicSetup = null!;
         private ProjectListPage _projectListPage = null!;
-        private AttachmentHelper _attachmentHelper=null!;
 
         public async Task InitializeAsync()
         {
@@ -29,101 +27,112 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             _infrastructureUploadPage = new InfrastructureUploadPage(Page, _basicSetup);
 
             await _loginPage.ValidateSuperAdminAccount(Page);
+            await Page.GetByRole(AriaRole.Button, new() { Name = "Close snackbar" }).ClickAsync();
             
             Logger.Info("Logged in as Super Admin");
         }
         
         [Fact]
-        [AllureOwner("TC_PROJECT_006")]
+        [AllureOwner("TC_006_Upload_Infrastructure_Page_Should_Load")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_006_Upload_Infrastructure_Page_Should_Load()
+        public async Task TC_006_Upload_Infrastructure_Page_Should_Load()
         {
-            await Assertions.Expect(Page.GetByText("Upload Infrastructure Data")).ToBeVisibleAsync();
-            Logger.Info("Upload Infrastructure page loaded");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_006_Upload_Infrastructure");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await Assertions.Expect(Page.GetByText("Upload Infrastructure Data")).ToBeVisibleAsync();
+                Logger.Info("Upload Infrastructure page loaded");
+            }, nameof(TC_006_Upload_Infrastructure_Page_Should_Load));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_007")]
+        [AllureOwner("TC_007_Proceed_Infrastrcuture_Data_Upload")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_007_Proceed_Infrastrcuture_Data_Upload()
+        public async Task TC_007_Proceed_Infrastrcuture_Data_Upload()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            //await _infrastructureUploadPage.NavigateToInfrastructureUploadPageAsync();
-            await _infrastructureUploadPage.selectRadioButtonAsync("No");
-            await _infrastructureUploadPage.ClickNextAsync();
-            await Assertions.Expect(Page.GetByText("Infrastructure Data Upload")).ToBeVisibleAsync();
-            
-            Logger.Info("Proceeded to Infrastructure Upload ");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_007_Upload_Infrastructure");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                //await _infrastructureUploadPage.NavigateToInfrastructureUploadPageAsync();
+                await _infrastructureUploadPage.selectRadioButtonAsync("No");
+                await _infrastructureUploadPage.ClickNextAsync();
+                await Assertions.Expect(Page.GetByText("Infrastructure Data Upload")).ToBeVisibleAsync();
+                Logger.Info("Proceeded to Infrastructure Upload ");
+            }, nameof(TC_007_Proceed_Infrastrcuture_Data_Upload));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_008")]
+        [AllureOwner("TC_008_Proceed_SSOT_Data_Upload")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_008_Proceed_SSOT_Data_Upload()
+        public async Task TC_008_Proceed_SSOT_Data_Upload()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.selectRadioButtonAsync("Yes");
-            await _infrastructureUploadPage.ClickNextAsync();
-            await Assertions.Expect(Page.GetByText("SSOT Data Upload")).ToBeVisibleAsync();
-            Logger.Info("Proceeded to SSOT Upload ");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_008_Proceed_SSOT_Data_Upload");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.selectRadioButtonAsync("Yes");
+                await _infrastructureUploadPage.ClickNextAsync();
+                await Assertions.Expect(Page.GetByText("SSOT Data Upload")).ToBeVisibleAsync();
+                Logger.Info("Proceeded to SSOT Upload ");
+            }, nameof(TC_008_Proceed_SSOT_Data_Upload));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_009")]
+        [AllureOwner("TC_009_Cancel_Upload_Operation")]
         [AllureTag("regression")]
-        public async Task TC_PROJECT_009_Cancel_Upload_Operation()
+        public async Task TC_009_Cancel_Upload_Operation()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.ClickCancelAsync();
-            await Assertions.Expect(Page.GetByText("Project Dashboard")).ToBeVisibleAsync();
-            Logger.Info("Cancelled Infrastructure Upload operation.");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_009_Cancel_Upload_Operation");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.ClickCancelAsync();
+                await Assertions.Expect(Page.GetByText("Project Dashboard")).ToBeVisibleAsync();
+                Logger.Info("Cancelled Infrastructure Upload operation.");
+            }, nameof(TC_009_Cancel_Upload_Operation));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_010")]
+        [AllureOwner("TC_010_Upload_Infrastructure_Data")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_010_Upload_Infrastructure_Data()
+        public async Task TC_010_Upload_Infrastructure_Data()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await Assertions.Expect(Page.GetByText("Overall Validation Status: Valid")).ToBeVisibleAsync();
-            var elements= Page.Locator(".mud-expand-panel-header");
-            await Assertions.Expect(elements).ToHaveCountAsync(8);
-            Logger.Info("Infrastructure Data uploaded successfully and all files are valid.");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_010_Upload_Infrastructure_Data");
-
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await Assertions.Expect(Page.GetByText("Overall Validation Status: Valid")).ToBeVisibleAsync();
+                var elements = Page.Locator(".mud-expand-panel-header");
+                await Assertions.Expect(elements).ToHaveCountAsync(8);
+                Logger.Info("Infrastructure Data uploaded successfully and all files are valid.");
+            }, nameof(TC_010_Upload_Infrastructure_Data));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_011")]
+        [AllureOwner("TC_011_Verify_Infrastructure_Data")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_011_Verify_Infrastructure_Data()
+        public async Task TC_011_Verify_Infrastructure_Data()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(3);
-            await _infrastructureUploadPage.ClickVerifyButtonAsync();
-            await Assertions.Expect(Page.GetByText("Data Preview")).ToBeVisibleAsync();   
-            Logger.Info("Infrastructure Data verified successfully.");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_011_Verify_Infrastructure_Data");         
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(3);
+                await _infrastructureUploadPage.ClickVerifyButtonAsync();
+                await Assertions.Expect(Page.GetByText("Data Preview")).ToBeVisibleAsync();
+                Logger.Info("Infrastructure Data verified successfully.");
+            }, nameof(TC_011_Verify_Infrastructure_Data));
         }
-
         /*
         [Fact]
-        [AllureOwner("TC_PROJECT_012")]
+        [AllureOwner("TC_012_Verify_Interaction_With_Infrastructure_Data_Preview")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_012_Verify_Interaction_With_Infrastructure_Data_Preview()
-        {
+        public async Task TC_012_Verify_Interaction_With_Infrastructure_Data_Preview()
+        {   await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
             await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
             await _basicSetup.WaitForPageAsync(5);
             await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -136,87 +145,98 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             await _infrastructureUploadPage.ClosePreviewAsync();
             await Assertions.Expect(Page.GetByText("Upload Infrastructure Data")).ToBeVisibleAsync();
             Logger.Info("Interaction with Preview verified successfully.");
+            }, nameof(TC_012_Verify_Interaction_With_Infrastructure_Data_Preview));
             
         }
         */
 
         [Fact]
-        [AllureOwner("TC_PROJECT_013")]
+        [AllureOwner("TC_013_Validate_Upload_Infrastructure_Files")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_013_Validate_Upload_Infrastructure_Files()
+        public async Task TC_013_Validate_Upload_Infrastructure_Files()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await _infrastructureUploadPage.ClickVerifyButtonAsync();
-            await _infrastructureUploadPage.ClosePreviewAsync();
-            await _basicSetup.WaitForPageAsync(1);
-            await _infrastructureUploadPage.ClickUploadButtonAsync();
-            await _basicSetup.WaitForPageAsync(10);
-            await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Your data has been uploaded and merged successfully.");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_013_Validate_Upload_Infrastructure_Files");   
-            Logger.Info("Upload Infrastructure Data verified successfully.");
-            
-
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await _infrastructureUploadPage.ClickVerifyButtonAsync();
+                await _infrastructureUploadPage.ClosePreviewAsync();
+                await _basicSetup.WaitForPageAsync(1);
+                await _infrastructureUploadPage.ClickUploadButtonAsync();
+                await _basicSetup.WaitForPageAsync(10);
+                await Assertions.Expect(Page.Locator("role=alert"))
+                    .ToHaveTextAsync("Your data has been uploaded and merged successfully.");
+                Logger.Info("Upload Infrastructure Data verified successfully.");
+            }, nameof(TC_013_Validate_Upload_Infrastructure_Files));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_014")]
+        [AllureOwner("TC_014_Validate_SSOT_Generation_Infrastructure_Files")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_014_Validate_SSOT_Generation_Infrastructure_Files()
+        public async Task TC_014_Validate_SSOT_Generation_Infrastructure_Files()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await _infrastructureUploadPage.ClickVerifyButtonAsync();
-            await _infrastructureUploadPage.ClosePreviewAsync();
-            await _basicSetup.WaitForPageAsync(1);
-            await _infrastructureUploadPage.ClickUploadButtonAsync();
-            await _basicSetup.WaitForPageAsync(2);
-            await _infrastructureUploadPage.GenerateSSOTOperationAsync();
-            await _basicSetup.WaitForPageAsync(3);
-            var successAlerts = Page.GetByRole(AriaRole.Alert);
-            await Assertions.Expect(successAlerts.Nth(1)).ToHaveTextAsync("SSOT generated successfully!");   
-            await Assertions.Expect(successAlerts.Nth(2)).ToContainTextAsync("Data Quality Report generated successfully.");    
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_014_Validate_SSOT_Generation_Infrastructure_Files");   
-            Logger.Info("SSOT Generation verified successfully.");
-            
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await _infrastructureUploadPage.ClickVerifyButtonAsync();
+                await _infrastructureUploadPage.ClosePreviewAsync();
+                await _basicSetup.WaitForPageAsync(1);
+                await _infrastructureUploadPage.ClickUploadButtonAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                await _infrastructureUploadPage.GenerateSSOTOperationAsync();
+                await _basicSetup.WaitForPageAsync(3);
+
+                var successAlerts = Page.GetByRole(AriaRole.Alert);
+                await Assertions.Expect(successAlerts.Nth(1))
+                    .ToHaveTextAsync("SSOT generated successfully!");
+                await Assertions.Expect(successAlerts.Nth(2))
+                    .ToContainTextAsync("Data Quality Report generated successfully.");
+
+                Logger.Info("SSOT Generation verified successfully.");
+            }, nameof(TC_014_Validate_SSOT_Generation_Infrastructure_Files));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_015")]
+        [AllureOwner("TC_015_Validate_SSOT_Preview_Infrastructure_Files")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_015_Validate_SSOT_Preview_Infrastructure_Files()
+        public async Task TC_015_Validate_SSOT_Preview_Infrastructure_Files()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await _infrastructureUploadPage.ClickVerifyButtonAsync();
-            await _infrastructureUploadPage.ClosePreviewAsync();
-            await _basicSetup.WaitForPageAsync(1);
-            await _infrastructureUploadPage.ClickUploadButtonAsync();
-            await _basicSetup.WaitForPageAsync(2);
-            await _infrastructureUploadPage.GenerateSSOTOperationAsync();
-            await _basicSetup.WaitForPageAsync(2);
-            await _infrastructureUploadPage.PreviewSSOTAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            var dialog= Page.GetByRole(AriaRole.Dialog);
-            await Assertions.Expect(dialog.GetByText("SSOT Data Viewer")).ToBeVisibleAsync();
-            await Assertions.Expect(dialog.Locator(".mud-table-container")).ToBeVisibleAsync();
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_015_Validate_SSOT_Preview_Infrastructure_Files");   
-            await _infrastructureUploadPage.ClosePreviewAsync();    
-            Logger.Info("SSOT Preview verified successfully.");    
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await _infrastructureUploadPage.ClickVerifyButtonAsync();
+                await _infrastructureUploadPage.ClosePreviewAsync();
+                await _basicSetup.WaitForPageAsync(1);
+                await _infrastructureUploadPage.ClickUploadButtonAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                await _infrastructureUploadPage.GenerateSSOTOperationAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                await _infrastructureUploadPage.PreviewSSOTAsync();
+                await _basicSetup.WaitForPageAsync(5);
+
+                var dialog = Page.GetByRole(AriaRole.Dialog);
+                await Assertions.Expect(dialog.GetByText("SSOT Data Viewer")).ToBeVisibleAsync();
+                await Assertions.Expect(dialog.Locator(".mud-table-container")).ToBeVisibleAsync();
+
+                await _infrastructureUploadPage.ClosePreviewAsync();
+                Logger.Info("SSOT Preview verified successfully.");
+            }, nameof(TC_015_Validate_SSOT_Preview_Infrastructure_Files));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_016")]
+        [AllureOwner("TC_016_Validate_Generate_Architecture_Operation")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_016_Validate_Generate_Architecture_Operation()
+        public async Task TC_016_Validate_Generate_Architecture_Operation()
         {
-            await _attachmentHelper.RunWithTracingAsync(async()=>
+            await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(5);
@@ -231,282 +251,385 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
                 await _infrastructureUploadPage.ClosePreviewAsync();
                 await _infrastructureUploadPage.GenerateArchitectureAsync();
                 await _basicSetup.WaitForPageAsync(5);
-                await Assertions.Expect(Page.GetByRole(AriaRole.Alert)).ToHaveTextAsync("Architecture generated successfully!.");  
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_016_Validate_Generate_Architecture_Operation");
+
+                await Assertions.Expect(Page.GetByRole(AriaRole.Alert))
+                    .ToHaveTextAsync("Architecture generated successfully!.");
                 Logger.Info("Architecture generation operation verified successfully.");
-            },nameof(TC_PROJECT_016_Validate_Generate_Architecture_Operation));
+            }, nameof(TC_016_Validate_Generate_Architecture_Operation));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_017")]
+        [AllureOwner("TC_017_Validate_View_Architecture_Operation")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_017_Validate_View_Architecture_Operation()
+        public async Task TC_017_Validate_View_Architecture_Operation()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await _infrastructureUploadPage.ClickVerifyButtonAsync();
-            await _infrastructureUploadPage.ClosePreviewAsync();
-            await _basicSetup.WaitForPageAsync(1);
-            await _infrastructureUploadPage.ClickUploadButtonAsync();
-            await _infrastructureUploadPage.GenerateSSOTOperationAsync();
-            await Assertions.Expect(Page.GetByRole(AriaRole.Button, new() { Name = "Preview SSOT"})).ToBeVisibleAsync();
-            await _infrastructureUploadPage.GenerateArchitectureAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await _infrastructureUploadPage.ViewArchitectureAsync();
-            await Assertions.Expect(Page).ToHaveURLAsync(new System.Text.RegularExpressions.Regex("clientrarch"));
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_017_Validate_View_Architecture_Operation");
-            Logger.Info("View Architecture operation verified successfully.");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await _infrastructureUploadPage.ClickVerifyButtonAsync();
+                await _infrastructureUploadPage.ClosePreviewAsync();
+                await _basicSetup.WaitForPageAsync(1);
+                await _infrastructureUploadPage.ClickUploadButtonAsync();
+                await _infrastructureUploadPage.GenerateSSOTOperationAsync();
+
+                await Assertions.Expect(Page.GetByRole(AriaRole.Button, new() { Name = "Preview SSOT" }))
+                    .ToBeVisibleAsync();
+
+                await _infrastructureUploadPage.GenerateArchitectureAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await _infrastructureUploadPage.ViewArchitectureAsync();
+
+                await Assertions.Expect(Page)
+                    .ToHaveURLAsync(new System.Text.RegularExpressions.Regex("clientrarch"));
+
+                Logger.Info("View Architecture operation verified successfully.");
+            }, nameof(TC_017_Validate_View_Architecture_Operation));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_018")]
+        [AllureOwner("TC_018_Upload_SSOT_Data")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_018_Upload_SSOT_Data()
+        public async Task TC_018_Upload_SSOT_Data()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.SSOTUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await Assertions.Expect(Page.GetByText("Overall Validation Status: Valid")).ToBeVisibleAsync();
-            var elements= Page.Locator(".mud-expand-panel-header");
-            await Assertions.Expect(elements).ToHaveCountAsync(7);
-            Logger.Info("SSOT file uploaded successfully and all files are valid.");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_018_Upload_SSOT_Data");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.SSOTUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await Assertions.Expect(Page.GetByText("Overall Validation Status: Valid")).ToBeVisibleAsync();
+                var elements = Page.Locator(".mud-expand-panel-header");
+                await Assertions.Expect(elements).ToHaveCountAsync(7);
+                Logger.Info("SSOT file uploaded successfully and all files are valid.");
+            }, nameof(TC_018_Upload_SSOT_Data));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_019")]
+        [AllureOwner("TC_019_Verify_SSOT_Data")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_019_Verify_SSOT_Data()
+        public async Task TC_019_Verify_SSOT_Data()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.SSOTUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(3);
-            await _infrastructureUploadPage.ClickVerifyButtonAsync();
-            await _basicSetup.WaitForPageAsync(2);
-            var dialog= Page.GetByRole(AriaRole.Dialog);
-            await Assertions.Expect(dialog.GetByText("Data Preview")).ToBeVisibleAsync();   
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_019_Verify_SSOT_Data");
-            Logger.Info("SSOT Data verified successfully.");
-      
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.SSOTUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(3);
+                await _infrastructureUploadPage.ClickVerifyButtonAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                var dialog = Page.GetByRole(AriaRole.Dialog);
+                await Assertions.Expect(dialog.GetByText("Data Preview")).ToBeVisibleAsync();
+                Logger.Info("SSOT Data verified successfully.");
+            }, nameof(TC_019_Verify_SSOT_Data));
         }
 
         /*[Fact]
-        [AllureOwner("TC_PROJECT_020")]
+        [AllureOwner("TC_020_Verify_Interaction_With_SSOT_Data_Preview")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_020_Verify_Interaction_With_SSOT_Data_Preview()
+        public async Task TC_020_Verify_Interaction_With_SSOT_Data_Preview()
         {
-            
-            await _infrastructureUploadPage.SSOTUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await _infrastructureUploadPage.ClickVerifyButtonAsync();
-            await _basicSetup.WaitForPageAsync(2);
-            var dialog= Page.GetByRole(AriaRole.Dialog);
-            await Assertions.Expect(dialog.GetByText("Data Preview")).ToBeVisibleAsync();
-            await _infrastructureUploadPage.ExpandDataPreviewAsync();
-            await _infrastructureUploadPage.ClosePreviewAsync();
-            await Assertions.Expect(Page.GetByText("Upload Infrastructure Data")).ToBeVisibleAsync();
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _infrastructureUploadPage.SSOTUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await _infrastructureUploadPage.ClickVerifyButtonAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                var dialog= Page.GetByRole(AriaRole.Dialog);
+                await Assertions.Expect(dialog.GetByText("Data Preview")).ToBeVisibleAsync();
+                await _infrastructureUploadPage.ExpandDataPreviewAsync();
+                await _infrastructureUploadPage.ClosePreviewAsync();
+                await Assertions.Expect(Page.GetByText("Upload Infrastructure Data")).ToBeVisibleAsync();
+            }, nameof(TC_020_Verify_Interaction_With_SSOT_Data_Preview));
         }  
         */ 
 
         [Fact]
-        [AllureOwner("TC_PROJECT_021")]
+        [AllureOwner("TC_021_Validate_Upload_SSOT_File")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_021_Validate_Upload_SSOT_File()
+        public async Task TC_021_Validate_Upload_SSOT_File()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.SSOTUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await _infrastructureUploadPage.ClickVerifyButtonAsync();
-            await _infrastructureUploadPage.ClosePreviewAsync();
-            await _basicSetup.WaitForPageAsync(1);
-            await _infrastructureUploadPage.ClickUploadButtonAsync();
-            await _basicSetup.WaitForPageAsync(10);
-            await Assertions.Expect(Page.Locator("role=alert").Last).ToHaveTextAsync("Your data has been uploaded and merged successfully.");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_021_Validate_Upload_SSOT_File");   
-            Logger.Info("Upload SSOT Data verified successfully.");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.SSOTUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await _infrastructureUploadPage.ClickVerifyButtonAsync();
+                await _infrastructureUploadPage.ClosePreviewAsync();
+                await _basicSetup.WaitForPageAsync(1);
+                await _infrastructureUploadPage.ClickUploadButtonAsync();
+                await _basicSetup.WaitForPageAsync(10);
+                await Assertions.Expect(Page.Locator("role=alert").Last)
+                    .ToHaveTextAsync("Your data has been uploaded and merged successfully.");
+                Logger.Info("Upload SSOT Data verified successfully.");
+            }, nameof(TC_021_Validate_Upload_SSOT_File));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_022")]
+        [AllureOwner("TC_022_Validate_SSOT_Architecture_Generation")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_022_Validate_SSOT_Architecture_Generation()
+        public async Task TC_022_Validate_SSOT_Architecture_Generation()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.SSOTUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await _infrastructureUploadPage.ClickVerifyButtonAsync();
-            await _infrastructureUploadPage.ClosePreviewAsync();
-            await _basicSetup.WaitForPageAsync(1);
-            await _infrastructureUploadPage.ClickUploadButtonAsync();
-            await _basicSetup.WaitForPageAsync(2);
-            await _infrastructureUploadPage.GenerateArchitectureAsync();
-            await _basicSetup.WaitForPageAsync(3);
-            await Assertions.Expect(Page.GetByRole(AriaRole.Alert).Last).ToHaveTextAsync("Architecture generated successfully!.");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_022_Validate_SSOT_Architecture_Generation");
-            Logger.Info("Architecture generation using SSOT verified successfully.");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.SSOTUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await _infrastructureUploadPage.ClickVerifyButtonAsync();
+                await _infrastructureUploadPage.ClosePreviewAsync();
+                await _basicSetup.WaitForPageAsync(1);
+                await _infrastructureUploadPage.ClickUploadButtonAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                await _infrastructureUploadPage.GenerateArchitectureAsync();
+                await _basicSetup.WaitForPageAsync(3);
+                await Assertions.Expect(Page.GetByRole(AriaRole.Alert).Last)
+                    .ToHaveTextAsync("Architecture generated successfully!.");
+                Logger.Info("Architecture generation using SSOT verified successfully.");
+            }, nameof(TC_022_Validate_SSOT_Architecture_Generation));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_023")]
+        [AllureOwner("TC_023_Validate_View_SSOT_Architecture_Operation")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_23_Validate_View_SSOT_Architecture_Operation()
+        public async Task TC_023_Validate_View_SSOT_Architecture_Operation()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.SSOTUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await _infrastructureUploadPage.ClickVerifyButtonAsync();
-            await _infrastructureUploadPage.ClosePreviewAsync();
-            await _basicSetup.WaitForPageAsync(1);
-            await _infrastructureUploadPage.ClickUploadButtonAsync();
-            await _infrastructureUploadPage.GenerateArchitectureAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await Assertions.Expect(Page.GetByRole(AriaRole.Button, new() { Name = "View Architecture"})).ToBeVisibleAsync();
-            await _infrastructureUploadPage.ViewArchitectureAsync();
-            await Assertions.Expect(Page).ToHaveURLAsync(new System.Text.RegularExpressions.Regex("clientrarch"));
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_023_Validate_View_SSOT_Architecture_Operation");
-            Logger.Info("View Architecture operation using SSOT verified successfully.");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.SSOTUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await _infrastructureUploadPage.ClickVerifyButtonAsync();
+                await _infrastructureUploadPage.ClosePreviewAsync();
+                await _basicSetup.WaitForPageAsync(1);
+                await _infrastructureUploadPage.ClickUploadButtonAsync();
+                await _infrastructureUploadPage.GenerateArchitectureAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await Assertions.Expect(Page.GetByRole(AriaRole.Button, new() { Name = "View Architecture" }))
+                    .ToBeVisibleAsync();
+                await _infrastructureUploadPage.ViewArchitectureAsync();
+                await Assertions.Expect(Page)
+                    .ToHaveURLAsync(new System.Text.RegularExpressions.Regex("clientrarch"));
+                Logger.Info("View Architecture operation using SSOT verified successfully.");
+            }, nameof(TC_023_Validate_View_SSOT_Architecture_Operation));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_024")]
+        [AllureOwner("TC_024_Validate_SSOT_Reconciliation_Operation")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_024_Validate_SSOT_Reconciliation_Operation()
+        public async Task TC_024_Validate_SSOT_Reconciliation_Operation()
         {
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await _infrastructureUploadPage.ClickVerifyButtonAsync();
-            await _infrastructureUploadPage.ClosePreviewAsync();
-            await _basicSetup.WaitForPageAsync(1);
-            await _infrastructureUploadPage.ClickUploadButtonAsync();
-            await _basicSetup.WaitForPageAsync(2);
-            await _infrastructureUploadPage.GenerateSSOTOperationAsync();
-            await _basicSetup.WaitForPageAsync(2);
-            await Assertions.Expect(Page.GetByRole(AriaRole.Button, new() { Name = "Preview SSOT" })).ToBeVisibleAsync();
-            await _infrastructureUploadPage.ClickBackAsync();
-            await _infrastructureUploadPage.SSOTUploadOperationAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await _infrastructureUploadPage.ClickVerifyButtonAsync();
-            //await Page.GetByRole(AriaRole.Dialog).GetByRole(AriaRole.Button, new(){ Name="Yes"}).ClickAsync();
-            await _infrastructureUploadPage.ClosePreviewAsync();
-            await _basicSetup.WaitForPageAsync(1);
-            await _infrastructureUploadPage.ClickUploadButtonAsync();
-            await _basicSetup.WaitForPageAsync(2);
-            var dialog= Page.GetByRole(AriaRole.Dialog);
-            await Assertions.Expect(dialog.GetByText("Confirm SSOT Generation")).ToBeVisibleAsync();
-            await _infrastructureUploadPage.ClickConfirmAsync();
-            await Assertions.Expect(Page.GetByText("SSOT Data Reconciliation")).ToBeVisibleAsync();
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_022_Validate_SSOT_Reconciliation_01");   
-            await _infrastructureUploadPage.HandleSSOTReconciliationSelectionAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            await Assertions.Expect(Page.GetByRole(AriaRole.Dialog).Last.GetByText("Confirm SSOT Update")).ToBeVisibleAsync();
-            await _infrastructureUploadPage.ClickConfirmAsync();
-            await _basicSetup.WaitForPageAsync(5);
-            var successAlerts = Page.GetByRole(AriaRole.Alert);
-            await Assertions.Expect(successAlerts.Nth(1)).ToHaveTextAsync("SSOT generated successfully!");   
-            await Assertions.Expect(successAlerts.Nth(2)).ToContainTextAsync("Data Quality Report generated successfully.");  
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_022_Validate_SSOT_Reconciliation_02");   
-            await _infrastructureUploadPage.GenerateArchitectureAsync();
-            await _basicSetup.WaitForPageAsync(2);
-            await _infrastructureUploadPage.ViewArchitectureAsync();
-            await Assertions.Expect(Page).ToHaveURLAsync(new System.Text.RegularExpressions.Regex("clientrarch")); 
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await _infrastructureUploadPage.ClickVerifyButtonAsync();
+                await _infrastructureUploadPage.ClosePreviewAsync();
+                await _basicSetup.WaitForPageAsync(1);
+                await _infrastructureUploadPage.ClickUploadButtonAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                await _infrastructureUploadPage.GenerateSSOTOperationAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                await Assertions.Expect(Page.GetByRole(AriaRole.Button, new() { Name = "Preview SSOT" }))
+                    .ToBeVisibleAsync();
+                await _infrastructureUploadPage.ClickBackAsync();
+                await _infrastructureUploadPage.SSOTUploadOperationAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await _infrastructureUploadPage.ClickVerifyButtonAsync();
+                await _infrastructureUploadPage.ClosePreviewAsync();
+                await _basicSetup.WaitForPageAsync(1);
+                await _infrastructureUploadPage.ClickUploadButtonAsync();
+                await _basicSetup.WaitForPageAsync(2);
 
+                var dialog = Page.GetByRole(AriaRole.Dialog);
+                await Assertions.Expect(dialog.GetByText("Confirm SSOT Generation")).ToBeVisibleAsync();
+                await _infrastructureUploadPage.ClickConfirmAsync();
+                await Assertions.Expect(Page.GetByText("SSOT Data Reconciliation")).ToBeVisibleAsync();
+
+                await _infrastructureUploadPage.HandleSSOTReconciliationSelectionAsync();
+                await _basicSetup.WaitForPageAsync(5);
+                await Assertions.Expect(Page.GetByRole(AriaRole.Dialog).Last.GetByText("Confirm SSOT Update"))
+                    .ToBeVisibleAsync();
+                await _infrastructureUploadPage.ClickConfirmAsync();
+                await _basicSetup.WaitForPageAsync(5);
+
+                var successAlerts = Page.GetByRole(AriaRole.Alert);
+                await Assertions.Expect(successAlerts.Nth(1))
+                    .ToHaveTextAsync("SSOT generated successfully!");
+                await Assertions.Expect(successAlerts.Nth(2))
+                    .ToContainTextAsync("Data Quality Report generated successfully.");
+
+                await _infrastructureUploadPage.GenerateArchitectureAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                await _infrastructureUploadPage.ViewArchitectureAsync();
+                await Assertions.Expect(Page)
+                    .ToHaveURLAsync(new System.Text.RegularExpressions.Regex("clientrarch"));
+            }, nameof(TC_024_Validate_SSOT_Reconciliation_Operation));
         }
 
         // REGRESSION TEST CASES 
 
+        [Trait("Category", "Regression")]
         [Fact]
-        [AllureOwner("TC_PROJECT_01")]
+        [AllureOwner("TC_025_Select_Ramdon_User_In_Activity_log")]
         [AllureTag("Regression")]
-        public async Task TC_PROJECT_01_Select_Ramdon_User_In_Activity_log()
+        public async Task TC_025_Select_Ramdon_User_In_Activity_log()
         {
-            await _projectListPage.WaitForDashboardToBeReadyAsync();
-            await _projectListPage.WaitForProjectDashboardIconsAsync();
-            await _projectListPage.ClickGatheringClientInfradata();
-            await _infrastructureUploadPage.ViewActivityLog();
-            await _infrastructureUploadPage.ClickRandomUser();
-            await _basicSetup.RandomSelector();
-
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_01_Select_Ramdon_User_In_Activity_log");
-            Logger.Info("Selected random user succsessfully.");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.WaitForDashboardToBeReadyAsync();
+                await _projectListPage.WaitForProjectDashboardIconsAsync();
+                await _projectListPage.ClickCompletedProjectButton();
+                await _projectListPage.ClickGatheringClientInfradata();
+                await _infrastructureUploadPage.VerifyClientInfradata();
+                await _infrastructureUploadPage.ViewActivityLog();
+                await _infrastructureUploadPage.ClickRandomUser();
+                await _basicSetup.RandomSelector();
+                Logger.Info("Selected random user succsessfully.");
+            }, nameof(TC_025_Select_Ramdon_User_In_Activity_log));
         }
 
+        [Trait("Category", "Regression")]
         [Fact]
-        [AllureOwner("TC_PROJECT_02")]
+        [AllureOwner("TC_026_Select_Ramdon_Status_In_Activity_log")]
         [AllureTag("Regression")]
-        public async Task TC_PROJECT_02_Select_Ramdon_Status_In_Activity_log()
+        public async Task TC_026_Select_Ramdon_Status_In_Activity_log()
         {
-            await _projectListPage.WaitForDashboardToBeReadyAsync();
-            await _projectListPage.WaitForProjectDashboardIconsAsync();
-            await _projectListPage.ClickGatheringClientInfradata();
-            await _infrastructureUploadPage.ViewActivityLog();
-            await _infrastructureUploadPage.ClickRandomStatus();
-            await _basicSetup.RandomSelector();
-
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_02_Select_Ramdon_Status_In_Activity_log");
-            Logger.Info("Selected random status (Pass/fail) successfully in recent activity");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.WaitForDashboardToBeReadyAsync();
+                await _projectListPage.WaitForProjectDashboardIconsAsync();
+                await _projectListPage.ClickCompletedProjectButton();
+                await _projectListPage.ClickGatheringClientInfradata();
+                await _infrastructureUploadPage.VerifyClientInfradata();
+                await _infrastructureUploadPage.ViewActivityLog();
+                await _infrastructureUploadPage.ClickRandomStatus();
+                await _basicSetup.RandomSelector();
+                Logger.Info("Selected random status (Pass/fail) successfully in recent activity");
+            }, nameof(TC_026_Select_Ramdon_Status_In_Activity_log));
         }
 
+        [Trait("Category", "Regression")]
         [Fact]
-        [AllureOwner("TC_PROJECT_03")]
+        [AllureOwner("TC_027_Select_Date_Rang_In_Activity_log")]
         [AllureTag("Regression")]
-        public async Task TC_PROJECT_03_Select_Date_Rang_In_Activity_log()
+        public async Task TC_027_Select_Date_Rang_In_Activity_log()
         {
-            await _projectListPage.WaitForDashboardToBeReadyAsync();
-            await _projectListPage.WaitForProjectDashboardIconsAsync();
-            await _projectListPage.ClickGatheringClientInfradata();
-            await _infrastructureUploadPage.ViewActivityLog();
-            await _infrastructureUploadPage.ClickDateRange();
-            await _basicSetup.SelectLast7DaysRangeAsync();
-
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_03_Select_Date_Rang_In_Activity_log");
-            Logger.Info("Slected random date range (from past 7 days) succsessfully in recent activity");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.WaitForDashboardToBeReadyAsync();
+                await _projectListPage.WaitForProjectDashboardIconsAsync();
+                await _projectListPage.ClickCompletedProjectButton();
+                await _projectListPage.ClickGatheringClientInfradata();
+                await _infrastructureUploadPage.VerifyClientInfradata();
+                await _infrastructureUploadPage.ViewActivityLog();
+                await _infrastructureUploadPage.ClickDateRange();
+                await _basicSetup.SelectLast7DaysRangeAsync();
+                Logger.Info("Slected random date range (from past 7 days) succsessfully in recent activity");
+            }, nameof(TC_027_Select_Date_Rang_In_Activity_log));
         }
 
+        [Trait("Category", "Regression")]
         [Fact]
-        [AllureOwner("TC_PROJECT_04")]
+        [AllureOwner("TC_028_Clear_All_Filter")]
         [AllureTag("Regression")]
-        public async Task TC_PROJECT_04_Clear_All_Filter()
+        public async Task TC_028_Clear_All_Filter()
         {
-            await _projectListPage.WaitForDashboardToBeReadyAsync();
-            await _projectListPage.WaitForProjectDashboardIconsAsync();
-            await _projectListPage.ClickGatheringClientInfradata();
-            await _infrastructureUploadPage.ViewActivityLog();
-            await _infrastructureUploadPage.ClickRandomUser();
-            await _basicSetup.RandomSelector();
-            await _infrastructureUploadPage.ClickRandomStatus();
-            await _basicSetup.RandomSelector();
-            await _infrastructureUploadPage.ClickDateRange();
-            await _basicSetup.SelectLast7DaysRangeAsync();
-            await Page.GetByRole(AriaRole.Button, new() { Name = "Clear Filters" }).ClickAsync();
-
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_04_Clear_All_Filter");
-            Logger.Info("Successfully cleared all the filter applied in recent activity log");
-
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.WaitForDashboardToBeReadyAsync();
+                await _projectListPage.WaitForProjectDashboardIconsAsync();
+                await _projectListPage.ClickCompletedProjectButton();
+                await _projectListPage.ClickGatheringClientInfradata();
+                await _infrastructureUploadPage.VerifyClientInfradata();
+                await _infrastructureUploadPage.ViewActivityLog();
+                await _infrastructureUploadPage.ClickRandomUser();
+                await _basicSetup.RandomSelector();
+                await _infrastructureUploadPage.ClickRandomStatus();
+                await _basicSetup.RandomSelector();
+                await _infrastructureUploadPage.ClickDateRange();
+                await _basicSetup.SelectLast7DaysRangeAsync();
+                await Page.GetByRole(AriaRole.Button, new() { Name = "Clear Filters" }).ClickAsync();
+                Logger.Info("Successfully cleared all the filter applied in recent activity log");
+            }, nameof(TC_028_Clear_All_Filter));
         }
 
+        [Trait("Category", "Regression")]
         [Fact]
-        [AllureOwner("TC_PROJECT_05")]
+        [AllureOwner("TC_029_Close_Recent_Activity_log")]
         [AllureTag("Regression")]
-        public async Task TC_PROJECT_Close_Recent_Activity_log()
+        public async Task TC_029_Close_Recent_Activity_log()
         {
-            await _projectListPage.WaitForDashboardToBeReadyAsync();
-            await _projectListPage.WaitForProjectDashboardIconsAsync();            
-            await _projectListPage.ClickGatheringClientInfradata();
-            await _infrastructureUploadPage.ViewActivityLog();
-            await Page.Locator(".d-flex.justify-space-between > .mud-button-root").ClickAsync();
-            await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Upload Infrastructure Data" })).ToBeVisibleAsync();
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.WaitForDashboardToBeReadyAsync();
+                await _projectListPage.WaitForProjectDashboardIconsAsync();
+                await _projectListPage.ClickCompletedProjectButton();
+                await _projectListPage.ClickGatheringClientInfradata();
+                await _infrastructureUploadPage.VerifyClientInfradata();
+                await _infrastructureUploadPage.ViewActivityLog();
+                await Page.Locator(".d-flex.justify-space-between > .mud-button-root").ClickAsync();
+                Logger.Info("Successfully cleared all the filter applied in recent activity log");
+            }, nameof(TC_029_Close_Recent_Activity_log));
+        }
 
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_PROJECT_Close_Recent_Activity_log");
-            Logger.Info("Successfully cleared all the filter applied in recent activity log");
+        [Trait("Category", "Regression")]
+        [Fact]
+        [AllureOwner("TC_030_Verify_file_type")]
+        [AllureTag("Regression")]
+        public async Task TC_030_Verify_file_type()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.WaitForDashboardToBeReadyAsync();
+                await _projectListPage.WaitForProjectDashboardIconsAsync();
+                await _projectListPage.ClickCompletedProjectButton();
+                await _projectListPage.ClickGatheringClientInfradata();
+                await _infrastructureUploadPage.HandleUploadedFileFlowAsync();
+                Logger.Info("Verifed the file type (SSOT/CMDB)");
+            }, nameof(TC_030_Verify_file_type));
+        }
+
+        [Trait("Category", "Regression")]
+        [Fact]
+        [AllureOwner("TC_031_View_SSOT_file")]
+        [AllureTag("Regression")]
+        public async Task TC_031_View_SSOT_file()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.WaitForDashboardToBeReadyAsync();
+                await _projectListPage.WaitForProjectDashboardIconsAsync();
+                await _projectListPage.ClickCompletedProjectButton();
+                await _projectListPage.ClickGatheringClientInfradata();
+                await _infrastructureUploadPage.SSOT_Data_Viewer();
+                await _infrastructureUploadPage.CloseDialog();
+                Logger.Info("SSOT data verified");
+            }, nameof(TC_031_View_SSOT_file));
+        }
+
+        [Trait("Category", "Regression")]
+        [Fact]
+        [AllureOwner("TC_032_View_Data_Quality_Report")]
+        [AllureTag("Regression")]
+        public async Task TC_032_View_Data_Quality_Report()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectListPage.WaitForDashboardToBeReadyAsync();
+                await _projectListPage.WaitForProjectDashboardIconsAsync();
+                await _projectListPage.ClickCompletedProjectButton();
+                await _projectListPage.ClickGatheringClientInfradata();
+                await _infrastructureUploadPage.Data_quality_report();
+                await _infrastructureUploadPage.CloseDataQualityReport();
+                Logger.Info("Verified Data Qaulity report");
+            }, nameof(TC_032_View_Data_Quality_Report));
         }
     }
 }

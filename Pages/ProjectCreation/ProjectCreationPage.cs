@@ -83,7 +83,6 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         }
         public async Task ClickBackToDashBoardButton()
         {
-            await _page.GetByText("Back to Dashboard").ClickAsync();
             await _page.GetByRole(AriaRole.Button).Filter(new() { HasTextRegex = new Regex("^$") }).Nth(3).ClickAsync();
         }
     }

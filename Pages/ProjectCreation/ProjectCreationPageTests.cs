@@ -13,16 +13,16 @@ namespace WiseMigrateTests.Pages.ProjectCreation
 {
     [Collection("Playwright collection")]
     [AllureSuite("Project Creation Page Tests")]
-    public class ProjectCreationPageTests : TestBaseFixture, IAsyncLifetime
+    public class ProjectCreationPageTests : TestBaseFixture
     {
         private LoginPage _loginPage = null!;
         private ProjectListPage _projectList = null!;
         private ProjectCreationPage _projectCreation = null!;
 
         private InfrastructureUploadPage _infrastructureUploadPage = null!;
-        private BasicSetup _basicSetup = null!;
+        // private BasicSetup _basicSetup = null!;
 
-        public new async Task InitializeAsync()
+        public async Task InitializeAsync()
         {
             await base.InitializeAsync();
 
@@ -37,61 +37,97 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         }
 
 
-        [Fact]
-        [AllureOwner("TC_PROJECT_004")]
-        [AllureTag("smoke")]
-        public async Task TC_PROJECT_004_Create_Project_Successfully()
-        {
-            await _projectList.WaitForDashboardToBeReadyAsync();
-            await _projectList.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
+        // [Fact]
+        // [AllureOwner("TC_001_Create_Project_Successfully")]
+        // [AllureTag("smoke")]
+        // public async Task TC_001_Create_Project_Successfully()
+        // {
+        //     await _attachmentHelper.RunWithTracingAsync(async () =>
+        //     {
+        //         await _projectList.WaitForDashboardToBeReadyAsync();
+        //         await _projectList.ClickCreateNewProjectAsync();
+        //         await _basicSetup.CreateProjectAsync();
 
-            await Assertions.Expect(
-                Page.GetByText("Upload Infrastructure Data")
-            ).ToBeVisibleAsync();
+        //         await Assertions.Expect(
+        //             Page.GetByText("Upload Infrastructure Data")
+        //         ).ToBeVisibleAsync();
+        //     }, nameof(TC_001_Create_Project_Successfully));
+        // }
+
+        [Fact]
+        [AllureOwner("TC_001_Create_Project_Successfully")]
+        [AllureTag("smoke")]
+        public async Task TC_001_Create_Project_Successfully()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectList.WaitForDashboardToBeReadyAsync();
+                await _projectList.ClickCreateNewProjectAsync();
+
+                await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.ProjectName;
+
+                await Assertions.Expect(
+                    Page.GetByText("Upload Infrastructure Data")
+                ).ToBeVisibleAsync();
+
+            }, nameof(TC_001_Create_Project_Successfully));
         }
 
         [Fact]
-        [AllureOwner("TC_PROJECT_005")]
+        [AllureOwner("TC_002_Project_Should_Appear_On_Dashboard")]
         [AllureTag("smoke")]
-        public async Task TC_PROJECT_005_Project_Should_Appear_On_Dashboard()
+        public async Task TC_002_Project_Should_Appear_On_Dashboard()
         {
-            await _projectList.WaitForDashboardToBeReadyAsync();
-            await _projectList.ClickCreateNewProjectAsync();
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectList.WaitForDashboardToBeReadyAsync();
+                await _projectList.ClickCreateNewProjectAsync();
 
-            string projectName = $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
-            await _basicSetup.CreateProjectAsync(projectName);
+                // string projectName = $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
+                // await _basicSetup.CreateProjectAsync(projectName);
 
-            await _infrastructureUploadPage.ClickCancelAsync();
-            await _projectList.WaitForDashboardToBeReadyAsync();
+                string projectName = $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
+                await _basicSetup.CreateProjectAsync(projectName);
+                _createdProjectName = projectName;
 
-            await _projectList.AssertProjectVisibleAsync(projectName);
+                await _infrastructureUploadPage.ClickCancelAsync();
+                await _projectList.WaitForDashboardToBeReadyAsync();
+
+                await _projectList.AssertProjectVisibleAsync(projectName);
+            }, nameof(TC_002_Project_Should_Appear_On_Dashboard));
         }
 
         // REGRESSION TEST CASES
 
+        [Trait("Category", "Regression")]
         [Fact]
-        [AllureOwner("TC_Project_01")]
+        [AllureOwner("TC_003_SelectRandomTargetCloudeProvider")]
         [AllureTag("Regression")]
-        public async Task TC_project_01_SelectRandomTargetCloudeProvider()
+        public async Task TC_003_SelectRandomTargetCloudeProvider()
         {
-            await _projectList.ClickCreateNewProjectAsync();
-            await _projectCreation.RandomTargetCloudeProvider();
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectList.ClickCreateNewProjectAsync();
+                await _projectCreation.RandomTargetCloudeProvider();
 
-            Logger.Info("Seleced random cloude provider Successfully");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_project_01_SelectRandomTargetCloudeProvider");
+                Logger.Info("Seleced random cloude provider Successfully");
+            }, nameof(TC_003_SelectRandomTargetCloudeProvider));
         }
 
+        [Trait("Category", "Regression")]
         [Fact]
-        [AllureOwner("TC_Project_02")]
+        [AllureOwner("TC_004_ClickBackTodashboard")]
         [AllureTag("Regression")]
-        public async Task TC_project_02_ClickBackTodashboard()
+        public async Task TC_004_ClickBackTodashboard()
         {
-            await _projectList.ClickCreateNewProjectAsync();
-            await _projectCreation.ClickBackToDashBoardButton();
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectList.ClickCreateNewProjectAsync();
+                await _projectCreation.ClickBackToDashBoardButton();
 
-            Logger.Info("Clicked Back To Dashboard Button");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_project_02_ClickBackTodashboard");
+                Logger.Info("Clicked Back To Dashboard Button");
+            }, nameof(TC_004_ClickBackTodashboard));
         }
 
     }

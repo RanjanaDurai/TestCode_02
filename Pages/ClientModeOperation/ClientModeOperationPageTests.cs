@@ -17,7 +17,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
 
         private ProjectListPage _projectList = null!;
 
-        private BasicSetup _basicSetup = null!;
+        // private BasicSetup _basicSetup = null!;
         private ClientModeOperationPage _cmoPage = null!;
 
         public async new Task InitializeAsync()
@@ -36,29 +36,31 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         }
 
         [Fact]
-        [AllureOwner("TC_CMO_001")]
+        [AllureOwner("TC_001_CMO_Page_UI_Should_Load")]
         [AllureTag("smoke")]
-        public async Task TC_CMO_001_CMO_Page_UI_Should_Load()
-        
+        public async Task TC_001_CMO_Page_UI_Should_Load()
         {
-            await _cmoPage.NavigateToCMOPageAsync();
-            await Assertions.Expect(Page.GetByText("Current Mode of Operation - Architectural View")).ToBeVisibleAsync();
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_CMO_001_CMO_Page_UI");
-            Logger.Info("CMO Page UI loaded successfully");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _cmoPage.NavigateToCMOPageAsync();
+                await Assertions.Expect(Page.GetByText("Current Mode of Operation - Architectural View")).ToBeVisibleAsync();
+                Logger.Info("CMO Page UI loaded successfully");
+            }, nameof(TC_001_CMO_Page_UI_Should_Load));
         }
 
         [Fact]
-        [AllureOwner("TC_CMO_001")]
+        [AllureOwner("TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons")]
         [AllureTag("smoke")]
-        public async Task TC_CMO_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons()
+        public async Task TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons()
         {
-            await _cmoPage.NavigateToCMOPageAsync();
-            //await Page.Locator("Current Mode of Operation - Architectural View").WaitForAsync();
-            await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).First).ToBeEnabledAsync();
-            await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).Last).ToBeEnabledAsync();
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_CMO_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons");
-            Logger.Info("CMO Page has clickable navigation buttons");
-        } 
-    
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _cmoPage.NavigateToCMOPageAsync();
+                //await Page.Locator("Current Mode of Operation - Architectural View").WaitForAsync();
+                await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).First).ToBeEnabledAsync();
+                await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).Last).ToBeEnabledAsync();
+                Logger.Info("CMO Page has clickable navigation buttons");
+            }, nameof(TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons));
+        }
     }
 }

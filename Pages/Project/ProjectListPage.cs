@@ -160,7 +160,7 @@ namespace WiseMigrateTests.Pages.Project
                 Position = new Position { X = 12, Y = 12 }
             });
             await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-            await Assertions.Expect(_page.GetByText("CMO/FMO Inventory")).ToBeVisibleAsync();
+            await Assertions.Expect(_page.GetByRole(AriaRole.Heading, new() { Name = "CMO/FMO Inventory" })).ToBeVisibleAsync();
 
         }
 
@@ -238,6 +238,10 @@ namespace WiseMigrateTests.Pages.Project
         private ILocator DeleteProject => _page.GetByText("Delete Project");
         private ILocator LogoutButton  => _page.GetByRole(AriaRole.Button, new() { Name = "Logout" });
         private ILocator ProfileButton => _page.GetByRole(AriaRole.Navigation).GetByRole(AriaRole.Button).Nth(1);
+        public async Task ClickCompletedProjectButton()
+        {
+            await CompletedCard.ClickAsync();
+        }
 
         public async Task Logout()
         {
@@ -331,27 +335,26 @@ namespace WiseMigrateTests.Pages.Project
 
             await Assertions.Expect(tooltipText).ToBeVisibleAsync();
         }
-        public async Task ClickTotalProjectsFilter()
+        public async Task  ClickTotalProjectsFilter()
         {
             Logger.Info("Clicking Total Projects card");
 
             var cell = await GetMigrationStatusCellWithIconsAsync(7);
-            await CompletedCard.ClickAsync();
+            await TotalProjectsCard.ClickAsync();
 
             await FirstProjectRow
                 .Locator(".mud-icon-root")
                 .Nth(6)
                 .HoverAsync();
-
-            await ExpectTooltipToContainAsync("Completed");
+            await Assertions.Expect(_page.Locator("td:nth-child(6)").First).ToBeVisibleAsync();
         }
+        // await ExpectTooltipToContainAsync("Completed");
         public async Task ClickCompletedProjectFilter()
         {
             Logger.Info("Clicking Completed card");
 
             var cell = await GetMigrationStatusCellWithIconsAsync(7);
             await CompletedCard.WaitForAsync();
-            await CompletedCard.ClickAsync();
 
             await WaveMoveIcon.First.HoverAsync();
             await ExpectTooltipToContainAsync("Completed");

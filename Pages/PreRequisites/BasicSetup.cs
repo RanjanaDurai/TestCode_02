@@ -21,7 +21,8 @@ namespace WiseMigrateTests.Pages.PreRequisites
         public string Username => WiseMigrateTests.Utils.ConfigReader.Get("Username");
         public string Password => WiseMigrateTests.Utils.ConfigReader.Get("Password");
 
-        public static string projectName=string.Empty;
+        // public static string projectName=string.Empty;
+        public string? ProjectName { get; private set; }
 
         public readonly IPlaywright playwright;
 
@@ -131,12 +132,24 @@ namespace WiseMigrateTests.Pages.PreRequisites
             });
         }
 
-        public async Task CreateProjectAsync( )
+        // public async Task CreateProjectAsync( )
+        // {
+        //     projectName= $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
+        //     var customerName = Utils.ConfigReader.GetProjectDetails("CustomerName");
+        //     var description = Utils.ConfigReader.GetProjectDetails("ProjectDescription");
+        //     await CreateProjectAsync( projectName, customerName, description);
+        // }
+
+        public async Task CreateProjectAsync()
         {
-            projectName= $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
+            ProjectName = $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
+            Logger.Info($"[CREATE] Created Project: {ProjectName}");
+
             var customerName = Utils.ConfigReader.GetProjectDetails("CustomerName");
             var description = Utils.ConfigReader.GetProjectDetails("ProjectDescription");
-            await CreateProjectAsync( projectName, customerName, description);
+
+            await CreateProjectAsync(ProjectName, customerName, description);
+            Logger.Info($"Created Project: {ProjectName}");
         }
 
         public async Task InfrastructureUploadPageSetupAsync()
@@ -155,23 +168,68 @@ namespace WiseMigrateTests.Pages.PreRequisites
 
         }
 
-        public async Task DeleteProjectAsync(string projectNameGlobal)
-        {
-            if(!string.IsNullOrEmpty(projectNameGlobal))             
-            {
-                var row = _page.Locator("tr").Filter(new() { Has = _page.GetByText(projectNameGlobal) });
-                var column =row.Locator("td[data-label='Actions']");
-                await column.ClickAsync();
-                var deleteButton = _page.Locator(".mud-list-item").GetByText("Delete Project").First;
-                await deleteButton.ClickAsync();
-                var element= _page.GetByRole(AriaRole.Dialog);
-                await element.GetByRole(AriaRole.Button, new() { Name = "Delete" }).ClickAsync();        
-            }
-            else
-            {
-                Logger.Info("Project name is null or empty. Skipping project deletion.");
-            }
-        }
+        // public async Task DeleteProjectAsync(string projectNameGlobal)
+        // {
+        //     if(!string.IsNullOrEmpty(projectNameGlobal))             
+        //     {
+        //         var row = _page.Locator("tr").Filter(new() { Has = _page.GetByText(projectNameGlobal) });
+        //         var column =row.Locator("td[data-label='Actions']");
+        //         await column.ClickAsync();
+        //         var deleteButton = _page.Locator(".mud-list-item").GetByText("Delete Project").First;
+        //         await deleteButton.ClickAsync();
+        //         var element= _page.GetByRole(AriaRole.Dialog);
+        //         await element.GetByRole(AriaRole.Button, new() { Name = "Delete" }).ClickAsync();        
+        //     }
+        //     else
+        //     {
+        //         Logger.Info("Project name is null or empty. Skipping project deletion.");
+        //     }
+        // }
+
+        public async Task DeleteProjectAsync(string projectName)
+{
+    if (string.IsNullOrWhiteSpace(projectName))
+    {
+        Logger.Info("[DELETE] Project name empty. Skipping deletion.");
+        return;
+    }
+
+    Logger.Info($"[DELETE] Attempting to delete: {projectName}");
+
+    await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+
+    var row = _page.Locator("tr")
+                   .Filter(new() { Has = _page.GetByText(projectName) });
+
+    if (await row.CountAsync() == 0)
+    {
+        Logger.Warn($"[DELETE] Project not found: {projectName}");
+        return;
+    }
+
+    var actionColumn = row.Locator("td[data-label='Actions']").First;
+
+    await actionColumn.WaitForAsync();
+    await actionColumn.ClickAsync();
+
+    var deleteButton = _page
+        .Locator(".mud-list-item")
+        .GetByText("Delete Project")
+        .First;
+
+    await deleteButton.WaitForAsync();
+    await deleteButton.ClickAsync();
+
+    var dialog = _page.GetByRole(AriaRole.Dialog);
+    await dialog.WaitForAsync();
+
+    await dialog.GetByRole(AriaRole.Button, new() { Name = "Delete" })
+                .ClickAsync();
+
+    await row.WaitForAsync(new() { State = WaitForSelectorState.Detached });
+
+    Logger.Info($"[DELETE] Successfully deleted: {projectName}");
+}
 
         private static readonly Random _random = new();
         public async Task RandomSelector()
@@ -191,10 +249,8 @@ namespace WiseMigrateTests.Pages.PreRequisites
 
             Logger.Info($"Selecting range: {startDate:dd MMM yyyy} - {today:dd MMM yyyy}");
 
-            // Select start date
             await SelectDateAsync(startDate);
 
-            // Select end date (today)
             await SelectDateAsync(today);
         }
 
@@ -202,7 +258,6 @@ namespace WiseMigrateTests.Pages.PreRequisites
         {
             string day = date.Day.ToString();
 
-            // If month not visible, navigate
             while (!await IsMonthVisibleAsync(date))
             {
                 if (date < DateTime.Today)

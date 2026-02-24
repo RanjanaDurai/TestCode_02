@@ -12,15 +12,15 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
 {
     [Collection("Playwright collection")]
     [AllureSuite("Future Mode Operation Tests")]
-    public class FutureModeOperationPageTests : TestBaseFixture, IAsyncLifetime
+    public class FutureModeOpertionPageTests : TestBaseFixture, IAsyncLifetime
     {
         private LoginPage _loginPage = null!;
         private ProjectListPage _projectList = null!;
-        private BasicSetup _basicSetup = null!;
+        // private BasicSetup _basicSetup = null!;
         private FutureModeOperationPage _fmoPage = null!;
-        private AttachmentHelper _attachmentHelper=null!;
+        // private AttachmentHelper _attachmentHelper=null!;
 
-        public async Task InitializeAsync()
+        public virtual async Task InitializeAsync()
         {
             await base.InitializeAsync();
             _attachmentHelper=new AttachmentHelper(Context);
@@ -39,31 +39,31 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         }
 
         [Fact]
-        [AllureOwner("TC_FMO_001")]
+        [AllureOwner("TC_001_FMO_Page_UI_Should_Load")]
         [AllureTag("smoke")]
-        public async Task TC_FMO_001_FMO_Page_UI_Should_Load()
+        public async Task TC_001_FMO_Page_UI_Should_Load()
         {
-            await _attachmentHelper.RunWithTracingAsync(async()=>
-            { 
-               await _fmoPage.NavigateToFMOPageAsync();
-               await Assertions.Expect(Page.GetByText("Future Mode of Operation - Architectural View")).ToBeVisibleAsync();
-               await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_FMO_001_FMO_Page_UI");
-               Logger.Info("FMO Page UI loaded successfully");
-            },nameof(TC_FMO_001_FMO_Page_UI_Should_Load));
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _fmoPage.NavigateToFMOPageAsync();
+                await Assertions.Expect(Page.GetByText("Future Mode of Operation - Architectural View")).ToBeVisibleAsync();
+                Logger.Info("FMO Page UI loaded successfully");
+            }, nameof(TC_001_FMO_Page_UI_Should_Load));
         }
 
         [Fact]
-        [AllureOwner("TC_FMO_002")]
+        [AllureOwner("TC_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons")]
         [AllureTag("smoke")]
-        public async Task TC_FMO_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons()
+        public async Task TC_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons()
         {
-            await _fmoPage.NavigateToFMOPageAsync();
-            await Assertions.Expect(Page.GetByText("Future Mode of Operation - Architectural View")).ToBeVisibleAsync();
-            await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).First).ToBeEnabledAsync();
-            await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).Last).ToBeEnabledAsync();
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_FMO_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons");
-            Logger.Info("FMO Page has clickable navigation buttons");
-        } 
-    
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _fmoPage.NavigateToFMOPageAsync();
+                await Assertions.Expect(Page.GetByText("Future Mode of Operation - Architectural View")).ToBeVisibleAsync();
+                await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).First).ToBeEnabledAsync();
+                await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).Last).ToBeEnabledAsync();
+                Logger.Info("FMO Page has clickable navigation buttons");
+            }, nameof(TC_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons));
+        }
     }
 }
