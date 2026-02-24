@@ -20,7 +20,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         private FutureModeOperationPage _fmoPage = null!;
         // private AttachmentHelper _attachmentHelper=null!;
 
-        public virtual async Task InitializeAsync()
+        public async Task InitializeAsync()
         {
             await base.InitializeAsync();
             _attachmentHelper=new AttachmentHelper(Context);

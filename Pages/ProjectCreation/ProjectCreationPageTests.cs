@@ -22,7 +22,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         private InfrastructureUploadPage _infrastructureUploadPage = null!;
         // private BasicSetup _basicSetup = null!;
 
-        public  async Task InitializeAsync()
+        public new async Task InitializeAsync()
         {
             await base.InitializeAsync();
 

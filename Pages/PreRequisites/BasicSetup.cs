@@ -13,7 +13,7 @@ namespace WiseMigrateTests.Pages.PreRequisites
     public class BasicSetup
     {
         private readonly IPage _page;
-         private readonly ProjectCreationPage _projectCreation;
+        private readonly ProjectCreationPage _projectCreation;
 
         private readonly InfrastructureUploadPage _infrastructureUploadPage;
         public string AppUrl => WiseMigrateTests.Utils.ConfigReader.Get("AppUrl");
@@ -187,49 +187,49 @@ namespace WiseMigrateTests.Pages.PreRequisites
         // }
 
         public async Task DeleteProjectAsync(string projectName)
-{
-    if (string.IsNullOrWhiteSpace(projectName))
-    {
-        Logger.Info("[DELETE] Project name empty. Skipping deletion.");
-        return;
-    }
+        {
+            if (string.IsNullOrWhiteSpace(projectName))
+            {
+                Logger.Info("[DELETE] Project name empty. Skipping deletion.");
+                return;
+            }
 
-    Logger.Info($"[DELETE] Attempting to delete: {projectName}");
+            Logger.Info($"[DELETE] Attempting to delete: {projectName}");
 
-    await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+            await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
 
-    var row = _page.Locator("tr")
-                   .Filter(new() { Has = _page.GetByText(projectName) });
+            var row = _page.Locator("tr")
+                        .Filter(new() { Has = _page.GetByText(projectName) });
 
-    if (await row.CountAsync() == 0)
-    {
-        Logger.Warn($"[DELETE] Project not found: {projectName}");
-        return;
-    }
+            if (await row.CountAsync() == 0)
+            {
+                Logger.Warn($"[DELETE] Project not found: {projectName}");
+                return;
+            }
 
-    var actionColumn = row.Locator("td[data-label='Actions']").First;
+            var actionColumn = row.Locator("td[data-label='Actions']").First;
 
-    await actionColumn.WaitForAsync();
-    await actionColumn.ClickAsync();
+            await actionColumn.WaitForAsync();
+            await actionColumn.ClickAsync();
 
-    var deleteButton = _page
-        .Locator(".mud-list-item")
-        .GetByText("Delete Project")
-        .First;
+            var deleteButton = _page
+                .Locator(".mud-list-item")
+                .GetByText("Delete Project")
+                .First;
 
-    await deleteButton.WaitForAsync();
-    await deleteButton.ClickAsync();
+            await deleteButton.WaitForAsync();
+            await deleteButton.ClickAsync();
 
-    var dialog = _page.GetByRole(AriaRole.Dialog);
-    await dialog.WaitForAsync();
+            var dialog = _page.GetByRole(AriaRole.Dialog);
+            await dialog.WaitForAsync();
 
-    await dialog.GetByRole(AriaRole.Button, new() { Name = "Delete" })
-                .ClickAsync();
+            await dialog.GetByRole(AriaRole.Button, new() { Name = "Delete" })
+                        .ClickAsync();
 
-    await row.WaitForAsync(new() { State = WaitForSelectorState.Detached });
+            await row.WaitForAsync(new() { State = WaitForSelectorState.Detached });
 
-    Logger.Info($"[DELETE] Successfully deleted: {projectName}");
-}
+            Logger.Info($"[DELETE] Successfully deleted: {projectName}");
+        }
 
         private static readonly Random _random = new();
         public async Task RandomSelector()
