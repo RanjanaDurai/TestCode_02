@@ -36,6 +36,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
             await _loginPage.ValidateMigrateAdminAccount(Page);
             await _projectListPage.ClickCreateNewProjectAsync();
             await _basicSetup.CreateProjectAsync();
+            _createdProjectName = _basicSetup.projectName;
         }
 
         [Fact]

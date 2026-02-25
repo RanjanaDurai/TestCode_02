@@ -29,6 +29,7 @@ namespace WiseMigrateTests.Pages.Project
             await _loginPage.ValidateMigrateAdminAccount(Page);
             await _projectListPage.ClickCreateNewProjectAsync();
             await _basicSetup.CreateProjectAsync();
+            _createdProjectName = _basicSetup.projectName;
 
             Logger.Info("Project dashboard ready for Project Actions tests");
         }

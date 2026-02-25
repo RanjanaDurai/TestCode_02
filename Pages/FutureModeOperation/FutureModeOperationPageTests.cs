@@ -16,9 +16,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
     {
         private LoginPage _loginPage = null!;
         private ProjectListPage _projectList = null!;
-        // private BasicSetup _basicSetup = null!;
         private FutureModeOperationPage _fmoPage = null!;
-        // private AttachmentHelper _attachmentHelper=null!;
 
         public async Task InitializeAsync()
         {
@@ -33,6 +31,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
             await _loginPage.ValidateMigrateAdminAccount(Page);
             await _projectList.ClickCreateNewProjectAsync();
             await _basicSetup.CreateProjectAsync();
+            _createdProjectName = _basicSetup.projectName;
 
             Logger.Info("Logged in as Super Admin and created a basic project");
 

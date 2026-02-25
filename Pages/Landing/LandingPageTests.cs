@@ -14,10 +14,7 @@ namespace WiseMigrateTests.Pages.Landing
     {
         private LandingPage _landingPage = null!;
         
-        private BasicSetup _setup=null!;
-
-        // private AttachmentHelper _attachmentHelper=null!;
-        
+        private BasicSetup _setup=null!;        
 
        public new async Task InitializeAsync()
         {

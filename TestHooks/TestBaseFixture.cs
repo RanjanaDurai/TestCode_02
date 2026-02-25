@@ -11,7 +11,7 @@ namespace WiseMigrateTests.TestHooks
         protected IPage Page { get; private set; } = null!;
         protected BasicSetup _basicSetup = null!;
         protected AttachmentHelper _attachmentHelper = null!;
-        protected string? _createdProjectName;
+        protected string? _createdProjectName;  
 
         public async Task InitializeAsync()
         {
@@ -42,125 +42,71 @@ namespace WiseMigrateTests.TestHooks
             }
         }
 
-        
         public async Task DisposeAsync()
         {
+            Console.WriteLine("DISPOSEASYNC STARTED");
+
             try
             {
-                Logger.Info($"[DISPOSE] Starting cleanup for: {_createdProjectName}");
+                
+                string projectToDelete = _createdProjectName ?? _basicSetup?.projectName ?? string.Empty;
 
-                if (Context != null)
+                if (string.IsNullOrEmpty(projectToDelete))
                 {
-                    if (!string.IsNullOrEmpty(_createdProjectName))
+                }
+                else if (Context != null)
+                {
+                    IPage? cleanupPage = null;
+                    try
                     {
-                        var cleanupPage = await Context.NewPageAsync();
+                        cleanupPage = await Context.NewPageAsync();
 
-                        try
+                        await cleanupPage.GotoAsync(_basicSetup.AppUrl + "/projects", new()
                         {
-                            await cleanupPage.GotoAsync(
-                                _basicSetup.AppUrl + "/projects",
-                                new() { WaitUntil = WaitUntilState.NetworkIdle });
+                            WaitUntil = WaitUntilState.NetworkIdle,
+                            Timeout = 60000
+                        });
 
-                            var cleanupSetup = new BasicSetup(cleanupPage);
-
-                            await cleanupSetup.DeleteProjectAsync(_createdProjectName);
-                        }
-                        catch (Exception ex)
+                        await cleanupPage.WaitForSelectorAsync("text=Project Dashboard", new()
                         {
-                            Logger.Warn($"[DISPOSE] Cleanup failed: {ex.Message}");
+                            Timeout = 45000
+                        });
+
+                        var cleanupSetup = new BasicSetup(cleanupPage);
+
+                        bool deleted = false;
+                        for (int attempt = 1; attempt <= 3 && !deleted; attempt++)
+                        {
+                            await cleanupSetup.DeleteProjectAsync(projectToDelete);
+                            deleted = true;
                         }
-                        finally
+
+                        if (!deleted)
+                        {
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                    finally
+                    {
+                        if (cleanupPage != null)
                         {
                             await cleanupPage.CloseAsync();
                         }
                     }
-
-                    await Context.CloseAsync();
                 }
 
-                Logger.Info("[DISPOSE] Context closed successfully.");
+                if (Context != null)
+                {
+                    await Context.CloseAsync();
+                }
             }
             catch (Exception ex)
             {
-                Logger.Warn($"[DISPOSE] Dispose error: {ex.Message}");
             }
         }
     }
 }
 
 
-
-// main
-// using Microsoft.Playwright;
-// using WiseMigrateTests.Pages.PreRequisites;
-// using WiseMigrateTests.TestHooks;
-// using Xunit;
-
-// namespace WiseMigrateTests.TestHooks
-// {
-    
-//     public class TestBaseFixture : IClassFixture<GlobalTestFixture>, IAsyncLifetime
-//     {
-//         protected IBrowserContext Context { get; private set; } = null!;
-//         protected IPage Page { get; private set; } = null!;
-//         protected BasicSetup _basicSetup= null!;
-
-         
-
-//         public async Task InitializeAsync()
-//         {
-//             Context = await GlobalTestFixture.Browser!.NewContextAsync();
-//             Page = await Context.NewPageAsync();
-//             _basicSetup = new BasicSetup(Page);
-//         }
-
-//         public async Task DisposeAsync()
-//         {   
-//                 await Page.GotoAsync(_basicSetup.AppUrl + "/projects");
-//                 var projectName=BasicSetup.projectName;
-//                 await _basicSetup.DeleteProjectAsync(projectName);
-//                 await Context.CloseAsync();
-//         }
-
-        
-//     }
-// }
-
-// public async Task DisposeAsync()
-        // {
-        //     try
-        //     {
-        //         await Context.CloseAsync();
-        //     }
-        //     catch
-        //     {
-        //         // ignore cleanup errors
-        //     }
-        // }
-
-
-    //     public async Task DisposeAsync()
-    //     {
-    //         try
-    //         {
-    //             if (_basicSetup != null && !string.IsNullOrEmpty(BasicSetup.projectName))
-    //             {
-    //                 await Page.GotoAsync(_basicSetup.AppUrl + "/projects");
-    //                 await _basicSetup.DeleteProjectAsync(BasicSetup.projectName);
-    //             }
-    //         }
-    //         catch (Exception ex)
-    //         {
-    //             Logger.Warn($"Cleanup failed: {ex.Message}");
-    //         }
-    //         finally
-    //         {
-    //             try
-    //             {
-    //                 await Context.CloseAsync();
-    //             }
-    //             catch { }
-    //         }
-    //     }
-    // }
-// }

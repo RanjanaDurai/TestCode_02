@@ -20,7 +20,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         private ProjectCreationPage _projectCreation = null!;
 
         private InfrastructureUploadPage _infrastructureUploadPage = null!;
-        // private BasicSetup _basicSetup = null!;
+        private BasicSetup _basicSetup = null!;
 
         public new async Task InitializeAsync()
         {
@@ -37,23 +37,6 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         }
 
 
-        // [Fact]
-        // [AllureOwner("TC_001_Create_Project_Successfully")]
-        // [AllureTag("smoke")]
-        // public async Task TC_001_Create_Project_Successfully()
-        // {
-        //     await _attachmentHelper.RunWithTracingAsync(async () =>
-        //     {
-        //         await _projectList.WaitForDashboardToBeReadyAsync();
-        //         await _projectList.ClickCreateNewProjectAsync();
-        //         await _basicSetup.CreateProjectAsync();
-
-        //         await Assertions.Expect(
-        //             Page.GetByText("Upload Infrastructure Data")
-        //         ).ToBeVisibleAsync();
-        //     }, nameof(TC_001_Create_Project_Successfully));
-        // }
-
         [Fact]
         [AllureOwner("TC_001_Create_Project_Successfully")]
         [AllureTag("smoke")]
@@ -63,14 +46,12 @@ namespace WiseMigrateTests.Pages.ProjectCreation
             {
                 await _projectList.WaitForDashboardToBeReadyAsync();
                 await _projectList.ClickCreateNewProjectAsync();
-
                 await _basicSetup.CreateProjectAsync();
-                _createdProjectName = _basicSetup.ProjectName;
+                _createdProjectName = _basicSetup.projectName;
 
                 await Assertions.Expect(
                     Page.GetByText("Upload Infrastructure Data")
                 ).ToBeVisibleAsync();
-
             }, nameof(TC_001_Create_Project_Successfully));
         }
 
@@ -86,6 +67,8 @@ namespace WiseMigrateTests.Pages.ProjectCreation
 
                 string projectName = $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
                 await _basicSetup.CreateProjectAsync(projectName);
+
+                _createdProjectName = projectName;   
 
                 await _infrastructureUploadPage.ClickCancelAsync();
                 await _projectList.WaitForDashboardToBeReadyAsync();

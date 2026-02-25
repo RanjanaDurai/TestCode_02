@@ -19,7 +19,6 @@ namespace WiseMigrateTests.Utils
             var projectRoot = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", ".."));
             var configPath = Path.Combine(projectRoot, "Config", "appsettings.json");
 
-            Console.WriteLine($"[ConfigReader] Looking for config at: {configPath}");
 
             if (!File.Exists(configPath))
             {
@@ -41,7 +40,6 @@ namespace WiseMigrateTests.Utils
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[ConfigReader] FAILED to load config: {ex.Message}");
                 throw;
             }
         }

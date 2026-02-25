@@ -16,8 +16,6 @@ namespace WiseMigrateTests.Utils
         public async Task StartTracingForTestAsync(string testName)
         {
             _currentTracePath = Path.Combine("traces", $"trace-{testName}-{DateTime.Now:yyyyMMdd_HHmmss}.zip");
-            Console.WriteLine($"[AttachmentHelper] Tracing started at : {_currentTracePath}");
-
             await _context.Tracing.StartAsync(new TracingStartOptions
             {
                 Screenshots = true,
@@ -42,8 +40,6 @@ namespace WiseMigrateTests.Utils
                     Path = _currentTracePath
                 });
 
-                Console.WriteLine($"[AttachmentHelper] Attempting to assign Path value to : {Path.GetFullPath(_currentTracePath)}");
-
                 Logger.Info($"Tracing STOPPED. Expected file: {Path.GetFullPath(_currentTracePath)}");
 
                 //if (!testFailed)
@@ -59,7 +55,6 @@ namespace WiseMigrateTests.Utils
                         );
 
                         Logger.Info($"Trace file attached to Allure report: {Path.GetFullPath(_currentTracePath)}");
-                        Console.WriteLine($"Trace file attached to Allure report: {Path.GetFullPath(_currentTracePath)}");
                     }
                     else
                     {

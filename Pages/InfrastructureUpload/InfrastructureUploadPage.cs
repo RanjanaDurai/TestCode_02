@@ -82,8 +82,6 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
                     await _page.SetInputFilesAsync("input[id='appFileInput']", appTemplateFile);
                     break;
             }         
-            
-
         }
 
         public async Task ClickVerifyButtonAsync()

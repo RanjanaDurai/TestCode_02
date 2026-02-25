@@ -17,7 +17,6 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
 
         private ProjectListPage _projectList = null!;
 
-        // private BasicSetup _basicSetup = null!;
         private ClientModeOperationPage _cmoPage = null!;
 
         public async new Task InitializeAsync()
@@ -32,6 +31,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
             await _loginPage.ValidateMigrateAdminAccount(Page);
             await _projectList.ClickCreateNewProjectAsync();
             await _basicSetup.CreateProjectAsync();
+            _createdProjectName = _basicSetup.projectName;
             Logger.Info("Logged in as Super Admin and created a basic project");
         }
 

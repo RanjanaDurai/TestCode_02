@@ -39,6 +39,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await Assertions.Expect(Page.GetByText("Upload Infrastructure Data")).ToBeVisibleAsync();
                 Logger.Info("Upload Infrastructure page loaded");
             }, nameof(TC_006_Upload_Infrastructure_Page_Should_Load));
@@ -53,6 +56,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 //await _infrastructureUploadPage.NavigateToInfrastructureUploadPageAsync();
                 await _infrastructureUploadPage.selectRadioButtonAsync("No");
                 await _infrastructureUploadPage.ClickNextAsync();
@@ -70,6 +74,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.selectRadioButtonAsync("Yes");
                 await _infrastructureUploadPage.ClickNextAsync();
                 await Assertions.Expect(Page.GetByText("SSOT Data Upload")).ToBeVisibleAsync();
@@ -86,6 +91,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.ClickCancelAsync();
                 await Assertions.Expect(Page.GetByText("Project Dashboard")).ToBeVisibleAsync();
                 Logger.Info("Cancelled Infrastructure Upload operation.");
@@ -101,6 +107,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(5);
                 await Assertions.Expect(Page.GetByText("Overall Validation Status: Valid")).ToBeVisibleAsync();
@@ -119,6 +126,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(3);
                 await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -159,6 +167,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(5);
                 await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -181,6 +190,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(5);
                 await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -210,6 +220,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(5);
                 await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -238,6 +249,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
+                await _projectListPage.ClickCreateNewProjectAsync();
+                await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(5);
                 await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -267,6 +281,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(5);
                 await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -298,6 +313,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.SSOTUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(5);
                 await Assertions.Expect(Page.GetByText("Overall Validation Status: Valid")).ToBeVisibleAsync();
@@ -316,6 +332,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.SSOTUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(3);
                 await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -353,8 +370,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _projectListPage.ClickCreateNewProjectAsync();
+               await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.SSOTUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(5);
                 await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -377,6 +395,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.SSOTUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(5);
                 await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -401,6 +420,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;;
                 await _infrastructureUploadPage.SSOTUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(5);
                 await _infrastructureUploadPage.ClickVerifyButtonAsync();
@@ -427,6 +447,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             {
                 await _projectListPage.ClickCreateNewProjectAsync();
                 await _basicSetup.CreateProjectAsync();
+                _createdProjectName = _basicSetup.projectName;
                 await _infrastructureUploadPage.InfrastructureUploadOperationAsync();
                 await _basicSetup.WaitForPageAsync(5);
                 await _infrastructureUploadPage.ClickVerifyButtonAsync();
