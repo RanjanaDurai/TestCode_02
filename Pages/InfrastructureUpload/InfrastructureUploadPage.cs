@@ -185,6 +185,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
         public async Task ClickRandomUser()
         {
+            await Assertions.Expect(_page.Locator(".mud-paper.mud-elevation-0").First).ToBeVisibleAsync();
             await _page.GetByRole(AriaRole.Textbox, new() { Name = "User" }).ClickAsync();
         }
         public async Task ViewActivityLog()

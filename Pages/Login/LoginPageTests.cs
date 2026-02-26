@@ -65,7 +65,7 @@ namespace WiseMigrateTests.Pages.Login
                     .ToHaveURLAsync(WiseMigrateTests.Utils.ConfigReader.Get("LoginPageUrl"));
                 await _loginPage.ValidateEmptyUserName(Page);
                 await _setup.WaitForPageAsync(3);
-                await Assertions.Expect(Page).ToHaveTitleAsync("Login123");
+                await Assertions.Expect(Page).ToHaveTitleAsync("Login");
                 Logger.Info("TC_LOGIN_03: Login with empty username unsuccessful.");
             }, nameof(TC_003_Validate_Empty_UserName_Field));
         }
