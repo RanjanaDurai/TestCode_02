@@ -16,8 +16,6 @@ namespace WiseMigrateTests.Utils
         public async Task StartTracingForTestAsync(string testName)
         {
             _currentTracePath = Path.Combine("traces", $"trace-{testName}-{DateTime.Now:yyyyMMdd_HHmmss}.zip");
-            Console.WriteLine($"[AttachmentHelper] Tracing started at : {_currentTracePath}");
-
             await _context.Tracing.StartAsync(new TracingStartOptions
             {
                 Screenshots = true,
@@ -42,8 +40,6 @@ namespace WiseMigrateTests.Utils
                     Path = _currentTracePath
                 });
 
-                Console.WriteLine($"[AttachmentHelper] Attempting to assign Path value to : {Path.GetFullPath(_currentTracePath)}");
-
                 Logger.Info($"Tracing STOPPED. Expected file: {Path.GetFullPath(_currentTracePath)}");
 
                 //if (!testFailed)
@@ -59,7 +55,6 @@ namespace WiseMigrateTests.Utils
                         );
 
                         Logger.Info($"Trace file attached to Allure report: {Path.GetFullPath(_currentTracePath)}");
-                        Console.WriteLine($"Trace file attached to Allure report: {Path.GetFullPath(_currentTracePath)}");
                     }
                     else
                     {
@@ -93,6 +88,7 @@ namespace WiseMigrateTests.Utils
                 catch { }
             }
         }
+
         public async Task RunWithTracingAsync(Func<Task> testAction, string testName)
         {
             bool failed = false;
@@ -100,23 +96,91 @@ namespace WiseMigrateTests.Utils
             try
             {
                 await StartTracingForTestAsync(testName);
+
                 await testAction();
+
+                // Screenshot for PASSED test
+                try
+                {
+                    var page = _context.Pages.FirstOrDefault();
+                    if (page != null)
+                    {
+                        await ScreenshotHelper.TakeScreenshotAsync(page, testName, "PASSED");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.Warn($"Screenshot (PASS) failed: {ex.Message}");
+                }
             }
             catch (Exception ex)
             {
                 failed = true;
+
                 Logger.Error($"Test '{testName}' failed: {ex.Message}");
-                throw;  // Re-throw to mark test as failed in xUnit
+
+                // Screenshot for FAILED test
+                try
+                {
+                    var page = _context.Pages.FirstOrDefault();
+                    if (page != null)
+                    {
+                        await ScreenshotHelper.TakeScreenshotAsync(page, testName, "FAILED");
+                    }
+                }
+                catch (Exception screenshotEx)
+                {
+                    Logger.Warn($"Screenshot (FAIL) failed: {screenshotEx.Message}");
+                }
+
+                throw; // Important
             }
             finally
             {
                 await StopAndAttachTraceIfFailedAsync(failed, testName);
             }
         }
+        // public async Task RunWithTracingAsync(Func<Task> testAction, string testName)
+        // {
+        //     bool failed = false;
+
+        //     try
+        //     {
+        //         await StartTracingForTestAsync(testName);
+        //         await testAction();
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         failed = true;
+
+        //         Logger.Error($"Test '{testName}' failed: {ex.Message}");
+
+        //         //  TAKE SCREENSHOT ONLY WHEN FAILED
+        //         try
+        //         {
+        //             var page = _context.Pages.FirstOrDefault();
+        //             if (page != null)
+        //             {
+        //                 await ScreenshotHelper.TakeScreenshotAsync(page, testName, "FAILED");
+        //             }
+        //         }
+        //         catch (Exception screenshotEx)
+        //         {
+        //             Logger.Warn($"Screenshot capture failed: {screenshotEx.Message}");
+        //         }
+
+        //         throw; // VERY IMPORTANT
+        //     }
+        //     finally
+        //     {
+        //         await StopAndAttachTraceIfFailedAsync(failed, testName);
+        //     }
+        // }
 
         /// <summary>
         /// Alternative: Attach an existing screenshot file to Allure (for manual calls).
         /// </summary>
+        /// 
         public void AttachScreenshotToAllure(string screenshotPath, string testName)
         {
             if (File.Exists(screenshotPath))

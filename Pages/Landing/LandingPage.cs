@@ -17,7 +17,6 @@ namespace WiseMigrateTests.Pages.Landing
             _basicSetup = new BasicSetup(page);
         }
 
-        
         public async Task NavigateToLandingPageAsync()
         {
             await _page.GotoAsync(_basicSetup.AppUrl);

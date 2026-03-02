@@ -12,7 +12,7 @@ namespace WiseMigrateTests.Pages.Project
     [AllureSuite("Project Inventory Tests")]
     public class ProjectInventoryPageTests : TestBaseFixture, IAsyncLifetime
     {
-        private BasicSetup _basicSetup = null!;
+        // private BasicSetup _basicSetup = null!;
         private LoginPage _loginPage = null!;
         private ProjectListPage _projectListPage = null!;
         private ProjectInventoryPage _projectInventoryPage = null!;
@@ -29,6 +29,7 @@ namespace WiseMigrateTests.Pages.Project
             await _loginPage.ValidateMigrateAdminAccount(Page);
             await _projectListPage.ClickCreateNewProjectAsync();
             await _basicSetup.CreateProjectAsync();
+            _createdProjectName = _basicSetup.projectName;
 
             Logger.Info("Project dashboard ready for Project Actions tests");
         }
@@ -36,29 +37,37 @@ namespace WiseMigrateTests.Pages.Project
         public new Task DisposeAsync() => Task.CompletedTask;
 
         [Fact]
-        [AllureOwner("TC_Inventory_001")]
+        [AllureOwner("TC_001_Inventory_Page_Should_Load_Sucessfully")]
         [AllureTag("smoke")]
-        public async Task TC_Inventory_001_Inventory_Page_Should_Load_Sucessfully()
+        public async Task TC_001_Inventory_Page_Should_Load_Sucessfully()
         {
-            await _projectInventoryPage.NavigateToInventoryPageAsync();
-            await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "CMO/FMO Inventory" })).ToBeVisibleAsync();
-            await _basicSetup.WaitForPageAsync(2);
-            Logger.Info("TC_Inventory_001 completed successfully");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectInventoryPage.NavigateToInventoryPageAsync();
+                await Assertions.Expect(
+                    Page.GetByRole(AriaRole.Heading, new() { Name = "CMO/FMO Inventory" })
+                ).ToBeVisibleAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                Logger.Info("TC_Inventory_001 completed successfully");
+            }, nameof(TC_001_Inventory_Page_Should_Load_Sucessfully));
         }
 
         [Fact]
-        [AllureOwner("TC_Inventory_002")]
+        [AllureOwner("TC_002_Verify_Migration_Control_Center_Flow")]
         [AllureTag("smoke")]
-        public async Task TC_Inventory_002_Verify_Migration_Control_Center_Flow()
+        public async Task TC_002_Verify_Migration_Control_Center_Flow()
         {
-            Logger.Info("TC_Inventory_002 started");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _projectInventoryPage.NavigateToInventoryPageAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                await _projectInventoryPage.InitiateMigrationFromInventoryAsync();
+                await Assertions.Expect(
+                    Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Plan Tracking" })
+                ).ToBeVisibleAsync();
 
-            await _projectInventoryPage.NavigateToInventoryPageAsync();
-            await _basicSetup.WaitForPageAsync(2);
-            await _projectInventoryPage.InitiateMigrationFromInventoryAsync();
-            await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Plan Tracking" })).ToBeVisibleAsync();
-            Logger.Info("TC_Inventory_002 verification of Migration Control Center flow completed successfully");
-
+                Logger.Info("TC_Inventory_002 verification of Migration Control Center flow completed successfully");
+            }, nameof(TC_002_Verify_Migration_Control_Center_Flow));
         }
     }
 }

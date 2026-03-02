@@ -20,11 +20,9 @@ namespace WiseMigrateTests.Utils
             try
             {
                 Directory.CreateDirectory(ScreenshotDir);
-                Console.WriteLine($"[ScreenshotHelper] Folder ensured: {ScreenshotDir}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[ScreenshotHelper] FAILED to create folder: {ex.Message}");
                 throw;
             }
         }
@@ -56,7 +54,6 @@ namespace WiseMigrateTests.Utils
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[ScreenshotHelper] Warning: Could not clean old screenshots: {ex.Message}");
             }
             
 
@@ -80,9 +77,6 @@ namespace WiseMigrateTests.Utils
             {
                 try 
                 {
-                    
-                    Console.WriteLine($"[SCREENSHOT] Attaching full path: {fullAbsolutePath}");
-
                     AllureApi.AddAttachment(
                         $"{testName}.png",
                         "image/png",

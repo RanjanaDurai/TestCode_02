@@ -20,7 +20,6 @@ public static class FileUploadHelper
     {
         if (!Directory.Exists(directory))
         {
-           Console.WriteLine($"Directory not found: {directory}"); 
            throw new DirectoryNotFoundException($"Directory not found: {directory}");           
         }
             

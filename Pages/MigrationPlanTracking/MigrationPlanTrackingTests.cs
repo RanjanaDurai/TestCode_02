@@ -16,9 +16,9 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
 
         private ProjectListPage _projectListPage = null!;
 
-        private BasicSetup _basicSetup = null!;
+        // private BasicSetup _basicSetup = null!;
 
-        private  AttachmentHelper _attachmentHelper=null!;
+        // private  AttachmentHelper _attachmentHelper=null!;
         
 
         private MigrationPlanTrackingPage _migrationPlanTrackingPage = null!;
@@ -36,35 +36,41 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
             await _loginPage.ValidateMigrateAdminAccount(Page);
             await _projectListPage.ClickCreateNewProjectAsync();
             await _basicSetup.CreateProjectAsync();
+            _createdProjectName = _basicSetup.projectName;
         }
 
         [Fact]
-        [AllureOwner("TC_MigrationPlanTracking_001")]
+        [AllureOwner("TC_001_MigrationPlanTracking_Page_UI_Should_Load")]
         [AllureTag("smoke")]
-        public async Task TC_MigrationPlanTracking_001_MigrationPlanTracking_Page_UI_Should_Load()
+        public async Task TC_001_MigrationPlanTracking_Page_UI_Should_Load()
         {
-            await _attachmentHelper.RunWithTracingAsync( async()=>
+            await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _migrationPlanTrackingPage.NavigateToMigrationPlanTrackingAsync();
-                await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new(){Name = "Migration Plan Tracking"})).ToBeVisibleAsync();
+                await Assertions.Expect(
+                    Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Plan Tracking" })
+                ).ToBeVisibleAsync();
+
                 Logger.Info("Migration Plan Tracking page loaded");
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_MigrationPlanTracking_001_MigrationPlanTracking_Page_UI");
-            }, nameof(TC_MigrationPlanTracking_001_MigrationPlanTracking_Page_UI_Should_Load));
+            }, nameof(TC_001_MigrationPlanTracking_Page_UI_Should_Load));
         }
-        
+
         [Fact]
-        [AllureOwner("TC_MigrationPlanTracking_002")]
+        [AllureOwner("TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons")]
         [AllureTag("smoke")]
-        public async Task TC_MigrationPlanTracking_002_MigrationPlanTracking_Should_Have_Clickable_Buttons()
+        public async Task TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons()
         {
-            //await _migrationPlanTrackingPage.ClickViewPlanDetailsAsync();
-            await _migrationPlanTrackingPage.NavigateToMigrationPlanTrackingAsync();
-            await Page.WaitForSelectorAsync("table tbody tr");
-            var firstRow = Page.Locator("table tbody tr").First;
-            var viewPlanButton = firstRow.Locator("td:last-child button").First;
-            await Assertions.Expect(viewPlanButton).ToBeEnabledAsync();
-            Logger.Info("Migration Plan Tracking page has clickable buttons");
-            await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_MigrationPlanTracking_002_MigrationPlanTracking_Page_UI");
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationPlanTrackingPage.NavigateToMigrationPlanTrackingAsync();
+                await Page.WaitForSelectorAsync("table tbody tr");
+
+                var firstRow = Page.Locator("table tbody tr").First;
+                var viewPlanButton = firstRow.Locator("td:last-child button").First;
+
+                await Assertions.Expect(viewPlanButton).ToBeEnabledAsync();
+                Logger.Info("Migration Plan Tracking page has clickable buttons");
+            }, nameof(TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons));
         }
     }
 }

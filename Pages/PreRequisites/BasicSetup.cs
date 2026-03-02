@@ -4,6 +4,7 @@ using System.Text.Json;
 using WiseMigrateTests.Utils;
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Pages.ProjectCreation;
+using System.Text.RegularExpressions;
 using WiseMigrateTests.Pages.InfrastructureUpload;
 
 
@@ -12,7 +13,7 @@ namespace WiseMigrateTests.Pages.PreRequisites
     public class BasicSetup
     {
         private readonly IPage _page;
-         private readonly ProjectCreationPage _projectCreation;
+        private readonly ProjectCreationPage _projectCreation;
 
         private readonly InfrastructureUploadPage _infrastructureUploadPage;
         public string AppUrl => WiseMigrateTests.Utils.ConfigReader.Get("AppUrl");
@@ -20,10 +21,9 @@ namespace WiseMigrateTests.Pages.PreRequisites
         public string Username => WiseMigrateTests.Utils.ConfigReader.Get("Username");
         public string Password => WiseMigrateTests.Utils.ConfigReader.Get("Password");
 
-        public static string projectName=string.Empty;
-
+        // public static string projectName=string.Empty;  
+        public string projectName=string.Empty; 
         public readonly IPlaywright playwright;
-
         public WiseMigrateTests.Utils.ConfigReader.Credential defaultCredential=WiseMigrateTests.Utils.ConfigReader.GetCredential("standard_user");
 
         public BasicSetup(IPage page)
@@ -76,7 +76,6 @@ namespace WiseMigrateTests.Pages.PreRequisites
             Logger.Info($"Randomly selected from <select>: {randomOption}");
         
         }
-
         public async Task LoginAsync() => await LoginAsync(defaultCredential.Username, defaultCredential.Password);
 
         public async Task LoginAsync(string username, string password)
@@ -128,7 +127,7 @@ namespace WiseMigrateTests.Pages.PreRequisites
             {
                 Timeout = 60000
             });
-        }
+        }                                                       
 
         public async Task CreateProjectAsync( )
         {
@@ -153,23 +152,103 @@ namespace WiseMigrateTests.Pages.PreRequisites
             await _infrastructureUploadPage.ViewArchitectureAsync();
 
         }
-
         public async Task DeleteProjectAsync(string projectNameGlobal)
         {
-            if(!string.IsNullOrEmpty(projectNameGlobal))             
+            if (!string.IsNullOrEmpty(projectNameGlobal))
             {
-                var row = _page.Locator("tr").Filter(new() { Has = _page.GetByText(projectNameGlobal) });
-                var column =row.Locator("td[data-label='Actions']");
+                // Wait for table rows to load
+                await _page.WaitForSelectorAsync("tr", new() { Timeout = 30000 });
+
+                var row = _page.Locator("tr").Filter(new() { Has = _page.GetByText(projectNameGlobal, new() { Exact = true }) });  // Add Exact for reliability
+                await row.WaitForAsync(new() { Timeout = 10000 });
+
+                var column = row.Locator("td[data-label='Actions']");
                 await column.ClickAsync();
+
                 var deleteButton = _page.Locator(".mud-list-item").GetByText("Delete Project").First;
                 await deleteButton.ClickAsync();
-                var element= _page.GetByRole(AriaRole.Dialog);
-                await element.GetByRole(AriaRole.Button, new() { Name = "Delete" }).ClickAsync();        
+
+                var element = _page.GetByRole(AriaRole.Dialog);
+                await element.WaitForAsync(new() { Timeout = 10000 });
+                await element.GetByRole(AriaRole.Button, new() { Name = "Delete" }).ClickAsync();
+
+                await Assertions.Expect(_page.GetByText("Project deleted successfully")).ToBeVisibleAsync();
+
+                // Wait for deletion to complete (e.g., snackbar or reload)
+                await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
             }
             else
             {
                 Logger.Info("Project name is null or empty. Skipping project deletion.");
             }
+        }
+ 
+        // public async Task DeleteProjectAsync(string projectNameGlobal)
+        // {
+        //     if(!string.IsNullOrEmpty(projectNameGlobal))             
+        //     {
+        //         var row = _page.Locator("tr").Filter(new() { Has = _page.GetByText(projectNameGlobal) });
+        //         var column =row.Locator("td[data-label='Actions']");
+        //         await column.ClickAsync();
+        //         var deleteButton = _page.Locator(".mud-list-item").GetByText("Delete Project").First;
+        //         await deleteButton.ClickAsync();
+        //         var element= _page.GetByRole(AriaRole.Dialog);
+        //         await element.GetByRole(AriaRole.Button, new() { Name = "Delete" }).ClickAsync();        
+        //     }
+        //     else
+        //     {
+        //         Logger.Info("Project name is null or empty. Skipping project deletion.");
+        //     }
+        // }
+
+        private static readonly Random _random = new();
+        public async Task RandomSelector()
+        {
+            var options = _page.Locator(".mud-list-item:not(.mud-disabled)");
+            await options.First.WaitForAsync();
+            int count = await options.CountAsync();
+            await options.Nth(_random.Next(count)).ClickAsync();
+        }
+
+        private ILocator PreviousMonthButton =>_page.GetByRole(AriaRole.Button, new(){NameRegex = new Regex("^Previous month")});
+        private ILocator NextMonthButton =>_page.GetByRole(AriaRole.Button, new(){NameRegex = new Regex("^Next month")});
+        public async Task SelectLast7DaysRangeAsync()
+        {
+            var today = DateTime.Today;
+            var startDate = today.AddDays(-7);
+
+            Logger.Info($"Selecting range: {startDate:dd MMM yyyy} - {today:dd MMM yyyy}");
+
+            await SelectDateAsync(startDate);
+
+            await SelectDateAsync(today);
+        }
+
+        private async Task SelectDateAsync(DateTime date)
+        {
+            string day = date.Day.ToString();
+
+            while (!await IsMonthVisibleAsync(date))
+            {
+                if (date < DateTime.Today)
+                {
+                    await PreviousMonthButton.ClickAsync();
+                }
+                else
+                {
+                    await NextMonthButton.ClickAsync();
+                }
+
+                await _page.WaitForTimeoutAsync(300);
+            }
+            await _page.GetByRole(AriaRole.Button, new() { Name = day }).First.ClickAsync();
+        }
+
+        private async Task<bool> IsMonthVisibleAsync(DateTime date)
+        {
+            string monthYear = date.ToString("MMMM yyyy");
+
+            return await _page.GetByText(monthYear).IsVisibleAsync();
         }
     }
 }

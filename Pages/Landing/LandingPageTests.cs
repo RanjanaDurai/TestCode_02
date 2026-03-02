@@ -14,10 +14,7 @@ namespace WiseMigrateTests.Pages.Landing
     {
         private LandingPage _landingPage = null!;
         
-        private BasicSetup _setup=null!;
-
-        private AttachmentHelper _attachmentHelper=null!;
-        
+        private BasicSetup _setup=null!;        
 
        public new async Task InitializeAsync()
         {
@@ -30,88 +27,90 @@ namespace WiseMigrateTests.Pages.Landing
         }
     
     
-        
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
-        [AllureOwner("TC_NAV_01")]
+        [AllureOwner("TC_001_LandingPage_Should_Load_Successfully")]
         [AllureTag("smoke")]
         [Fact]
-        public async Task LandingPage_Should_Load_Successfully()
+        public async Task TC_001_LandingPage_Should_Load_Successfully()
         {
-            await _attachmentHelper.RunWithTracingAsync( async()=>
+            await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await Assertions.Expect(Page).ToHaveURLAsync(WiseMigrateTests.Utils.ConfigReader.Get("AppUrl"));
-                await _setup.WaitForPageAsync(2);            
+                await Assertions.Expect(Page)
+                    .ToHaveURLAsync(WiseMigrateTests.Utils.ConfigReader.Get("AppUrl"));
+                await _setup.WaitForPageAsync(2);
                 Logger.Info("TC_NAV_01 – Landing page loaded and URL verified");
-                await ScreenshotHelper.TakeScreenshotAsync(Page,"LandingPage_Should_Load_Successfully"); 
-            },nameof(LandingPage_Should_Load_Successfully));
+            }, nameof(TC_001_LandingPage_Should_Load_Successfully));
+        }
+
+        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
+        [AllureOwner("TC_002_LandingPage_Should_Have_Clickable_Buttons")]
+        [AllureTag("smoke")]
+        [Fact]
+        public async Task TC_002_LandingPage_Should_Have_Clickable_Buttons()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await Assertions.Expect(Page)
+                    .ToHaveURLAsync(WiseMigrateTests.Utils.ConfigReader.Get("AppUrl"));
+                await _setup.WaitForPageAsync(3);
+
+                if (Page.Locator("text=Generate Migration Plan for Your Enterprise") != null &&
+                    Page.Locator("text=Start Your Migration Assessment") != null)
+                {
+                    Logger.Info("TC_NAV_02 – Both CTA buttons are visible and enabled");
+                }
+            }, nameof(TC_002_LandingPage_Should_Have_Clickable_Buttons));
+        }
+
+        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
+        [AllureOwner("TC_003_Click_GenerateMigrationPlan_Button_Should_Navigate_Correctly")]
+        [AllureTag("smoke")]
+        [Fact]
+        public async Task TC_003_Click_GenerateMigrationPlan_Button_Should_Navigate_Correctly()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _landingPage.ClickGenerateMigrationPlanAsync();
+                await _setup.WaitForPageAsync(2);
+                await Assertions.Expect(Page)
+                    .ToHaveURLAsync(new Regex(@"/.*Account/Login.*", RegexOptions.IgnoreCase));
+
+                Logger.Info("TC_NAV_03 – Successfully navigated to login via Generate Migration Plan");
+            }, nameof(TC_003_Click_GenerateMigrationPlan_Button_Should_Navigate_Correctly));
+        }
+
+        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
+        [AllureOwner("TC_004_Click_StartMigrationAssessment_Button_Should_Navigate_Correctly")]
+        [AllureTag("smoke")]
+        [Fact]
+        public async Task TC_004_Click_StartMigrationAssessment_Button_Should_Navigate_Correctly()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _landingPage.ClickMigrationAssessmentAsync();
+                await _setup.WaitForPageAsync(2);
+                await Assertions.Expect(Page)
+                    .ToHaveURLAsync(new Regex(@"/.*Account/Login.*", RegexOptions.IgnoreCase));
+
+                Logger.Info("TC_NAV_04 – Successfully navigated to login via Start Migration Assessment");
+            }, nameof(TC_004_Click_StartMigrationAssessment_Button_Should_Navigate_Correctly));
         }
 
         /*
         [Fact]
         [Trait("Category", "UI")]
         public async Task LandingPage_Should_Have_Logo()
-        {
-            await Assertions.Expect(Page).ToHaveURLAsync(ConfigReader.Get("AppUrl"));
-            await _setup.WaitForPageAsync(5);
-            var logo = Page.Locator("img[alt='/.*Wise.*Migrate.*Icon/i']");
-            await Assertions.Expect(logo).ToBeVisibleAsync();
-            await ScreenshotHelper.TakeScreenshotAsync(Page, nameof(LandingPage_Should_Have_Logo), "LogoVisible");
-            Logger.Info("Company logo is visible on landing page");
+        {   
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await Assertions.Expect(Page).ToHaveURLAsync(ConfigReader.Get("AppUrl"));
+                await _setup.WaitForPageAsync(5);
+                var logo = Page.Locator("img[alt='/.*Wise.*Migrate.*Icon/i']");
+                await Assertions.Expect(logo).ToBeVisibleAsync();
+                Logger.Info("Company logo is visible on landing page");
+            }, nameof(LandingPage_Should_Have_Logo));
+
         }
         */
-
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
-        [AllureOwner("TC_NAV_02")]
-        [AllureTag("smoke")]   
-        [Fact]     
-        public async Task LandingPage_Should_Have_Clickable_Buttons()
-        {
-            await Assertions.Expect(Page).ToHaveURLAsync(WiseMigrateTests.Utils.ConfigReader.Get("AppUrl"));
-            await _setup.WaitForPageAsync(3);
-
-            //await Assertions.Expect(Page.Locator("text=Generate Migration Plan for Your Enterprise").First).ToBeVisibleAsync();
-            //await Assertions.Expect(Page.Locator("text=Start Your Migration Assessment").First).ToBeVisibleAsync();
-            if( Page.Locator("text=Generate Migration Plan for Your Enterprise")!=null &&
-                 Page.Locator("text=Start Your Migration Assessment")!=null)
-            {
-                Logger.Info("TC_NAV_02 – Both CTA buttons are visible and enabled");
-            }
-            await ScreenshotHelper.TakeScreenshotAsync(Page, nameof(LandingPage_Should_Have_Clickable_Buttons));
-            
-        }
-
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
-        [AllureOwner("TC_NAV_03")]
-        [AllureTag("smoke")]
-        [Fact]
-        public async Task Click_GenerateMigrationPlan_Button_Should_Navigate_Correctly()
-        {
-            await _landingPage.ClickGenerateMigrationPlanAsync();
-            await _setup.WaitForPageAsync(2);
-            await Assertions.Expect(Page).ToHaveURLAsync(new Regex(@"/.*Account/Login.*", RegexOptions.IgnoreCase));
-            await ScreenshotHelper.TakeScreenshotAsync(
-                Page, 
-                nameof(Click_GenerateMigrationPlan_Button_Should_Navigate_Correctly), 
-                "AfterClick");
-
-            Logger.Info("TC_NAV_03 – Successfully navigated to login via Generate Migration Plan");
-        }
-
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
-        [AllureOwner("TC_NAV_04")]
-        [AllureTag("smoke")]
-        [Fact]
-        public async Task Click_StartMigrationAssessment_Button_Should_Navigate_Correctly()
-        {
-            await _landingPage.ClickMigrationAssessmentAsync(); 
-            await _setup.WaitForPageAsync(2);
-            await Assertions.Expect(Page).ToHaveURLAsync(new Regex(@"/.*Account/Login.*", RegexOptions.IgnoreCase));
-            await ScreenshotHelper.TakeScreenshotAsync(
-                Page, 
-                nameof(Click_StartMigrationAssessment_Button_Should_Navigate_Correctly), 
-                "AfterClick");
-
-            Logger.Info("TC_NAV_04 – Successfully navigated to login via Start Migration Assessment");
-        }
     }
 }
