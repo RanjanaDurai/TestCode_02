@@ -40,7 +40,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         [Fact]
         [Trait("Category", "Smoke")]
         [AllureOwner("TC_001_Create_Project_Successfully")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_001_Create_Project_Successfully()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -59,7 +59,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         [Fact]
         [Trait("Category", "Smoke")]
         [AllureOwner("TC_002_Project_Should_Appear_On_Dashboard")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_002_Project_Should_Appear_On_Dashboard()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -78,7 +78,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
             }, nameof(TC_002_Project_Should_Appear_On_Dashboard));
         }
 
-        // REGRESSION TEST CASES
+        // Regression TEST CASES
 
         [Fact]
         [Trait("Category", "Regression")]

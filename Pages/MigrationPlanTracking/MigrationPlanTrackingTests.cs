@@ -32,9 +32,9 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         }
 
         [Fact]
-        [Trait("Category", "smoke")]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_001_MigrationPlanTracking_Page_UI_Should_Load")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_001_MigrationPlanTracking_Page_UI_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -50,9 +50,9 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         }
 
         [Fact]
-        [Trait("Category", "smoke")]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>

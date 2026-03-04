@@ -40,7 +40,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Smoke")]
         [AllureOwner("TC_001_FMO_Page_UI_Should_Load")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_001_FMO_Page_UI_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -54,7 +54,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Smoke")]
         [AllureOwner("TC_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -67,12 +67,12 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
             }, nameof(TC_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons));
         }
 
-        // REGRESSION TEST 
+        // Regression TEST 
 
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_003_FMO_Zoom_In_Should_Work")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_003_FMO_Zoom_In_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -91,7 +91,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_004_FMO_Zoom_Out_Should_Work")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_004_FMO_Zoom_Out_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -109,7 +109,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_005_FMO_Reset_Zoom_Should_Work")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_005_FMO_Reset_Zoom_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -127,7 +127,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_006_FMO_Show_Legend_Should_Open")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_006_FMO_Show_Legend_Should_Open()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -145,7 +145,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_007_FMO_Close_Legend_Should_Work")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_007_FMO_Close_Legend_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -162,7 +162,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_008_FMO_Search_Box_Should_Open")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_008_FMO_Search_Box_Should_Open()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -180,7 +180,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_009_FMO_Search_Should_Accept_Input")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_009_FMO_Search_Should_Accept_Input()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -199,7 +199,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_010_FMO_View_Migration_Cost_Should_Open_Modal")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_010_FMO_View_Migration_Cost_Should_Open_Modal()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -217,7 +217,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_011_FMO_One_Year_Reserved_Should_Work")]
-        [AllureTag("sregression")]
+        [AllureTag("sRegression")]
         public async Task TC_011_FMO_One_Year_Reserved_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -236,7 +236,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_012_FMO_Three_Year_Reserved_Should_Work")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_012_FMO_Three_Year_Reserved_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -255,7 +255,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_013_FMO_Close_Migration_Cost_Should_Work")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_013_FMO_Close_Migration_Cost_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -274,7 +274,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_014_FMO_Export_To_Excel_Should_Work")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_014_FMO_Export_To_Excel_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -291,7 +291,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_015_FMO_Sync_Data_Should_Work")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_015_FMO_Sync_Data_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -308,7 +308,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_016_FMO_Select_Time_Period_Should_Work")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_016_FMO_Select_Time_Period_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -329,7 +329,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_017_FMO_Fullscreen_Should_Activate")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_017_FMO_Fullscreen_Should_Activate()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -346,7 +346,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_018_FMO_Fullscreen_Should_Exit_On_ESC")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_018_FMO_Fullscreen_Should_Exit_On_ESC()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -365,7 +365,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_019_FMO_Search_And_Select_Random_Server_Should_Work")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_019_FMO_Search_And_Select_Random_Server_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -393,7 +393,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         [Fact]
         [Trait("Category", "Regression")]
         [AllureOwner("TC_020_FMO_Search_Invalid_Value_Should_Show_No_Results")]
-        [AllureTag("regression")]
+        [AllureTag("Regression")]
         public async Task TC_020_FMO_Search_Invalid_Value_Should_Show_No_Results()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>

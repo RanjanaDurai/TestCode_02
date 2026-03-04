@@ -37,7 +37,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         }
 
 
-        //  REGRESSION TEST 
+        //  Regression TEST 
 
         public ILocator Diagram => _page.Locator("#diagram");
 

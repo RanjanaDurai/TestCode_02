@@ -49,7 +49,7 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
         //     await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
         // }
 
-        // REGRESSION TEST CASES 
+        // Regression TEST CASES 
 
         public ILocator GoToInventoryButton =>
             _page.Locator(".mr-3 > div:nth-child(2) > .mud-button-root");

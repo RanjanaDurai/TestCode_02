@@ -33,9 +33,9 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_INV_001_Navigate_To_Inventory_Page")]
-        [AllureTag("regression")]
-        public async Task TC_INV_001_Navigate_To_Inventory_Page()
+        [AllureOwner("TC_001_Navigate_To_Inventory_Page")]
+        [AllureTag("Regression")]
+        public async Task TC_001_Navigate_To_Inventory_Page()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -45,14 +45,14 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
 
                 Logger.Info("CMO/FMO Inventory page loaded successfully");
 
-            }, nameof(TC_INV_001_Navigate_To_Inventory_Page));
+            }, nameof(TC_001_Navigate_To_Inventory_Page));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_INV_002_Back_To_FMO_Should_Work")]
-        [AllureTag("regression")]
-        public async Task TC_INV_002_Back_To_FMO_Should_Work()
+        [AllureOwner("TC_002_Back_To_FMO_Should_Work")]
+        [AllureTag("Regression")]
+        public async Task TC_002_Back_To_FMO_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -62,13 +62,13 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
 
                 Logger.Info("Navigated back to FMO page successfully");
 
-            }, nameof(TC_INV_002_Back_To_FMO_Should_Work));
+            }, nameof(TC_002_Back_To_FMO_Should_Work));
         }
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_INV_003_Server_View_Should_Load")]
-        [AllureTag("regression")]
-        public async Task TC_INV_003_Server_View_Should_Load()
+        [AllureOwner("TC_003_Server_View_Should_Load")]
+        [AllureTag("Regression")]
+        public async Task TC_003_Server_View_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -79,13 +79,13 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
 
                 Logger.Info("Server Inventory loaded successfully");
 
-            }, nameof(TC_INV_003_Server_View_Should_Load));
+            }, nameof(TC_003_Server_View_Should_Load));
         }
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_INV_004_Application_View_Should_Load")]
-        [AllureTag("regression")]
-        public async Task TC_INV_004_Application_View_Should_Load()
+        [AllureOwner("TC_004_Application_View_Should_Load")]
+        [AllureTag("Regression")]
+        public async Task TC_004_Application_View_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -95,14 +95,14 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
 
                 Logger.Info("Application Inventory loaded successfully");
 
-            }, nameof(TC_INV_004_Application_View_Should_Load));
+            }, nameof(TC_004_Application_View_Should_Load));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_INV_005_Export_Button_Should_Work")]
-        [AllureTag("regression")]
-        public async Task TC_INV_005_Export_Button_Should_Work()
+        [AllureOwner("TC_005_Export_Button_Should_Work")]
+        [AllureTag("Regression")]
+        public async Task TC_005_Export_Button_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -112,14 +112,14 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
 
                 Logger.Info("Export button clicked successfully");
 
-            }, nameof(TC_INV_005_Export_Button_Should_Work));
+            }, nameof(TC_005_Export_Button_Should_Work));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_INV_006_Sync_Button_Should_Work")]
-        [AllureTag("regression")]
-        public async Task TC_INV_006_Sync_Button_Should_Work()
+        [AllureOwner("TC_006_Sync_Button_Should_Work")]
+        [AllureTag("Regression")]
+        public async Task TC_006_Sync_Button_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -129,14 +129,14 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
 
                 Logger.Info("Sync button clicked successfully");
 
-            }, nameof(TC_INV_006_Sync_Button_Should_Work));
+            }, nameof(TC_006_Sync_Button_Should_Work));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_INV_007_Filter_Panel_Should_Open")]
-        [AllureTag("regression")]
-        public async Task TC_INV_007_Filter_Panel_Should_Open()
+        [AllureOwner("TC_007_Filter_Panel_Should_Open")]
+        [AllureTag("Regression")]
+        public async Task TC_007_Filter_Panel_Should_Open()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -146,14 +146,14 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
 
                 Logger.Info("Filter panel opened successfully");
 
-            }, nameof(TC_INV_007_Filter_Panel_Should_Open));
+            }, nameof(TC_007_Filter_Panel_Should_Open));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_INV_008_Filter_Application_Name_Should_Work")]
-        [AllureTag("regression")]
-        public async Task TC_INV_008_Filter_Application_Name_Should_Work()
+        [AllureOwner("TC_008_Filter_Application_Name_Should_Work")]
+        [AllureTag("Regression")]
+        public async Task TC_008_Filter_Application_Name_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -164,14 +164,14 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
 
                 Logger.Info("Application name filter applied using random selection");
 
-            }, nameof(TC_INV_008_Filter_Application_Name_Should_Work));
+            }, nameof(TC_008_Filter_Application_Name_Should_Work));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_INV_009_Clear_All_Filters_Should_Work")]
-        [AllureTag("regression")]
-        public async Task TC_INV_009_Clear_All_Filters_Should_Work()
+        [AllureOwner("TC_009_Clear_All_Filters_Should_Work")]
+        [AllureTag("Regression")]
+        public async Task TC_009_Clear_All_Filters_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -183,7 +183,7 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
 
                 Logger.Info("Clear All filters clicked successfully");
 
-            }, nameof(TC_INV_009_Clear_All_Filters_Should_Work));
+            }, nameof(TC_009_Clear_All_Filters_Should_Work));
         }
 
     }

@@ -169,7 +169,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             await dialog.GetByRole(AriaRole.Button, new() { Name = "Save Changes"}).ClickAsync();
         }
 
-        // REGRESSION TEST CASES 
+        // Regression TEST CASES 
 
         public async Task VerifyClientInfradata()
         {
