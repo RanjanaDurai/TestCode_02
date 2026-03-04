@@ -38,6 +38,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
 
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_001_Create_Project_Successfully")]
         [AllureTag("smoke")]
         public async Task TC_001_Create_Project_Successfully()
@@ -56,6 +57,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_002_Project_Should_Appear_On_Dashboard")]
         [AllureTag("smoke")]
         public async Task TC_002_Project_Should_Appear_On_Dashboard()
@@ -67,7 +69,6 @@ namespace WiseMigrateTests.Pages.ProjectCreation
 
                 string projectName = $"TC_Project_{DateTime.Now:yyyyMMdd_HHmmss}";
                 await _basicSetup.CreateProjectAsync(projectName);
-
                 _createdProjectName = projectName;   
 
                 await _infrastructureUploadPage.ClickCancelAsync();
@@ -79,8 +80,8 @@ namespace WiseMigrateTests.Pages.ProjectCreation
 
         // REGRESSION TEST CASES
 
-        [Trait("Category", "Regression")]
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_003_SelectRandomTargetCloudeProvider")]
         [AllureTag("Regression")]
         public async Task TC_003_SelectRandomTargetCloudeProvider()
@@ -94,8 +95,8 @@ namespace WiseMigrateTests.Pages.ProjectCreation
             }, nameof(TC_003_SelectRandomTargetCloudeProvider));
         }
 
-        [Trait("Category", "Regression")]
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_004_ClickBackTodashboard")]
         [AllureTag("Regression")]
         public async Task TC_004_ClickBackTodashboard()

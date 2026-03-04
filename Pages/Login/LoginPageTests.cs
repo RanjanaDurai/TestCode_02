@@ -28,6 +28,7 @@ namespace WiseMigrateTests.Pages.Login
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_001_LoginPage_Should_Load_Successfully")]
         [AllureTag("smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_001_LoginPage_Should_Load_Successfully()
         {
@@ -40,6 +41,7 @@ namespace WiseMigrateTests.Pages.Login
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_002_LoginPage_Should_Have_Clickable_Buttons")]
         [AllureTag("smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_002_LoginPage_Should_Have_Clickable_Buttons()
         {
@@ -56,6 +58,7 @@ namespace WiseMigrateTests.Pages.Login
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_003_Validate_Empty_UserName_Field")]
         [AllureTag("smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_003_Validate_Empty_UserName_Field()
         {
@@ -73,6 +76,7 @@ namespace WiseMigrateTests.Pages.Login
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_004_Validate_Empty_Password_Field")]
         [AllureTag("smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_004_Validate_Empty_Password_Field()
         {
@@ -90,6 +94,7 @@ namespace WiseMigrateTests.Pages.Login
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_005_Validate_MigrateAdmin_Account")]
         [AllureTag("smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_005_Validate_MigrateAdmin_Account()
         {
@@ -105,6 +110,7 @@ namespace WiseMigrateTests.Pages.Login
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_006_Validate_SuperAdmin_Account")]
         [AllureTag("smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_006_Validate_SuperAdmin_Account()
         {
@@ -122,6 +128,7 @@ namespace WiseMigrateTests.Pages.Login
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_007_Login_With_Valid_Credentials")]
         [AllureTag("smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_007_Login_With_Valid_Credentials()
         {
@@ -139,6 +146,7 @@ namespace WiseMigrateTests.Pages.Login
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_008_MicrosoftSignInPage_Must_Load_Successfully")]
         [AllureTag("smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_008_MicrosoftSignInPage_Must_Load_Successfully()
         {
@@ -155,6 +163,7 @@ namespace WiseMigrateTests.Pages.Login
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_SIGNIN_09")]
         [AllureTag("smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task Validate_Microsoft_SignIn()
         {

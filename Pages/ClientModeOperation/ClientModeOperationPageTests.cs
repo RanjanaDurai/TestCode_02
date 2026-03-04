@@ -36,6 +36,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_001_CMO_Page_UI_Should_Load")]
         [AllureTag("smoke")]
         public async Task TC_001_CMO_Page_UI_Should_Load()
@@ -49,6 +50,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons")]
         [AllureTag("smoke")]
         public async Task TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons()

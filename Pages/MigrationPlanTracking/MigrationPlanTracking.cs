@@ -14,17 +14,25 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         private readonly FutureModeOperationPage _fmoPage=null!;
 
         private readonly ProjectInventoryPage _projectInventoryPage=null!;
-
+    
         public MigrationPlanTrackingPage(IPage page)
         {
             _page = page;
             _projectInventoryPage= new ProjectInventoryPage(page);
+            _fmoPage = new FutureModeOperationPage(page);
+            _basicSetup = new BasicSetup(page);
         }
         public async Task NavigateToMigrationPlanTrackingAsync()
         {
             await _projectInventoryPage.NavigateToInventoryPageAsync();
+            await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+        }
+
+        public async Task InitiateMigrationFromInventoryAsync()
+        {
             await _projectInventoryPage.InitiateMigrationFromInventoryAsync();
             await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+
         }
 
         public async Task ClickViewPlanDetailsAsync()
@@ -38,8 +46,5 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
 
             await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
         }
-
-
     }
-
 }

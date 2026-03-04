@@ -30,6 +30,7 @@ namespace WiseMigrateTests.Pages.Landing
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_001_LandingPage_Should_Load_Successfully")]
         [AllureTag("smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_001_LandingPage_Should_Load_Successfully()
         {
@@ -45,6 +46,7 @@ namespace WiseMigrateTests.Pages.Landing
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_002_LandingPage_Should_Have_Clickable_Buttons")]
         [AllureTag("smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_002_LandingPage_Should_Have_Clickable_Buttons()
         {
@@ -65,6 +67,7 @@ namespace WiseMigrateTests.Pages.Landing
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_003_Click_GenerateMigrationPlan_Button_Should_Navigate_Correctly")]
         [AllureTag("smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_003_Click_GenerateMigrationPlan_Button_Should_Navigate_Correctly()
         {
@@ -82,6 +85,7 @@ namespace WiseMigrateTests.Pages.Landing
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_004_Click_StartMigrationAssessment_Button_Should_Navigate_Correctly")]
         [AllureTag("smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_004_Click_StartMigrationAssessment_Button_Should_Navigate_Correctly()
         {

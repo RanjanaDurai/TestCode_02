@@ -34,6 +34,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_001_MigrationControlCentre_Page_UI_Should_Load")]
         [AllureTag("smoke")]
         public async Task TC_001_MigrationControlCentre_Page_UI_Should_Load()
@@ -48,6 +49,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_002_Navigate_To_Timeline_Tab")]
         [AllureTag("smoke")]
         public async Task TC_002_Navigate_To_Timeline_Tab()
@@ -62,6 +64,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         }
 
         /*[Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_002_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab)]
         [AllureTag("smoke")]
         public async Task TC_002_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab()
@@ -76,6 +79,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         */
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_003_Navigate_To_Manage_Tab")]
         [AllureTag("smoke")]
         public async Task TC_003_Navigate_To_Manage_Tab()
@@ -90,6 +94,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_004_Navigate_To_PoliciesAndRisk_Tab")]
         [AllureTag("smoke")]
         public async Task TC_004_Navigate_To_PoliciesAndRisk_Tab()

@@ -94,7 +94,6 @@ namespace WiseMigrateTests.Pages.Project
         }
         public async Task ClickGatheringClientInfradata()
         {
-            // await _page.Locator(".mud-icon-root.mud-icon-default.mud-svg-icon.mud-icon-size-small").First.ClickAsync();
             var cell = await GetMigrationStatusCellWithIconsAsync(7);
             var icon = cell.Locator(".mud-icon-root").Nth(1);
 
@@ -106,7 +105,6 @@ namespace WiseMigrateTests.Pages.Project
             });
 
             await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-            // await _page.GetByRole(AriaRole.Heading, new() { Name = "Infrastructure Data Upload" }).ClickAsync();
         }
         public async Task ClickCurrentModeAsync()
         {

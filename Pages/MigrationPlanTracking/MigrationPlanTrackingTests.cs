@@ -13,16 +13,8 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
     public class MigrationPlanTrackingTests : TestBaseFixture, IAsyncLifetime
     {
         private LoginPage _loginPage = null!;
-
         private ProjectListPage _projectListPage = null!;
-
-        // private BasicSetup _basicSetup = null!;
-
-        // private  AttachmentHelper _attachmentHelper=null!;
-        
-
         private MigrationPlanTrackingPage _migrationPlanTrackingPage = null!;
-
         public async Task InitializeAsync()
         {
             await base.InitializeAsync();
@@ -40,6 +32,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         }
 
         [Fact]
+        [Trait("Category", "smoke")]
         [AllureOwner("TC_001_MigrationPlanTracking_Page_UI_Should_Load")]
         [AllureTag("smoke")]
         public async Task TC_001_MigrationPlanTracking_Page_UI_Should_Load()
@@ -47,6 +40,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _migrationPlanTrackingPage.NavigateToMigrationPlanTrackingAsync();
+                await _migrationPlanTrackingPage.InitiateMigrationFromInventoryAsync();
                 await Assertions.Expect(
                     Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Plan Tracking" })
                 ).ToBeVisibleAsync();
@@ -56,6 +50,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         }
 
         [Fact]
+        [Trait("Category", "smoke")]
         [AllureOwner("TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons")]
         [AllureTag("smoke")]
         public async Task TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons()
@@ -63,6 +58,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _migrationPlanTrackingPage.NavigateToMigrationPlanTrackingAsync();
+                await _migrationPlanTrackingPage.InitiateMigrationFromInventoryAsync();
                 await Page.WaitForSelectorAsync("table tbody tr");
 
                 var firstRow = Page.Locator("table tbody tr").First;
