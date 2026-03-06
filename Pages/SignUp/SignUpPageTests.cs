@@ -34,7 +34,8 @@ namespace WiseMigrateTests.Pages.SignUp
 
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_001_SignUpPage_Should_Load_Successfully")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_001_SignUpPage_Should_Load_Successfully()
         {
@@ -46,7 +47,8 @@ namespace WiseMigrateTests.Pages.SignUp
 
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_002_SignUpPage_Should_Have_Clickable_Buttons")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_002_SignUpPage_Should_Have_Clickable_Buttons()
         {
@@ -62,7 +64,8 @@ namespace WiseMigrateTests.Pages.SignUp
 
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_003_Validate_Registeration_Empty_UserName_Field")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_003_Validate_Registeration_Empty_UserName_Field()
         {
@@ -79,7 +82,8 @@ namespace WiseMigrateTests.Pages.SignUp
 
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_004_Validate_Registeration_Empty_Password_Field")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_004_Validate_Registeration_Empty_Password_Field()
         {
@@ -96,7 +100,8 @@ namespace WiseMigrateTests.Pages.SignUp
 
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_005_Validate_Registeration_Duplicate_Email")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_005_Validate_Registeration_Duplicate_Email()
         {
@@ -113,7 +118,8 @@ namespace WiseMigrateTests.Pages.SignUp
 
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_006_Validate_Registeration_Valid_Credentials")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_006_Validate_Registeration_Valid_Credentials()
         {
@@ -128,7 +134,8 @@ namespace WiseMigrateTests.Pages.SignUp
 
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_007_Validate_Registeration_Mismatching_Password")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_007_Validate_Registeration_Mismatching_Password()
         {
@@ -145,7 +152,8 @@ namespace WiseMigrateTests.Pages.SignUp
 
         [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_008_Validate_Registeration_Empty_Organization")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
+        [Trait("Category", "Smoke")]
         [Fact]
         public async Task TC_008_Validate_Registeration_Empty_Organization()
         {

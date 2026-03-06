@@ -36,8 +36,9 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_001_CMO_Page_UI_Should_Load")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_001_CMO_Page_UI_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -49,8 +50,9 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>

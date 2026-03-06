@@ -31,8 +31,9 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_001_Project_Dashboard_Should_Load")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_001_Project_Dashboard_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -44,8 +45,9 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_002_Navigate_To_Create_Project_Page")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_002_Navigate_To_Create_Project_Page()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -59,8 +61,9 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_003_Project_Creation_UI_Should_Load")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_003_Project_Creation_UI_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -77,9 +80,10 @@ namespace WiseMigrateTests.Pages.Project
             }, nameof(TC_003_Project_Creation_UI_Should_Load));
         }
         
-        //  REGRESSION TEST CASES 
+        //  Regression TEST CASES 
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_004_ViewUploadedData")]
         [AllureTag("Regression")]
         public async Task TC_004_ViewUploadedData()
@@ -92,6 +96,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_005_ClickProjectCreationStatusButton")]
         [AllureTag("Regression")]
         public async Task TC_005_ClickProjectCreationStatusButton()
@@ -104,6 +109,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_006_ClickGatheringClientInfradata")]
         [AllureTag("Regression")]
         public async Task TC_006_ClickGatheringClientInfradata()
@@ -116,6 +122,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_007_Open_Current_Mode")]
         [AllureTag("Regression")]
         public async Task TC_007_Open_Current_Mode()
@@ -128,6 +135,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_008_Open_Future_Mode")]
         [AllureTag("Regression")]
         public async Task TC_008_Open_Future_Mode()
@@ -140,6 +148,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_009_Open_Inventory")]
         [AllureTag("Regression")]
         public async Task TC_009_Open_Inventory()
@@ -152,6 +161,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_010_Open_Track_Plan")]
         [AllureTag("Regression")]
         public async Task TC_010_Open_Track_Plan()
@@ -164,6 +174,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_011_Open_Wave_And_Move")]
         [AllureTag("Regression")]
         public async Task TC_011_Open_Wave_And_Move()
@@ -178,6 +189,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_012_Verify_Project_Actions_Menu")]
         [AllureTag("Regression")]
         public async Task TC_012_Verify_Project_Actions_Menu()
@@ -190,6 +202,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_013_Verify_Total_Projects_Filter")]
         [AllureTag("Regression")]
         public async Task TC_013_Verify_Total_Projects_Filter()
@@ -202,6 +215,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_014_Verify_Completed_Filter")]
         [AllureTag("Regression")]
         public async Task TC_014_Verify_Completed_Filter()
@@ -214,6 +228,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_015_Verify_InProgress_Filter")]
         [AllureTag("Regression")]
         public async Task TC_015_Verify_InProgress_Filter()
@@ -226,6 +241,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_016_Verify_filter_DropDown")]
         [AllureTag("Regression")]
         public async Task TC_016_Verify_filter_DropDown()
@@ -238,6 +254,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_017_ViewActivityLog")]
         [AllureTag("Regression")]
         public async Task TC_017_ViewActivityLog()
@@ -251,6 +268,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_018_ManageColaborator")]
         [AllureTag("Regression")]
         public async Task TC_018_ManageColaborator()
@@ -263,7 +281,8 @@ namespace WiseMigrateTests.Pages.Project
             }, nameof(TC_018_ManageColaborator));
         }
 
-                [Fact]
+        [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_019_Select_Organization")]
         [AllureTag("Regression")]
         public async Task TC_019_Select_Organization()
@@ -276,6 +295,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_020_Delete_Project")]
         [AllureTag("Regression")]
         public async Task TC_020_Delete_Project()
@@ -289,6 +309,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_21_Logout")]
         [AllureTag("Regression")]
         public async Task TC_021_Logout()
@@ -301,6 +322,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_022_CancelLogout")]
         [AllureTag("Regression")]
         public async Task TC_022_CancelLogout()
@@ -313,6 +335,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_023_CloseLogout")]
         [AllureTag("Regression")]
         public async Task TC_023_CloseLogout()
@@ -325,6 +348,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_024_CreateUser")]
         [AllureTag("Regression")]
         public async Task TC_024_CreateUser()
@@ -337,6 +361,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_025_ApplyFilter")]
         [AllureTag("Regression")]
         public async Task TC_025_ApplyFilter()
@@ -349,6 +374,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_026_SelectRandomPageSizeAsync")]
         [AllureTag("Regression")]
         public async Task TC_026_SelectRandomPageSizeAsync()
@@ -361,6 +387,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_027_ClickSyncDataButton")]
         [AllureTag("Regression")]
         public async Task TC_027_ClickSyncDataButton()
@@ -373,6 +400,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_028_Filter_user_in_log")]
         [AllureTag("Regression")]
         public async Task TC_028_Filter_user_in_log()
@@ -386,6 +414,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_029_Filter_Project_In_log")]
         [AllureTag("Regression")]
         public async Task TC_029_Filter_Project_In_log()
@@ -399,6 +428,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_030_Filter_Projects_Status_In_Log")]
         [AllureTag("Regression")]
         public async Task TC_030_Filter_Projects_Status_In_Log()
@@ -412,6 +442,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_031_Select_Date_Range")]
         [AllureTag("Regression")]
         public async Task TC_031_Select_Date_Range()
@@ -426,6 +457,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_032_Clear_Filter_In_activity_log")]
         [AllureTag("Regression")]
         public async Task TC_032_Clear_Filter_In_activity_log()
@@ -439,6 +471,7 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_033_ClickSyncDataButtonInLog")]
         [AllureTag("Regression")]
         public async Task TC_033_ClickSyncDataButtonInLog()

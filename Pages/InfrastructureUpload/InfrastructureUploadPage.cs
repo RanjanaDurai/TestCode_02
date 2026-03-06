@@ -169,23 +169,14 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             await dialog.GetByRole(AriaRole.Button, new() { Name = "Save Changes"}).ClickAsync();
         }
 
-        // REGRESSION TEST CASES 
+        // Regression TEST CASES 
 
-        private static readonly Random _random = new();
-        public async Task RandomSelector()
-        {
-            var options = _page.Locator(".mud-list-item:not(.mud-disabled)");
-            await options.First.WaitForAsync();
-            int count = await options.CountAsync();
-            await options.Nth(_random.Next(count)).ClickAsync();
-        }
         public async Task VerifyClientInfradata()
         {
             await Assertions.Expect(_page.GetByRole(AriaRole.Heading, new() { Name = "Upload Infrastructure Data" })).ToBeVisibleAsync();
         }
         public async Task ClickRandomUser()
         {
-            await Assertions.Expect(_page.Locator(".mud-paper.mud-elevation-0").First).ToBeVisibleAsync();
             await _page.GetByRole(AriaRole.Textbox, new() { Name = "User" }).ClickAsync();
         }
         public async Task ViewActivityLog()
@@ -202,26 +193,6 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         {
             await _page.GetByRole(AriaRole.Button, new() { Name = "Open Date Range Picker" }).ClickAsync();
         }
-
-        // public async Task<string> GetUploadedFileTypeAsync()
-        // {
-        //     await _page.WaitForFunctionAsync(
-        //         @"() => {
-        //             return document.body.innerText.includes('SSOT') ||
-        //                 document.body.innerText.includes('CMDB');
-        //         }",
-        //         new() { Timeout = 10000 }
-        //     );
-
-
-        //     if (await _page.GetByText("SSOT", new() { Exact = true }).IsVisibleAsync())
-        //         return "SSOT";
-
-        //     if (await _page.GetByText("CMDB", new() { Exact = true }).IsVisibleAsync())
-        //         return "CMDB";
-
-        //     throw new Exception("Unknown uploaded file type");
-        // }
         private ILocator ViewUploadedfilesButton => _page.Locator(".mud-menu > .mud-button-root");
         public async Task<string> GetUploadedFileTypeAsync()
         {
@@ -262,14 +233,12 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
 
         private async Task ExecuteSSOTFlowAsync()
         {
-            Logger.Info("Executing SSOT flow");
             await Assertions.Expect(_page.GetByRole(AriaRole.Group).Filter(new() { HasText = "A2AA2SMAppAppInstDBNetworkServer" }).First).ToBeVisibleAsync();
             await Assertions.Expect(_page.GetByText("EXPORT SSOT")).ToBeVisibleAsync();
         }
 
         private async Task ExecuteCMDBFlowAsync()
         {
-            Logger.Info("Executing CMDB flow");
             await Assertions.Expect(_page.GetByRole(AriaRole.Button, new() { Name = "Sheet1" })).ToBeVisibleAsync();
         }
    
