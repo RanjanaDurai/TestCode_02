@@ -15,11 +15,15 @@ namespace WiseMigrateTests.TestHooks
 
         public async Task InitializeAsync()
         {
-            Context = await GlobalTestFixture.Browser!.NewContextAsync();
+            Context = await GlobalTestFixture.Browser!.NewContextAsync( new BrowserNewContextOptions
+            {
+                ViewportSize = new ViewportSize { Width = 1024, Height = 768 } 
+            });
             Page = await Context.NewPageAsync();
 
             _basicSetup = new BasicSetup(Page);
             _attachmentHelper = new AttachmentHelper(Context);
+    
         }
 
         protected async Task RunTestAsync(Func<Task> testBody, string testName)
