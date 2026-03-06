@@ -40,7 +40,7 @@ namespace WiseMigrateTests.Utils
             }
             catch (Exception ex)
             {
-                throw;
+                throw ;
             }
         }
 
