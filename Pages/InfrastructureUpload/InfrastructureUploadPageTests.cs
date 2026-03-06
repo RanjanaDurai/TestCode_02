@@ -33,8 +33,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
         
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_006_Upload_Infrastructure_Page_Should_Load")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_006_Upload_Infrastructure_Page_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -48,8 +49,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_007_Proceed_Infrastrcuture_Data_Upload")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_007_Proceed_Infrastrcuture_Data_Upload()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -66,8 +68,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_008_Proceed_SSOT_Data_Upload")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_008_Proceed_SSOT_Data_Upload()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -83,8 +86,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_009_Cancel_Upload_Operation")]
-        [AllureTag("regression")]
+        [AllureTag("Smoke")]
         public async Task TC_009_Cancel_Upload_Operation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -99,8 +103,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_010_Upload_Infrastructure_Data")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_010_Upload_Infrastructure_Data()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -118,8 +123,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_011_Verify_Infrastructure_Data")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_011_Verify_Infrastructure_Data()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -136,8 +142,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
         /*
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_012_Verify_Interaction_With_Infrastructure_Data_Preview")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_012_Verify_Interaction_With_Infrastructure_Data_Preview()
         {   await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -159,8 +166,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         */
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_013_Validate_Upload_Infrastructure_Files")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_013_Validate_Upload_Infrastructure_Files()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -182,8 +190,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_014_Validate_SSOT_Generation_Infrastructure_Files")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_014_Validate_SSOT_Generation_Infrastructure_Files()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -212,8 +221,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_015_Validate_SSOT_Preview_Infrastructure_Files")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_015_Validate_SSOT_Preview_Infrastructure_Files()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -243,8 +253,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_016_Validate_Generate_Architecture_Operation")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_016_Validate_Generate_Architecture_Operation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -273,8 +284,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_017_Validate_View_Architecture_Operation")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_017_Validate_View_Architecture_Operation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -305,8 +317,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_018_Upload_SSOT_Data")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_018_Upload_SSOT_Data()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -324,8 +337,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_019_Verify_SSOT_Data")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_019_Verify_SSOT_Data()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -344,8 +358,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         /*[Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_020_Verify_Interaction_With_SSOT_Data_Preview")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_020_Verify_Interaction_With_SSOT_Data_Preview()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -364,8 +379,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         */ 
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_021_Validate_Upload_SSOT_File")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_021_Validate_Upload_SSOT_File()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -387,8 +403,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_022_Validate_SSOT_Architecture_Generation")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_022_Validate_SSOT_Architecture_Generation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -412,8 +429,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_023_Validate_View_SSOT_Architecture_Operation")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_023_Validate_View_SSOT_Architecture_Operation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -439,8 +457,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_024_Validate_SSOT_Reconciliation_Operation")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_024_Validate_SSOT_Reconciliation_Operation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -494,10 +513,10 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             }, nameof(TC_024_Validate_SSOT_Reconciliation_Operation));
         }
 
-        // REGRESSION TEST CASES 
+        // Regression TEST CASES 
 
-        [Trait("Category", "Regression")]
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_025_Select_Ramdon_User_In_Activity_log")]
         [AllureTag("Regression")]
         public async Task TC_025_Select_Ramdon_User_In_Activity_log()
@@ -510,14 +529,15 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
                 await _projectListPage.ClickGatheringClientInfradata();
                 await _infrastructureUploadPage.VerifyClientInfradata();
                 await _infrastructureUploadPage.ViewActivityLog();
+                await Assertions.Expect(Page.Locator(".mud-paper.mud-elevation-0").First).ToBeVisibleAsync();
                 await _infrastructureUploadPage.ClickRandomUser();
                 await _basicSetup.RandomSelector();
                 Logger.Info("Selected random user succsessfully.");
             }, nameof(TC_025_Select_Ramdon_User_In_Activity_log));
         }
 
-        [Trait("Category", "Regression")]
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_026_Select_Ramdon_Status_In_Activity_log")]
         [AllureTag("Regression")]
         public async Task TC_026_Select_Ramdon_Status_In_Activity_log()
@@ -536,8 +556,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             }, nameof(TC_026_Select_Ramdon_Status_In_Activity_log));
         }
 
-        [Trait("Category", "Regression")]
         [Fact]
+        [Trait("Category", "Regression")]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_027_Select_Date_Rang_In_Activity_log")]
         [AllureTag("Regression")]
         public async Task TC_027_Select_Date_Rang_In_Activity_log()
@@ -555,9 +576,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
                 Logger.Info("Slected random date range (from past 7 days) succsessfully in recent activity");
             }, nameof(TC_027_Select_Date_Rang_In_Activity_log));
         }
-
-        [Trait("Category", "Regression")]
+        
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_028_Clear_All_Filter")]
         [AllureTag("Regression")]
         public async Task TC_028_Clear_All_Filter()
@@ -581,8 +602,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             }, nameof(TC_028_Clear_All_Filter));
         }
 
-        [Trait("Category", "Regression")]
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_029_Close_Recent_Activity_log")]
         [AllureTag("Regression")]
         public async Task TC_029_Close_Recent_Activity_log()
@@ -600,8 +621,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             }, nameof(TC_029_Close_Recent_Activity_log));
         }
 
-        [Trait("Category", "Regression")]
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_030_Verify_file_type")]
         [AllureTag("Regression")]
         public async Task TC_030_Verify_file_type()
@@ -617,8 +638,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             }, nameof(TC_030_Verify_file_type));
         }
 
-        [Trait("Category", "Regression")]
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_031_View_SSOT_file")]
         [AllureTag("Regression")]
         public async Task TC_031_View_SSOT_file()
@@ -635,8 +656,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
             }, nameof(TC_031_View_SSOT_file));
         }
 
-        [Trait("Category", "Regression")]
         [Fact]
+        [Trait("Category", "Regression")]
         [AllureOwner("TC_032_View_Data_Quality_Report")]
         [AllureTag("Regression")]
         public async Task TC_032_View_Data_Quality_Report()

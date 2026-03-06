@@ -37,8 +37,9 @@ namespace WiseMigrateTests.Pages.Project
         public new Task DisposeAsync() => Task.CompletedTask;
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_001_Inventory_Page_Should_Load_Sucessfully")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_001_Inventory_Page_Should_Load_Sucessfully()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -53,8 +54,9 @@ namespace WiseMigrateTests.Pages.Project
         }
 
         [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_002_Verify_Migration_Control_Center_Flow")]
-        [AllureTag("smoke")]
+        [AllureTag("Smoke")]
         public async Task TC_002_Verify_Migration_Control_Center_Flow()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>

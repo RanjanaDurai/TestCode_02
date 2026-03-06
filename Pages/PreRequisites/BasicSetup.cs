@@ -120,6 +120,8 @@ namespace WiseMigrateTests.Pages.PreRequisites
             await _projectCreation.EnterProjectNameAsync(projectName);
             await _projectCreation.EnterCustomerNameAsync(customerName);
             await _projectCreation.EnterDescriptionAsync(description);
+            await _projectCreation.RandomTargetCloudeProvider();
+            await WaitForPageAsync(1);
             await _projectCreation.ClickCreateProjectAsync();
 
             await _page.WaitForURLAsync("**/data-gathering**", new()

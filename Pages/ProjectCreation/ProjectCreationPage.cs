@@ -2,6 +2,8 @@ using Microsoft.Playwright;
 using WiseMigrateTests.Pages.Project;
 using WiseMigrateTests.Utils;
 using System.Text.RegularExpressions;
+using System.Runtime.CompilerServices;
+using WiseMigrateTests.Pages.PreRequisites;
 
 
 namespace WiseMigrateTests.Pages.ProjectCreation
@@ -11,6 +13,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         private readonly IPage _page;
 
         private readonly ProjectListPage _projectList;
+        private readonly BasicSetup _basicsetup;
 
         public ProjectCreationPage(IPage page)
         {
@@ -18,7 +21,6 @@ namespace WiseMigrateTests.Pages.ProjectCreation
             _projectList= new ProjectListPage(page);
         }
 
-        // NAVIGATION (RESTORED)
         public async Task NavigateToProjectCreationPageAsync()
         {
             await _projectList.WaitForDashboardToBeReadyAsync();
@@ -35,7 +37,6 @@ namespace WiseMigrateTests.Pages.ProjectCreation
             Logger.Info("Navigated to Project Creation page");
         }
 
-        // LOCATORS
         private ILocator ProjectNameInput =>
             _page.GetByRole(AriaRole.Textbox, new() { Name = "Project Name*" });
 
@@ -44,6 +45,8 @@ namespace WiseMigrateTests.Pages.ProjectCreation
 
         private ILocator DescriptionInput =>
             _page.GetByRole(AriaRole.Textbox, new() { Name = "Description*" });
+        // private ILocator TargetCloudProvider => 
+        //     _page.Locator(".mud-input-control.mud-input-required.mud-input-outlined-with-label.mud-select.mt-4 > .mud-input-control-input-container > .mud-input > div > .d-flex");
 
         private ILocator CreateProjectButton =>
             _page.GetByRole(AriaRole.Button, new() { Name = "CREATE PROJECT" });
@@ -51,7 +54,6 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         private ILocator CancelButton =>
             _page.GetByRole(AriaRole.Button, new() { Name = "CANCEL" });
 
-        // ACTIONS
         public async Task EnterProjectNameAsync(string projectName)
         {
             await ProjectNameInput.FillAsync(projectName);
@@ -75,7 +77,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
         private static readonly Random _random = new();
         public async Task RandomTargetCloudeProvider()
         {
-            await _page.GetByText("Amazon Web Services").ClickAsync();
+            await  _page.Locator(".mud-input-control.mud-input-required.mud-input-outlined-with-label.mud-select.mt-4 > .mud-input-control-input-container > .mud-input > div > .d-flex").ClickAsync();
             var options = _page.Locator(".mud-list-item:not(.mud-disabled)");
             await options.First.WaitForAsync();
             int count = await options.CountAsync();
