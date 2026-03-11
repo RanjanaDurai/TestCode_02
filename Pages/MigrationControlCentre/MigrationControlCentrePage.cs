@@ -5,7 +5,7 @@ using WiseMigrateTests.Pages.PreRequisites;
 using WiseMigrateTests.Pages.FutureModeOperation;
 using WiseMigrateTests.Pages.MigrationPlanTracking;
 
-namespace WiseMigrateTests.Pages.ProjectInventory
+namespace WiseMigrateTests.Pages.MigrationControlCentre
 {
     public class MigrationControlCentrePage
     {
@@ -25,21 +25,21 @@ namespace WiseMigrateTests.Pages.ProjectInventory
         private ILocator MigrationPlanTrackingBreadcrumbLink=> _page.Locator ("a[href='/track-plan']:has-text('Migration Plan Tracking')");
         private ILocator MigrationControlCentreBreadcrumbLink=> _page.GetByRole(AriaRole.Link, new() { Name = "Migration Control Centre"}); 
         private ILocator SearchInput => _page.Locator("input[placeholder='Search...']");
-        private ILocator FilterStatusDropdown => _page.Locator("label:has-text('Filter Status')");
+        public ILocator FilterStatusDropdown => _page.Locator("label:has-text('Filter Status')");
         private ILocator FilterOption(string status) => _page.Locator($".mud-list-item-text:has-text('{status}')");
-        private ILocator EditButton=> _page.Locator("div.mud-card-header-content role='group' button").Nth(0);
-
+        private ILocator EditButton=> _page.Locator(".d-flex.flex-row > div:nth-child(1) > .mud-button-root");
+        private ILocator ConfigureParametres => _page.Locator(".d-flex > div:nth-child(3) > .mud-button-root");
         public int WaveCount => _page.Locator("mud-table-row").CountAsync().Result; 
         public int GroupCount => _page.Locator("tr.mud-table-row").CountAsync().Result;
-        private ILocator StatusDropdown(string waveOrGroupName) => _page.Locator($"tr:has-text('{waveOrGroupName}') mud-select");
-
+        private ILocator StatusDropdown(string waveOrGroupName) => _page.Locator($"tr:has-text('{waveOrGroupName}') svg.nth(1)");
+        private ILocator SaveIcon(string waveOrGroupName) => _page.Locator($"tr:has-text('{waveOrGroupName}') button").Nth(0);
         private ILocator RescheduleCalendarIcon(string waveOrGroupName) => _page.Locator($"tr:has-text('{waveOrGroupName}') button").Nth(1);
         private ILocator DatePicker => _page.GetByRole(AriaRole.Button, new() { Name = "Open Date Picker" });
         private ILocator RescheduleButton=> _page.Locator("button:has-text('Reschedule')");
 
-        private ILocator PlannedStartDate(string waveOrGroupName) => _page.Locator($"tr:has-text('{waveOrGroupName}) td[data-label='Planned Start Date']");
+        private ILocator PlannedStartDate(string waveOrGroupName) => _page.Locator($"tr:has-text('{waveOrGroupName}') td[data-label='Planned Start Date']");
 
-        private ILocator ScheduleMigrationButton => _page.Locator("button:has-text('Schedule Migration'), button[aria-label*='Schedule']");
+        private ILocator ScheduleMigrationButton => _page.Locator(".d-flex.flex-row > div:nth-child(2) > .mud-button-root");
 
         private ILocator ProjectStartDateInput => 
             _page.Locator("input[name='projectStartDate'], input[placeholder*='Start Date'], [role='dialog'] input[type='text']");
@@ -47,35 +47,25 @@ namespace WiseMigrateTests.Pages.ProjectInventory
         private ILocator ProjectStartDateCalendarIcon => 
             _page.Locator("[role='dialog'] button[aria-label*='calendar'], [role='dialog'] svg[data-icon*='calendar']");
 
-        private ILocator AddManualHolidayAccordion => 
-            _page.Locator("div[role='button']:has-text('Add Manual Holiday'), button:has-text('Add Manual Holiday')");
+        public ILocator AddManualHolidayButton => _page.Locator("div[role='button']:has-text('Add Manual Holiday'), button:has-text('Add Manual Holiday')");
 
-        private ILocator ManualHolidayDateInput => 
-            _page.Locator("#manual-holiday-date input, input[name='holidayDate']");
+        private ILocator ManualHolidayDateInput => _page.Locator("#manual-holiday-date input, input[name='holidayDate']");
 
         private ILocator ManualHolidayNameInput => 
             _page.Locator("input[name='holidayName'], input[placeholder*='e.g., Bank Holiday']");
 
-        private ILocator ManualHolidayRegionDropdown => 
-            _page.Locator("select[name='region'], div[role='combobox']:has-text('EMEA')");
+        public ILocator ManualHolidayRegionDropdown => _page.Locator("select[name='region'], div[role='combobox']:has-text('EMEA')");
 
-        private ILocator ManualHolidayRegionOption(string region) => 
-            _page.Locator($"div[role='option']:has-text('{region}')");
+        public ILocator ManualHolidayRegionOption(string region) => _page.Locator($"div[role='option']:has-text('{region}')");
 
-        private ILocator AddHolidayButton => 
-            _page.Locator("button:has-text('Add'), button[type='submit']:has-text('Add')");
+        public ILocator AddHolidayButton => _page.Locator("button:has-text('Add'), button[type='submit']:has-text('Add')");
 
-        private ILocator HolidayTableRow => 
-            _page.Locator("table tbody tr");
-
-        private ILocator ChooseFileButton => 
-            _page.Locator("button:has-text('Choose File'), input[type='file']");
+        private ILocator HolidayTableRow => _page.Locator("table tbody tr");
 
         private ILocator FormatHelpIcon => 
             _page.Locator("button[aria-label*='help'], i[title*='Format'], svg[data-icon*='info']");
 
-        private ILocator FormatHelpModal => 
-            _page.Locator("div[role='dialog']:has-text('CSV FORMAT'), div[role='dialog']:has-text('JSON FORMAT')");
+        public ILocator FormatHelpDialog => _page.GetByRole(AriaRole.Dialog).GetByRole(AriaRole.Heading, new() { Name = "Reschedule Wave"});
 
         private ILocator FormatHelpCloseButton => 
             _page.Locator("button:has-text('CLOSE'), [aria-label='Close']");
@@ -87,20 +77,16 @@ namespace WiseMigrateTests.Pages.ProjectInventory
 
         private ILocator ConfigureParametersSection => _page.Locator("section:has-text('Parameters'), div:has-text('Configure Parameters')");
 
-        private ILocator ParameterInput(string paramName) => 
-            _page.Locator($"input[name*='{paramName}'], input[aria-label*='{paramName}'], label:has-text('{paramName}') + input");
+        private ILocator ParameterInput(string paramName) => _page.GetByRole(AriaRole.Textbox, new() {Name=paramName});
+        private ILocator GenerateButton => _page.GetByRole(AriaRole.Button, new() {Name="Generate Plan"});
 
-        private ILocator ExportButton => 
-            _page.Locator("button:has-text('Export'), button[aria-label*='Export'], svg[data-icon*='download']");
+        private ILocator ExportButton => _page.Locator(".d-flex > div:nth-child(4) > .mud-button-root");
 
-        private ILocator StatisticsPanel => 
-            _page.Locator("div.statistics, section:has-text('Statistics'), div:has-text('servers'), div:has-text('waves')");
+        private ILocator StatisticsPanel => _page.Locator("div:nth-child(5) > .mud-button-root");
 
-        private ILocator TimelineTab => _page.GetByText("Timeline", new() { Exact = true });
+        public ILocator TimelineTab => _page.GetByText("Timeline", new() { Exact = true });
 
-        private ILocator WaveExpandIcon(string waveName) => 
-            _page.Locator($"div:has-text('{waveName}') button[aria-label*='expand'], svg[data-icon*='expand']");
-
+        private ILocator WaveExpandIcon(string waveName) => _page.Locator($"div:has-text('{waveName}') div.mud-timeline-item-content > div.mud-expand-panel-header > svg");
         private ILocator ManageTab => _page.GetByText("Manage", new() { Exact = true });
 
         private ILocator GroupRow(string groupName) => 
@@ -234,12 +220,13 @@ namespace WiseMigrateTests.Pages.ProjectInventory
             await _basicSetup.WaitForPageAsync(1);
         }
 
-        public async Task ChangeStatusAsync(string waveOrGroupName)
+        public async Task<string> ChangeStatusAsync(string waveOrGroupName)
         {
             await StatusDropdown(waveOrGroupName).ClickAsync();
             string statusOption = new[] { "Pending", "In Progress", "Completed", "Failed", "Planned" }[Random.Shared.Next(5)];
             await FilterOption(statusOption).ClickAsync(); 
             await _basicSetup.WaitForPageAsync(1);
+            return statusOption;
         }
 
         public async Task OpenRescheduleCalendarAsync(string waveOrGroupName)
@@ -262,21 +249,29 @@ namespace WiseMigrateTests.Pages.ProjectInventory
             return textContents.FirstOrDefault() ?? string.Empty;             
         }
 
+        public async Task SaveEditsAsync(string waveOrGroupName)
+        {
+            await SaveIcon(waveOrGroupName).ClickAsync();
+            await Task.Delay(100);
+
+        }
         public async Task OpenScheduleMigrationModalAsync()
         {
             await ScheduleMigrationButton.ClickAsync();
             await _basicSetup.WaitForPageAsync(1);
         }
 
-        public async Task SetProjectStartDateAsync(string date) // format: YYYY-MM-DD
+        public async Task<string> SetRandomProjectStartDateAsync() 
         {
-            await ProjectStartDateInput.FillAsync(date);
+            await DatePicker.ClickAsync();
+            string selectedDate = await _basicSetup.RandomDateSelectorAsync();
             await _basicSetup.WaitForPageAsync(1);
+            return selectedDate;
         }
 
         public async Task AddManualHolidayAsync(string date, string name, string region)
         {
-            await AddManualHolidayAccordion.ClickAsync();
+            await AddManualHolidayButton.ClickAsync();
             await ManualHolidayDateInput.FillAsync(date);
             await ManualHolidayNameInput.FillAsync(name);
             await ManualHolidayRegionDropdown.ClickAsync();
@@ -285,10 +280,11 @@ namespace WiseMigrateTests.Pages.ProjectInventory
             await _basicSetup.WaitForPageAsync(1);
         }
 
-        public async Task UploadHolidayFileAsync(string filePath)
+        public async Task HoliDayFileUploadOperationAsync()
         {
-            await ChooseFileButton.SetInputFilesAsync(filePath);
-            await _basicSetup.WaitForPageAsync(2);
+            string holidayListFile = FileUploadHelper.GetRandomHolidayListFile();
+            await _page.SetInputFilesAsync("input[id='holiday-file']", holidayListFile);
+            await _basicSetup.WaitForPageAsync(1);
         }
 
         public async Task OpenFormatHelpAsync()
@@ -321,21 +317,66 @@ namespace WiseMigrateTests.Pages.ProjectInventory
             return count > 0;
         }
 
-        public async Task SetParameterValueAsync(string paramName, string value)
+         public async Task OpenParameterConfiguration()
         {
-            await ParameterInput(paramName).ClearAsync();
-            await ParameterInput(paramName).FillAsync(value);
+            await ConfigureParametres.ClickAsync();
             await _basicSetup.WaitForPageAsync(1);
         }
 
+        public async Task<string[]> SetParameterNames()
+        {
+            var Elements = await _page.QuerySelectorAllAsync("[role='textbox']");
+            var paramName = new List<string>();
+            foreach(var element in Elements)
+            {
+                var ariaLabel = await element.GetAttributeAsync("aria-label");
+                if (!string.IsNullOrEmpty(ariaLabel))
+                {
+                    paramName.Add(ariaLabel);
+                }
+            }
+            return paramName.ToArray();
+        }
+        public async Task SetParameterValueAsync()
+        {
+            string[] paramName=await SetParameterNames();
+            var count= await _page.GetByRole(AriaRole.Textbox).CountAsync();
+            for (int i=0;i<count;i++)
+            {
+                var value = new Random().Next(0,10);
+                if(i==3||i==4)
+                {
+                    continue;
+                }
+                await ParameterInput(paramName[i]).ClearAsync();
+                await Task.Delay(100);
+                await ParameterInput(paramName[i]).FillAsync(value.ToString());
+            }            
+            await _basicSetup.WaitForPageAsync(1);
+        }
+        public async Task SetParameterValueAsync(string paramName, int value)
+        {
+            await ParameterInput(paramName).ClearAsync();
+            await ParameterInput(paramName).FillAsync(value.ToString());
+            await Task.Delay(100);
+        }
+        
+        public async Task GenerateMigrationScheduleAsync()
+        {
+            await GenerateButton.ClickAsync();
+            await _basicSetup.WaitForPageAsync(2);
+        }
         public async Task ExportPlanAsync()
         {
             var downloadTask = _page.WaitForDownloadAsync();
             await ExportButton.ClickAsync();
             var download = await downloadTask;
-            // You can add file path assertion in tests if needed
         }
-
+        public async Task OpenStatisticsPanelAsync()
+        {
+            await StatisticsPanel.ClickAsync();
+            await Task.Delay(100);
+        }
         public async Task ExpandWaveInTimelineAsync(string waveName)
         {
             await WaveExpandIcon(waveName).ClickAsync();
