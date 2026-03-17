@@ -4,6 +4,7 @@ using WiseMigrateTests.Utils;
 using WiseMigrateTests.Pages.PreRequisites;
 using WiseMigrateTests.Pages.FutureModeOperation;
 using WiseMigrateTests.Pages.MigrationPlanTracking;
+using System.Text.RegularExpressions;
 
 namespace WiseMigrateTests.Pages.MigrationControlCentre
 {
@@ -13,25 +14,25 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
         private readonly BasicSetup _basicSetup=null!;
 
         private readonly MigrationPlanTrackingPage _migrationPlanTrackingPage=null!;
-        private ILocator HomeBreadcrumbLink=> _page.Locator ("a[href='/projects']:has-text('Home')");
+        private ILocator HomeBreadcrumbLink=> _page.Locator ("a[href*='/projects']:has-text('Home')");
+        public ILocator ExpandButton => _page.GetByRole(AriaRole.Listitem).Filter(new() { HasTextRegex = new Regex("^$") }).Locator("svg");
+        private ILocator ProjectCreationBreadcrumbLink=> _page.Locator ("a[href*='/project-creation']");       
+        private ILocator SSOTBreadcrumbLink=> _page.Locator ("a[href*='/data-gathering']:has-text('SSOT Integration')");
 
-        private ILocator ProjectCreationBreadcrumbLink=> _page.Locator ("a[href='/project-creation*']");       
-
-        private ILocator SSOTBreadcrumbLink=> _page.Locator ("a[href='/data-gathering']:has-text('SSOT Integration')");
-
-        private ILocator CMOBreadcrumbLink=> _page.Locator ("a[href='/clientrarch']:has-text('CMO Architecure')");
-        private ILocator FMOBreadcrumbLink=> _page.Locator ("a[href='/fmoarch']:has-text('FMO Architecture')");
-        private ILocator InventoryBreadcrumbLink=> _page.Locator ("a[href='/inventory']:has-text('CMO/FMO Inventory')");
-        private ILocator MigrationPlanTrackingBreadcrumbLink=> _page.Locator ("a[href='/track-plan']:has-text('Migration Plan Tracking')");
+        private ILocator CMOBreadcrumbLink=> _page.Locator ("a[href*='/clientrarch']:has-text('CMO Architecture')");
+        private ILocator FMOBreadcrumbLink=> _page.Locator("a[href*='/fmoarch']:has-text('FMO Architecture')");
+        
+        private ILocator InventoryBreadcrumbLink=> _page.Locator ("a[href*='/inventory']:has-text('CMO/FMO Inventory')");
+        private ILocator MigrationPlanTrackingBreadcrumbLink=> _page.Locator ("a[href*='/track-plan']:has-text('Migration Plan Tracking')");
         private ILocator MigrationControlCentreBreadcrumbLink=> _page.GetByRole(AriaRole.Link, new() { Name = "Migration Control Centre"}); 
         private ILocator SearchInput => _page.Locator("input[placeholder='Search...']");
-        public ILocator FilterStatusDropdown => _page.Locator("label:has-text('Filter Status')");
-        private ILocator FilterOption(string status) => _page.Locator($".mud-list-item-text:has-text('{status}')");
+        public ILocator FilterStatusDropdown => _page.GetByRole(AriaRole.Textbox, new(){Name="Filter Status"});
+        private ILocator FilterOption(string status) => _page.GetByText(status, new() { Exact = true }).First;
         private ILocator EditButton=> _page.Locator(".d-flex.flex-row > div:nth-child(1) > .mud-button-root");
         private ILocator ConfigureParametres => _page.Locator(".d-flex > div:nth-child(3) > .mud-button-root");
-        public int WaveCount => _page.Locator("mud-table-row").CountAsync().Result; 
+        public int WaveCount => _page.Locator("tr").CountAsync().Result; 
         public int GroupCount => _page.Locator("tr.mud-table-row").CountAsync().Result;
-        private ILocator StatusDropdown(string waveOrGroupName) => _page.Locator($"tr:has-text('{waveOrGroupName}') svg.nth(1)");
+        private ILocator StatusDropdown(string waveOrGroupName) => _page.Locator($"tr:has-text('{waveOrGroupName}') svg").Nth(1);
         private ILocator SaveIcon(string waveOrGroupName) => _page.Locator($"tr:has-text('{waveOrGroupName}') button").Nth(0);
         private ILocator RescheduleCalendarIcon(string waveOrGroupName) => _page.Locator($"tr:has-text('{waveOrGroupName}') button").Nth(1);
         private ILocator DatePicker => _page.GetByRole(AriaRole.Button, new() { Name = "Open Date Picker" });
@@ -96,10 +97,10 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
             _page.Locator($"tr:has-text('{groupName}') select, tr:has-text('{groupName}') [role='combobox']");
 
         private ILocator RollbackButton(string groupName) => 
-            _page.Locator($"tr:has-text('{groupName}') button:has-text('Rollback'), tr:has-text('{groupName}') [aria-label*='rollback']");
+            _page.Locator($".mud-grid-item.mud-paper:has-text('{groupName}') button:has-text('Rollback')");
 
-        private ILocator BacklogCheckbox(string groupName) => 
-            _page.Locator($"tr:has-text('{groupName}') input[type='checkbox'], tr:has-text('{groupName}') [role='checkbox']");
+        private ILocator BacklogCheckbox(string groupName) => _page.Locator($"mud-card-content:has-text('{groupName}') [role='checkbox']");
+        private ILocator MoveToBackLogButton => _page.GetByRole(AriaRole.Button, new(){Name="Move Groups to Backlog"});
 
         public MigrationControlCentrePage(IPage page)
         {
@@ -148,19 +149,8 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
 
         public async Task OpenManageTabAsync()
         {
-            Logger.Info("Opening Manage");
-
-            await _page.GetByText("Manage", new() { Exact = true })
-                .ClickAsync();
-
-            await Assertions.Expect(
-                _page.GetByRole(AriaRole.Heading, new()
-                {
-                    Name = "Wave Plan Management"
-                })
-            ).ToBeVisibleAsync();
-
-            Logger.Info("Wave Plan Management verified");
+            await ManageTab.ClickAsync();
+            await Task.Delay(100);
         }
 
         public async Task OpenPoliciesAndRiskTabAsync()
@@ -343,7 +333,7 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
             var count= await _page.GetByRole(AriaRole.Textbox).CountAsync();
             for (int i=0;i<count;i++)
             {
-                var value = new Random().Next(0,10);
+                var value = new Random().Next(1,10);
                 if(i==3||i==4)
                 {
                     continue;
@@ -354,7 +344,7 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
             }            
             await _basicSetup.WaitForPageAsync(1);
         }
-        public async Task SetParameterValueAsync(string paramName, int value)
+        public async Task SetParameterValueAsync(string paramName, string value)
         {
             await ParameterInput(paramName).ClearAsync();
             await ParameterInput(paramName).FillAsync(value.ToString());
@@ -392,17 +382,18 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
 
         public async Task RollbackGroupAsync(string groupName, string targetWave = "")
         {
-            await RollbackButton(groupName).ClickAsync();
             if (!string.IsNullOrEmpty(targetWave))
             {
                 await _page.Locator($"div[role='option']:has-text('{targetWave}')").ClickAsync();
             }
+            await RollbackButton(groupName).ClickAsync();
             await _basicSetup.WaitForPageAsync(1);
         }
 
         public async Task BacklogGroupAsync(string groupName)
         {
             await BacklogCheckbox(groupName).CheckAsync();
+            await MoveToBackLogButton.ClickAsync();
             await _basicSetup.WaitForPageAsync(1);
         }
     }
