@@ -451,7 +451,7 @@ namespace WiseMigrateTests.Pages.Project
             {
                 await _projectList.ClickViewActivityLogs();
                 await _projectList.SelectDateRange();
-                await _basicSetup.SelectLast7DaysRangeAsync();
+                await _basicSetup.SelectDaysRangeAsync();
                 Logger.Info("Selected Date range Successfully");
             }, nameof(TC_031_Select_Date_Range));
         }

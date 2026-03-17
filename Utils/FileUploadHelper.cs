@@ -11,6 +11,11 @@ public static class FileUploadHelper
     
     private static readonly string UploadSSOTFilesDirectory = 
         Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestData", "SSOTFiles");
+
+    private static readonly string UploadHolidayFileDirectory = 
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestData", "HolidayList");
+    private static readonly string UploadInvalidHolidayFileDirectory = 
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestData", "InvalidHolidayListFile");
     private static readonly Random Random = new Random();
 
     /// <summary>
@@ -49,5 +54,15 @@ public static class FileUploadHelper
     public static string GetRandomSSOTFile()
     {
         return GetSingleRandomFile(UploadSSOTFilesDirectory);
+    }
+
+    public static string GetRandomHolidayListFile()
+    {
+        return GetSingleRandomFile(UploadHolidayFileDirectory);
+    }
+
+    public static string GetInvalidFile()
+    {
+        return GetSingleRandomFile(UploadInvalidHolidayFileDirectory);
     }
 }
