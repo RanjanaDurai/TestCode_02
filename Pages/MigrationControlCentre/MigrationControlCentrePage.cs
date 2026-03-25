@@ -24,6 +24,7 @@ namespace WiseMigrateTests.Pages.ProjectInventory
         public async Task NavigateToMigrationControlCentreAsync()
         {
             await _migrationPlanTrackingPage.NavigateToMigrationPlanTrackingAsync();
+            await _migrationPlanTrackingPage.InitiateMigrationFromInventoryAsync();
             await _migrationPlanTrackingPage.ClickViewPlanDetailsAsync();
             await _basicSetup.WaitForPageAsync(2);
         }

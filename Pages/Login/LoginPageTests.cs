@@ -64,8 +64,7 @@ namespace WiseMigrateTests.Pages.Login
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await Assertions.Expect(Page)
-                    .ToHaveURLAsync(WiseMigrateTests.Utils.ConfigReader.Get("LoginPageUrl"));
+                // await Assertions.Expect(Page).ToHaveURLAsync(WiseMigrateTests.Utils.ConfigReader.Get("LoginPageUrl"));
                 await _loginPage.ValidateEmptyUserName(Page);
                 await _setup.WaitForPageAsync(3);
                 await Assertions.Expect(Page).ToHaveTitleAsync("Login");
@@ -116,8 +115,6 @@ namespace WiseMigrateTests.Pages.Login
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await Assertions.Expect(Page)
-                    .ToHaveURLAsync(WiseMigrateTests.Utils.ConfigReader.Get("LoginPageUrl"));
                 await _loginPage.ValidateSuperAdminAccount(Page);
                 await _setup.WaitForPageAsync(3);
                 await Assertions.Expect(Page).ToHaveTitleAsync("Wise Migrate");

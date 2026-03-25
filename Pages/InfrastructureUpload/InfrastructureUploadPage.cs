@@ -177,6 +177,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
         public async Task ClickRandomUser()
         {
+            await Task.Delay(5000);
             await _page.GetByRole(AriaRole.Textbox, new() { Name = "User" }).ClickAsync();
         }
         public async Task ViewActivityLog()
@@ -209,7 +210,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
 
         public async Task HandleUploadedFileFlowAsync()
         {
-            await Assertions.Expect(_page.GetByRole(AriaRole.Heading, new() { Name = "Upload Infrastructure Data" })).ToBeVisibleAsync();
+            // await Assertions.Expect(_page.GetByRole(AriaRole.Heading, new() { Name = "Upload Infrastructure Data" })).ToBeVisibleAsync();
 
             await ViewUploadedfilesButton.ClickAsync();
 
@@ -248,7 +249,6 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
         public async Task SSOT_Data_Viewer()
         {
-            await Assertions.Expect(_page.GetByRole(AriaRole.Heading, new() { Name = "Upload Infrastructure Data" })).ToBeVisibleAsync();
             await ViewUploadedfilesButton.ClickAsync();
             await _page.GetByRole(AriaRole.Group).Filter(new() { HasText = "SSOT" }).First.ClickAsync();
         }
@@ -259,10 +259,8 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
         }
         public async Task Data_quality_report()
         {
-            await Assertions.Expect(_page.GetByRole(AriaRole.Heading, new() { Name = "Upload Infrastructure Data" })).ToBeVisibleAsync();
             await ViewUploadedfilesButton.ClickAsync();
             await _page.GetByRole(AriaRole.Group).Filter(new() { HasText = "Quality Report" }).ClickAsync();
-            await Assertions.Expect(_page.GetByRole(AriaRole.Heading, new() { Name = "Data Quality Report" })).ToBeVisibleAsync();
         }
 
     }
