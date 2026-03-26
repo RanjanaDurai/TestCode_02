@@ -8,6 +8,7 @@ using WiseMigrateTests.Utils;
 using Allure.Xunit.Attributes;
 using Allure.Xunit.Attributes.Steps;
 using AspectInjector.Broker;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace WiseMigrateTests.Pages.MigrationControlCentre
@@ -272,7 +273,8 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
             {
                 var searchInputText="SRVTEST000"+new Random().Next(0,10);
                 await _migrationControlCentrePage.PerformSearchAsync(searchInputText);
-                await Assertions.Expect(Page.GetByText("No results found", new() { Exact = false })).ToBeVisibleAsync();
+                await _basicSetup.WaitForPageAsync(1);
+                await Assertions.Expect(Page.GetByText("No records found matching the search criteria")).ToBeVisibleAsync();
                 Logger.Info("No results message displayed correctly");
             }, nameof(TC_010_Verify_TextSearch_NoResultsFound));
         }
@@ -394,7 +396,7 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _migrationControlCentrePage.SelectFilterStatusAsync("Failed");
-                if(Page.Locator("tr")!=null)
+                if(await Page.GetByText("Wave Name").IsVisibleAsync())
                 {
                     var elements = await Page.QuerySelectorAllAsync("text=Failed");
                     int count = elements.Count();
@@ -475,7 +477,6 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.ClickEditDetailsAsync();
                 await _basicSetup.WaitForPageAsync(1);
                 string waveName = "Wave "+ new Random().Next(1, _migrationControlCentrePage.WaveCount +1);
-                Console.WriteLine($"Wave Name : {waveName}");
                 await _migrationControlCentrePage.OpenRescheduleCalendarAsync(waveName);
                 await Page.GetByRole(AriaRole.Dialog).GetByRole(AriaRole.Heading, new() { Name = "Reschedule Wave"}).WaitForAsync(new() { State = WaitForSelectorState.Visible });
                 string selectedDate= await _migrationControlCentrePage.RescheduleOperationAsync();
@@ -485,6 +486,436 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
             }, nameof(TC_020_Verify_WaveRescheduleOperation));
         }
 
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_021_WaveRescheduleOperation__PastDate")]
+        [AllureTag("Regression")]
+        public async Task TC_021_WaveRescheduleOperation_PastDate()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.ClickEditDetailsAsync();
+
+                string waveName = "Wave 1";
+                await _migrationControlCentrePage.OpenRescheduleCalendarAsync(waveName);
+                string pastDate = DateTime.UtcNow.AddDays(-1).ToString("dd");
+                await _migrationControlCentrePage.DatePicker.ClickAsync();
+                var pastDayButton = Page.GetByRole(AriaRole.Button, new(){Name=pastDate});
+                bool isDisabled = await pastDayButton.GetAttributeAsync("disabled") != null ||
+                                  await pastDayButton.EvaluateAsync<bool>("el => el.classList.contains('disabled') || el.ariaDisabled === 'true'");
+
+                if (!isDisabled)
+                {
+                    await pastDayButton.ClickAsync(new() { Timeout = 5000 });
+                    await Page.GetByRole(AriaRole.Button, new() { Name = "Reschedule" }).ClickAsync();
+                    await _basicSetup.WaitForPageAsync(2);
+                    await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Planned Start Date cannot be in the past");
+                }
+                else
+                {
+                    Assert.True(isDisabled);
+                    Logger.Info("Past date selection allowed for Planned Start Date");
+                }
+
+                Logger.Info("Past date selection correctly blocked or produces validation error");
+            }, nameof(TC_021_WaveRescheduleOperation_PastDate));
+        }
+
+
         #endregion
+        
+        #region Schedule Migration
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_022_Open_Schedule_Migration")]
+        [AllureTag("Rregression")]
+        public async Task TC_022_Open_Schedule_Migration()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenScheduleMigrationModalAsync();
+                await Assertions.Expect(Page.GetByRole(AriaRole.Dialog).GetByRole(AriaRole.Heading, new() { Name = "Timeline Scheduler"})).ToBeVisibleAsync();
+                Logger.Info("Schedule Migration modal opened successfully");
+            }, nameof(TC_022_Open_Schedule_Migration));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_023_ScheduleMigration_ProjectStartDate")]
+        [AllureTag("Regression")]
+        public async Task TC_023_ScheduleMigration_ProjectStartDate()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenScheduleMigrationModalAsync();
+                await _migrationControlCentrePage.SetRandomProjectStartDateAsync();
+                await _migrationControlCentrePage.GenerateTimelineScheduleAsync();
+                await _basicSetup.WaitForPageAsync(1);
+                await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Migration schedule generated successfully.");
+                Logger.Info("Future start date selected");
+            }, nameof(TC_023_ScheduleMigration_ProjectStartDate));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_024_Verify_AddManualHoliday")]
+        [AllureTag("Regression")]
+        public async Task TC_024_Verify_AddManualHoliday()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenScheduleMigrationModalAsync();
+                await _migrationControlCentrePage.AddManualHolidayAsync("Christmas Day", "EMEA", Page.GetByRole(AriaRole.Button, new() {Name="Open Date Picker"}).Last);
+                var isAdded = await _migrationControlCentrePage.IsHolidayInTableAsync("Christmas Day");
+                Assert.True(isAdded);
+                Logger.Info("Manual holiday added and visible in table");
+            }, nameof(TC_024_Verify_AddManualHoliday));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_025_Add_Manual_Holiday_Missing_Required_Field_Negative")]
+        [AllureTag("Regression")]
+        public async Task TC_025_AddManualHoliday_MissingRequiredField_Negative()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenScheduleMigrationModalAsync();
+                await _migrationControlCentrePage.AddManualHolidayButton.ClickAsync();
+                await _migrationControlCentrePage.ManualHolidayRegionDropdown.ClickAsync();
+                await _migrationControlCentrePage.ManualHolidayRegionOption("EMEA").ClickAsync();
+                await _migrationControlCentrePage.AddHolidayButton.ClickAsync();
+                var hasError = await Page.GetByText("required", new() { Exact = false }).IsVisibleAsync() ||
+                               await Page.GetByText("Date*", new() { Exact = false }).IsVisibleAsync() ||
+                               await Page.Locator("[aria-invalid='true']").IsVisibleAsync();
+
+                Assert.True(hasError, "Validation error should appear when required fields are missing");
+
+                Logger.Info("Attempt to add manual holiday without date/name correctly blocked");
+            }, nameof(TC_025_AddManualHoliday_MissingRequiredField_Negative));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_026_Upload_Valid_HolidayFile")]
+        [AllureTag("Regression")]
+        public async Task TC_026_Upload_Valid_HolidayFile()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenScheduleMigrationModalAsync();
+                await _migrationControlCentrePage.HoliDayFileUploadOperationAsync();
+                await Assertions.Expect(Page.Locator("tr.mud-table-row").Nth(1).GetByText("Wave Name Sequence Planned")).Not.ToBeVisibleAsync();
+                Logger.Info("Valid CSV holidays uploaded and displayed");
+            }, nameof(TC_026_Upload_Valid_HolidayFile));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_027_Upload_Invalid_File_Format_Negative")]
+        [AllureTag("Regression")]
+        public async Task TC_027_Upload_Invalid_File_Format_Negative()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenScheduleMigrationModalAsync();
+                string invalidFilePath = FileUploadHelper.GetInvalidFile();
+
+                var fileChooserTask = Page.WaitForFileChooserAsync();
+                await Page.GetByRole(AriaRole.Button, new(){Name="Choose File"}).ClickAsync();
+                await Page.SetInputFilesAsync("input[id='holiday-file']", invalidFilePath);   
+                await Assertions.Expect(Page.Locator("role=alert").Last).ToHaveTextAsync("Oops! We only support CSV and JSON files right now. Please upload one of those.");
+                Logger.Info("Invalid file upload correctly rejected");
+            }, nameof(TC_027_Upload_Invalid_File_Format_Negative));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_028_Verify_FormatHelpAccess")]
+        [AllureTag("Regression")]
+        public async Task TC_028_Verify_FormatHelpAccess()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenScheduleMigrationModalAsync();
+                await _migrationControlCentrePage.OpenFormatHelpAsync();
+                await Assertions.Expect(_migrationControlCentrePage.FormatHelpDialog).ToBeVisibleAsync();
+                await _basicSetup.WaitForPageAsync(1);
+                await _migrationControlCentrePage.CloseFormatHelpAsync();
+                await Assertions.Expect(_migrationControlCentrePage.FormatHelpDialog).Not.ToBeVisibleAsync();
+                Logger.Info("Verified Format help access successfully");
+            }, nameof(TC_028_Verify_FormatHelpAccess));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_029_Cancel_ScheduleMigration")]
+        [AllureTag("Regression")]
+        public async Task TC_029_Cancel_ScheduleMigration()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenScheduleMigrationModalAsync();
+                await _migrationControlCentrePage.CancelSchedulerAsync();
+                await Assertions.Expect(Page.GetByRole(AriaRole.Dialog).GetByRole(AriaRole.Heading, new() { Name = "Timeline Scheduler"})).Not.ToBeVisibleAsync();
+                Logger.Info("Migration scheduling cancelled successfully");
+            }, nameof(TC_029_Cancel_ScheduleMigration));
+        }
+
+        #endregion
+
+        #region Parameter Configuration
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_030__Verify_ParameterConfgurationSection")]
+        [AllureTag("Regression")]
+        public async Task TC_030__Verify_ParameterConfgurationSection()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenParameterConfiguration();
+                await Assertions.Expect(Page.GetByRole(AriaRole.Dialog).GetByRole(AriaRole.Heading, new(){Name="Configure and Generate"})).ToBeVisibleAsync();
+                Logger.Info("Valid parameter values saved successfully");
+            }, nameof(TC_030__Verify_ParameterConfgurationSection));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_031_ConfigureParameters_ValidInput")]
+        [AllureTag("Regression")]
+        public async Task TC_031_ConfigureParameters_ValidInput()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenParameterConfiguration();
+                await Page.WaitForSelectorAsync("text=Configure and Generate Migration Plan");
+                await _migrationControlCentrePage.SetParameterValueAsync();
+                await _migrationControlCentrePage.GenerateMigrationScheduleAsync();
+                await Assertions.Expect(Page.GetByText("Migration plan generated successfully")).ToBeVisibleAsync();
+                Logger.Info("Valid parameter values saved successfully");
+            }, nameof(TC_031_ConfigureParameters_ValidInput));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_032_ConfigureParameters_InValidInput")]
+        [AllureTag("Regression")]
+        public async Task TC_032_ConfigureParameters_InValidInput()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenParameterConfiguration();
+                await Page.WaitForSelectorAsync("text=Configure and Generate Migration Plan");
+                await _migrationControlCentrePage.SetParameterValueAsync("Minimum Servers per Move","0");
+                await _migrationControlCentrePage.SetParameterValueAsync("Expected Servers per Move","4");
+                await _migrationControlCentrePage.SetParameterValueAsync("Maximum Servers per Move Group","0");
+                await _migrationControlCentrePage.SetParameterValueAsync("Minimum Move Groups per Wave*","0");
+                await _migrationControlCentrePage.SetParameterValueAsync("Maximum Move Groups per Wave*","2");
+                await _migrationControlCentrePage.GenerateMigrationScheduleAsync();
+                await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("The input value cannot be lesser than the default value.");
+                Logger.Info("Valid parameter values saved successfully");
+            }, nameof(TC_032_ConfigureParameters_InValidInput));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_033_Export_Scheduled_Plan")]
+        [AllureTag("regression")]
+        public async Task TC_033_Export_Scheduled_Plan()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                var downloadTask = Page.WaitForDownloadAsync();
+                await _migrationControlCentrePage.ExportPlanAsync();
+                var download = await downloadTask;
+                Assert.NotNull(download);
+                Assert.EndsWith(".xlsx", download.SuggestedFilename);
+                Logger.Info("Migration plan exported as Excel successfully");
+            }, nameof(TC_033_Export_Scheduled_Plan));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_034_Verify_Statistics_Display")]
+        [AllureTag("Regression")]
+        public async Task TC_034_Verify_Statistics_Display()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenStatisticsPanelAsync();
+                await Assertions.Expect(Page.GetByRole(AriaRole.Dialog)
+                    .GetByRole(AriaRole.Heading, new() {Name ="Migration Plan Summary"})).ToBeVisibleAsync();
+                Logger.Info("Statistics panel displays server/wave/group counts");
+            }, nameof(TC_034_Verify_Statistics_Display));
+        }
+        
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_035_Verify_ExpandWave")]
+        [AllureTag("Regression")]
+        public async Task TC_035_Verify_ExpandGroup()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.TimelineTab.ClickAsync();      
+                await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() {Name ="Wave Execution Schedule"})).ToBeVisibleAsync();     
+                var waveValue = new Random().Next(1,await Page.Locator("div.mud-timeline-item-content")
+                      .Filter(new() { HasText = "Wave " })
+                      .CountAsync()+1);
+                Console.WriteLine($"Wave Value : {waveValue}");
+                var groupValue=new Random().Next(1,3);                
+                string waveName= "Wave "+waveValue+" Group "+groupValue;
+                await _migrationControlCentrePage.ExpandWaveInTimelineAsync(waveName);
+                await Assertions.Expect(Page.GetByRole(AriaRole.Columnheader,new() {Name="Server Name"}).First).ToBeVisibleAsync();
+                Logger.Info("Group expanded and servers visible in timeline");
+            }, nameof(TC_035_Verify_ExpandGroup));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_036_MoveGroup_AcrossWave")]
+        [AllureTag("Regression")]
+        public async Task TC_036_MoveGroup_AcrossWave()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenManageTabAsync();
+                var waveValue = new Random().Next(1,await Page.Locator("h5").CountAsync()-2);
+                var groupValue=new Random().Next(1,await Page.GetByText(string.Concat("Wave ",waveValue," Group ")).CountAsync());  
+                var sourceGroupName=string.Concat("Wave ",waveValue," Group ",groupValue);
+                var targetWaveName="Wave "+ (waveValue+1);
+                await _basicSetup.WaitForPageAsync(5);
+                await _migrationControlCentrePage.MoveGroupToWaveAsync(sourceGroupName, targetWaveName);
+                var waveHeading = Page.Locator("h5.mud-typography-h5").Filter(new() { HasText = targetWaveName });
+                var waveContainer = waveHeading.Locator("xpath=ancestor::div[contains(@class,'mud-paper') " +  "and contains(@class,'pa-6')][1]");
+                await _basicSetup.WaitForPageAsync(2);
+                await Assertions.Expect(waveContainer.Locator(".mud-card-content").GetByText(sourceGroupName)).ToBeVisibleAsync();
+            }, nameof(TC_036_MoveGroup_AcrossWave));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_037")]
+        [AllureTag("Regression")]
+        public async Task TC_037_Verify_BackloggedGroup()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenManageTabAsync();
+                var waveValue = new Random().Next(1,await Page.Locator("h5").CountAsync()-2);
+                var groupValue=new Random().Next(1,await Page.GetByText(string.Concat("Wave ",waveValue," Group ")).CountAsync());  
+                var sourceGroupName=string.Concat("Wave ",waveValue," Group ",groupValue);
+                await _migrationControlCentrePage.BacklogGroupAsync(sourceGroupName);
+                var backlogSection = Page.Locator("div.mud-paper").Filter(new() {Has = Page.Locator("h5.mud-typography-h5").Filter(new() { HasText = "Move Group Backlog" })});
+                var groupTitle = backlogSection.Locator("p.mud-typography-subtitle2").Filter(new() { HasText = sourceGroupName });
+                await Assertions.Expect(groupTitle).ToBeVisibleAsync();
+                await Assertions.Expect(Page.GetByText("Groups moved to backlog successfully.")).ToBeVisibleAsync();            
+                Logger.Info("Group backlogged successfully");
+            }, nameof(TC_037_Verify_BackloggedGroup));
+        }
+
+         [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_038_Rollback_BackloggedGroupToTargetWave")]
+        [AllureTag("Regression")]
+        public async Task TC_038_Rollback_BackloggedGroup()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                
+                await _migrationControlCentrePage.OpenManageTabAsync();
+                var waveValue = new Random().Next(1,await Page.Locator("h5").CountAsync()-2);
+                var groupValue=new Random().Next(1,await Page.GetByText(string.Concat("Wave ",waveValue," Group ")).CountAsync());  
+                var sourceGroupName=string.Concat("Wave ",waveValue," Group ",groupValue);
+                var sourceWaveName = string.Concat("Wave ",waveValue);
+        
+
+                await _migrationControlCentrePage.BacklogGroupAsync(sourceGroupName);
+                await _basicSetup.WaitForPageAsync(1);
+                await _migrationControlCentrePage.RollbackGroupAsync();
+
+                var waveHeading = Page.Locator("h5.mud-typography-h5").Filter(new() { HasText = sourceWaveName });
+                var waveContainer = waveHeading.Locator("xpath=ancestor::div[contains(@class,'mud-paper') " +  "and contains(@class,'pa-6')][1]");
+                await _basicSetup.WaitForPageAsync(2);
+                await Assertions.Expect(waveContainer.Locator(".mud-card-content").GetByText(sourceGroupName)).ToBeVisibleAsync();
+                await Assertions.Expect(Page.GetByText($"Group {sourceGroupName} restored successfully.")).ToBeVisibleAsync();
+                Logger.Info("Backlogged group rolled back successfully");
+            }, nameof( TC_038_Rollback_BackloggedGroup));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_039_Rollback_BackloggedGroupToTargetWave")]
+        [AllureTag("Regression")]
+        public async Task TC_039_Rollback_BackloggedGroupToTargetWave()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                
+                await _migrationControlCentrePage.OpenManageTabAsync();
+                var waveValue = new Random().Next(1,await Page.Locator("h5").CountAsync()-2);
+                var groupValue=new Random().Next(1,await Page.GetByText(string.Concat("Wave ",waveValue," Group ")).CountAsync());  
+                var sourceGroupName=string.Concat("Wave ",waveValue," Group ",groupValue);
+                var targetWaveName="Wave "+ (waveValue+1);
+
+                await _migrationControlCentrePage.BacklogGroupAsync(sourceGroupName);
+                await _basicSetup.WaitForPageAsync(1);
+                await _migrationControlCentrePage.RollbackGroupToTargetWaveAsync(targetWaveName);
+
+                var waveHeading = Page.Locator("h5.mud-typography-h5").Filter(new() { HasText = targetWaveName });
+                await _basicSetup.WaitForPageAsync(2);
+                var waveContainer = waveHeading.Locator("xpath=ancestor::div[contains(@class,'mud-paper') " +  "and contains(@class,'pa-6')][1]");
+                await _basicSetup.WaitForPageAsync(2);
+                await Assertions.Expect(waveContainer.Locator(".mud-card-content").GetByText(sourceGroupName)).ToBeVisibleAsync();
+                await Assertions.Expect(Page.GetByText($"Group {sourceGroupName} restored successfully.")).ToBeVisibleAsync();
+                Logger.Info("Backlogged group rolled back successfully");
+            }, nameof( TC_039_Rollback_BackloggedGroupToTargetWave));
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_040_Configure_Parameters_ZeroEdgeValue")]
+        [AllureTag("Regression")]
+        public async Task TC_040_Configure_Parameters_ZeroEdgeValue()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenParameterConfiguration();
+                await Page.WaitForSelectorAsync("text=Configure and Generate Migration Plan");
+                await _migrationControlCentrePage.SetParameterValueAsync("Minimum Servers per Move","0");
+                await _migrationControlCentrePage.SetParameterValueAsync("Expected Servers per Move","0");
+                await _migrationControlCentrePage.SetParameterValueAsync("Maximum Servers per Move Group","0");
+                await _migrationControlCentrePage.SetParameterValueAsync("Minimum Move Groups per Wave*","0");
+                await _migrationControlCentrePage.SetParameterValueAsync("Maximum Move Groups per Wave*","0");
+                await _migrationControlCentrePage.GenerateMigrationScheduleAsync();
+                await Assertions.Expect(Page.Locator("role=alert")).ToContainTextAsync("The input value cannot be lesser than the deafult value.");
+                Logger.Info("Valid parameter values saved successfully");
+            }, nameof(TC_040_Configure_Parameters_ZeroEdgeValue));
+               
+        }
+
+        [Fact]
+        [Trait("Category", "Regression")]
+        [AllureOwner("TC_041_Configure_Parameters_NonIntegerInput")]
+        [AllureTag("regression")]
+        public async Task TC_041_Configure_Parameters_NonIntegerInput()
+        {
+            await _attachmentHelper.RunWithTracingAsync(async () =>
+            {
+                await _migrationControlCentrePage.OpenParameterConfiguration();
+                await Page.WaitForSelectorAsync("text=Configure and Generate Migration Plan");
+                await _migrationControlCentrePage.SetParameterValueAsync("Minimum Servers per Move","1.5");
+                await _migrationControlCentrePage.SetParameterValueAsync("Expected Servers per Move","5.5");
+                await _migrationControlCentrePage.SetParameterValueAsync("Maximum Servers per Move Group","2.5");
+                await _migrationControlCentrePage.SetParameterValueAsync("Minimum Move Groups per Wave*","2.5");
+                await _migrationControlCentrePage.SetParameterValueAsync("Maximum Move Groups per Wave*","3.5");
+                await _migrationControlCentrePage.GenerateMigrationScheduleAsync();
+                await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("The input value cannot be lesser than the default value.");
+                Logger.Info("Valid parameter values saved successfully");
+            }, nameof(TC_041_Configure_Parameters_NonIntegerInput));
+        }
+
+        #endregion
+        
     }
 }
