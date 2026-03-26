@@ -2,6 +2,8 @@ using Microsoft.Playwright;
 using WiseMigrateTests.Pages.PreRequisites;
 using WiseMigrateTests.Pages.ClientModeOperation;
 using System.Text.RegularExpressions;
+using WiseMigrateTests.Utils;
+
 
 namespace WiseMigrateTests.Pages.FutureModeOperation
 {
@@ -55,6 +57,8 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
             _page.Locator("div:nth-child(5) > .mud-button-root");
 
         public ILocator FullScreenButton =>
+            _page.Locator("div:nth-child(6) > .mud-button-root");
+        public ILocator ExitFullSCreen => 
             _page.Locator("div:nth-child(6) > .mud-button-root");
 
         public ILocator ShowLegendButton =>
@@ -147,6 +151,91 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
             int index = _random.Next(count);
 
             await options.Nth(index).ClickAsync();
+        }
+        public ILocator TotalCost =>
+            _page.GetByRole(AriaRole.Heading).Filter(new() { HasText = "$" }).First;
+        public ILocator ThreeYearTotalCost => 
+            // _page.GetByRole(AriaRole.Heading, new() { Name = "All Upfront" });
+            _page.GetByText("All Upfront").Locator("xpath=following::h3[1]");
+        public ILocator ServerCostDetailsSection =>
+            _page.GetByText("Server Cost Details");
+
+        public ILocator OnDemandColumn =>
+            _page.Locator("tbody tr td:nth-child(5)");
+
+        public ILocator OneYearReservedColumn =>
+            _page.Locator("tbody tr td:nth-child(6)");
+
+        public ILocator ThreeYearReservedColumn =>
+            _page.Locator("tbody tr td:nth-child(8)");
+            public ILocator OnDemandTab =>
+            _page.GetByText("On-Demand", new() { Exact = true });
+
+        public ILocator OneYearTab =>
+            _page.GetByText("1 Year Reserved");
+
+        public ILocator ThreeYearTab =>
+            _page.GetByText("3 Year Reserved");
+        public ILocator TimePeriodDropdown =>
+            _page.GetByText("Per Month");
+
+        public ILocator PerHour =>
+            _page.GetByText("Per Hour");
+
+        public ILocator PerDay =>
+            _page.GetByText("Per Day");
+
+        public ILocator PerMonth =>
+            _page.Locator("div").Filter(new() { HasTextRegex = new Regex("^Per Month$") }).Nth(2);
+
+        public ILocator PerYear =>
+            _page.GetByText("Per Year");
+
+        public async Task SelectTimePeriodAsync(string period)
+        {
+            await TimePeriodDropdown.ClickAsync();
+
+            switch (period)
+            {
+                case "Hour":
+                    await PerHour.ClickAsync();
+                    break;
+
+                case "Day":
+                    await PerDay.ClickAsync();
+                    break;
+
+                case "Month":
+                    await PerMonth.ClickAsync();
+                    break;
+
+                case "Year":
+                    await PerYear.ClickAsync();
+                    break;
+            }
+        }
+
+        public async Task VerifyCostCalculationAsync(ILocator totalCostLocator, ILocator columnLocator)
+        {
+            // Get displayed total
+            string totalText = await totalCostLocator.InnerTextAsync();
+
+            decimal uiTotal = decimal.Parse(
+                totalText.Replace("$", "").Replace(",", "")
+            );
+
+            // Get all column values
+            var values = await columnLocator.AllInnerTextsAsync();
+
+            decimal calculatedTotal = values
+                .Select(x => decimal.Parse(x.Replace("$", "").Replace(",", "")))
+                .Sum();
+
+            Logger.Info($"UI Total: {uiTotal}");
+            Logger.Info($"Calculated Total: {calculatedTotal}");
+
+            Assert.True(Math.Abs(uiTotal - calculatedTotal) < 1,
+                "Cost mismatch between UI and row sum");
         }
     }
 }

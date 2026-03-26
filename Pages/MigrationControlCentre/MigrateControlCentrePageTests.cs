@@ -20,6 +20,7 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
         private LoginPage _loginPage = null!;
         private ProjectListPage _projectListPage = null!;
         private MigrationControlCentrePage _migrationControlCentrePage = null!;
+        
         public async Task InitializeAsync()
         {
             await base.InitializeAsync();
@@ -34,6 +35,7 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
             await _basicSetup.CreateProjectAsync();
             _createdProjectName = _basicSetup.projectName;
             await _migrationControlCentrePage.NavigateToMigrationControlCentreAsync();
+            // await _migrationPlanTrackingPage.NavigateToMigrationPlanTrackingAsync();
         }
 
         [Fact]
