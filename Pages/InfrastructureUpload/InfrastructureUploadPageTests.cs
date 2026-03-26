@@ -633,6 +633,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
                 await _projectListPage.WaitForProjectDashboardIconsAsync();
                 await _projectListPage.ClickCompletedProjectButton();
                 await _projectListPage.ClickGatheringClientInfradata();
+                await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Upload Infrastructure Data" })).ToBeVisibleAsync();
                 await _infrastructureUploadPage.HandleUploadedFileFlowAsync();
                 Logger.Info("Verifed the file type (SSOT/CMDB)");
             }, nameof(TC_030_Verify_file_type));
@@ -650,6 +651,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
                 await _projectListPage.WaitForProjectDashboardIconsAsync();
                 await _projectListPage.ClickCompletedProjectButton();
                 await _projectListPage.ClickGatheringClientInfradata();
+                await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Upload Infrastructure Data" })).ToBeVisibleAsync();
                 await _infrastructureUploadPage.SSOT_Data_Viewer();
                 await _infrastructureUploadPage.CloseDialog();
                 Logger.Info("SSOT data verified");
@@ -668,7 +670,9 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
                 await _projectListPage.WaitForProjectDashboardIconsAsync();
                 await _projectListPage.ClickCompletedProjectButton();
                 await _projectListPage.ClickGatheringClientInfradata();
+                await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Upload Infrastructure Data" })).ToBeVisibleAsync();
                 await _infrastructureUploadPage.Data_quality_report();
+                await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Data Quality Report" })).ToBeVisibleAsync();
                 await _infrastructureUploadPage.CloseDataQualityReport();
                 Logger.Info("Verified Data Qaulity report");
             }, nameof(TC_032_View_Data_Quality_Report));

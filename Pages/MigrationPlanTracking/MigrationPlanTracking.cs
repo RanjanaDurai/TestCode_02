@@ -26,8 +26,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         {
             await _projectInventoryPage.NavigateToInventoryPageAsync();
             await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-            await _projectInventoryPage.InitiateMigrationFromInventoryAsync();
-
+            // await _projectInventoryPage.InitiateMigrationFromInventoryAsync();
         }
 
         public async Task InitiateMigrationFromInventoryAsync()

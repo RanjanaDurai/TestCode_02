@@ -67,6 +67,6 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
                 await Assertions.Expect(viewPlanButton).ToBeEnabledAsync();
                 Logger.Info("Migration Plan Tracking page has clickable buttons");
             }, nameof(TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons));
-        }
+        } 
     }
-}
+}    
