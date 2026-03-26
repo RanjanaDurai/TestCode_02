@@ -572,7 +572,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
                 await _infrastructureUploadPage.VerifyClientInfradata();
                 await _infrastructureUploadPage.ViewActivityLog();
                 await _infrastructureUploadPage.ClickDateRange();
-                await _basicSetup.SelectLast7DaysRangeAsync();
+                await _basicSetup.SelectDaysRangeAsync();
                 Logger.Info("Slected random date range (from past 7 days) succsessfully in recent activity");
             }, nameof(TC_027_Select_Date_Rang_In_Activity_log));
         }
@@ -596,7 +596,7 @@ namespace WiseMigrateTests.Pages.InfrastructureUpload
                 await _infrastructureUploadPage.ClickRandomStatus();
                 await _basicSetup.RandomSelector();
                 await _infrastructureUploadPage.ClickDateRange();
-                await _basicSetup.SelectLast7DaysRangeAsync();
+                await _basicSetup.SelectDaysRangeAsync();
                 await Page.GetByRole(AriaRole.Button, new() { Name = "Clear Filters" }).ClickAsync();
                 Logger.Info("Successfully cleared all the filter applied in recent activity log");
             }, nameof(TC_028_Clear_All_Filter));

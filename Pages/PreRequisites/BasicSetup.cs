@@ -213,10 +213,10 @@ namespace WiseMigrateTests.Pages.PreRequisites
 
         private ILocator PreviousMonthButton =>_page.GetByRole(AriaRole.Button, new(){NameRegex = new Regex("^Previous month")});
         private ILocator NextMonthButton =>_page.GetByRole(AriaRole.Button, new(){NameRegex = new Regex("^Next month")});
-        public async Task SelectLast7DaysRangeAsync()
+        public async Task SelectDaysRangeAsync(int value =-7)
         {
             var today = DateTime.Today;
-            var startDate = today.AddDays(-7);
+            var startDate = today.AddDays(value);
 
             Logger.Info($"Selecting range: {startDate:dd MMM yyyy} - {today:dd MMM yyyy}");
 
@@ -250,6 +250,20 @@ namespace WiseMigrateTests.Pages.PreRequisites
             string monthYear = date.ToString("MMMM yyyy");
 
             return await _page.GetByText(monthYear).IsVisibleAsync();
+        }
+
+        public async Task<string> RandomDateSelectorAsync()
+        {
+            var today = DateTime.Today;
+            var lastDayOfMonth = new DateTime(today.Year, today.Month, DateTime.DaysInMonth(today.Year, today.Month));
+            int totalDaysInRange = (lastDayOfMonth - today).Days + 1;
+            int randomOffset = Random.Shared.Next(0, totalDaysInRange);
+            var targetDate = today.AddDays(randomOffset);
+            string targetDay = targetDate.Day.ToString();
+            var dayButton = _page.GetByRole(AriaRole.Button, new() { Name = targetDay }).First;
+            await dayButton.ClickAsync();
+
+            return targetDay;
         }
     }
 }
