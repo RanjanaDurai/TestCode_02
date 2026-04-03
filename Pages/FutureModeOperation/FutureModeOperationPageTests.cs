@@ -18,6 +18,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         private ProjectListPage _projectList = null!;
         private FutureModeOperationPage _fmoPage = null!;
         private ClientModeOperationPage _cmoPage = null!;
+         protected override bool UseClassLevelGrouping => true;
 
         public async Task InitializeAsync()
         {
@@ -29,10 +30,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
              _cmoPage = new ClientModeOperationPage(Page);
             _fmoPage = new FutureModeOperationPage(Page);
 
-
-            await _loginPage.ValidateMigrateAdminAccount(Page);
-            await _projectList.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
+            await NavigateToPageAsync("/fmoarch");
             _createdProjectName = _basicSetup.projectName;
 
             Logger.Info("Logged in as Super Admin and created a basic project");
@@ -49,7 +47,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await Assertions.Expect(Page.GetByText("Future Mode of Operation - Architectural View")).ToBeVisibleAsync();
                 Logger.Info("FMO Page UI loaded successfully");
             }, nameof(TC_001_FMO_Page_UI_Should_Load));
@@ -63,7 +61,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await Assertions.Expect(Page.GetByText("Future Mode of Operation - Architectural View")).ToBeVisibleAsync();
                 await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).First).ToBeEnabledAsync();
                 await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).Last).ToBeEnabledAsync();
@@ -83,7 +81,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialX, initialY) = await _cmoPage.IntializeCoordinates();
                 await _cmoPage.PerformPanAsync();
                 var mousePosition = await Page.EvaluateAsync<dynamic>(@"() => 
@@ -109,7 +107,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.ZoomInWithMouseAsync();
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
@@ -127,7 +125,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await Assertions.Expect(_fmoPage.Diagram).ToBeVisibleAsync();
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _fmoPage.ZoomInButton.ClickAsync();
@@ -147,7 +145,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _cmoPage.ZoomInToMaximumAsync();
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.PerformZoomInAsync();
@@ -171,7 +169,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.ZoomOutWithMouseAsync();
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
@@ -189,7 +187,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await Assertions.Expect(_fmoPage.ZoomOutButton).ToBeEnabledAsync();
                 await _fmoPage.ZoomInButton.ClickAsync();
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
@@ -210,7 +208,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         // {
         //     await _attachmentHelper.RunWithTracingAsync(async ()=>
         //     {
-        //         await _fmoPage.NavigateToFMOPageAsync();
+        //         
         //         await _cmoPage.ZoomOutToMinimumAsync();
         //         var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
         //         await _cmoPage.PerformZoomOutAsync();
@@ -230,7 +228,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async ()=>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _cmoPage.ZoomOutToMinimumAsync();
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.PerformZoomOutAsync();
@@ -256,7 +254,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await Assertions.Expect(_fmoPage.ResetZoomButton).ToBeEnabledAsync();
                 await _fmoPage.ResetZoomButton.ClickAsync();
@@ -278,7 +276,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
             
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();;
+                ;
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Random random = new Random();
                 int zoomActionCount = random.Next(0,4);
@@ -308,7 +306,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _cmoPage.ClickResetAsync();
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.ClickResetAsync();
@@ -331,7 +329,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await Assertions.Expect(_fmoPage.FullScreenButton).ToBeEnabledAsync();
                 await _fmoPage.FullScreenButton.ClickAsync();
@@ -350,7 +348,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _fmoPage.FullScreenButton.ClickAsync();
                 await _basicSetup.WaitForPageAsync(1);
@@ -370,7 +368,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async()=>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _fmoPage.FullScreenButton.ClickAsync();
                 await _basicSetup.WaitForPageAsync(1);
@@ -389,7 +387,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.FullScreenButton.ClickAsync();
 
@@ -413,7 +411,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _cmoPage.EnterFullscreenModeAsync();
                 var download = await _cmoPage.TriggerDownloadAsync();
                 var fileName= "FMO_"+_createdProjectName+"_"+DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd")+".svg";    
@@ -431,7 +429,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var download = await _cmoPage.TriggerDownloadAsync();
                 var fileName= "FMO_"+_createdProjectName+"_"+DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd")+".svg";    
                 Console.WriteLine($"Expected filename: {fileName}");            
@@ -452,7 +450,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ShowLegendButton.ClickAsync();
 
@@ -470,7 +468,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _fmoPage.ShowLegendButton.ClickAsync();
                 await _fmoPage.CloseLegendButton.ClickAsync();
 
@@ -486,7 +484,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _fmoPage.FullScreenButton.ClickAsync();
                 await _fmoPage.ShowLegendButton.ClickAsync();
                 await Assertions.Expect(Page.Locator("#fullscreen-container div").Filter(new() { HasText = "Legend" }).Nth(3)).ToBeVisibleAsync();
@@ -507,7 +505,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.SearchButton.ClickAsync();
 
@@ -525,7 +523,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.SearchButton.ClickAsync();
                 await _fmoPage.SearchTextbox.FillAsync("svr");
@@ -544,7 +542,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var searchInputText= "SRVTEST000"+new Random().Next(0,10);
                 await _cmoPage.PerformSearchAsync(searchInputText);
                 await Assertions.Expect(Page.Locator("div.search-results.show")).Not.ToBeVisibleAsync();
@@ -562,7 +560,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var searchInputText= "SRVTEST0"+new Random().Next(0,10);
                 await _cmoPage.PerformSearchAsync(searchInputText);
                 await _cmoPage.CloseSearchBarAsync();
@@ -579,7 +577,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _cmoPage.PerformSearchAsync("");
                 await Assertions.Expect(Page.GetByPlaceholder("Search Server...")).ToBeVisibleAsync();
                 // await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Please enter a search term.");
@@ -596,7 +594,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.SearchButton.ClickAsync();
 
@@ -624,7 +622,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _fmoPage.SearchButton.ClickAsync();
                 await Assertions.Expect(_fmoPage.SearchTextbox).ToBeVisibleAsync();
 
@@ -656,7 +654,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await Assertions.Expect(_fmoPage.ExportToExcelButton).ToBeEnabledAsync();
                 await _fmoPage.ExportToExcelButton.ClickAsync();
@@ -677,7 +675,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await Assertions.Expect(_fmoPage.SyncDataButton).ToBeEnabledAsync();
                 await _fmoPage.SyncDataButton.ClickAsync();
@@ -698,7 +696,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
                 await Assertions.Expect(_fmoPage.MigrationCostHeader).ToBeVisibleAsync();
@@ -720,7 +718,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -738,7 +736,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
                 await _fmoPage.OneYearReserved.ClickAsync();
@@ -757,7 +755,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
                 await _fmoPage.ThreeYearReserved.ClickAsync();
@@ -776,7 +774,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
                 await _fmoPage.CloseMigrationCostButton.ClickAsync();
@@ -848,7 +846,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -870,7 +868,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -892,7 +890,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -914,7 +912,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -936,7 +934,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -959,7 +957,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -982,7 +980,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -1005,7 +1003,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -1028,7 +1026,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -1051,7 +1049,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -1074,7 +1072,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -1097,7 +1095,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 

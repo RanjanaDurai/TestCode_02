@@ -34,7 +34,6 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
             // await _projectList.ClickCreateNewProjectAsync();
             // await _basicSetup.CreateProjectAsync();
             // _createdProjectName= _basicSetup.projectName;
-            await NavigateToPageAsync("/clientrarch");
             Logger.Info("Logged in as Super Admin and created a basic project");
         }
 

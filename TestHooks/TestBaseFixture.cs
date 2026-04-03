@@ -94,7 +94,7 @@ namespace WiseMigrateTests.TestHooks
 
         private static async Task<string> ExtractProjectIdFromCurrentUrlAsync(IPage page)
         {
-            await page.WaitForURLAsync("**/clientrarch?project_id=*", new() { Timeout = 15000 });
+            await page.WaitForURLAsync("**/*?project_id=*", new() { Timeout = 15000 });
             var uri = new Uri(page.Url);
             return System.Web.HttpUtility.ParseQueryString(uri.Query).Get("project_id") 
                 ?? throw new InvalidOperationException("Could not extract project_id from URL");
