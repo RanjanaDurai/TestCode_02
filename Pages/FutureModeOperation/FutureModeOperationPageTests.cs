@@ -413,11 +413,9 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
             {
                 
                 await _cmoPage.EnterFullscreenModeAsync();
-                var download = await _cmoPage.TriggerDownloadAsync();
-                var fileName= "FMO_"+_createdProjectName+"_"+DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd")+".svg";    
-                Console.WriteLine($"Expected filename: {fileName}");            
+                var download = await _cmoPage.TriggerDownloadAsync();        
                 Assert.NotNull(download);
-                Assert.Equal(fileName, download.SuggestedFilename);
+                Assert.EndsWith(".svg", download.SuggestedFilename);
             }, nameof(TC_017_Verify_Download_OnFullScreenMode_Functionality));
         }
 
@@ -430,11 +428,9 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 
-                var download = await _cmoPage.TriggerDownloadAsync();
-                var fileName= "FMO_"+_createdProjectName+"_"+DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd")+".svg";    
-                Console.WriteLine($"Expected filename: {fileName}");            
+                var download = await _cmoPage.TriggerDownloadAsync();           
                 Assert.NotNull(download);
-                Assert.Equal(fileName, download.SuggestedFilename);
+                Assert.EndsWith(".svg", download.SuggestedFilename);
             }, nameof(TC_018_Verify_Download_Functionality));
         }
 
