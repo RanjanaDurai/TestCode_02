@@ -19,6 +19,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
 
         private BasicSetup _basicSetup = null!;
         private ClientModeOperationPage _cmoPage = null!;
+        protected override bool UseClassLevelGrouping => true;
 
         public async new Task InitializeAsync()
         {
@@ -27,13 +28,13 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
             _loginPage = new LoginPage(Page);
             _basicSetup = new BasicSetup(Page);
             _projectList = new ProjectListPage(Page);
-            _cmoPage = new ClientModeOperationPage(Page);
-            
+            _cmoPage = new ClientModeOperationPage(Page);            
 
-            await _loginPage.ValidateMigrateAdminAccount(Page);
-            await _projectList.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            _createdProjectName= _basicSetup.projectName;
+            // await _loginPage.ValidateMigrateAdminAccount(Page);
+            // await _projectList.ClickCreateNewProjectAsync();
+            // await _basicSetup.CreateProjectAsync();
+            // _createdProjectName= _basicSetup.projectName;
+            await NavigateToPageAsync("/clientrarch");
             Logger.Info("Logged in as Super Admin and created a basic project");
         }
 
@@ -46,7 +47,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 await Assertions.Expect(Page.GetByText("Current Mode of Operation - Architectural View")).ToBeVisibleAsync();
                 await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_001_CMO_Page_UI");
                 Logger.Info("CMO Page UI loaded successfully");
@@ -61,7 +62,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).First).ToBeEnabledAsync();
                 await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).Last).ToBeEnabledAsync();
                 await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons");
@@ -77,7 +78,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 await Assertions.Expect(_cmoPage.CMOArchitectureContainer).ToBeVisibleAsync();
                 await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_003_Verify_CMO_Architecture_Display");
                 Logger.Info("CMO architecture displayed correctly");
@@ -94,7 +95,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var (initialX, initialY) = await _cmoPage.IntializeCoordinates();
                 await _cmoPage.PerformPanAsync();
                 var mousePosition = await Page.EvaluateAsync<dynamic>(@"() => 
@@ -121,7 +122,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.ZoomInWithMouseAsync();
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
@@ -140,7 +141,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 await _basicSetup.WaitForPageAsync(1);
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.PerformZoomInAsync();
@@ -160,7 +161,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 await _cmoPage.ZoomInToMaximumAsync();
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.PerformZoomInAsync();
@@ -184,7 +185,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                    await _cmoPage.NavigateToCMOPageAsync();
+                    
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.ZoomOutWithMouseAsync();
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
@@ -203,7 +204,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {                          
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.PerformZoomOutAsync();
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
@@ -223,7 +224,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async ()=>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 await _cmoPage.ZoomOutToMinimumAsync();
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.PerformZoomOutAsync();
@@ -249,7 +250,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
             
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.PerformZoomInAsync();
                 await _cmoPage.ClickResetAsync();
@@ -271,7 +272,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
             
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.PerformZoomOutAsync();
                 await _cmoPage.ClickResetAsync();
@@ -293,7 +294,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
             
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Random random = new Random();
                 int zoomActionCount = random.Next(0,4);
@@ -324,7 +325,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 await _cmoPage.ClickResetAsync();
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.ClickResetAsync();
@@ -348,7 +349,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.EnterFullscreenModeAsync();
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
@@ -367,7 +368,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         // {
         //     await _attachmentHelper.RunWithTracingAsync(async () =>
         //     {
-        //         await _cmoPage.NavigateToCMOPageAsync();
+        //         
         //         var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
         //         await _cmoPage.EnterFullscreenModeAsync();  
         //         await _basicSetup.WaitForPageAsync(2);
@@ -389,7 +390,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.EnterFullscreenModeAsync();  
                 await _basicSetup.WaitForPageAsync(1);
@@ -410,7 +411,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async ()=>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.EnterFullscreenModeAsync();
                 await _basicSetup.WaitForPageAsync(1);
@@ -433,7 +434,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var download = await _cmoPage.TriggerDownloadAsync();
                 var fileName= "CMO_"+_createdProjectName+"_"+DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd")+".svg";    
                 Console.WriteLine($"Expected filename: {fileName}");            
@@ -450,7 +451,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 await _cmoPage.EnterFullscreenModeAsync();
                 var download = await _cmoPage.TriggerDownloadAsync();
                 var fileName= "CMO_"+_createdProjectName+"_"+DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd")+".svg";    
@@ -471,7 +472,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 await _cmoPage.ClickLegendIconAsync();
                 await Assertions.Expect(Page.Locator(" .legend-container")).ToBeVisibleAsync();
                 await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_022_Verify_Legend_Display");
@@ -487,7 +488,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 await _cmoPage.EnterFullscreenModeAsync();
                 await _cmoPage.ClickLegendIconAsync();
                 await Assertions.Expect(Page.Locator(" .legend-container")).ToBeVisibleAsync();
@@ -504,7 +505,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync( async()=>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 await _cmoPage.ClickLegendIconAsync();
                 await Assertions.Expect(Page.Locator(" .legend-container")).ToBeVisibleAsync();
                 await _cmoPage.ClickLegendIconAsync();
@@ -526,7 +527,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var searchInputText= "SRVTEST0"+new Random().Next(10,53);
                 await _cmoPage.PerformSearchAsync(searchInputText);
                 await Assertions.Expect(Page.Locator("div.search-results.show")).ToBeVisibleAsync();
@@ -544,7 +545,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var searchInputText= "SRVTEST";
                 await _cmoPage.PerformSearchAsync(searchInputText);
                 await Assertions.Expect(Page.Locator(".search-results")).ToBeVisibleAsync();
@@ -577,7 +578,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 await _cmoPage.PerformSearchAsync("SRVTEST");
                 await Assertions.Expect(Page.Locator(".search-results")).ToBeVisibleAsync();
                 var NodeId=new Random().Next(10,53);
@@ -599,7 +600,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var searchInputText= "SRVTEST000"+new Random().Next(0,10);
                 await _cmoPage.PerformSearchAsync(searchInputText);
                 await Assertions.Expect(Page.Locator("div.search-results.show")).Not.ToBeVisibleAsync();
@@ -616,7 +617,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 var searchInputText= "SRVTEST0"+new Random().Next(0,10);
                 await _cmoPage.PerformSearchAsync(searchInputText);
                 await _cmoPage.CloseSearchBarAsync();
@@ -633,7 +634,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoPage.NavigateToCMOPageAsync();
+                
                 await _cmoPage.PerformSearchAsync("");
                 await Assertions.Expect(Page.GetByPlaceholder("Search Server...")).ToBeVisibleAsync();
                 // await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Please enter a search term.");

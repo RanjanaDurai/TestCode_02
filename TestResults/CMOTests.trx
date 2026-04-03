@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="be089908-d4de-4b8f-a70e-735a47d83fcc" name="dell@DESKTOP-2S45JFU 2026-04-02 11:23:21" runUser="DESKTOP-2S45JFU\dell" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-04-02T11:23:21.6277505+05:30" queuing="2026-04-02T11:23:21.6277518+05:30" start="2026-04-02T11:23:07.7211905+05:30" finish="2026-04-02T11:23:22.0241638+05:30" />
+  <TestSettings name="default" id="0692b4cc-abd7-4b75-a71d-87861e85d81e">
+    <Deployment runDeploymentRoot="dell_DESKTOP-2S45JFU_2026-04-02_11_23_21" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="cb101776-f3fa-4c6a-8a48-7e4cb6c0fda6" testId="e1a0f4be-324d-e331-12a3-a38a0612546e" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_CMO_003_Verify_CMO_Architecture_Display" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6136865+05:30" endTime="2026-04-02T11:23:21.6136868+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cb101776-f3fa-4c6a-8a48-7e4cb6c0fda6">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0e2c2b23-3088-4f87-9709-a899b1b91e22" testId="5c2d11ba-6f3d-1c65-8d42-60a2f570970e" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_026_Verify_SearchNavigation_Functionality" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.5585511+05:30" endTime="2026-04-02T11:23:21.5585514+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0e2c2b23-3088-4f87-9709-a899b1b91e22">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d5f9837d-fcda-40b8-8071-7b0984bb5165" testId="b2ab5b18-0b88-29bd-79b8-decfed359769" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_024_Verify_ToggleLegend_Operation" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6092705+05:30" endTime="2026-04-02T11:23:21.6092707+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d5f9837d-fcda-40b8-8071-7b0984bb5165">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9560e1fc-835b-4c23-bec0-fe09684ad108" testId="1f0d83ea-66d6-448a-22c4-d538a674c088" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_001_CMO_Page_UI_Should_Load" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6560593+05:30" endTime="2026-04-02T11:23:21.6560981+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9560e1fc-835b-4c23-bec0-fe09684ad108">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0e59e035-edb6-46c7-b48c-e8f2f0bd9427" testId="2a51fde4-6beb-ee9b-a228-71f2224e0792" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_015_Verify_Reset_Does_Not_Impact_Scale" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.4824282+05:30" endTime="2026-04-02T11:23:21.4825003+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0e59e035-edb6-46c7-b48c-e8f2f0bd9427">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="116203e0-15b1-40fb-a340-ca899e5e947c" testId="8ee119b7-6c64-b5a2-2bae-fb238cdd25c5" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_009_Verify_ZoomOut_Button" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.5510912+05:30" endTime="2026-04-02T11:23:21.5510916+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="116203e0-15b1-40fb-a340-ca899e5e947c">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="81dcd87e-dc85-4afc-9ec7-f86c2bb6b4c8" testId="7753357e-0007-fb21-ab7f-66be31991628" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_021_Verify_Download_OnFullScreenMode_Functionality" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6500837+05:30" endTime="2026-04-02T11:23:21.6500841+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="81dcd87e-dc85-4afc-9ec7-f86c2bb6b4c8">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8d6c019d-b097-4371-b64e-f2b714189d8a" testId="908df79a-5c86-46d9-fc0a-e60525ff21e1" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_028_Verify_Search_NoResults" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6941470+05:30" endTime="2026-04-02T11:23:21.6941473+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8d6c019d-b097-4371-b64e-f2b714189d8a">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d3c36dcc-e3c5-488b-abe5-973af672a4fc" testId="3fc9a699-5141-f825-9c18-f18e1a4b0689" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_030_Verify_Search_EmptyInput" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.5944839+05:30" endTime="2026-04-02T11:23:21.5944842+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d3c36dcc-e3c5-488b-abe5-973af672a4fc">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0f831696-98c5-40c0-86a3-4016cefae1bc" testId="47f21da3-daef-5fee-78c2-02d0ee8acf89" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_019_Verify_UI_Scaling_In_Fullscreen" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.5252761+05:30" endTime="2026-04-02T11:23:21.5252764+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0f831696-98c5-40c0-86a3-4016cefae1bc">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2d5bc2b0-b937-4873-bec7-4b87ba12ba95" testId="dda5a02a-83e5-6c8f-7af3-28e372e70b19" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_023_Verify_Legend_Display_OnFullScreenMode" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6760529+05:30" endTime="2026-04-02T11:23:21.6760531+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2d5bc2b0-b937-4873-bec7-4b87ba12ba95">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b380c643-8811-4c5a-b711-007f693a5f54" testId="8edc6dc1-2d73-a88e-3fbb-a10c3e910e5f" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_010_Verify_Min_Zoom_Limit" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6192152+05:30" endTime="2026-04-02T11:23:21.6192154+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b380c643-8811-4c5a-b711-007f693a5f54">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="58bb3368-de8f-474c-b288-07f5ab18ed2b" testId="df2ca203-69b8-4b7c-95e8-3602e38455e6" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_007_Verify_Max_Zoom_Limit" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6404421+05:30" endTime="2026-04-02T11:23:21.6404429+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="58bb3368-de8f-474c-b288-07f5ab18ed2b">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="358c497c-d764-4d43-b4a6-73d81ddd2b32" testId="c2a8c406-2cb0-478e-f12f-d48eca3a124b" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_027_Verify_Search_RandomSelectedNode" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.5888373+05:30" endTime="2026-04-02T11:23:21.5888377+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="358c497c-d764-4d43-b4a6-73d81ddd2b32">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="784474a4-ec41-4673-a705-24dc7f66ae8c" testId="8b284a4d-eeba-798b-233a-c7ce2a0c9677" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_013_Verify_ResetOnZoomOut_Functionality" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6715490+05:30" endTime="2026-04-02T11:23:21.6715493+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="784474a4-ec41-4673-a705-24dc7f66ae8c">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9dcd404c-43d3-40d1-a4da-40a31ad09b6f" testId="817f91f9-048b-d04b-f70f-fcacdd93416e" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_006_Verify_ZoomIn_Button" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.5122051+05:30" endTime="2026-04-02T11:23:21.5122056+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9dcd404c-43d3-40d1-a4da-40a31ad09b6f">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c2b6d6fe-60db-4c95-9970-80125072bd27" testId="fdebe5cb-f334-99a0-ea14-d4badc343cd2" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_016_Verify_Enter_Fullscreen" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.5201122+05:30" endTime="2026-04-02T11:23:21.5201177+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c2b6d6fe-60db-4c95-9970-80125072bd27">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b02f7388-cf11-45e8-b7f9-17580a477b36" testId="992a0980-626e-7821-fa9d-6cf34cad663f" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_020_Verify_Download_Functionality" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6631743+05:30" endTime="2026-04-02T11:23:21.6631748+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b02f7388-cf11-45e8-b7f9-17580a477b36">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5dea1f77-5163-4e91-9095-d9672eaa8ef6" testId="197bd3e7-216f-b1e8-0bb4-b72281bd1dc7" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_025_Verify_Search_Functionality" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.5415222+05:30" endTime="2026-04-02T11:23:21.5415225+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5dea1f77-5163-4e91-9095-d9672eaa8ef6">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a7baece0-8ddd-4ab3-8250-f4b89423454e" testId="e977a7c5-eab0-8b78-567e-1d8250e7b843" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_014_Verify_ResetOnZoom_Functionality" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6443687+05:30" endTime="2026-04-02T11:23:21.6443689+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a7baece0-8ddd-4ab3-8250-f4b89423454e">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6f2f5d91-2b1e-456c-a665-3f21e421ee4f" testId="2e58af0a-41e2-a67c-b8fc-ed5b48baccdf" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6293065+05:30" endTime="2026-04-02T11:23:21.6293070+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6f2f5d91-2b1e-456c-a665-3f21e421ee4f">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="15cad1b3-22c9-41fa-bcac-ac2d805c72ba" testId="b761a7e9-89b5-b71f-2f7b-87114c8072c1" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_012_Verify_ResetOnZoom_Functionality" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6047323+05:30" endTime="2026-04-02T11:23:21.6047325+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="15cad1b3-22c9-41fa-bcac-ac2d805c72ba">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b4756ac5-4020-40ee-b6a6-921061a3f42e" testId="3d3c2296-b143-1bdd-525b-46798574a52b" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_018_Verify_Exit_Fullscreen" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.5847884+05:30" endTime="2026-04-02T11:23:21.5847885+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b4756ac5-4020-40ee-b6a6-921061a3f42e">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c6a35e99-3db9-4046-9903-089e8834d95a" testId="f1b89cba-5c5a-5bb3-66c1-60afacf9a918" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_008_Verify_ZoomOut_MouseScroll" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6885427+05:30" endTime="2026-04-02T11:23:21.6885429+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c6a35e99-3db9-4046-9903-089e8834d95a">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4053c914-07ae-484d-97a3-322c021d08ae" testId="f5e2b8a4-3150-e150-1ed4-02bcaecc4dc7" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_CMO_004_Verify_Pan_Functionality" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.6823580+05:30" endTime="2026-04-02T11:23:21.6823585+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4053c914-07ae-484d-97a3-322c021d08ae">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4185a5e7-7273-4c98-b361-0f378e4a113a" testId="adf06eb7-e9e8-5b8c-e8c0-a0a1ca29c924" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_005_Verify_ZoomIn_MouseScroll" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.5312580+05:30" endTime="2026-04-02T11:23:21.5312585+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4185a5e7-7273-4c98-b361-0f378e4a113a">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e172b80c-c53d-4a60-8d1a-58907f7dc12f" testId="011fcfd1-eb35-0081-6000-6619dd3ccfe1" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_029_Verify_CloseSearch" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.5368481+05:30" endTime="2026-04-02T11:23:21.5368486+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e172b80c-c53d-4a60-8d1a-58907f7dc12f">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="daa7768d-70ca-4802-a802-9dba03bb2ad5" testId="68124cdd-c10d-ed75-ed6b-ce1dfaba58bc" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_022_Verify_Legend_Display" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-02T11:23:21.5997021+05:30" endTime="2026-04-02T11:23:21.5997027+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="daa7768d-70ca-4802-a802-9dba03bb2ad5">
+      <Output>
+        <ErrorInfo>
+          <Message>System.NullReferenceException : Object reference not set to an instance of an object.</Message>
+          <StackTrace>   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 31&#xD;
+   at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs:line 24</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_029_Verify_CloseSearch" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="011fcfd1-eb35-0081-6000-6619dd3ccfe1">
+      <Execution id="e172b80c-c53d-4a60-8d1a-58907f7dc12f" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_029_Verify_CloseSearch" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_007_Verify_Max_Zoom_Limit" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="df2ca203-69b8-4b7c-95e8-3602e38455e6">
+      <Execution id="58bb3368-de8f-474c-b288-07f5ab18ed2b" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_007_Verify_Max_Zoom_Limit" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_023_Verify_Legend_Display_OnFullScreenMode" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="dda5a02a-83e5-6c8f-7af3-28e372e70b19">
+      <Execution id="2d5bc2b0-b937-4873-bec7-4b87ba12ba95" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_023_Verify_Legend_Display_OnFullScreenMode" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_020_Verify_Download_Functionality" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="992a0980-626e-7821-fa9d-6cf34cad663f">
+      <Execution id="b02f7388-cf11-45e8-b7f9-17580a477b36" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_020_Verify_Download_Functionality" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_030_Verify_Search_EmptyInput" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="3fc9a699-5141-f825-9c18-f18e1a4b0689">
+      <Execution id="d3c36dcc-e3c5-488b-abe5-973af672a4fc" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_030_Verify_Search_EmptyInput" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_010_Verify_Min_Zoom_Limit" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="8edc6dc1-2d73-a88e-3fbb-a10c3e910e5f">
+      <Execution id="b380c643-8811-4c5a-b711-007f693a5f54" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_010_Verify_Min_Zoom_Limit" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_022_Verify_Legend_Display" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="68124cdd-c10d-ed75-ed6b-ce1dfaba58bc">
+      <Execution id="daa7768d-70ca-4802-a802-9dba03bb2ad5" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_022_Verify_Legend_Display" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_013_Verify_ResetOnZoomOut_Functionality" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="8b284a4d-eeba-798b-233a-c7ce2a0c9677">
+      <Execution id="784474a4-ec41-4673-a705-24dc7f66ae8c" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_013_Verify_ResetOnZoomOut_Functionality" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_021_Verify_Download_OnFullScreenMode_Functionality" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="7753357e-0007-fb21-ab7f-66be31991628">
+      <Execution id="81dcd87e-dc85-4afc-9ec7-f86c2bb6b4c8" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_021_Verify_Download_OnFullScreenMode_Functionality" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_005_Verify_ZoomIn_MouseScroll" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="adf06eb7-e9e8-5b8c-e8c0-a0a1ca29c924">
+      <Execution id="4185a5e7-7273-4c98-b361-0f378e4a113a" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_005_Verify_ZoomIn_MouseScroll" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_014_Verify_ResetOnZoom_Functionality" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="e977a7c5-eab0-8b78-567e-1d8250e7b843">
+      <Execution id="a7baece0-8ddd-4ab3-8250-f4b89423454e" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_014_Verify_ResetOnZoom_Functionality" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_001_CMO_Page_UI_Should_Load" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="1f0d83ea-66d6-448a-22c4-d538a674c088">
+      <Execution id="9560e1fc-835b-4c23-bec0-fe09684ad108" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_001_CMO_Page_UI_Should_Load" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_024_Verify_ToggleLegend_Operation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="b2ab5b18-0b88-29bd-79b8-decfed359769">
+      <Execution id="d5f9837d-fcda-40b8-8071-7b0984bb5165" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_024_Verify_ToggleLegend_Operation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_028_Verify_Search_NoResults" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="908df79a-5c86-46d9-fc0a-e60525ff21e1">
+      <Execution id="8d6c019d-b097-4371-b64e-f2b714189d8a" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_028_Verify_Search_NoResults" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_012_Verify_ResetOnZoom_Functionality" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="b761a7e9-89b5-b71f-2f7b-87114c8072c1">
+      <Execution id="15cad1b3-22c9-41fa-bcac-ac2d805c72ba" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_012_Verify_ResetOnZoom_Functionality" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_018_Verify_Exit_Fullscreen" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="3d3c2296-b143-1bdd-525b-46798574a52b">
+      <Execution id="b4756ac5-4020-40ee-b6a6-921061a3f42e" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_018_Verify_Exit_Fullscreen" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_016_Verify_Enter_Fullscreen" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="fdebe5cb-f334-99a0-ea14-d4badc343cd2">
+      <Execution id="c2b6d6fe-60db-4c95-9970-80125072bd27" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_016_Verify_Enter_Fullscreen" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_027_Verify_Search_RandomSelectedNode" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="c2a8c406-2cb0-478e-f12f-d48eca3a124b">
+      <Execution id="358c497c-d764-4d43-b4a6-73d81ddd2b32" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_027_Verify_Search_RandomSelectedNode" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_006_Verify_ZoomIn_Button" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="817f91f9-048b-d04b-f70f-fcacdd93416e">
+      <Execution id="9dcd404c-43d3-40d1-a4da-40a31ad09b6f" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_006_Verify_ZoomIn_Button" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_026_Verify_SearchNavigation_Functionality" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="5c2d11ba-6f3d-1c65-8d42-60a2f570970e">
+      <Execution id="0e2c2b23-3088-4f87-9709-a899b1b91e22" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_026_Verify_SearchNavigation_Functionality" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_CMO_004_Verify_Pan_Functionality" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="f5e2b8a4-3150-e150-1ed4-02bcaecc4dc7">
+      <Execution id="4053c914-07ae-484d-97a3-322c021d08ae" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_CMO_004_Verify_Pan_Functionality" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_019_Verify_UI_Scaling_In_Fullscreen" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="47f21da3-daef-5fee-78c2-02d0ee8acf89">
+      <Execution id="0f831696-98c5-40c0-86a3-4016cefae1bc" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_019_Verify_UI_Scaling_In_Fullscreen" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="2e58af0a-41e2-a67c-b8fc-ed5b48baccdf">
+      <Execution id="6f2f5d91-2b1e-456c-a665-3f21e421ee4f" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_008_Verify_ZoomOut_MouseScroll" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="f1b89cba-5c5a-5bb3-66c1-60afacf9a918">
+      <Execution id="c6a35e99-3db9-4046-9903-089e8834d95a" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_008_Verify_ZoomOut_MouseScroll" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_CMO_003_Verify_CMO_Architecture_Display" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="e1a0f4be-324d-e331-12a3-a38a0612546e">
+      <Execution id="cb101776-f3fa-4c6a-8a48-7e4cb6c0fda6" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_CMO_003_Verify_CMO_Architecture_Display" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_015_Verify_Reset_Does_Not_Impact_Scale" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="2a51fde4-6beb-ee9b-a228-71f2224e0792">
+      <Execution id="0e59e035-edb6-46c7-b48c-e8f2f0bd9427" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_015_Verify_Reset_Does_Not_Impact_Scale" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_009_Verify_ZoomOut_Button" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="8ee119b7-6c64-b5a2-2bae-fb238cdd25c5">
+      <Execution id="116203e0-15b1-40fb-a340-ca899e5e947c" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_009_Verify_ZoomOut_Button" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_025_Verify_Search_Functionality" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="197bd3e7-216f-b1e8-0bb4-b72281bd1dc7">
+      <Execution id="5dea1f77-5163-4e91-9095-d9672eaa8ef6" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_025_Verify_Search_Functionality" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="e1a0f4be-324d-e331-12a3-a38a0612546e" executionId="cb101776-f3fa-4c6a-8a48-7e4cb6c0fda6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5c2d11ba-6f3d-1c65-8d42-60a2f570970e" executionId="0e2c2b23-3088-4f87-9709-a899b1b91e22" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b2ab5b18-0b88-29bd-79b8-decfed359769" executionId="d5f9837d-fcda-40b8-8071-7b0984bb5165" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1f0d83ea-66d6-448a-22c4-d538a674c088" executionId="9560e1fc-835b-4c23-bec0-fe09684ad108" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2a51fde4-6beb-ee9b-a228-71f2224e0792" executionId="0e59e035-edb6-46c7-b48c-e8f2f0bd9427" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8ee119b7-6c64-b5a2-2bae-fb238cdd25c5" executionId="116203e0-15b1-40fb-a340-ca899e5e947c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7753357e-0007-fb21-ab7f-66be31991628" executionId="81dcd87e-dc85-4afc-9ec7-f86c2bb6b4c8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="908df79a-5c86-46d9-fc0a-e60525ff21e1" executionId="8d6c019d-b097-4371-b64e-f2b714189d8a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3fc9a699-5141-f825-9c18-f18e1a4b0689" executionId="d3c36dcc-e3c5-488b-abe5-973af672a4fc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="47f21da3-daef-5fee-78c2-02d0ee8acf89" executionId="0f831696-98c5-40c0-86a3-4016cefae1bc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dda5a02a-83e5-6c8f-7af3-28e372e70b19" executionId="2d5bc2b0-b937-4873-bec7-4b87ba12ba95" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8edc6dc1-2d73-a88e-3fbb-a10c3e910e5f" executionId="b380c643-8811-4c5a-b711-007f693a5f54" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="df2ca203-69b8-4b7c-95e8-3602e38455e6" executionId="58bb3368-de8f-474c-b288-07f5ab18ed2b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c2a8c406-2cb0-478e-f12f-d48eca3a124b" executionId="358c497c-d764-4d43-b4a6-73d81ddd2b32" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8b284a4d-eeba-798b-233a-c7ce2a0c9677" executionId="784474a4-ec41-4673-a705-24dc7f66ae8c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="817f91f9-048b-d04b-f70f-fcacdd93416e" executionId="9dcd404c-43d3-40d1-a4da-40a31ad09b6f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fdebe5cb-f334-99a0-ea14-d4badc343cd2" executionId="c2b6d6fe-60db-4c95-9970-80125072bd27" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="992a0980-626e-7821-fa9d-6cf34cad663f" executionId="b02f7388-cf11-45e8-b7f9-17580a477b36" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="197bd3e7-216f-b1e8-0bb4-b72281bd1dc7" executionId="5dea1f77-5163-4e91-9095-d9672eaa8ef6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e977a7c5-eab0-8b78-567e-1d8250e7b843" executionId="a7baece0-8ddd-4ab3-8250-f4b89423454e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2e58af0a-41e2-a67c-b8fc-ed5b48baccdf" executionId="6f2f5d91-2b1e-456c-a665-3f21e421ee4f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b761a7e9-89b5-b71f-2f7b-87114c8072c1" executionId="15cad1b3-22c9-41fa-bcac-ac2d805c72ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3d3c2296-b143-1bdd-525b-46798574a52b" executionId="b4756ac5-4020-40ee-b6a6-921061a3f42e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f1b89cba-5c5a-5bb3-66c1-60afacf9a918" executionId="c6a35e99-3db9-4046-9903-089e8834d95a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f5e2b8a4-3150-e150-1ed4-02bcaecc4dc7" executionId="4053c914-07ae-484d-97a3-322c021d08ae" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="adf06eb7-e9e8-5b8c-e8c0-a0a1ca29c924" executionId="4185a5e7-7273-4c98-b361-0f378e4a113a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="011fcfd1-eb35-0081-6000-6619dd3ccfe1" executionId="e172b80c-c53d-4a60-8d1a-58907f7dc12f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="68124cdd-c10d-ed75-ed6b-ce1dfaba58bc" executionId="daa7768d-70ca-4802-a802-9dba03bb2ad5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="28" executed="28" passed="0" failed="28" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.5.3.1+6b60a9e56a (64-bit .NET 8.0.25)&#xD;
+[xUnit.net 00:00:02.10] Allure.Xunit: XunitTestRunner's Void .ctor(Xunit.Abstractions.ITest, Xunit.Sdk.IMessageBus, System.Type, System.Object[], System.Reflection.MethodInfo, System.Object[], System.String, System.Collections.Generic.IReadOnlyList`1[Xunit.Sdk.BeforeAfterTestAttribute], Xunit.Sdk.ExceptionAggregator, System.Threading.CancellationTokenSource) has been patched&#xD;
+[xUnit.net 00:00:02.15] Allure.Xunit: Allure reporter enabled&#xD;
+[xUnit.net 00:00:02.26]   Discovering: WiseMigrateTests&#xD;
+[xUnit.net 00:00:02.40]   Discovered:  WiseMigrateTests&#xD;
+[xUnit.net 00:00:02.41]   Starting:    WiseMigrateTests&#xD;
+[xUnit.net 00:00:10.99]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:10.99]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.00]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.00]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.03]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.03]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.03]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.03]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.04]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.04]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.04]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.04]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.04]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.04]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.04]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.04]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.05]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.05]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.05]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.05]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.05]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.05]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.05]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.05]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.06]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.06]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.06]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.06]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.07]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.07]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.07]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.07]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.08]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.08]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.08]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.08]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.10]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.10]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.10]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.10]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.11]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.11]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.11]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.11]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.11]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.11]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.11]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.11]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.12]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.12]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.12]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.12]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.12]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.12]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.12]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.12]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.13]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.13]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.13]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.13]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.13]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.13]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.13]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.13]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.14]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.14]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.14]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.14]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.15]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.15]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.15]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.15]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.16]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.16]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.16]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.16]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.16]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.16]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.16]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.16]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.17]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.17]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.17]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.17]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.17]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.17]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.17]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.17]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.18]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.18]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.18]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.18]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.19]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.19]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.19]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.19]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.19]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.19]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.19]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.19]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.20]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.20]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.20]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.20]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.21]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.21]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.21]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.21]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.21]       System.NullReferenceException : Object reference not set to an instance of an object.&#xD;
+[xUnit.net 00:00:11.21]       Stack Trace:&#xD;
+[xUnit.net 00:00:11.21]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(31,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.21]         C:\Users\dell\WiseMigrateTests\Pages\ClientModeOperation\ClientModeOperationPageTests.cs(24,0): at WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.InitializeAsync()&#xD;
+[xUnit.net 00:00:11.45]   Finished:    WiseMigrateTests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.4932794+05:30">
+        <Text>[xUnit.net 00:00:10.99]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_015_Verify_Reset_Does_Not_Impact_Scale [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.5120615+05:30">
+        <Text>[xUnit.net 00:00:11.03]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_006_Verify_ZoomIn_Button [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.5197208+05:30">
+        <Text>[xUnit.net 00:00:11.04]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_016_Verify_Enter_Fullscreen [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.5250680+05:30">
+        <Text>[xUnit.net 00:00:11.04]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_019_Verify_UI_Scaling_In_Fullscreen [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.5302360+05:30">
+        <Text>[xUnit.net 00:00:11.05]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_005_Verify_ZoomIn_MouseScroll [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.5367870+05:30">
+        <Text>[xUnit.net 00:00:11.05]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_029_Verify_CloseSearch [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.5446219+05:30">
+        <Text>[xUnit.net 00:00:11.06]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_025_Verify_Search_Functionality [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.5506838+05:30">
+        <Text>[xUnit.net 00:00:11.07]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_009_Verify_ZoomOut_Button [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.5587302+05:30">
+        <Text>[xUnit.net 00:00:11.08]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_026_Verify_SearchNavigation_Functionality [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.6761185+05:30">
+        <Text>[xUnit.net 00:00:11.10]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_018_Verify_Exit_Fullscreen [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.6763803+05:30">
+        <Text>[xUnit.net 00:00:11.11]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_027_Verify_Search_RandomSelectedNode [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.6766475+05:30">
+        <Text>[xUnit.net 00:00:11.11]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_030_Verify_Search_EmptyInput [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.6769500+05:30">
+        <Text>[xUnit.net 00:00:11.12]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_022_Verify_Legend_Display [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.6771672+05:30">
+        <Text>[xUnit.net 00:00:11.12]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_012_Verify_ResetOnZoom_Functionality [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.6774178+05:30">
+        <Text>[xUnit.net 00:00:11.13]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_024_Verify_ToggleLegend_Operation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.6890630+05:30">
+        <Text>[xUnit.net 00:00:11.13]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_CMO_003_Verify_CMO_Architecture_Display [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.6893778+05:30">
+        <Text>[xUnit.net 00:00:11.14]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_010_Verify_Min_Zoom_Limit [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.6915289+05:30">
+        <Text>[xUnit.net 00:00:11.15]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.7027506+05:30">
+        <Text>[xUnit.net 00:00:11.16]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_007_Verify_Max_Zoom_Limit [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.7030834+05:30">
+        <Text>[xUnit.net 00:00:11.16]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_014_Verify_ResetOnZoom_Functionality [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.7033851+05:30">
+        <Text>[xUnit.net 00:00:11.17]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_021_Verify_Download_OnFullScreenMode_Functionality [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.7036693+05:30">
+        <Text>[xUnit.net 00:00:11.17]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_001_CMO_Page_UI_Should_Load [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.7039726+05:30">
+        <Text>[xUnit.net 00:00:11.18]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_020_Verify_Download_Functionality [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.7042813+05:30">
+        <Text>[xUnit.net 00:00:11.19]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_013_Verify_ResetOnZoomOut_Functionality [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.7046572+05:30">
+        <Text>[xUnit.net 00:00:11.19]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_023_Verify_Legend_Display_OnFullScreenMode [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.7049451+05:30">
+        <Text>[xUnit.net 00:00:11.20]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_CMO_004_Verify_Pan_Functionality [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.7052260+05:30">
+        <Text>[xUnit.net 00:00:11.20]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_008_Verify_ZoomOut_MouseScroll [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-02T11:23:21.7078684+05:30">
+        <Text>[xUnit.net 00:00:11.21]     WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_028_Verify_Search_NoResults [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>
