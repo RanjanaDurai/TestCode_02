@@ -4,9 +4,10 @@ using WiseMigrateTests.Pages.ProjectInventory;
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Utils;
 using WiseMigrateTests.Pages.PreRequisites;
+using WiseMigrateTests.Pages.Project;
 using Allure.Xunit.Attributes;
 
-namespace WiseMigrateTests.Pages.Project
+namespace WiseMigrateTests.Pages.ProjectInventory
 {
     [Collection("Playwright collection")]
     [AllureSuite("Project Inventory Tests")]
@@ -16,6 +17,7 @@ namespace WiseMigrateTests.Pages.Project
         private LoginPage _loginPage = null!;
         private ProjectListPage _projectListPage = null!;
         private ProjectInventoryPage _projectInventoryPage = null!;
+        protected override bool UseClassLevelGrouping => true;
 
         public new async Task InitializeAsync()
         {
@@ -26,9 +28,7 @@ namespace WiseMigrateTests.Pages.Project
             _projectListPage = new ProjectListPage(Page);
             _projectInventoryPage = new ProjectInventoryPage(Page);
 
-            await _loginPage.ValidateMigrateAdminAccount(Page);
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
+            await NavigateToPageAsync("/inventory");
             _createdProjectName = _basicSetup.projectName;
 
             Logger.Info("Project dashboard ready for Project Actions tests");
@@ -44,7 +44,7 @@ namespace WiseMigrateTests.Pages.Project
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _projectInventoryPage.NavigateToInventoryPageAsync();
+                
                 await Assertions.Expect(
                     Page.GetByRole(AriaRole.Heading, new() { Name = "CMO/FMO Inventory" })
                 ).ToBeVisibleAsync();
@@ -61,7 +61,7 @@ namespace WiseMigrateTests.Pages.Project
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _projectInventoryPage.NavigateToInventoryPageAsync();
+                
                 await _basicSetup.WaitForPageAsync(2);
                 await _projectInventoryPage.InitiateMigrationFromInventoryAsync();
                 await Assertions.Expect(

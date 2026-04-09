@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="a1770944-0910-4761-84c6-e71a175c9738" name="dell@DESKTOP-2S45JFU 2026-04-08 11:02:55" runUser="DESKTOP-2S45JFU\dell" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-04-08T11:02:55.3236814+05:30" queuing="2026-04-08T11:02:55.3236824+05:30" start="2026-04-08T11:01:53.1841326+05:30" finish="2026-04-08T11:03:06.7280425+05:30" />
+  <TestSettings name="default" id="c88790f9-7221-42e0-b937-70ebf643b2bc">
+    <Deployment runDeploymentRoot="dell_DESKTOP-2S45JFU_2026-04-08_11_02_55" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="d38c6669-c147-4bfe-ac9d-ec9e571b8f7c" testId="7e85f73f-b29d-50aa-1605-6d2fc0945ee8" testName="WiseMigrateTests.Pages.ProjectInventory.ProjectInventoryPageTests.TC_002_Verify_Migration_Control_Center_Flow" computerName="DESKTOP-2S45JFU" duration="00:00:08.4417680" startTime="2026-04-08T11:03:05.2140191+05:30" endTime="2026-04-08T11:03:05.2140208+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d38c6669-c147-4bfe-ac9d-ec9e571b8f7c" />
+    <UnitTestResult executionId="48f4036b-f736-4f88-89ea-bd9b2e18d212" testId="f57cacab-39d5-2dd9-e23a-ef4c8d486322" testName="WiseMigrateTests.Pages.ProjectInventory.ProjectInventoryPageTests.TC_001_Inventory_Page_Should_Load_Sucessfully" computerName="DESKTOP-2S45JFU" duration="00:00:05.0023234" startTime="2026-04-08T11:02:55.1828797+05:30" endTime="2026-04-08T11:02:55.1829417+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="48f4036b-f736-4f88-89ea-bd9b2e18d212" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="WiseMigrateTests.Pages.ProjectInventory.ProjectInventoryPageTests.TC_002_Verify_Migration_Control_Center_Flow" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="7e85f73f-b29d-50aa-1605-6d2fc0945ee8">
+      <Execution id="d38c6669-c147-4bfe-ac9d-ec9e571b8f7c" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ProjectInventory.ProjectInventoryPageTests" name="TC_002_Verify_Migration_Control_Center_Flow" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ProjectInventory.ProjectInventoryPageTests.TC_001_Inventory_Page_Should_Load_Sucessfully" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="f57cacab-39d5-2dd9-e23a-ef4c8d486322">
+      <Execution id="48f4036b-f736-4f88-89ea-bd9b2e18d212" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ProjectInventory.ProjectInventoryPageTests" name="TC_001_Inventory_Page_Should_Load_Sucessfully" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="7e85f73f-b29d-50aa-1605-6d2fc0945ee8" executionId="d38c6669-c147-4bfe-ac9d-ec9e571b8f7c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f57cacab-39d5-2dd9-e23a-ef4c8d486322" executionId="48f4036b-f736-4f88-89ea-bd9b2e18d212" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="2" executed="2" passed="2" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.5.3.1+6b60a9e56a (64-bit .NET 8.0.25)&#xD;
+[xUnit.net 00:00:00.72] Allure.Xunit: XunitTestRunner's Void .ctor(Xunit.Abstractions.ITest, Xunit.Sdk.IMessageBus, System.Type, System.Object[], System.Reflection.MethodInfo, System.Object[], System.String, System.Collections.Generic.IReadOnlyList`1[Xunit.Sdk.BeforeAfterTestAttribute], Xunit.Sdk.ExceptionAggregator, System.Threading.CancellationTokenSource) has been patched&#xD;
+[xUnit.net 00:00:00.75] Allure.Xunit: Allure reporter enabled&#xD;
+[xUnit.net 00:00:00.86]   Discovering: WiseMigrateTests&#xD;
+[xUnit.net 00:00:01.01]   Discovered:  WiseMigrateTests&#xD;
+[xUnit.net 00:00:01.02]   Starting:    WiseMigrateTests&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=75f14271-67ac-41ec-ae21-9de5f934941a&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_001_Inventory_Page_Should_Load_Sucessfully_PASSED_20260408-110254.png&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=75f14271-67ac-41ec-ae21-9de5f934941a&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_002_Verify_Migration_Control_Center_Flow_PASSED_20260408-110304.png&#xD;
+SharedContextFixture.DisposeAsync() - Cleaning up shared project&#xD;
+[xUnit.net 00:01:12.18]   Finished:    WiseMigrateTests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

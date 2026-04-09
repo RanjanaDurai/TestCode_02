@@ -8,7 +8,7 @@ using Xunit;
 
 namespace WiseMigrateTests.TestHooks
 {
-    public class TestBaseFixture : IClassFixture<GlobalTestFixture>, IAsyncLifetime
+    public class TestBaseFixture : IClassFixture<GlobalTestFixture>,IClassFixture<SharedContextFixture>, IAsyncLifetime
     {
         protected IBrowserContext Context { get; private set; } = null!;
         protected IPage Page { get; private set; } = null!;
@@ -76,12 +76,6 @@ namespace WiseMigrateTests.TestHooks
                     Timeout = 45000
                 });
 
-                await Page.WaitForSelectorAsync("#diagram", new()
-                {
-                    Timeout = 30000,
-                    State = WaitForSelectorState.Visible
-                });
-
                 Console.WriteLine($"Successfully loaded page: {pagePath}");
             }
             catch (Exception ex)
@@ -99,6 +93,8 @@ namespace WiseMigrateTests.TestHooks
             return System.Web.HttpUtility.ParseQueryString(uri.Query).Get("project_id") 
                 ?? throw new InvalidOperationException("Could not extract project_id from URL");
         }
+
+
         protected async Task RunTestAsync(Func<Task> testBody, string testName)
         {
             try
@@ -127,27 +123,12 @@ namespace WiseMigrateTests.TestHooks
             {
                 if (UseClassLevelGrouping)
                 {
-                    Console.WriteLine("DISPOSEASYNC - Class Level Reset (Shared Context)");
-
-                    // try
-                    // {
-                    //     // Navigate to neutral page
-                    //     await Page.ReloadAsync(new PageReloadOptions
-                    //     {
-                    //         WaitUntil = WaitUntilState.NetworkIdle,
-                    //         Timeout = 45000
-                    //     });
-                        
-                        await Page.WaitForLoadStateAsync(LoadState.NetworkIdle, new PageWaitForLoadStateOptions
-                        {
-                            Timeout = 10000
-                        });
-                    // }
-                    // catch (Exception resetEx)
-                    // {
-                    //     Console.WriteLine($"Warning: Class-level reset failed - {resetEx.Message}");
-                        
-                    // }
+                    Console.WriteLine("DISPOSEASYNC - Class Level Reset (Shared Context)");                     
+                    await Page.WaitForLoadStateAsync(LoadState.NetworkIdle, new PageWaitForLoadStateOptions
+                    {
+                        Timeout = 10000
+                    });
+        
                 }
                 else
                 {

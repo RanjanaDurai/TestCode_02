@@ -3,6 +3,7 @@ using WiseMigrateTests.Pages.PreRequisites;
 using WiseMigrateTests.Pages.Login;
 using WiseMigrateTests.Pages.Project;
 using WiseMigrateTests.Pages.ProjectInventory;
+using WiseMigrateTests.Pages.MigrationPlanTracking;
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Utils;
 using Allure.Xunit.Attributes;
@@ -17,25 +18,25 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
     [AllureSuite("Migration Control Centre Tests")]
     public class MigrationControlCentreTests : TestBaseFixture, IAsyncLifetime
     {
-        private LoginPage _loginPage = null!;
-        private ProjectListPage _projectListPage = null!;
+        private MigrationPlanTrackingPage _migrationPlanTrackingPage = null!;
         private MigrationControlCentrePage _migrationControlCentrePage = null!;
-        
+        private ProjectInventoryPage _projectInventoryPage = null!;
+        protected override bool UseClassLevelGrouping => true;
         public async Task InitializeAsync()
         {
             await base.InitializeAsync();
 
-            _loginPage = new LoginPage(Page);
             _basicSetup = new BasicSetup(Page);
-            _projectListPage = new ProjectListPage(Page);
+            _projectInventoryPage = new ProjectInventoryPage(Page);
+            _migrationPlanTrackingPage = new MigrationPlanTrackingPage(Page);
             _migrationControlCentrePage = new MigrationControlCentrePage(Page);
 
-            await _loginPage.ValidateMigrateAdminAccount(Page);
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            _createdProjectName = _basicSetup.projectName;
-            await _migrationControlCentrePage.NavigateToMigrationControlCentreAsync();
-            // await _migrationPlanTrackingPage.NavigateToMigrationPlanTrackingAsync();
+            await NavigateToPageAsync("/inventory");
+            await _basicSetup.WaitForPageAsync(3);
+            await _projectInventoryPage.InitiateMigrationFromInventoryAsync();
+            await _basicSetup.WaitForPageAsync(2);
+            await _migrationPlanTrackingPage.ClickViewPlanDetailsAsync();
+            await _basicSetup.WaitForPageAsync(1);
         }
 
         [Fact]
@@ -498,25 +499,16 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
 
                 string waveName = "Wave 1";
                 await _migrationControlCentrePage.OpenRescheduleCalendarAsync(waveName);
-                string pastDate = DateTime.UtcNow.AddDays(-1).ToString("dd");
+                string pastDate = DateTime.UtcNow.AddDays(-1).Day.ToString();
+                Console.WriteLine($"Attempting to select past date: {pastDate}");
                 await _migrationControlCentrePage.DatePicker.ClickAsync();
-                var pastDayButton = Page.GetByRole(AriaRole.Button, new(){Name=pastDate});
-                bool isDisabled = await pastDayButton.GetAttributeAsync("disabled") != null ||
-                                  await pastDayButton.EvaluateAsync<bool>("el => el.classList.contains('disabled') || el.ariaDisabled === 'true'");
-
-                if (!isDisabled)
-                {
-                    await pastDayButton.ClickAsync(new() { Timeout = 5000 });
-                    await Page.GetByRole(AriaRole.Button, new() { Name = "Reschedule" }).ClickAsync();
-                    await _basicSetup.WaitForPageAsync(2);
-                    await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Planned Start Date cannot be in the past");
-                }
-                else
-                {
-                    Assert.True(isDisabled);
-                    Logger.Info("Past date selection allowed for Planned Start Date");
-                }
-
+                var pastDayButton = Page.GetByRole(AriaRole.Button, new(){Name=pastDate}).First;
+                                
+                await pastDayButton.ClickAsync(new() { Timeout = 5000 });
+                await Page.GetByRole(AriaRole.Button, new() { Name = "Reschedule" }).ClickAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Planned Start Date cannot be in the past");
+                
                 Logger.Info("Past date selection correctly blocked or produces validation error");
             }, nameof(TC_021_WaveRescheduleOperation_PastDate));
         }
@@ -857,17 +849,21 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 var groupValue=new Random().Next(1,await Page.GetByText(string.Concat("Wave ",waveValue," Group ")).CountAsync());  
                 var sourceGroupName=string.Concat("Wave ",waveValue," Group ",groupValue);
                 var targetWaveName="Wave "+ (waveValue+1);
-
                 await _migrationControlCentrePage.BacklogGroupAsync(sourceGroupName);
                 await _basicSetup.WaitForPageAsync(1);
                 await _migrationControlCentrePage.RollbackGroupToTargetWaveAsync(targetWaveName);
 
+                await Assertions.Expect(Page.GetByText($"Group {sourceGroupName} restored successfully.")).ToBeVisibleAsync();
+
                 var waveHeading = Page.Locator("h5.mud-typography-h5").Filter(new() { HasText = targetWaveName });
                 await _basicSetup.WaitForPageAsync(2);
+                await waveHeading.HighlightAsync();
                 var waveContainer = waveHeading.Locator("xpath=ancestor::div[contains(@class,'mud-paper') " +  "and contains(@class,'pa-6')][1]");
                 await _basicSetup.WaitForPageAsync(2);
-                await Assertions.Expect(waveContainer.Locator(".mud-card-content").GetByText(sourceGroupName)).ToBeVisibleAsync();
-                await Assertions.Expect(Page.GetByText($"Group {sourceGroupName} restored successfully.")).ToBeVisibleAsync();
+                await waveContainer.ScrollIntoViewIfNeededAsync();
+                await waveContainer.HighlightAsync();
+                await Assertions.Expect(Page.Locator($"h5:has-text('{targetWaveName}') ~ .mud-paper .mud-card-content p:has-text('{sourceGroupName}')")).ToBeVisibleAsync();
+                
                 Logger.Info("Backlogged group rolled back successfully");
             }, nameof( TC_039_Rollback_BackloggedGroupToTargetWave));
         }
@@ -909,9 +905,8 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.SetParameterValueAsync("Maximum Servers per Move Group","2.5");
                 await _migrationControlCentrePage.SetParameterValueAsync("Minimum Move Groups per Wave*","2.5");
                 await _migrationControlCentrePage.SetParameterValueAsync("Maximum Move Groups per Wave*","3.5");
-                await _migrationControlCentrePage.GenerateMigrationScheduleAsync();
-                await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("The input value cannot be lesser than the default value.");
-                Logger.Info("Valid parameter values saved successfully");
+                await Assertions.Expect(Page.GetByText("Not a valid number").First).ToBeVisibleAsync();
+            
             }, nameof(TC_041_Configure_Parameters_NonIntegerInput));
         }
 

@@ -15,6 +15,7 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
         private LoginPage _loginPage = null!;
         private ProjectListPage _projectListPage = null!;
         private CmoFmoInventoryPage _cmoFmoInventoryPage = null!;
+        protected override bool UseClassLevelGrouping => true;
         public async Task InitializeAsync()
         {
             await base.InitializeAsync();
@@ -25,9 +26,7 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
             _projectListPage = new ProjectListPage(Page);
             _cmoFmoInventoryPage = new CmoFmoInventoryPage(Page);
 
-            await _loginPage.ValidateMigrateAdminAccount(Page);
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
+            await NavigateToPageAsync("/inventory");
             _createdProjectName = _basicSetup.projectName;
         }
 
@@ -40,7 +39,6 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
 
-                await _cmoFmoInventoryPage.NavigateToMigrationPlanTrackingAsync();
                 await Assertions.Expect(_cmoFmoInventoryPage.InventoryHeading).ToBeVisibleAsync();
 
                 Logger.Info("CMO/FMO Inventory page loaded successfully");
@@ -56,7 +54,7 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoFmoInventoryPage.NavigateToInventoryPageAsync();
+                
                 await _cmoFmoInventoryPage.BackToFMOButton.ClickAsync();
                 await Assertions.Expect(Page.GetByText("Future Mode of Operation - Architectural View")).ToBeVisibleAsync();
 
@@ -73,7 +71,7 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
 
-                await _cmoFmoInventoryPage.NavigateToInventoryPageAsync();
+                
                 await _cmoFmoInventoryPage.ServerViewButton.ClickAsync();
                 await Assertions.Expect(_cmoFmoInventoryPage.ServerInventoryHeading).ToBeVisibleAsync();
 
@@ -89,7 +87,7 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoFmoInventoryPage.NavigateToInventoryPageAsync();
+                
                 await _cmoFmoInventoryPage.ApplicationViewButton.ClickAsync();
                 await Assertions.Expect(_cmoFmoInventoryPage.ApplicationInventoryHeading).ToBeVisibleAsync();
 
@@ -106,7 +104,7 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoFmoInventoryPage.NavigateToInventoryPageAsync();
+                
                 await Assertions.Expect(_cmoFmoInventoryPage.ExportButton).ToBeEnabledAsync();
                 await _cmoFmoInventoryPage.ExportButton.ClickAsync();
 
@@ -123,7 +121,7 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoFmoInventoryPage.NavigateToInventoryPageAsync();
+                
                 await Assertions.Expect(_cmoFmoInventoryPage.SyncButton).ToBeEnabledAsync();
                 await _cmoFmoInventoryPage.SyncButton.ClickAsync();
 
@@ -140,7 +138,7 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoFmoInventoryPage.NavigateToInventoryPageAsync();
+                
                 await _cmoFmoInventoryPage.FilterButton.ClickAsync();
                 await Assertions.Expect(_cmoFmoInventoryPage.FilterOptionsHeading).ToBeVisibleAsync();
 
@@ -157,7 +155,7 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoFmoInventoryPage.NavigateToInventoryPageAsync();
+                
                 await _cmoFmoInventoryPage.FilterButton.ClickAsync();
                 await _cmoFmoInventoryPage.FilterByAppNameTextbox.ClickAsync();
                 await _basicSetup.RandomSelector();
@@ -175,7 +173,7 @@ namespace WiseMigrateTests.Pages.CmoFmoInventory
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _cmoFmoInventoryPage.NavigateToInventoryPageAsync();
+                
                 await _cmoFmoInventoryPage.FilterButton.ClickAsync();
                 await _cmoFmoInventoryPage.FilterByAppNameTextbox.ClickAsync();
                 await _basicSetup.RandomSelector();

@@ -2,6 +2,7 @@ using Microsoft.Playwright;
 using WiseMigrateTests.Pages.PreRequisites;
 using WiseMigrateTests.Pages.Login;
 using WiseMigrateTests.Pages.Project;
+using WiseMigrateTests.Pages.ProjectInventory;
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Utils;
 using Allure.Xunit.Attributes;
@@ -14,7 +15,9 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
     {
         private LoginPage _loginPage = null!;
         private ProjectListPage _projectListPage = null!;
-        private MigrationPlanTrackingPage _migrationPlanTrackingPage = null!;
+        
+        private ProjectInventoryPage _projectInventoryPage = null!;
+        protected override bool UseClassLevelGrouping => true;
         public async Task InitializeAsync()
         {
             await base.InitializeAsync();
@@ -23,11 +26,10 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
             _loginPage = new LoginPage(Page);
             _basicSetup = new BasicSetup(Page);
             _projectListPage = new ProjectListPage(Page);
-            _migrationPlanTrackingPage= new MigrationPlanTrackingPage(Page);
+            _projectInventoryPage = new ProjectInventoryPage(Page);
 
-            await _loginPage.ValidateMigrateAdminAccount(Page);
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
+            await NavigateToPageAsync("/inventory");
+            await _projectInventoryPage.InitiateMigrationFromInventoryAsync();
             _createdProjectName = _basicSetup.projectName;
         }
 
@@ -39,8 +41,6 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _migrationPlanTrackingPage.NavigateToMigrationPlanTrackingAsync();
-                await _migrationPlanTrackingPage.InitiateMigrationFromInventoryAsync();
                 await Assertions.Expect(
                     Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Plan Tracking" })
                 ).ToBeVisibleAsync();
@@ -57,8 +57,6 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _migrationPlanTrackingPage.NavigateToMigrationPlanTrackingAsync();
-                await _migrationPlanTrackingPage.InitiateMigrationFromInventoryAsync();
                 await Page.WaitForSelectorAsync("table tbody tr");
 
                 var firstRow = Page.Locator("table tbody tr").First;

@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="09e43c49-09af-426c-882f-f0b258e764a0" name="dell@DESKTOP-2S45JFU 2026-04-03 17:02:58" runUser="DESKTOP-2S45JFU\dell" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-04-03T17:02:58.1981508+05:30" queuing="2026-04-03T17:02:58.1981518+05:30" start="2026-04-03T17:01:16.5069963+05:30" finish="2026-04-03T17:04:40.1200867+05:30" />
+  <TestSettings name="default" id="2b2ef99d-6f4b-4f3d-872f-b2c6be0583ca">
+    <Deployment runDeploymentRoot="dell_DESKTOP-2S45JFU_2026-04-03_17_02_58" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="7b2e92a6-7e75-40a2-bfbc-1b6afea79532" testId="09eb90a1-0aa2-50dd-de46-17aeb4fcb000" testName="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_003_Server_View_Should_Load" computerName="DESKTOP-2S45JFU" duration="00:00:10.7197912" startTime="2026-04-03T17:04:26.0064661+05:30" endTime="2026-04-03T17:04:26.0064669+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7b2e92a6-7e75-40a2-bfbc-1b6afea79532" />
+    <UnitTestResult executionId="971e9bab-299f-49a6-b8eb-f47fb2f00062" testId="f2e3ce54-8a55-3748-0855-053dc62018c7" testName="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_009_Clear_All_Filters_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:10.9097367" startTime="2026-04-03T17:04:13.6392856+05:30" endTime="2026-04-03T17:04:13.6392859+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="971e9bab-299f-49a6-b8eb-f47fb2f00062" />
+    <UnitTestResult executionId="4afbc0ce-a623-41d0-9d15-63241d8e5f09" testId="cdd3e7ca-eaea-1719-415e-6c6e85f89148" testName="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_008_Filter_Application_Name_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:12.0161396" startTime="2026-04-03T17:04:00.4885395+05:30" endTime="2026-04-03T17:04:00.4885402+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4afbc0ce-a623-41d0-9d15-63241d8e5f09" />
+    <UnitTestResult executionId="b18c5a4a-0ec4-4fd5-9d6a-3ef0f8580a26" testId="09ed004f-9c97-ba45-2f7e-2c2f3e555a7a" testName="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_005_Export_Button_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:08.9789713" startTime="2026-04-03T17:03:45.5897517+05:30" endTime="2026-04-03T17:03:45.5897519+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b18c5a4a-0ec4-4fd5-9d6a-3ef0f8580a26" />
+    <UnitTestResult executionId="8a1999a3-c34b-459a-8c55-f14bbc258a31" testId="da3882a9-5821-1a55-3a49-2d5492c823bd" testName="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_006_Sync_Button_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:10.1999475" startTime="2026-04-03T17:03:33.9035846+05:30" endTime="2026-04-03T17:03:33.9035850+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8a1999a3-c34b-459a-8c55-f14bbc258a31" />
+    <UnitTestResult executionId="e5859137-7d4e-4099-9b15-107ddfbf2960" testId="bdaf0137-cb67-7232-1c87-11789313131a" testName="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_002_Back_To_FMO_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:12.1275557" startTime="2026-04-03T17:02:58.0370282+05:30" endTime="2026-04-03T17:02:58.0371206+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e5859137-7d4e-4099-9b15-107ddfbf2960" />
+    <UnitTestResult executionId="424a734c-1ddc-4310-ac8b-ca08b375669a" testId="179ef13c-f85d-9f12-897b-eaafa00b3c8f" testName="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_004_Application_View_Should_Load" computerName="DESKTOP-2S45JFU" duration="00:00:06.0329575" startTime="2026-04-03T17:03:08.4889529+05:30" endTime="2026-04-03T17:03:08.4889535+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="424a734c-1ddc-4310-ac8b-ca08b375669a" />
+    <UnitTestResult executionId="1da304aa-55b4-41a6-9d84-715b1a28a2f6" testId="d052fad3-4a75-e892-88bc-2336c018efd6" testName="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_007_Filter_Panel_Should_Open" computerName="DESKTOP-2S45JFU" duration="00:00:10.7773598" startTime="2026-04-03T17:04:38.7036231+05:30" endTime="2026-04-03T17:04:38.7036233+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1da304aa-55b4-41a6-9d84-715b1a28a2f6" />
+    <UnitTestResult executionId="aaa91ada-60e0-4f5f-9ea0-968d26c73e9c" testId="f8165096-7bdc-cb4c-ff0f-66d246cc5ba5" testName="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_001_Navigate_To_Inventory_Page" computerName="DESKTOP-2S45JFU" duration="00:00:08.7223185" startTime="2026-04-03T17:03:22.1625596+05:30" endTime="2026-04-03T17:03:22.1625600+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aaa91ada-60e0-4f5f-9ea0-968d26c73e9c" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_007_Filter_Panel_Should_Open" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="d052fad3-4a75-e892-88bc-2336c018efd6">
+      <Execution id="1da304aa-55b4-41a6-9d84-715b1a28a2f6" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests" name="TC_007_Filter_Panel_Should_Open" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_001_Navigate_To_Inventory_Page" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="f8165096-7bdc-cb4c-ff0f-66d246cc5ba5">
+      <Execution id="aaa91ada-60e0-4f5f-9ea0-968d26c73e9c" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests" name="TC_001_Navigate_To_Inventory_Page" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_003_Server_View_Should_Load" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="09eb90a1-0aa2-50dd-de46-17aeb4fcb000">
+      <Execution id="7b2e92a6-7e75-40a2-bfbc-1b6afea79532" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests" name="TC_003_Server_View_Should_Load" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_004_Application_View_Should_Load" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="179ef13c-f85d-9f12-897b-eaafa00b3c8f">
+      <Execution id="424a734c-1ddc-4310-ac8b-ca08b375669a" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests" name="TC_004_Application_View_Should_Load" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_006_Sync_Button_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="da3882a9-5821-1a55-3a49-2d5492c823bd">
+      <Execution id="8a1999a3-c34b-459a-8c55-f14bbc258a31" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests" name="TC_006_Sync_Button_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_005_Export_Button_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="09ed004f-9c97-ba45-2f7e-2c2f3e555a7a">
+      <Execution id="b18c5a4a-0ec4-4fd5-9d6a-3ef0f8580a26" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests" name="TC_005_Export_Button_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_008_Filter_Application_Name_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="cdd3e7ca-eaea-1719-415e-6c6e85f89148">
+      <Execution id="4afbc0ce-a623-41d0-9d15-63241d8e5f09" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests" name="TC_008_Filter_Application_Name_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_002_Back_To_FMO_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="bdaf0137-cb67-7232-1c87-11789313131a">
+      <Execution id="e5859137-7d4e-4099-9b15-107ddfbf2960" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests" name="TC_002_Back_To_FMO_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_009_Clear_All_Filters_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="f2e3ce54-8a55-3748-0855-053dc62018c7">
+      <Execution id="971e9bab-299f-49a6-b8eb-f47fb2f00062" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests" name="TC_009_Clear_All_Filters_Should_Work" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="09eb90a1-0aa2-50dd-de46-17aeb4fcb000" executionId="7b2e92a6-7e75-40a2-bfbc-1b6afea79532" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f2e3ce54-8a55-3748-0855-053dc62018c7" executionId="971e9bab-299f-49a6-b8eb-f47fb2f00062" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cdd3e7ca-eaea-1719-415e-6c6e85f89148" executionId="4afbc0ce-a623-41d0-9d15-63241d8e5f09" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="09ed004f-9c97-ba45-2f7e-2c2f3e555a7a" executionId="b18c5a4a-0ec4-4fd5-9d6a-3ef0f8580a26" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="da3882a9-5821-1a55-3a49-2d5492c823bd" executionId="8a1999a3-c34b-459a-8c55-f14bbc258a31" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bdaf0137-cb67-7232-1c87-11789313131a" executionId="e5859137-7d4e-4099-9b15-107ddfbf2960" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="179ef13c-f85d-9f12-897b-eaafa00b3c8f" executionId="424a734c-1ddc-4310-ac8b-ca08b375669a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d052fad3-4a75-e892-88bc-2336c018efd6" executionId="1da304aa-55b4-41a6-9d84-715b1a28a2f6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f8165096-7bdc-cb4c-ff0f-66d246cc5ba5" executionId="aaa91ada-60e0-4f5f-9ea0-968d26c73e9c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="9" executed="9" passed="9" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.5.3.1+6b60a9e56a (64-bit .NET 8.0.25)&#xD;
+[xUnit.net 00:00:00.80] Allure.Xunit: XunitTestRunner's Void .ctor(Xunit.Abstractions.ITest, Xunit.Sdk.IMessageBus, System.Type, System.Object[], System.Reflection.MethodInfo, System.Object[], System.String, System.Collections.Generic.IReadOnlyList`1[Xunit.Sdk.BeforeAfterTestAttribute], Xunit.Sdk.ExceptionAggregator, System.Threading.CancellationTokenSource) has been patched&#xD;
+[xUnit.net 00:00:00.84] Allure.Xunit: Allure reporter enabled&#xD;
+[xUnit.net 00:00:01.01]   Discovering: WiseMigrateTests&#xD;
+[xUnit.net 00:00:01.26]   Discovered:  WiseMigrateTests&#xD;
+[xUnit.net 00:00:01.28]   Starting:    WiseMigrateTests&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=c0d1ed92-1537-44fc-93b7-13032fdd1f17&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_002_Back_To_FMO_Should_Work_PASSED_20260403-170255.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[CLEANUP] Attempting to delete shared project: &#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=c0d1ed92-1537-44fc-93b7-13032fdd1f17&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_004_Application_View_Should_Load_PASSED_20260403-170307.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[CLEANUP] Attempting to delete shared project: &#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=c0d1ed92-1537-44fc-93b7-13032fdd1f17&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_001_Navigate_To_Inventory_Page_PASSED_20260403-170320.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[CLEANUP] Attempting to delete shared project: &#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=c0d1ed92-1537-44fc-93b7-13032fdd1f17&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_006_Sync_Button_Should_Work_PASSED_20260403-170332.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[CLEANUP] Attempting to delete shared project: &#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=c0d1ed92-1537-44fc-93b7-13032fdd1f17&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_005_Export_Button_Should_Work_PASSED_20260403-170344.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[CLEANUP] Attempting to delete shared project: &#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=c0d1ed92-1537-44fc-93b7-13032fdd1f17&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_008_Filter_Application_Name_Should_Work_PASSED_20260403-170359.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[CLEANUP] Attempting to delete shared project: &#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=c0d1ed92-1537-44fc-93b7-13032fdd1f17&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_009_Clear_All_Filters_Should_Work_PASSED_20260403-170412.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[CLEANUP] Attempting to delete shared project: &#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=c0d1ed92-1537-44fc-93b7-13032fdd1f17&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_003_Server_View_Should_Load_PASSED_20260403-170424.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[CLEANUP] Attempting to delete shared project: &#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=c0d1ed92-1537-44fc-93b7-13032fdd1f17&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_007_Filter_Panel_Should_Open_PASSED_20260403-170437.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[CLEANUP] Attempting to delete shared project: &#xD;
+[xUnit.net 00:03:22.53]   Finished:    WiseMigrateTests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

@@ -27,7 +27,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
             _loginPage = new LoginPage(Page);
             _basicSetup = new BasicSetup(Page);
             _projectList = new ProjectListPage(Page);
-             _cmoPage = new ClientModeOperationPage(Page);
+            _cmoPage = new ClientModeOperationPage(Page);
             _fmoPage = new FutureModeOperationPage(Page);
 
             await NavigateToPageAsync("/fmoarch");
