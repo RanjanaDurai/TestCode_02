@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="0681bab4-da81-4824-8bf8-4be013b1a3f9" name="dell@DESKTOP-2S45JFU 2026-04-06 10:34:19" runUser="DESKTOP-2S45JFU\dell" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-04-06T10:34:19.3687901+05:30" queuing="2026-04-06T10:34:19.3687907+05:30" start="2026-04-06T10:32:57.2983149+05:30" finish="2026-04-06T10:35:47.5338837+05:30" />
+  <TestSettings name="default" id="77a70e88-b37f-4ef2-b862-7bf30ade8856">
+    <Deployment runDeploymentRoot="dell_DESKTOP-2S45JFU_2026-04-06_10_34_19" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="639c3fb9-bab7-4b4f-9215-4bed574f55e0" testId="a7104e9f-4888-1104-3f7e-5ed77ba31aee" testName="WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons" computerName="DESKTOP-2S45JFU" duration="00:00:04.4231440" startTime="2026-04-06T10:35:46.1019157+05:30" endTime="2026-04-06T10:35:46.1019159+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="639c3fb9-bab7-4b4f-9215-4bed574f55e0" />
+    <UnitTestResult executionId="dd241c46-62aa-43a0-bdb0-76f673508cde" testId="4cc8651f-9ed0-d268-1484-e4553e04fd05" testName="WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.TC_001_MigrationPlanTracking_Page_UI_Should_Load" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-06T10:34:19.2125286+05:30" endTime="2026-04-06T10:34:19.2126259+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dd241c46-62aa-43a0-bdb0-76f673508cde">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByRole(AriaRole.Button, new() { Name = "View Architecture" })</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPage.ViewArchitectureAsync() in C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPage.cs:line 151&#xD;
+   at WiseMigrateTests.Pages.PreRequisites.BasicSetup.InfrastructureUploadPageSetupAsync() in C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs:line 153&#xD;
+   at WiseMigrateTests.TestHooks.TestBaseFixture.&lt;&gt;c.&lt;&lt;InitializeAsync&gt;b__14_0&gt;d.MoveNext() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 36&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at WiseMigrateTests.TestHooks.SharedContextFixture.EnsureInitializedAsync(IBrowser browser, Func`2 setupLogic) in C:\Users\dell\WiseMigrateTests\TestHooks\SharedContextTestFixture.cs:line 23&#xD;
+   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 28&#xD;
+   at WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\MigrationPlanTracking\MigrationPlanTrackingTests.cs:line 23</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="a7104e9f-4888-1104-3f7e-5ed77ba31aee">
+      <Execution id="639c3fb9-bab7-4b4f-9215-4bed574f55e0" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests" name="TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.TC_001_MigrationPlanTracking_Page_UI_Should_Load" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="4cc8651f-9ed0-d268-1484-e4553e04fd05">
+      <Execution id="dd241c46-62aa-43a0-bdb0-76f673508cde" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests" name="TC_001_MigrationPlanTracking_Page_UI_Should_Load" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="a7104e9f-4888-1104-3f7e-5ed77ba31aee" executionId="639c3fb9-bab7-4b4f-9215-4bed574f55e0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4cc8651f-9ed0-d268-1484-e4553e04fd05" executionId="dd241c46-62aa-43a0-bdb0-76f673508cde" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="2" executed="2" passed="1" failed="1" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.5.3.1+6b60a9e56a (64-bit .NET 8.0.25)&#xD;
+[xUnit.net 00:00:00.43] Allure.Xunit: XunitTestRunner's Void .ctor(Xunit.Abstractions.ITest, Xunit.Sdk.IMessageBus, System.Type, System.Object[], System.Reflection.MethodInfo, System.Object[], System.String, System.Collections.Generic.IReadOnlyList`1[Xunit.Sdk.BeforeAfterTestAttribute], Xunit.Sdk.ExceptionAggregator, System.Threading.CancellationTokenSource) has been patched&#xD;
+[xUnit.net 00:00:00.45] Allure.Xunit: Allure reporter enabled&#xD;
+[xUnit.net 00:00:00.54]   Discovering: WiseMigrateTests&#xD;
+[xUnit.net 00:00:00.63]   Discovered:  WiseMigrateTests&#xD;
+[xUnit.net 00:00:00.64]   Starting:    WiseMigrateTests&#xD;
+[xUnit.net 00:01:21.44]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByRole(AriaRole.Button, new() { Name = "View Architecture" })&#xD;
+[xUnit.net 00:01:21.45]       Stack Trace:&#xD;
+[xUnit.net 00:01:21.45]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:01:21.45]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:01:21.45]         C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPage.cs(151,0): at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPage.ViewArchitectureAsync()&#xD;
+[xUnit.net 00:01:21.45]         C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs(153,0): at WiseMigrateTests.Pages.PreRequisites.BasicSetup.InfrastructureUploadPageSetupAsync()&#xD;
+[xUnit.net 00:01:21.45]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(36,0): at WiseMigrateTests.TestHooks.TestBaseFixture.&lt;&gt;c.&lt;&lt;InitializeAsync&gt;b__14_0&gt;d.MoveNext()&#xD;
+[xUnit.net 00:01:21.45]         --- End of stack trace from previous location ---&#xD;
+[xUnit.net 00:01:21.45]         C:\Users\dell\WiseMigrateTests\TestHooks\SharedContextTestFixture.cs(23,0): at WiseMigrateTests.TestHooks.SharedContextFixture.EnsureInitializedAsync(IBrowser browser, Func`2 setupLogic)&#xD;
+[xUnit.net 00:01:21.45]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(28,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:01:21.45]         C:\Users\dell\WiseMigrateTests\Pages\MigrationPlanTracking\MigrationPlanTrackingTests.cs(23,0): at WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.InitializeAsync()&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=d063f6ad-d8b9-40a7-abc3-05383997ce49&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons_PASSED_20260406-103544.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[CLEANUP] Attempting to delete shared project: &#xD;
+[xUnit.net 00:02:49.53]   Finished:    WiseMigrateTests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-06T10:34:19.1986064+05:30">
+        <Text>[xUnit.net 00:01:21.44]     WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.TC_001_MigrationPlanTracking_Page_UI_Should_Load [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

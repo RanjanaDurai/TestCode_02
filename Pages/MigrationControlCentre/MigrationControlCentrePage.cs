@@ -364,7 +364,7 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
         public async Task RollbackGroupToTargetWaveAsync(string targetWave)
         {
             await _page.GetByRole(AriaRole.Textbox,new() {Name="Move to..."}).ClickAsync();
-            await _page.GetByText("Wave 3", new() { Exact = true }).ClickAsync();
+            await _page.GetByText(targetWave, new() { Exact = true }).ClickAsync();
             //await _page.Locator($"div[role='option']:has-text('{targetWave}')").ClickAsync();
             await _basicSetup.WaitForPageAsync(1);
         }

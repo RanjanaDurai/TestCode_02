@@ -1,0 +1,1044 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="8c1a4d72-3720-4c02-8b11-b36a9b4cd846" name="dell@DESKTOP-2S45JFU 2026-04-08 10:34:26" runUser="DESKTOP-2S45JFU\dell" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-04-08T10:34:26.2849097+05:30" queuing="2026-04-08T10:34:26.2849106+05:30" start="2026-04-08T10:33:31.1057973+05:30" finish="2026-04-08T10:49:32.7112804+05:30" />
+  <TestSettings name="default" id="2a5d4ada-f82c-4a88-b40e-25fc6c53dd03">
+    <Deployment runDeploymentRoot="dell_DESKTOP-2S45JFU_2026-04-08_10_34_26" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="676c5940-a8e3-4f4e-a376-ea73ecdb4fd1" testId="e977a7c5-eab0-8b78-567e-1d8250e7b843" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_014_Verify_ResetOnZoom_Functionality" computerName="DESKTOP-2S45JFU" duration="00:00:05.3834763" startTime="2026-04-08T10:49:30.4485665+05:30" endTime="2026-04-08T10:49:30.4485670+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="676c5940-a8e3-4f4e-a376-ea73ecdb4fd1" />
+    <UnitTestResult executionId="f1726c5b-3b57-40c9-b128-20bd12ea6d0d" testId="cf66865c-9a84-4c40-29ac-6fdf8fb84870" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_005_Verify_FMO_Breadcrumb_Navigation" computerName="DESKTOP-2S45JFU" duration="00:00:03.5079294" startTime="2026-04-08T10:42:10.7763448+05:30" endTime="2026-04-08T10:42:10.7763450+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f1726c5b-3b57-40c9-b128-20bd12ea6d0d" />
+    <UnitTestResult executionId="a1c31fb8-d591-4e68-96a1-014dab983807" testId="ecf908ee-fb96-e2e3-3c8f-cbe019448662" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_024_Verify_AddManualHoliday" computerName="DESKTOP-2S45JFU" duration="00:00:05.3877002" startTime="2026-04-08T10:38:31.4331729+05:30" endTime="2026-04-08T10:38:31.4331734+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a1c31fb8-d591-4e68-96a1-014dab983807" />
+    <UnitTestResult executionId="a8b5fbaf-770a-4bd7-ab60-4dd85b9e3f00" testId="4cc8651f-9ed0-d268-1484-e4553e04fd05" testName="WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.TC_001_MigrationPlanTracking_Page_UI_Should_Load" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-08T10:35:36.4915008+05:30" endTime="2026-04-08T10:35:36.4915011+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a8b5fbaf-770a-4bd7-ab60-4dd85b9e3f00">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByRole(AriaRole.Button, new() { Name = "View Architecture" })</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPage.ViewArchitectureAsync() in C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPage.cs:line 151&#xD;
+   at WiseMigrateTests.Pages.PreRequisites.BasicSetup.InfrastructureUploadPageSetupAsync() in C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs:line 153&#xD;
+   at WiseMigrateTests.TestHooks.TestBaseFixture.&lt;&gt;c.&lt;&lt;InitializeAsync&gt;b__14_0&gt;d.MoveNext() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 36&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at WiseMigrateTests.TestHooks.SharedContextFixture.EnsureInitializedAsync(IBrowser browser, Func`2 setupLogic) in C:\Users\dell\WiseMigrateTests\TestHooks\SharedContextTestFixture.cs:line 23&#xD;
+   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 28&#xD;
+   at WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\MigrationPlanTracking\MigrationPlanTrackingTests.cs:line 23</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="30c1ab50-f904-484d-8255-fbecdff31fd7" testId="d054d30b-560f-9b33-e336-acd53976541e" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_040_Configure_Parameters_ZeroEdgeValue" computerName="DESKTOP-2S45JFU" duration="00:00:11.0730486" startTime="2026-04-08T10:37:42.4241306+05:30" endTime="2026-04-08T10:37:42.4241308+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="30c1ab50-f904-484d-8255-fbecdff31fd7">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.PlaywrightException : Locator expected to contain text 'The input value cannot be lesser than the deafult value.'
+But was: '&lt;element(s) not found&gt;' 
+Call log:
+  - Expect "ToContainTextAsync" with timeout 5000ms
+  - waiting for Locator("role=alert")
+    3 × locator resolved to &lt;div role="alert" aria-live="polite" class="mud-snackbar mud-alert-filled-success "&gt;…&lt;/div&gt;
+      - unexpected value "Migration plan created successfully. Select 'View Plan Details' in Migration Plan Tracking to see details."</Message>
+          <StackTrace>   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title) in /_/src/Playwright/Core/AssertionsBase.cs:line 87&#xD;
+   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options) in /_/src/Playwright/Core/AssertionsBase.cs:line 65&#xD;
+   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue textValue, Object expected, String message, String title, FrameExpectOptions options) in /_/src/Playwright/Core/AssertionsBase.cs:line 57&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.&lt;TC_040_Configure_Parameters_ZeroEdgeValue&gt;b__50_0() in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs:line 887&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_040_Configure_Parameters_ZeroEdgeValue() in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs:line 877&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9a755a86-df2d-49ed-88ef-0d4bed659c88" testId="75cc7bd0-b33d-3d06-2f76-b1bd3ac7340f" testName="WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_024_Validate_SSOT_Reconciliation_Operation" computerName="DESKTOP-2S45JFU" duration="00:00:54.4601967" startTime="2026-04-08T10:45:21.5646301+05:30" endTime="2026-04-08T10:45:21.5646304+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9a755a86-df2d-49ed-88ef-0d4bed659c88" />
+    <UnitTestResult executionId="7276d29a-4574-4d35-830c-c27e978163aa" testId="a7104e9f-4888-1104-3f7e-5ed77ba31aee" testName="WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-08T10:36:29.9326092+05:30" endTime="2026-04-08T10:36:29.9326096+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7276d29a-4574-4d35-830c-c27e978163aa">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.PlaywrightException : Locator expected to be visible 
+Call log:
+  - Expect "ToBeVisibleAsync" with timeout 5000ms
+  - waiting for GetByText("Confirm Migration")</Message>
+          <StackTrace>   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title) in /_/src/Playwright/Core/AssertionsBase.cs:line 85&#xD;
+   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options) in /_/src/Playwright/Core/AssertionsBase.cs:line 65&#xD;
+   at WiseMigrateTests.Pages.ProjectInventory.ProjectInventoryPage.InitiateMigrationFromInventoryAsync() in C:\Users\dell\WiseMigrateTests\Pages\ProjectInventory\ProjectInventoryPage.cs:line 111&#xD;
+   at WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\MigrationPlanTracking\MigrationPlanTrackingTests.cs:line 32</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ae82eae8-e642-48a4-b838-d9c918f1604b" testId="c2a8c406-2cb0-478e-f12f-d48eca3a124b" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_027_Verify_Search_RandomSelectedNode" computerName="DESKTOP-2S45JFU" duration="00:00:02.9336101" startTime="2026-04-08T10:49:21.6269244+05:30" endTime="2026-04-08T10:49:21.6269245+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ae82eae8-e642-48a4-b838-d9c918f1604b" />
+    <UnitTestResult executionId="c8a2ddf2-5edb-4a3c-ba2a-9082d902a30c" testId="beca1c0f-a54e-c81e-4952-df13a1426627" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_003_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab" computerName="DESKTOP-2S45JFU" duration="00:00:00.8830586" startTime="2026-04-08T10:37:22.4058524+05:30" endTime="2026-04-08T10:37:22.4058529+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c8a2ddf2-5edb-4a3c-ba2a-9082d902a30c" />
+    <UnitTestResult executionId="d3c1db39-5acf-4118-bced-0eee386e01ed" testId="63ee30d9-4f44-5225-27f3-eb0f27e48fe4" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_035_Verify_ExpandGroup" computerName="DESKTOP-2S45JFU" duration="00:00:02.8924909" startTime="2026-04-08T10:39:25.8888116+05:30" endTime="2026-04-08T10:39:25.8888120+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d3c1db39-5acf-4118-bced-0eee386e01ed" />
+    <UnitTestResult executionId="b6c0254e-9f17-4161-99c5-67159449ca25" testId="fdbb9aff-b0d2-d958-b587-09a4632697dc" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_040_FMO_OneYear_PerMonth_CostValidation" computerName="DESKTOP-2S45JFU" duration="00:00:34.3483949" startTime="2026-04-08T10:47:33.0530138+05:30" endTime="2026-04-08T10:47:33.0530141+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b6c0254e-9f17-4161-99c5-67159449ca25">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("1 Year Reserved")</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_040_FMO_OneYear_PerMonth_CostValidation&gt;b__48_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 983&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_040_FMO_OneYear_PerMonth_CostValidation() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 977&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c7698d18-734e-44e5-b53e-76dc97eb0edd" testId="c166047a-ddbc-509a-ddf3-96456550d86d" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_025_FMO_Search_And_Select_Random_Server_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:08.0837410" startTime="2026-04-08T10:47:43.2047411+05:30" endTime="2026-04-08T10:47:43.2047414+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c7698d18-734e-44e5-b53e-76dc97eb0edd">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.PlaywrightException : Locator expected to be visible 
+Call log:
+  - Expect "ToBeVisibleAsync" with timeout 5000ms
+  - waiting for Locator("#fullscreen-container div").Filter(new() { HasText = "Found" }).Nth(3)</Message>
+          <StackTrace>   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title) in /_/src/Playwright/Core/AssertionsBase.cs:line 85&#xD;
+   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options) in /_/src/Playwright/Core/AssertionsBase.cs:line 65&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_025_FMO_Search_And_Select_Random_Server_Should_Work&gt;b__33_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 606&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_025_FMO_Search_And_Select_Random_Server_Should_Work() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 591&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2ebb7af4-051a-4785-b4a1-aab6d07e4416" testId="e9ac00ba-d51e-0a2a-b2cb-10e894a8473b" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_018_Verify_EditOperation_WaveStatus" computerName="DESKTOP-2S45JFU" duration="00:00:05.2653088" startTime="2026-04-08T10:41:08.7523464+05:30" endTime="2026-04-08T10:41:08.7523467+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2ebb7af4-051a-4785-b4a1-aab6d07e4416" />
+    <UnitTestResult executionId="971a7818-b1b7-49bf-b264-fd08a0b2a0a5" testId="7d510672-0462-c70d-161e-fc31a2982c7c" testName="WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_027_Select_Date_Rang_In_Activity_log" computerName="DESKTOP-2S45JFU" duration="00:00:37.3413832" startTime="2026-04-08T10:46:09.3506573+05:30" endTime="2026-04-08T10:46:09.3506578+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="971a7818-b1b7-49bf-b264-fd08a0b2a0a5">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByRole(AriaRole.Button, new() { Name = "1" }).First
+    - locator resolved to &lt;button type="button" class="mud-button-root mud-icon-button mud-ripple mud-ripple-icon mud-picker-calendar-day mud-day  mud-hidden"&gt;…&lt;/button&gt;
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is not stable
+  - retrying click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+  - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    54 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+     - retrying click action
+       - waiting 500ms</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.PreRequisites.BasicSetup.SelectDateAsync(DateTime date) in C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs:line 245&#xD;
+   at WiseMigrateTests.Pages.PreRequisites.BasicSetup.SelectDaysRangeAsync(Int32 value) in C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs:line 223&#xD;
+   at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.&lt;TC_027_Select_Date_Rang_In_Activity_log&gt;b__23_0() in C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPageTests.cs:line 575&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_027_Select_Date_Rang_In_Activity_log() in C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPageTests.cs:line 566&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cc6e9d2d-8262-448c-98fb-8c42297e53de" testId="d5446e63-11d3-9a96-af32-57c4f5bafda7" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_019_Verify_EditOperation_GroupStatus" computerName="DESKTOP-2S45JFU" duration="00:00:05.9716445" startTime="2026-04-08T10:37:57.3593430+05:30" endTime="2026-04-08T10:37:57.3593432+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cc6e9d2d-8262-448c-98fb-8c42297e53de" />
+    <UnitTestResult executionId="e3d5b636-a7e4-44ee-80b9-dba782891806" testId="bdaf0137-cb67-7232-1c87-11789313131a" testName="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_002_Back_To_FMO_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:02.3141412" startTime="2026-04-08T10:48:32.0601626+05:30" endTime="2026-04-08T10:48:32.0601627+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e3d5b636-a7e4-44ee-80b9-dba782891806" />
+    <UnitTestResult executionId="9932eba3-2795-477f-9a99-8363148bd7bf" testId="a9f9f512-c72a-a254-87b7-93dab7dbf60a" testName="WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_016_Validate_Generate_Architecture_Operation" computerName="DESKTOP-2S45JFU" duration="00:00:39.7257871" startTime="2026-04-08T10:43:11.4538484+05:30" endTime="2026-04-08T10:43:11.4538487+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9932eba3-2795-477f-9a99-8363148bd7bf">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.PlaywrightException : Locator expected to have text 'Architecture generated successfully!.'
+But was: '&lt;element(s) not found&gt;' 
+Call log:
+  - Expect "ToHaveTextAsync" with timeout 5000ms
+  - waiting for GetByRole(AriaRole.Alert)</Message>
+          <StackTrace>   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title) in /_/src/Playwright/Core/AssertionsBase.cs:line 87&#xD;
+   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options) in /_/src/Playwright/Core/AssertionsBase.cs:line 65&#xD;
+   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue textValue, Object expected, String message, String title, FrameExpectOptions options) in /_/src/Playwright/Core/AssertionsBase.cs:line 57&#xD;
+   at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.&lt;TC_016_Validate_Generate_Architecture_Operation&gt;b__13_0() in C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPageTests.cs:line 280&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_016_Validate_Generate_Architecture_Operation() in C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPageTests.cs:line 261&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="34bb71e4-2943-4364-a884-f4d08668dd6f" testId="eb8324e9-7ac6-9fcc-a932-ec93f9b2098d" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_039_Rollback_BackloggedGroupToTargetWave" computerName="DESKTOP-2S45JFU" duration="00:00:10.6298784" startTime="2026-04-08T10:38:16.9702347+05:30" endTime="2026-04-08T10:38:16.9702352+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="34bb71e4-2943-4364-a884-f4d08668dd6f" />
+    <UnitTestResult executionId="90d3db8b-353e-4310-9a32-52068323b334" testId="b24328fb-7645-3e03-05b8-91476fecbf90" testName="WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_028_Clear_All_Filter" computerName="DESKTOP-2S45JFU" duration="00:00:42.5451532" startTime="2026-04-08T10:44:04.5180747+05:30" endTime="2026-04-08T10:44:04.5180750+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="90d3db8b-353e-4310-9a32-52068323b334">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByRole(AriaRole.Button, new() { Name = "1" }).First
+    - locator resolved to &lt;button type="button" class="mud-button-root mud-icon-button mud-ripple mud-ripple-icon mud-picker-calendar-day mud-day  mud-hidden"&gt;…&lt;/button&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    56 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+     - retrying click action
+       - waiting 500ms</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.PreRequisites.BasicSetup.SelectDateAsync(DateTime date) in C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs:line 245&#xD;
+   at WiseMigrateTests.Pages.PreRequisites.BasicSetup.SelectDaysRangeAsync(Int32 value) in C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs:line 223&#xD;
+   at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.&lt;TC_028_Clear_All_Filter&gt;b__24_0() in C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPageTests.cs:line 599&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_028_Clear_All_Filter() in C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPageTests.cs:line 586&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a4794c57-6b4b-4d4d-9a03-ee8a4c403255" testId="def450ce-4f0a-6635-07b3-134d56411ebf" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_038_Rollback_BackloggedGroup" computerName="DESKTOP-2S45JFU" duration="00:00:07.1119279" startTime="2026-04-08T10:39:01.9077157+05:30" endTime="2026-04-08T10:39:01.9077158+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a4794c57-6b4b-4d4d-9a03-ee8a4c403255" />
+    <UnitTestResult executionId="b7a48624-0bc5-4156-804e-27fd6fec6801" testId="305ee199-351c-d861-2db0-b52dd9d09ac3" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_032_ConfigureParameters_InValidInput" computerName="DESKTOP-2S45JFU" duration="00:00:11.4071946" startTime="2026-04-08T10:40:41.5134341+05:30" endTime="2026-04-08T10:40:41.5134344+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b7a48624-0bc5-4156-804e-27fd6fec6801">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.PlaywrightException : Locator expected to have text 'The input value cannot be lesser than the default value.'
+But was: '&lt;element(s) not found&gt;' 
+Call log:
+  - Expect "ToHaveTextAsync" with timeout 5000ms
+  - waiting for Locator("role=alert")</Message>
+          <StackTrace>   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title) in /_/src/Playwright/Core/AssertionsBase.cs:line 87&#xD;
+   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options) in /_/src/Playwright/Core/AssertionsBase.cs:line 65&#xD;
+   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue textValue, Object expected, String message, String title, FrameExpectOptions options) in /_/src/Playwright/Core/AssertionsBase.cs:line 57&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.&lt;TC_032_ConfigureParameters_InValidInput&gt;b__42_0() in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs:line 707&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_032_ConfigureParameters_InValidInput() in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs:line 697&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="49ac12d2-1258-483e-9b16-9f289d9273ca" testId="47f21da3-daef-5fee-78c2-02d0ee8acf89" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_019_Verify_UI_Scaling_In_Fullscreen" computerName="DESKTOP-2S45JFU" duration="00:00:02.7596409" startTime="2026-04-08T10:49:18.6890101+05:30" endTime="2026-04-08T10:49:18.6890103+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="49ac12d2-1258-483e-9b16-9f289d9273ca" />
+    <UnitTestResult executionId="38d11a75-1b33-4136-96d1-7b75d266be8a" testId="d0f882ea-46ea-10d0-2930-6554aa1ac3e0" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_003_Verify_SSOT_Breadcrumb_Navigation" computerName="DESKTOP-2S45JFU" duration="00:00:02.8002544" startTime="2026-04-08T10:39:37.7427026+05:30" endTime="2026-04-08T10:39:37.7427029+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="38d11a75-1b33-4136-96d1-7b75d266be8a" />
+    <UnitTestResult executionId="c3bce451-35a9-4888-ab48-1c8d8b45be61" testId="b2ab5b18-0b88-29bd-79b8-decfed359769" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_024_Verify_ToggleLegend_Operation" computerName="DESKTOP-2S45JFU" duration="00:00:02.8258896" startTime="2026-04-08T10:49:25.0603772+05:30" endTime="2026-04-08T10:49:25.0603787+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c3bce451-35a9-4888-ab48-1c8d8b45be61" />
+    <UnitTestResult executionId="b06e52bc-87f5-4d16-8c6d-0767ee80563d" testId="908df79a-5c86-46d9-fc0a-e60525ff21e1" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_028_Verify_Search_NoResults" computerName="DESKTOP-2S45JFU" duration="00:00:00.8539504" startTime="2026-04-08T10:49:32.1649655+05:30" endTime="2026-04-08T10:49:32.1649657+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b06e52bc-87f5-4d16-8c6d-0767ee80563d" />
+    <UnitTestResult executionId="368e26e5-1f9c-4281-b9fa-1516106a752f" testId="05c937d3-5a55-6290-9e86-f2bf5335e861" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_025_AddManualHoliday_MissingRequiredField_Negative" computerName="DESKTOP-2S45JFU" duration="00:00:02.1997958" startTime="2026-04-08T10:39:13.8761625+05:30" endTime="2026-04-08T10:39:13.8761630+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="368e26e5-1f9c-4281-b9fa-1516106a752f">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.PlaywrightException : Error: strict mode violation: GetByText("EMEA") resolved to 2 elements:
+    1) &lt;div _bl_153="" tabindex="0" class="mud-input-slot mud-input-root mud-input-root-outlined mud-input-root-adorned-end mud-select-input"&gt;EMEA&lt;/div&gt; aka Locator("#selectmuxbsds7").GetByText("EMEA")
+    2) &lt;td class="mud-table-cell"&gt;EMEA&lt;/td&gt; aka GetByRole(AriaRole.Cell, new() { Name = "EMEA" })
+
+Call log:
+  - waiting for GetByText("EMEA")</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.&lt;TC_025_AddManualHoliday_MissingRequiredField_Negative&gt;b__35_0() in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs:line 577&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_025_AddManualHoliday_MissingRequiredField_Negative() in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs:line 573&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9ebed3cf-45ea-475a-ab97-721dbdd8bdb9" testId="afcbb363-c6d5-3288-6c7d-b2375b612974" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_021_WaveRescheduleOperation_PastDate" computerName="DESKTOP-2S45JFU" duration="00:00:05.3496933" startTime="2026-04-08T10:38:45.7954200+05:30" endTime="2026-04-08T10:38:45.7954204+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9ebed3cf-45ea-475a-ab97-721dbdd8bdb9">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.PlaywrightException : Error: strict mode violation: Locator("role=alert") resolved to 2 elements:
+    1) &lt;div role="alert" aria-live="polite" class="mud-snackbar mud-alert-filled-success "&gt;…&lt;/div&gt; aka GetByRole(AriaRole.Alert).Filter(new() { HasText = "Migration plan created" })
+    2) &lt;div role="alert" aria-live="polite" class="mud-snackbar mud-alert-filled-success "&gt;…&lt;/div&gt; aka GetByRole(AriaRole.Alert).Filter(new() { HasText = "Wave rescheduled successfully." })
+
+Call log:
+  - Expect "ToHaveTextAsync" with timeout 5000ms
+  - waiting for Locator("role=alert")</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 483&#xD;
+   at Microsoft.Playwright.Core.Frame.ExpectAsync(String selector, String expression, FrameExpectOptions options) in /_/src/Playwright/Core/Frame.cs:line 895&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title) in /_/src/Playwright/Core/AssertionsBase.cs:line 78&#xD;
+   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options) in /_/src/Playwright/Core/AssertionsBase.cs:line 65&#xD;
+   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue textValue, Object expected, String message, String title, FrameExpectOptions options) in /_/src/Playwright/Core/AssertionsBase.cs:line 57&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.&lt;TC_021_WaveRescheduleOperation_PastDate&gt;b__31_0() in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs:line 510&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_021_WaveRescheduleOperation_PastDate() in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs:line 496&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4c5967a8-4e99-4010-97c8-cba4db17f115" testId="f1b89cba-5c5a-5bb3-66c1-60afacf9a918" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_008_Verify_ZoomOut_MouseScroll" computerName="DESKTOP-2S45JFU" duration="00:00:00.8528267" startTime="2026-04-08T10:49:31.3062624+05:30" endTime="2026-04-08T10:49:31.3062627+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4c5967a8-4e99-4010-97c8-cba4db17f115" />
+    <UnitTestResult executionId="ec0bbc76-c556-4cf5-8105-5440b6e8825d" testId="63e01a21-bc27-3556-7ca4-1f9facb69916" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_004_Verify_CMO_Breadcrumb_Navigation" computerName="DESKTOP-2S45JFU" duration="00:00:30.5750602" startTime="2026-04-08T10:41:48.3798937+05:30" endTime="2026-04-08T10:41:48.3798939+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ec0bbc76-c556-4cf5-8105-5440b6e8825d">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for Locator("a[href*='/clientrarch']:has-text('CMO Architecture')")</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentrePage.ClickBreadcrumbAsync(String sectionName) in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrationControlCentrePage.cs:line 163&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.&lt;TC_004_Verify_CMO_Breadcrumb_Navigation&gt;b__14_0() in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs:line 172&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_004_Verify_CMO_Breadcrumb_Navigation() in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs:line 169&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a8f5d5b7-4668-4a02-a2ab-101e6a1445c2" testId="3fc9a699-5141-f825-9c18-f18e1a4b0689" testName="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_030_Verify_Search_EmptyInput" computerName="DESKTOP-2S45JFU" duration="00:00:00.5960223" startTime="2026-04-08T10:49:22.2286817+05:30" endTime="2026-04-08T10:49:22.2286819+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a8f5d5b7-4668-4a02-a2ab-101e6a1445c2" />
+    <UnitTestResult executionId="5e510072-f454-494a-b679-123ca8ededca" testId="da6fb16c-99fc-8dfb-5420-b6b1065f80a6" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_006_Verify_Inventory_Breadcrumb_Navigation" computerName="DESKTOP-2S45JFU" duration="00:00:03.1964404" startTime="2026-04-08T10:40:54.4190544+05:30" endTime="2026-04-08T10:40:54.4190718+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5e510072-f454-494a-b679-123ca8ededca" />
+    <UnitTestResult executionId="967fb7dc-f095-4691-b44e-7e8175a3e477" testId="dced1f61-2c0d-abe2-4256-3015298779f6" testName="WiseMigrateTests.Pages.Project.ProjectListPageTests.TC_031_Select_Date_Range" computerName="DESKTOP-2S45JFU" duration="00:00:32.2413583" startTime="2026-04-08T10:34:25.9968257+05:30" endTime="2026-04-08T10:34:25.9968710+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="967fb7dc-f095-4691-b44e-7e8175a3e477">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByRole(AriaRole.Button, new() { Name = "1" }).First
+    - locator resolved to &lt;button type="button" class="mud-button-root mud-icon-button mud-ripple mud-ripple-icon mud-picker-calendar-day mud-day  mud-hidden"&gt;…&lt;/button&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    53 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+     - retrying click action
+       - waiting 500ms</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.PreRequisites.BasicSetup.SelectDateAsync(DateTime date) in C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs:line 245&#xD;
+   at WiseMigrateTests.Pages.PreRequisites.BasicSetup.SelectDaysRangeAsync(Int32 value) in C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs:line 223&#xD;
+   at WiseMigrateTests.Pages.Project.ProjectListPageTests.&lt;TC_031_Select_Date_Range&gt;b__33_0() in C:\Users\dell\WiseMigrateTests\Pages\Project\ProjectListPageTests.cs:line 454&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.Project.ProjectListPageTests.TC_031_Select_Date_Range() in C:\Users\dell\WiseMigrateTests\Pages\Project\ProjectListPageTests.cs:line 450&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c39ef3cc-a2a6-420c-ab13-61b0969063ae" testId="d16bc00f-5a80-fc04-c81d-7e55e94d0449" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_020_Verify_WaveRescheduleOperation" computerName="DESKTOP-2S45JFU" duration="00:00:33.9873390" startTime="2026-04-08T10:40:21.1094998+05:30" endTime="2026-04-08T10:40:21.1095000+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c39ef3cc-a2a6-420c-ab13-61b0969063ae">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for Locator("button:has-text('Reschedule')")
+    - locator resolved to &lt;button disabled _bl_162="" type="button" class="mud-button-root mud-button mud-button-text mud-button-text-primary mud-button-text-size-medium mud-ripple"&gt;…&lt;/button&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not enabled
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not enabled
+    - retrying click action
+      - waiting 100ms
+    57 × waiting for element to be visible, enabled and stable
+       - element is not enabled
+     - retrying click action
+       - waiting 500ms</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentrePage.RescheduleOperationAsync() in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrationControlCentrePage.cs:line 207&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.&lt;TC_020_Verify_WaveRescheduleOperation&gt;b__30_0() in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs:line 483&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_020_Verify_WaveRescheduleOperation() in C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs:line 476&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="40c31b89-16ca-43c6-9c83-1e34a0d2d680" testId="554ae7fc-419e-f458-0b3d-56703ab1f76c" testName="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_034_Verify_Statistics_Display" computerName="DESKTOP-2S45JFU" duration="00:00:01.0077944" startTime="2026-04-08T10:41:58.3165004+05:30" endTime="2026-04-08T10:41:58.3165008+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="40c31b89-16ca-43c6-9c83-1e34a0d2d680" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_032_ConfigureParameters_InValidInput" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="305ee199-351c-d861-2db0-b52dd9d09ac3">
+      <Execution id="b7a48624-0bc5-4156-804e-27fd6fec6801" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_032_ConfigureParameters_InValidInput" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="a7104e9f-4888-1104-3f7e-5ed77ba31aee">
+      <Execution id="7276d29a-4574-4d35-830c-c27e978163aa" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests" name="TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_038_Rollback_BackloggedGroup" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="def450ce-4f0a-6635-07b3-134d56411ebf">
+      <Execution id="a4794c57-6b4b-4d4d-9a03-ee8a4c403255" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_038_Rollback_BackloggedGroup" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_040_Configure_Parameters_ZeroEdgeValue" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="d054d30b-560f-9b33-e336-acd53976541e">
+      <Execution id="30c1ab50-f904-484d-8255-fbecdff31fd7" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_040_Configure_Parameters_ZeroEdgeValue" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_021_WaveRescheduleOperation_PastDate" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="afcbb363-c6d5-3288-6c7d-b2375b612974">
+      <Execution id="9ebed3cf-45ea-475a-ab97-721dbdd8bdb9" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_021_WaveRescheduleOperation_PastDate" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_030_Verify_Search_EmptyInput" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="3fc9a699-5141-f825-9c18-f18e1a4b0689">
+      <Execution id="a8f5d5b7-4668-4a02-a2ab-101e6a1445c2" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_030_Verify_Search_EmptyInput" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.TC_001_MigrationPlanTracking_Page_UI_Should_Load" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="4cc8651f-9ed0-d268-1484-e4553e04fd05">
+      <Execution id="a8b5fbaf-770a-4bd7-ab60-4dd85b9e3f00" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests" name="TC_001_MigrationPlanTracking_Page_UI_Should_Load" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_003_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="beca1c0f-a54e-c81e-4952-df13a1426627">
+      <Execution id="c8a2ddf2-5edb-4a3c-ba2a-9082d902a30c" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_003_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_016_Validate_Generate_Architecture_Operation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="a9f9f512-c72a-a254-87b7-93dab7dbf60a">
+      <Execution id="9932eba3-2795-477f-9a99-8363148bd7bf" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests" name="TC_016_Validate_Generate_Architecture_Operation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_019_Verify_EditOperation_GroupStatus" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="d5446e63-11d3-9a96-af32-57c4f5bafda7">
+      <Execution id="cc6e9d2d-8262-448c-98fb-8c42297e53de" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_019_Verify_EditOperation_GroupStatus" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_018_Verify_EditOperation_WaveStatus" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="e9ac00ba-d51e-0a2a-b2cb-10e894a8473b">
+      <Execution id="2ebb7af4-051a-4785-b4a1-aab6d07e4416" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_018_Verify_EditOperation_WaveStatus" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_003_Verify_SSOT_Breadcrumb_Navigation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="d0f882ea-46ea-10d0-2930-6554aa1ac3e0">
+      <Execution id="38d11a75-1b33-4136-96d1-7b75d266be8a" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_003_Verify_SSOT_Breadcrumb_Navigation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_004_Verify_CMO_Breadcrumb_Navigation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="63e01a21-bc27-3556-7ca4-1f9facb69916">
+      <Execution id="ec0bbc76-c556-4cf5-8105-5440b6e8825d" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_004_Verify_CMO_Breadcrumb_Navigation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_024_Validate_SSOT_Reconciliation_Operation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="75cc7bd0-b33d-3d06-2f76-b1bd3ac7340f">
+      <Execution id="9a755a86-df2d-49ed-88ef-0d4bed659c88" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests" name="TC_024_Validate_SSOT_Reconciliation_Operation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_014_Verify_ResetOnZoom_Functionality" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="e977a7c5-eab0-8b78-567e-1d8250e7b843">
+      <Execution id="676c5940-a8e3-4f4e-a376-ea73ecdb4fd1" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_014_Verify_ResetOnZoom_Functionality" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_006_Verify_Inventory_Breadcrumb_Navigation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="da6fb16c-99fc-8dfb-5420-b6b1065f80a6">
+      <Execution id="5e510072-f454-494a-b679-123ca8ededca" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_006_Verify_Inventory_Breadcrumb_Navigation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_034_Verify_Statistics_Display" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="554ae7fc-419e-f458-0b3d-56703ab1f76c">
+      <Execution id="40c31b89-16ca-43c6-9c83-1e34a0d2d680" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_034_Verify_Statistics_Display" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_024_Verify_ToggleLegend_Operation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="b2ab5b18-0b88-29bd-79b8-decfed359769">
+      <Execution id="c3bce451-35a9-4888-ab48-1c8d8b45be61" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_024_Verify_ToggleLegend_Operation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_035_Verify_ExpandGroup" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="63ee30d9-4f44-5225-27f3-eb0f27e48fe4">
+      <Execution id="d3c1db39-5acf-4118-bced-0eee386e01ed" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_035_Verify_ExpandGroup" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_025_FMO_Search_And_Select_Random_Server_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="c166047a-ddbc-509a-ddf3-96456550d86d">
+      <Execution id="c7698d18-734e-44e5-b53e-76dc97eb0edd" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_025_FMO_Search_And_Select_Random_Server_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_028_Verify_Search_NoResults" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="908df79a-5c86-46d9-fc0a-e60525ff21e1">
+      <Execution id="b06e52bc-87f5-4d16-8c6d-0767ee80563d" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_028_Verify_Search_NoResults" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_024_Verify_AddManualHoliday" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="ecf908ee-fb96-e2e3-3c8f-cbe019448662">
+      <Execution id="a1c31fb8-d591-4e68-96a1-014dab983807" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_024_Verify_AddManualHoliday" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_040_FMO_OneYear_PerMonth_CostValidation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="fdbb9aff-b0d2-d958-b587-09a4632697dc">
+      <Execution id="b6c0254e-9f17-4161-99c5-67159449ca25" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_040_FMO_OneYear_PerMonth_CostValidation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_027_Verify_Search_RandomSelectedNode" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="c2a8c406-2cb0-478e-f12f-d48eca3a124b">
+      <Execution id="ae82eae8-e642-48a4-b838-d9c918f1604b" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_027_Verify_Search_RandomSelectedNode" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_020_Verify_WaveRescheduleOperation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="d16bc00f-5a80-fc04-c81d-7e55e94d0449">
+      <Execution id="c39ef3cc-a2a6-420c-ab13-61b0969063ae" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_020_Verify_WaveRescheduleOperation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_005_Verify_FMO_Breadcrumb_Navigation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="cf66865c-9a84-4c40-29ac-6fdf8fb84870">
+      <Execution id="f1726c5b-3b57-40c9-b128-20bd12ea6d0d" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_005_Verify_FMO_Breadcrumb_Navigation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_028_Clear_All_Filter" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="b24328fb-7645-3e03-05b8-91476fecbf90">
+      <Execution id="90d3db8b-353e-4310-9a32-52068323b334" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests" name="TC_028_Clear_All_Filter" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_025_AddManualHoliday_MissingRequiredField_Negative" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="05c937d3-5a55-6290-9e86-f2bf5335e861">
+      <Execution id="368e26e5-1f9c-4281-b9fa-1516106a752f" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_025_AddManualHoliday_MissingRequiredField_Negative" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests.TC_002_Back_To_FMO_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="bdaf0137-cb67-7232-1c87-11789313131a">
+      <Execution id="e3d5b636-a7e4-44ee-80b9-dba782891806" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.CmoFmoInventory.CmoFmoInventoryPageTests" name="TC_002_Back_To_FMO_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_019_Verify_UI_Scaling_In_Fullscreen" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="47f21da3-daef-5fee-78c2-02d0ee8acf89">
+      <Execution id="49ac12d2-1258-483e-9b16-9f289d9273ca" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_019_Verify_UI_Scaling_In_Fullscreen" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests.TC_008_Verify_ZoomOut_MouseScroll" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="f1b89cba-5c5a-5bb3-66c1-60afacf9a918">
+      <Execution id="4c5967a8-4e99-4010-97c8-cba4db17f115" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.ClientModeOperation.ClientModeOperationPageTests" name="TC_008_Verify_ZoomOut_MouseScroll" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_039_Rollback_BackloggedGroupToTargetWave" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="eb8324e9-7ac6-9fcc-a932-ec93f9b2098d">
+      <Execution id="34bb71e4-2943-4364-a884-f4d08668dd6f" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests" name="TC_039_Rollback_BackloggedGroupToTargetWave" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_027_Select_Date_Rang_In_Activity_log" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="7d510672-0462-c70d-161e-fc31a2982c7c">
+      <Execution id="971a7818-b1b7-49bf-b264-fd08a0b2a0a5" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests" name="TC_027_Select_Date_Rang_In_Activity_log" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.Project.ProjectListPageTests.TC_031_Select_Date_Range" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="dced1f61-2c0d-abe2-4256-3015298779f6">
+      <Execution id="967fb7dc-f095-4691-b44e-7e8175a3e477" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.Project.ProjectListPageTests" name="TC_031_Select_Date_Range" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="e977a7c5-eab0-8b78-567e-1d8250e7b843" executionId="676c5940-a8e3-4f4e-a376-ea73ecdb4fd1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cf66865c-9a84-4c40-29ac-6fdf8fb84870" executionId="f1726c5b-3b57-40c9-b128-20bd12ea6d0d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ecf908ee-fb96-e2e3-3c8f-cbe019448662" executionId="a1c31fb8-d591-4e68-96a1-014dab983807" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4cc8651f-9ed0-d268-1484-e4553e04fd05" executionId="a8b5fbaf-770a-4bd7-ab60-4dd85b9e3f00" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d054d30b-560f-9b33-e336-acd53976541e" executionId="30c1ab50-f904-484d-8255-fbecdff31fd7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="75cc7bd0-b33d-3d06-2f76-b1bd3ac7340f" executionId="9a755a86-df2d-49ed-88ef-0d4bed659c88" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a7104e9f-4888-1104-3f7e-5ed77ba31aee" executionId="7276d29a-4574-4d35-830c-c27e978163aa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c2a8c406-2cb0-478e-f12f-d48eca3a124b" executionId="ae82eae8-e642-48a4-b838-d9c918f1604b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="beca1c0f-a54e-c81e-4952-df13a1426627" executionId="c8a2ddf2-5edb-4a3c-ba2a-9082d902a30c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63ee30d9-4f44-5225-27f3-eb0f27e48fe4" executionId="d3c1db39-5acf-4118-bced-0eee386e01ed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fdbb9aff-b0d2-d958-b587-09a4632697dc" executionId="b6c0254e-9f17-4161-99c5-67159449ca25" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c166047a-ddbc-509a-ddf3-96456550d86d" executionId="c7698d18-734e-44e5-b53e-76dc97eb0edd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e9ac00ba-d51e-0a2a-b2cb-10e894a8473b" executionId="2ebb7af4-051a-4785-b4a1-aab6d07e4416" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d510672-0462-c70d-161e-fc31a2982c7c" executionId="971a7818-b1b7-49bf-b264-fd08a0b2a0a5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d5446e63-11d3-9a96-af32-57c4f5bafda7" executionId="cc6e9d2d-8262-448c-98fb-8c42297e53de" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bdaf0137-cb67-7232-1c87-11789313131a" executionId="e3d5b636-a7e4-44ee-80b9-dba782891806" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a9f9f512-c72a-a254-87b7-93dab7dbf60a" executionId="9932eba3-2795-477f-9a99-8363148bd7bf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eb8324e9-7ac6-9fcc-a932-ec93f9b2098d" executionId="34bb71e4-2943-4364-a884-f4d08668dd6f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b24328fb-7645-3e03-05b8-91476fecbf90" executionId="90d3db8b-353e-4310-9a32-52068323b334" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="def450ce-4f0a-6635-07b3-134d56411ebf" executionId="a4794c57-6b4b-4d4d-9a03-ee8a4c403255" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="305ee199-351c-d861-2db0-b52dd9d09ac3" executionId="b7a48624-0bc5-4156-804e-27fd6fec6801" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="47f21da3-daef-5fee-78c2-02d0ee8acf89" executionId="49ac12d2-1258-483e-9b16-9f289d9273ca" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d0f882ea-46ea-10d0-2930-6554aa1ac3e0" executionId="38d11a75-1b33-4136-96d1-7b75d266be8a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b2ab5b18-0b88-29bd-79b8-decfed359769" executionId="c3bce451-35a9-4888-ab48-1c8d8b45be61" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="908df79a-5c86-46d9-fc0a-e60525ff21e1" executionId="b06e52bc-87f5-4d16-8c6d-0767ee80563d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="05c937d3-5a55-6290-9e86-f2bf5335e861" executionId="368e26e5-1f9c-4281-b9fa-1516106a752f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="afcbb363-c6d5-3288-6c7d-b2375b612974" executionId="9ebed3cf-45ea-475a-ab97-721dbdd8bdb9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f1b89cba-5c5a-5bb3-66c1-60afacf9a918" executionId="4c5967a8-4e99-4010-97c8-cba4db17f115" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63e01a21-bc27-3556-7ca4-1f9facb69916" executionId="ec0bbc76-c556-4cf5-8105-5440b6e8825d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3fc9a699-5141-f825-9c18-f18e1a4b0689" executionId="a8f5d5b7-4668-4a02-a2ab-101e6a1445c2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="da6fb16c-99fc-8dfb-5420-b6b1065f80a6" executionId="5e510072-f454-494a-b679-123ca8ededca" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dced1f61-2c0d-abe2-4256-3015298779f6" executionId="967fb7dc-f095-4691-b44e-7e8175a3e477" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d16bc00f-5a80-fc04-c81d-7e55e94d0449" executionId="c39ef3cc-a2a6-420c-ab13-61b0969063ae" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="554ae7fc-419e-f458-0b3d-56703ab1f76c" executionId="40c31b89-16ca-43c6-9c83-1e34a0d2d680" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="34" executed="34" passed="20" failed="14" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.5.3.1+6b60a9e56a (64-bit .NET 8.0.25)&#xD;
+[xUnit.net 00:00:03.34] Allure.Xunit: XunitTestRunner's Void .ctor(Xunit.Abstractions.ITest, Xunit.Sdk.IMessageBus, System.Type, System.Object[], System.Reflection.MethodInfo, System.Object[], System.String, System.Collections.Generic.IReadOnlyList`1[Xunit.Sdk.BeforeAfterTestAttribute], Xunit.Sdk.ExceptionAggregator, System.Threading.CancellationTokenSource) has been patched&#xD;
+[xUnit.net 00:00:03.38] Allure.Xunit: Allure reporter enabled&#xD;
+[xUnit.net 00:00:03.48]   Discovering: WiseMigrateTests&#xD;
+[xUnit.net 00:00:03.61]   Discovered:  WiseMigrateTests&#xD;
+[xUnit.net 00:00:03.62]   Starting:    WiseMigrateTests&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_031_Select_Date_Range_FAILED_20260408-103425.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+[xUnit.net 00:00:52.56]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByRole(AriaRole.Button, new() { Name = "1" }).First
+    - locator resolved to &lt;button type="button" class="mud-button-root mud-icon-button mud-ripple mud-ripple-icon mud-picker-calendar-day mud-day  mud-hidden"&gt;…&lt;/button&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    53 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+     - retrying click action
+       - waiting 500ms&#xD;
+[xUnit.net 00:00:52.56]       Stack Trace:&#xD;
+[xUnit.net 00:00:52.56]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:00:52.56]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:00:52.56]         C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs(245,0): at WiseMigrateTests.Pages.PreRequisites.BasicSetup.SelectDateAsync(DateTime date)&#xD;
+[xUnit.net 00:00:52.56]         C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs(223,0): at WiseMigrateTests.Pages.PreRequisites.BasicSetup.SelectDaysRangeAsync(Int32 value)&#xD;
+[xUnit.net 00:00:52.56]         C:\Users\dell\WiseMigrateTests\Pages\Project\ProjectListPageTests.cs(454,0): at WiseMigrateTests.Pages.Project.ProjectListPageTests.&lt;TC_031_Select_Date_Range&gt;b__33_0()&#xD;
+[xUnit.net 00:00:52.56]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:00:52.56]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:00:52.56]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:00:52.56]         C:\Users\dell\WiseMigrateTests\Pages\Project\ProjectListPageTests.cs(450,0): at WiseMigrateTests.Pages.Project.ProjectListPageTests.TC_031_Select_Date_Range()&#xD;
+[xUnit.net 00:00:52.56]         --- End of stack trace from previous location ---&#xD;
+[xUnit.net 00:02:03.06]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByRole(AriaRole.Button, new() { Name = "View Architecture" })&#xD;
+[xUnit.net 00:02:03.06]       Stack Trace:&#xD;
+[xUnit.net 00:02:03.06]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:02:03.06]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:02:03.06]         C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPage.cs(151,0): at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPage.ViewArchitectureAsync()&#xD;
+[xUnit.net 00:02:03.06]         C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs(153,0): at WiseMigrateTests.Pages.PreRequisites.BasicSetup.InfrastructureUploadPageSetupAsync()&#xD;
+[xUnit.net 00:02:03.06]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(36,0): at WiseMigrateTests.TestHooks.TestBaseFixture.&lt;&gt;c.&lt;&lt;InitializeAsync&gt;b__14_0&gt;d.MoveNext()&#xD;
+[xUnit.net 00:02:03.06]         --- End of stack trace from previous location ---&#xD;
+[xUnit.net 00:02:03.06]         C:\Users\dell\WiseMigrateTests\TestHooks\SharedContextTestFixture.cs(23,0): at WiseMigrateTests.TestHooks.SharedContextFixture.EnsureInitializedAsync(IBrowser browser, Func`2 setupLogic)&#xD;
+[xUnit.net 00:02:03.06]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(28,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:02:03.06]         C:\Users\dell\WiseMigrateTests\Pages\MigrationPlanTracking\MigrationPlanTrackingTests.cs(23,0): at WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.InitializeAsync()&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=17157e5e-5de1-4e7a-a941-fed817ca3375&#xD;
+Successfully loaded page: /inventory&#xD;
+[xUnit.net 00:02:56.51]       Microsoft.Playwright.PlaywrightException : Locator expected to be visible 
+Call log:
+  - Expect "ToBeVisibleAsync" with timeout 5000ms
+  - waiting for GetByText("Confirm Migration")&#xD;
+[xUnit.net 00:02:56.51]       Stack Trace:&#xD;
+[xUnit.net 00:02:56.51]         /_/src/Playwright/Core/AssertionsBase.cs(85,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title)&#xD;
+[xUnit.net 00:02:56.51]         /_/src/Playwright/Core/AssertionsBase.cs(65,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options)&#xD;
+[xUnit.net 00:02:56.51]         C:\Users\dell\WiseMigrateTests\Pages\ProjectInventory\ProjectInventoryPage.cs(111,0): at WiseMigrateTests.Pages.ProjectInventory.ProjectInventoryPage.InitiateMigrationFromInventoryAsync()&#xD;
+[xUnit.net 00:02:56.51]         C:\Users\dell\WiseMigrateTests\Pages\MigrationPlanTracking\MigrationPlanTrackingTests.cs(32,0): at WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.InitializeAsync()&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_003_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab_PASSED_20260408-103721.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_040_Configure_Parameters_ZeroEdgeValue_FAILED_20260408-103741.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:04:09.00]       Microsoft.Playwright.PlaywrightException : Locator expected to contain text 'The input value cannot be lesser than the deafult value.'
+But was: '&lt;element(s) not found&gt;' 
+Call log:
+  - Expect "ToContainTextAsync" with timeout 5000ms
+  - waiting for Locator("role=alert")
+    3 × locator resolved to &lt;div role="alert" aria-live="polite" class="mud-snackbar mud-alert-filled-success "&gt;…&lt;/div&gt;
+      - unexpected value "Migration plan created successfully. Select 'View Plan Details' in Migration Plan Tracking to see details."&#xD;
+[xUnit.net 00:04:09.00]       Stack Trace:&#xD;
+[xUnit.net 00:04:09.00]         /_/src/Playwright/Core/AssertionsBase.cs(87,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title)&#xD;
+[xUnit.net 00:04:09.00]         /_/src/Playwright/Core/AssertionsBase.cs(65,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options)&#xD;
+[xUnit.net 00:04:09.00]         /_/src/Playwright/Core/AssertionsBase.cs(57,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue textValue, Object expected, String message, String title, FrameExpectOptions options)&#xD;
+[xUnit.net 00:04:09.00]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs(887,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.&lt;TC_040_Configure_Parameters_ZeroEdgeValue&gt;b__50_0()&#xD;
+[xUnit.net 00:04:09.01]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:04:09.01]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:04:09.01]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:04:09.01]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs(877,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_040_Configure_Parameters_ZeroEdgeValue()&#xD;
+[xUnit.net 00:04:09.01]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+Group Name :Group 2&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_019_Verify_EditOperation_GroupStatus_PASSED_20260408-103756.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_039_Rollback_BackloggedGroupToTargetWave_PASSED_20260408-103815.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_024_Verify_AddManualHoliday_PASSED_20260408-103830.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+Attempting to select past date: 7&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_021_WaveRescheduleOperation_PastDate_FAILED_20260408-103844.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:05:12.38]       Microsoft.Playwright.PlaywrightException : Error: strict mode violation: Locator("role=alert") resolved to 2 elements:
+    1) &lt;div role="alert" aria-live="polite" class="mud-snackbar mud-alert-filled-success "&gt;…&lt;/div&gt; aka GetByRole(AriaRole.Alert).Filter(new() { HasText = "Migration plan created" })
+    2) &lt;div role="alert" aria-live="polite" class="mud-snackbar mud-alert-filled-success "&gt;…&lt;/div&gt; aka GetByRole(AriaRole.Alert).Filter(new() { HasText = "Wave rescheduled successfully." })
+
+Call log:
+  - Expect "ToHaveTextAsync" with timeout 5000ms
+  - waiting for Locator("role=alert")&#xD;
+[xUnit.net 00:05:12.38]       Stack Trace:&#xD;
+[xUnit.net 00:05:12.38]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:05:12.38]         /_/src/Playwright/Transport/Connection.cs(483,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:05:12.38]         /_/src/Playwright/Core/Frame.cs(895,0): at Microsoft.Playwright.Core.Frame.ExpectAsync(String selector, String expression, FrameExpectOptions options)&#xD;
+[xUnit.net 00:05:12.38]            at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:05:12.38]         /_/src/Playwright/Core/AssertionsBase.cs(78,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title)&#xD;
+[xUnit.net 00:05:12.38]         /_/src/Playwright/Core/AssertionsBase.cs(65,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options)&#xD;
+[xUnit.net 00:05:12.38]         /_/src/Playwright/Core/AssertionsBase.cs(57,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue textValue, Object expected, String message, String title, FrameExpectOptions options)&#xD;
+[xUnit.net 00:05:12.38]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs(510,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.&lt;TC_021_WaveRescheduleOperation_PastDate&gt;b__31_0()&#xD;
+[xUnit.net 00:05:12.38]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:05:12.38]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:05:12.38]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:05:12.38]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs(496,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_021_WaveRescheduleOperation_PastDate()&#xD;
+[xUnit.net 00:05:12.38]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_038_Rollback_BackloggedGroup_PASSED_20260408-103900.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_025_AddManualHoliday_MissingRequiredField_Negative_FAILED_20260408-103913.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:05:40.46]       Microsoft.Playwright.PlaywrightException : Error: strict mode violation: GetByText("EMEA") resolved to 2 elements:
+    1) &lt;div _bl_153="" tabindex="0" class="mud-input-slot mud-input-root mud-input-root-outlined mud-input-root-adorned-end mud-select-input"&gt;EMEA&lt;/div&gt; aka Locator("#selectmuxbsds7").GetByText("EMEA")
+    2) &lt;td class="mud-table-cell"&gt;EMEA&lt;/td&gt; aka GetByRole(AriaRole.Cell, new() { Name = "EMEA" })
+
+Call log:
+  - waiting for GetByText("EMEA")&#xD;
+[xUnit.net 00:05:40.46]       Stack Trace:&#xD;
+[xUnit.net 00:05:40.46]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:05:40.46]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:05:40.46]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs(577,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.&lt;TC_025_AddManualHoliday_MissingRequiredField_Negative&gt;b__35_0()&#xD;
+[xUnit.net 00:05:40.46]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:05:40.46]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:05:40.46]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:05:40.46]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs(573,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_025_AddManualHoliday_MissingRequiredField_Negative()&#xD;
+[xUnit.net 00:05:40.46]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+Wave Value : 4&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_035_Verify_ExpandGroup_PASSED_20260408-103925.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_003_Verify_SSOT_Breadcrumb_Navigation_PASSED_20260408-103937.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_020_Verify_WaveRescheduleOperation_FAILED_20260408-104020.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:06:47.70]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for Locator("button:has-text('Reschedule')")
+    - locator resolved to &lt;button disabled _bl_162="" type="button" class="mud-button-root mud-button mud-button-text mud-button-text-primary mud-button-text-size-medium mud-ripple"&gt;…&lt;/button&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not enabled
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not enabled
+    - retrying click action
+      - waiting 100ms
+    57 × waiting for element to be visible, enabled and stable
+       - element is not enabled
+     - retrying click action
+       - waiting 500ms&#xD;
+[xUnit.net 00:06:47.70]       Stack Trace:&#xD;
+[xUnit.net 00:06:47.70]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:06:47.70]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:06:47.70]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrationControlCentrePage.cs(207,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentrePage.RescheduleOperationAsync()&#xD;
+[xUnit.net 00:06:47.70]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs(483,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.&lt;TC_020_Verify_WaveRescheduleOperation&gt;b__30_0()&#xD;
+[xUnit.net 00:06:47.70]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:06:47.70]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:06:47.70]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:06:47.70]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs(476,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_020_Verify_WaveRescheduleOperation()&#xD;
+[xUnit.net 00:06:47.70]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_032_ConfigureParameters_InValidInput_FAILED_20260408-104040.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:07:08.11]       Microsoft.Playwright.PlaywrightException : Locator expected to have text 'The input value cannot be lesser than the default value.'
+But was: '&lt;element(s) not found&gt;' 
+Call log:
+  - Expect "ToHaveTextAsync" with timeout 5000ms
+  - waiting for Locator("role=alert")&#xD;
+[xUnit.net 00:07:08.11]       Stack Trace:&#xD;
+[xUnit.net 00:07:08.11]         /_/src/Playwright/Core/AssertionsBase.cs(87,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title)&#xD;
+[xUnit.net 00:07:08.11]         /_/src/Playwright/Core/AssertionsBase.cs(65,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options)&#xD;
+[xUnit.net 00:07:08.11]         /_/src/Playwright/Core/AssertionsBase.cs(57,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue textValue, Object expected, String message, String title, FrameExpectOptions options)&#xD;
+[xUnit.net 00:07:08.11]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs(707,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.&lt;TC_032_ConfigureParameters_InValidInput&gt;b__42_0()&#xD;
+[xUnit.net 00:07:08.11]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:07:08.11]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:07:08.11]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:07:08.11]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs(697,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_032_ConfigureParameters_InValidInput()&#xD;
+[xUnit.net 00:07:08.11]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_006_Verify_Inventory_Breadcrumb_Navigation_PASSED_20260408-104054.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_018_Verify_EditOperation_WaveStatus_PASSED_20260408-104107.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_004_Verify_CMO_Breadcrumb_Navigation_FAILED_20260408-104147.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:08:14.98]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for Locator("a[href*='/clientrarch']:has-text('CMO Architecture')")&#xD;
+[xUnit.net 00:08:14.98]       Stack Trace:&#xD;
+[xUnit.net 00:08:14.98]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:08:14.98]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:08:14.98]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrationControlCentrePage.cs(163,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentrePage.ClickBreadcrumbAsync(String sectionName)&#xD;
+[xUnit.net 00:08:14.98]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs(172,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.&lt;TC_004_Verify_CMO_Breadcrumb_Navigation&gt;b__14_0()&#xD;
+[xUnit.net 00:08:14.98]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:08:14.98]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:08:14.98]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:08:14.98]         C:\Users\dell\WiseMigrateTests\Pages\MigrationControlCentre\MigrateControlCentrePageTests.cs(169,0): at WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_004_Verify_CMO_Breadcrumb_Navigation()&#xD;
+[xUnit.net 00:08:14.98]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_034_Verify_Statistics_Display_PASSED_20260408-104157.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=4e4298d2-058d-4884-8ae4-ec21d4a64139&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_005_Verify_FMO_Breadcrumb_Navigation_PASSED_20260408-104210.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_016_Validate_Generate_Architecture_Operation_FAILED_20260408-104259.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+[xUnit.net 00:09:38.06]       Microsoft.Playwright.PlaywrightException : Locator expected to have text 'Architecture generated successfully!.'
+But was: '&lt;element(s) not found&gt;' 
+Call log:
+  - Expect "ToHaveTextAsync" with timeout 5000ms
+  - waiting for GetByRole(AriaRole.Alert)&#xD;
+[xUnit.net 00:09:38.06]       Stack Trace:&#xD;
+[xUnit.net 00:09:38.06]         /_/src/Playwright/Core/AssertionsBase.cs(87,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title)&#xD;
+[xUnit.net 00:09:38.06]         /_/src/Playwright/Core/AssertionsBase.cs(65,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options)&#xD;
+[xUnit.net 00:09:38.06]         /_/src/Playwright/Core/AssertionsBase.cs(57,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue textValue, Object expected, String message, String title, FrameExpectOptions options)&#xD;
+[xUnit.net 00:09:38.06]         C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPageTests.cs(280,0): at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.&lt;TC_016_Validate_Generate_Architecture_Operation&gt;b__13_0()&#xD;
+[xUnit.net 00:09:38.06]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:09:38.06]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:09:38.06]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:09:38.06]         C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPageTests.cs(261,0): at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_016_Validate_Generate_Architecture_Operation()&#xD;
+[xUnit.net 00:09:38.06]         --- End of stack trace from previous location ---&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_028_Clear_All_Filter_FAILED_20260408-104403.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+[xUnit.net 00:10:31.13]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByRole(AriaRole.Button, new() { Name = "1" }).First
+    - locator resolved to &lt;button type="button" class="mud-button-root mud-icon-button mud-ripple mud-ripple-icon mud-picker-calendar-day mud-day  mud-hidden"&gt;…&lt;/button&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    56 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+     - retrying click action
+       - waiting 500ms&#xD;
+[xUnit.net 00:10:31.13]       Stack Trace:&#xD;
+[xUnit.net 00:10:31.13]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:10:31.13]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:10:31.13]         C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs(245,0): at WiseMigrateTests.Pages.PreRequisites.BasicSetup.SelectDateAsync(DateTime date)&#xD;
+[xUnit.net 00:10:31.13]         C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs(223,0): at WiseMigrateTests.Pages.PreRequisites.BasicSetup.SelectDaysRangeAsync(Int32 value)&#xD;
+[xUnit.net 00:10:31.13]         C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPageTests.cs(599,0): at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.&lt;TC_028_Clear_All_Filter&gt;b__24_0()&#xD;
+[xUnit.net 00:10:31.13]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:10:31.13]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:10:31.13]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:10:31.13]         C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPageTests.cs(586,0): at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_028_Clear_All_Filter()&#xD;
+[xUnit.net 00:10:31.13]         --- End of stack trace from previous location ---&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_024_Validate_SSOT_Reconciliation_Operation_PASSED_20260408-104507.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_027_Select_Date_Rang_In_Activity_log_FAILED_20260408-104608.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+[xUnit.net 00:12:35.97]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByRole(AriaRole.Button, new() { Name = "1" }).First
+    - locator resolved to &lt;button type="button" class="mud-button-root mud-icon-button mud-ripple mud-ripple-icon mud-picker-calendar-day mud-day  mud-hidden"&gt;…&lt;/button&gt;
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is not stable
+  - retrying click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+  - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    54 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - &lt;div class="mud-picker-calendar"&gt;…&lt;/div&gt; intercepts pointer events
+     - retrying click action
+       - waiting 500ms&#xD;
+[xUnit.net 00:12:35.97]       Stack Trace:&#xD;
+[xUnit.net 00:12:35.97]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:12:35.97]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:12:35.97]         C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs(245,0): at WiseMigrateTests.Pages.PreRequisites.BasicSetup.SelectDateAsync(DateTime date)&#xD;
+[xUnit.net 00:12:35.97]         C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs(223,0): at WiseMigrateTests.Pages.PreRequisites.BasicSetup.SelectDaysRangeAsync(Int32 value)&#xD;
+[xUnit.net 00:12:35.97]         C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPageTests.cs(575,0): at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.&lt;TC_027_Select_Date_Rang_In_Activity_log&gt;b__23_0()&#xD;
+[xUnit.net 00:12:35.97]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:12:35.97]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:12:35.97]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:12:35.97]         C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPageTests.cs(566,0): at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_027_Select_Date_Rang_In_Activity_log()&#xD;
+[xUnit.net 00:12:35.97]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=65d800d7-c4ca-4c8b-b227-c315ed1eaeb1&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_040_FMO_OneYear_PerMonth_CostValidation_FAILED_20260408-104732.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:13:59.68]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("1 Year Reserved")&#xD;
+[xUnit.net 00:13:59.68]       Stack Trace:&#xD;
+[xUnit.net 00:13:59.68]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:13:59.68]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:13:59.68]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(983,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_040_FMO_OneYear_PerMonth_CostValidation&gt;b__48_0()&#xD;
+[xUnit.net 00:13:59.68]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:13:59.68]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:13:59.68]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:13:59.68]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(977,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_040_FMO_OneYear_PerMonth_CostValidation()&#xD;
+[xUnit.net 00:13:59.68]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=65d800d7-c4ca-4c8b-b227-c315ed1eaeb1&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_025_FMO_Search_And_Select_Random_Server_Should_Work_FAILED_20260408-104742.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:14:09.83]       Microsoft.Playwright.PlaywrightException : Locator expected to be visible 
+Call log:
+  - Expect "ToBeVisibleAsync" with timeout 5000ms
+  - waiting for Locator("#fullscreen-container div").Filter(new() { HasText = "Found" }).Nth(3)&#xD;
+[xUnit.net 00:14:09.83]       Stack Trace:&#xD;
+[xUnit.net 00:14:09.83]         /_/src/Playwright/Core/AssertionsBase.cs(85,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title)&#xD;
+[xUnit.net 00:14:09.83]         /_/src/Playwright/Core/AssertionsBase.cs(65,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options)&#xD;
+[xUnit.net 00:14:09.83]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(606,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_025_FMO_Search_And_Select_Random_Server_Should_Work&gt;b__33_0()&#xD;
+[xUnit.net 00:14:09.83]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:14:09.83]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:14:09.83]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:14:09.83]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(591,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_025_FMO_Search_And_Select_Random_Server_Should_Work()&#xD;
+[xUnit.net 00:14:09.83]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/inventory?project_id=1b5e690f-719c-40ad-a4ea-4b7fbfe46c92&#xD;
+Successfully loaded page: /inventory&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_002_Back_To_FMO_Should_Work_PASSED_20260408-104831.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_019_Verify_UI_Scaling_In_Fullscreen_PASSED_20260408-104918.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Randomly selected search item: SRVTEST033&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_027_Verify_Search_RandomSelectedNode_20260408-104920.png&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_027_Verify_Search_RandomSelectedNode_PASSED_20260408-104921.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_030_Verify_Search_EmptyInput_PASSED_20260408-104921.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_024_Verify_ToggleLegend_Operation_20260408-104924.png&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_024_Verify_ToggleLegend_Operation_PASSED_20260408-104924.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_014_Verify_ResetOnZoomCombination_Functionality_20260408-104929.png&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_014_Verify_ResetOnZoomCombination_Functionality_PASSED_20260408-104930.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Initial dimensions: 926x702, Final dimensions: 703.76x533.52&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_008_Verify_ZoomOut_MouseScroll_20260408-104930.png&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_008_Verify_ZoomOut_MouseScroll_PASSED_20260408-104930.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_028_Verify_Search_NoResults_PASSED_20260408-104931.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:15:59.02]   Finished:    WiseMigrateTests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:34:25.9903764+05:30">
+        <Text>[xUnit.net 00:00:52.56]     WiseMigrateTests.Pages.Project.ProjectListPageTests.TC_031_Select_Date_Range [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:35:36.4908229+05:30">
+        <Text>[xUnit.net 00:02:03.06]     WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.TC_001_MigrationPlanTracking_Page_UI_Should_Load [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:36:29.9325209+05:30">
+        <Text>[xUnit.net 00:02:56.51]     WiseMigrateTests.Pages.MigrationPlanTracking.MigrationPlanTrackingTests.TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:37:42.4229575+05:30">
+        <Text>[xUnit.net 00:04:09.00]     WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_040_Configure_Parameters_ZeroEdgeValue [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:38:45.7934651+05:30">
+        <Text>[xUnit.net 00:05:12.38]     WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_021_WaveRescheduleOperation_PastDate [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:39:13.8746397+05:30">
+        <Text>[xUnit.net 00:05:40.46]     WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_025_AddManualHoliday_MissingRequiredField_Negative [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:40:21.1145181+05:30">
+        <Text>[xUnit.net 00:06:47.70]     WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_020_Verify_WaveRescheduleOperation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:40:41.5128329+05:30">
+        <Text>[xUnit.net 00:07:08.11]     WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_032_ConfigureParameters_InValidInput [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:41:48.3791170+05:30">
+        <Text>[xUnit.net 00:08:14.98]     WiseMigrateTests.Pages.MigrationControlCentre.MigrationControlCentreTests.TC_004_Verify_CMO_Breadcrumb_Navigation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:43:11.4520576+05:30">
+        <Text>[xUnit.net 00:09:38.06]     WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_016_Validate_Generate_Architecture_Operation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:44:04.5168726+05:30">
+        <Text>[xUnit.net 00:10:31.12]     WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_028_Clear_All_Filter [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:46:09.3489420+05:30">
+        <Text>[xUnit.net 00:12:35.97]     WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPageTests.TC_027_Select_Date_Rang_In_Activity_log [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:47:33.0521446+05:30">
+        <Text>[xUnit.net 00:13:59.68]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_040_FMO_OneYear_PerMonth_CostValidation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-08T10:47:43.2039419+05:30">
+        <Text>[xUnit.net 00:14:09.83]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_025_FMO_Search_And_Select_Random_Server_Should_Work [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

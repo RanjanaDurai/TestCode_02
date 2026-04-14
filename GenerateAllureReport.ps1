@@ -52,3 +52,10 @@ allure open $ReportPath
 Write-Host "All done!" -ForegroundColor Magenta
 Write-Host "→ Report folder: $ReportPath" -ForegroundColor White
 Write-Host "→ Zipped archive (shareable): $ZipPath" -ForegroundColor White
+
+GenerateAllureReport.ps1
+Automatically generates Allure report + zips it with timestamp
+
+GenerateAllureReport.ps1 - FIXED VERSION
+Clean → Run Tests → Generate Report (with history preserved)
+

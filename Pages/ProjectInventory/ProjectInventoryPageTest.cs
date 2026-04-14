@@ -4,9 +4,10 @@ using WiseMigrateTests.Pages.ProjectInventory;
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Utils;
 using WiseMigrateTests.Pages.PreRequisites;
+using WiseMigrateTests.Pages.Project;
 using Allure.Xunit.Attributes;
 
-namespace WiseMigrateTests.Pages.Project
+namespace WiseMigrateTests.Pages.ProjectInventory
 {
     [Collection("Playwright collection")]
     [AllureSuite("Project Inventory Tests")]
@@ -16,6 +17,7 @@ namespace WiseMigrateTests.Pages.Project
         private LoginPage _loginPage = null!;
         private ProjectListPage _projectListPage = null!;
         private ProjectInventoryPage _projectInventoryPage = null!;
+        protected override bool UseClassLevelGrouping => true;
 
         public new async Task InitializeAsync()
         {
@@ -26,50 +28,46 @@ namespace WiseMigrateTests.Pages.Project
             _projectListPage = new ProjectListPage(Page);
             _projectInventoryPage = new ProjectInventoryPage(Page);
 
-            await _loginPage.ValidateMigrateAdminAccount(Page);
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
+            await NavigateToPageAsync("/inventory");
             _createdProjectName = _basicSetup.projectName;
 
             Logger.Info("Project dashboard ready for Project Actions tests");
         }
 
-        public new Task DisposeAsync() => Task.CompletedTask;
-
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_001_Inventory_Page_Should_Load_Sucessfully")]
+        [AllureOwner("TC_150_Inventory_Page_Should_Load_Sucessfully")]
         [AllureTag("Smoke")]
-        public async Task TC_001_Inventory_Page_Should_Load_Sucessfully()
+        public async Task TC_150_Inventory_Page_Should_Load_Sucessfully()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _projectInventoryPage.NavigateToInventoryPageAsync();
+                
                 await Assertions.Expect(
                     Page.GetByRole(AriaRole.Heading, new() { Name = "CMO/FMO Inventory" })
                 ).ToBeVisibleAsync();
                 await _basicSetup.WaitForPageAsync(2);
                 Logger.Info("TC_Inventory_001 completed successfully");
-            }, nameof(TC_001_Inventory_Page_Should_Load_Sucessfully));
+            }, nameof(TC_150_Inventory_Page_Should_Load_Sucessfully));
         }
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_002_Verify_Migration_Control_Center_Flow")]
+        [AllureOwner("TC_151_Verify_Migration_Control_Center_Flow")]
         [AllureTag("Smoke")]
-        public async Task TC_002_Verify_Migration_Control_Center_Flow()
+        public async Task TC_151_Verify_Migration_Control_Center_Flow()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _projectInventoryPage.NavigateToInventoryPageAsync();
+                
                 await _basicSetup.WaitForPageAsync(2);
                 await _projectInventoryPage.InitiateMigrationFromInventoryAsync();
                 await Assertions.Expect(
-                    Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Plan Tracking" })
+                    Page.GetByRole(AriaRole.Heading, new() { Name = "M*(xwhvigration Plan Tracking" })
                 ).ToBeVisibleAsync();
 
-                Logger.Info("TC_Inventory_002 verification of Migration Control Center flow completed successfully");
-            }, nameof(TC_002_Verify_Migration_Control_Center_Flow));
+                Logger.Info("TC_Inventory_151 verification of Migration Control Center flow completed successfully");
+            }, nameof(TC_151_Verify_Migration_Control_Center_Flow));
         }
     }
 }

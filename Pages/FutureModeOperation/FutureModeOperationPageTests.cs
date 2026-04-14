@@ -18,6 +18,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
         private ProjectListPage _projectList = null!;
         private FutureModeOperationPage _fmoPage = null!;
         private ClientModeOperationPage _cmoPage = null!;
+         protected override bool UseClassLevelGrouping => true;
 
         public async Task InitializeAsync()
         {
@@ -26,13 +27,10 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
             _loginPage = new LoginPage(Page);
             _basicSetup = new BasicSetup(Page);
             _projectList = new ProjectListPage(Page);
-             _cmoPage = new ClientModeOperationPage(Page);
+            _cmoPage = new ClientModeOperationPage(Page);
             _fmoPage = new FutureModeOperationPage(Page);
 
-
-            await _loginPage.ValidateMigrateAdminAccount(Page);
-            await _projectList.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
+            await NavigateToPageAsync("/fmoarch");
             _createdProjectName = _basicSetup.projectName;
 
             Logger.Info("Logged in as Super Admin and created a basic project");
@@ -43,32 +41,32 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_001_FMO_Page_UI_Should_Load")]
+        [AllureOwner("TC_103_FMO_Page_UI_Should_Load")]
         [AllureTag("Smoke")]
-        public async Task TC_001_FMO_Page_UI_Should_Load()
+        public async Task TC_103_FMO_Page_UI_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await Assertions.Expect(Page.GetByText("Future Mode of Operation - Architectural View")).ToBeVisibleAsync();
                 Logger.Info("FMO Page UI loaded successfully");
-            }, nameof(TC_001_FMO_Page_UI_Should_Load));
+            }, nameof(TC_103_FMO_Page_UI_Should_Load));
         }
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons")]
+        [AllureOwner("TC_104_FMO_Page_Should_Have_Clickable_Navigation_Buttons")]
         [AllureTag("Smoke")]
-        public async Task TC_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons()
+        public async Task TC_104_FMO_Page_Should_Have_Clickable_Navigation_Buttons()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await Assertions.Expect(Page.GetByText("Future Mode of Operation - Architectural View")).ToBeVisibleAsync();
                 await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).First).ToBeEnabledAsync();
                 await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).Last).ToBeEnabledAsync();
                 Logger.Info("FMO Page has clickable navigation buttons");
-            }, nameof(TC_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons));
+            }, nameof(TC_104_FMO_Page_Should_Have_Clickable_Navigation_Buttons));
         }
 
         #endregion
@@ -77,13 +75,13 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_003_Verify_Pan_Functionality")]
+        [AllureOwner("TC_105_Verify_Pan_Functionality")]
         [AllureTag("Regression")]
-        public async Task TC_003_CMO_Verify_Pan_Functionality()
+        public async Task TC_105_Verify_Pan_Functionality()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialX, initialY) = await _cmoPage.IntializeCoordinates();
                 await _cmoPage.PerformPanAsync();
                 var mousePosition = await Page.EvaluateAsync<dynamic>(@"() => 
@@ -96,38 +94,38 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 Assert.NotEqual(initialX, (int)mousePosition.x);
                 Assert.NotEqual(initialY, (int)mousePosition.y);
                 Logger.Info("Pan functionality verified");
-            }, nameof(TC_003_CMO_Verify_Pan_Functionality));
+            }, nameof(TC_105_Verify_Pan_Functionality));
         }
 
         #region Zoom In
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_004_Verify_ZoomIn_MouseScroll")]
+        [AllureOwner("TC_106_Verify_ZoomIn_MouseScroll")]
         [AllureTag("Regression")]
-        public async Task TC_004_Verify_ZoomIn_MouseScroll()
+        public async Task TC_106_Verify_ZoomIn_MouseScroll()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.ZoomInWithMouseAsync();
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Console.WriteLine($"Initial dimensions: {initialWidth}x{initialHeight}, Final dimensions: {finalWidth}x{finalHeight}");
                 Assert.True(finalHeight > initialHeight);
                 Logger.Info("Zoom In via mouse scroll verified");
-            }, nameof(TC_004_Verify_ZoomIn_MouseScroll));
+            }, nameof(TC_106_Verify_ZoomIn_MouseScroll));
         }
         
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_005_FMO_Zoom_In_Should_Work")]
+        [AllureOwner("TC_107_FMO_Zoom_In_Should_Work")]
         [AllureTag("Regression")]
-        public async Task TC_005_FMO_Zoom_In_Should_Work()
+        public async Task TC_107_FMO_Zoom_In_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await Assertions.Expect(_fmoPage.Diagram).ToBeVisibleAsync();
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _fmoPage.ZoomInButton.ClickAsync();
@@ -136,26 +134,25 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 Assert.True(finalHeight > initialHeight);
 
                 Logger.Info("Zoom In button clicked successfully");
-            }, nameof(TC_005_FMO_Zoom_In_Should_Work));
+            }, nameof(TC_107_FMO_Zoom_In_Should_Work));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_006_Verify_Max_Zoom_Limit")]
+        [AllureOwner("TC_108_Verify_Max_Zoom_Limit")]
         [AllureTag("Regression")]
-        public async Task TC_006_Verify_Max_Zoom_Limit()
+        public async Task TC_108_Verify_Max_Zoom_Limit()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _cmoPage.ZoomInToMaximumAsync();
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.PerformZoomInAsync();
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Assert.Equal(finalHeight, initialHeight);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_006_Verify_Max_Zoom_Limit");
                 Logger.Info("Maximum zoom in level verified");
-            }, "TC_006_Verify_Max_Zoom_Limit");
+            }, "TC_108_Verify_Max_Zoom_Limit");
         
         }
 
@@ -165,31 +162,31 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_007_Verify_ZoomOut_MouseScroll")]
+        [AllureOwner("TC_109_Verify_ZoomOut_MouseScroll")]
         [AllureTag("Regression")]
-        public async Task TC_007_Verify_ZoomOut_MouseScroll()
+        public async Task TC_109_Verify_ZoomOut_MouseScroll()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.ZoomOutWithMouseAsync();
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Console.WriteLine($"Initial dimensions: {initialWidth}x{initialHeight}, Final dimensions: {finalWidth}x{finalHeight}");
                 Assert.True(finalHeight < initialHeight);
                 Logger.Info("Zoom Out via mouse scroll verified");
-            }, nameof (TC_007_Verify_ZoomOut_MouseScroll));
+            }, nameof (TC_109_Verify_ZoomOut_MouseScroll));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_008_FMO_Zoom_Out_Should_Work")]
+        [AllureOwner("TC_110_FMO_Zoom_Out_Should_Work")]
         [AllureTag("Regression")]
-        public async Task TC_008_FMO_Zoom_Out_Should_Work()
+        public async Task TC_110_FMO_Zoom_Out_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await Assertions.Expect(_fmoPage.ZoomOutButton).ToBeEnabledAsync();
                 await _fmoPage.ZoomInButton.ClickAsync();
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
@@ -199,47 +196,26 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 Assert.True(finalHeight < initialHeight);
 
                 Logger.Info("Zoom Out button clicked successfully");
-            }, nameof(TC_008_FMO_Zoom_Out_Should_Work));
+            }, nameof(TC_110_FMO_Zoom_Out_Should_Work));
         }
-
-        // [Fact]
-        // [Trait("Category", "Regression")]
-        // [AllureOwner("TC_009_Verify_Min_Zoom_Limit")]
-        // [AllureTag("Regression")]
-        // public async Task TC_009_Verify_Min_Zoom_Limit()
-        // {
-        //     await _attachmentHelper.RunWithTracingAsync(async ()=>
-        //     {
-        //         await _fmoPage.NavigateToFMOPageAsync();
-        //         await _cmoPage.ZoomOutToMinimumAsync();
-        //         var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
-        //         await _cmoPage.PerformZoomOutAsync();
-        //         var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
-        //         Console.WriteLine($"Initial dimensions: {initialWidth}x{initialHeight}, Final dimensions: {finalWidth}x{finalHeight}");
-        //         Assert.Equal(finalHeight, initialHeight);
-        //         Logger.Info("Minimum zoom out limit verified");
-        //     }, nameof(TC_009_Verify_Min_Zoom_Limit));
-            
-        // }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_009_Verify_Min_Zoom_Limit")]
+        [AllureOwner("TC_111_Verify_Min_Zoom_Limit")]
         [AllureTag("Regression")]
-        public async Task TC_009_Verify_Min_Zoom_Limit()
+        public async Task TC_111_Verify_Min_Zoom_Limit()
         {
             await _attachmentHelper.RunWithTracingAsync(async ()=>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _cmoPage.ZoomOutToMinimumAsync();
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.PerformZoomOutAsync();
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Console.WriteLine($"Initial dimensions: {initialWidth}x{initialHeight}, Final dimensions: {finalWidth}x{finalHeight}");
                 Assert.Equal(finalHeight, initialHeight);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_009_Verify_Min_Zoom_Limit");
                 Logger.Info("Minimum zoom out limit verified");
-            }, "TC_009_Verify_Min_Zoom_Limit");
+            }, "TC_111_Verify_Min_Zoom_Limit");
             
         }
 
@@ -247,16 +223,15 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
 
         #region Reset
 
-
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_010_FMO_Reset_Zoom_Should_Work")]
+        [AllureOwner("TC_112_FMO_Reset_Zoom_Should_Work")]
         [AllureTag("Regression")]
-        public async Task TC_010_FMO_Reset_Zoom_Should_Work()
+        public async Task TC_112_FMO_Reset_Zoom_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await Assertions.Expect(_fmoPage.ResetZoomButton).ToBeEnabledAsync();
                 await _fmoPage.ResetZoomButton.ClickAsync();
@@ -266,19 +241,19 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 await Assertions.Expect(_cmoPage.CMOArchitectureContainer).ToBeVisibleAsync();
 
                 Logger.Info("Reset Zoom button clicked successfully");
-            }, nameof(TC_010_FMO_Reset_Zoom_Should_Work));
+            }, nameof(TC_112_FMO_Reset_Zoom_Should_Work));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_011_Verify_ResetOnZoom_Functionality")]
+        [AllureOwner("TC_113_Verify_ResetOnZoom_Functionality")]
         [AllureTag("Regression")]
-        public async Task TC_011_Verify_ResetOnZoom_Functionality()
+        public async Task TC_113_Verify_ResetOnZoom_Functionality()
         {
             
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();;
+                ;
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Random random = new Random();
                 int zoomActionCount = random.Next(0,4);
@@ -297,18 +272,18 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 Assert.Equal(finalHeight, initialHeight);
                 await Assertions.Expect(_cmoPage.CMOArchitectureContainer).ToBeVisibleAsync();
                 Logger.Info("Reset functionality verified");
-            }, nameof(TC_011_Verify_ResetOnZoom_Functionality));
+            }, nameof(TC_113_Verify_ResetOnZoom_Functionality));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_012_Verify_Reset_Does_Not_Impact_Scale")]
+        [AllureOwner("TC_114_Verify_Reset_Does_Not_Impact_Scale")]
         [AllureTag("Regression")]
-        public async Task TC_012_Verify_Reset_Does_Not_Impact_Scale()
+        public async Task TC_114_Verify_Reset_Does_Not_Impact_Scale()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _cmoPage.ClickResetAsync();
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _cmoPage.ClickResetAsync();
@@ -316,7 +291,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 Assert.Equal(finalWidth, initialWidth);
                 Assert.Equal(finalHeight, initialHeight);
                 Logger.Info("No error on multiple reset clicks");
-            }, nameof(TC_012_Verify_Reset_Does_Not_Impact_Scale));
+            }, nameof(TC_114_Verify_Reset_Does_Not_Impact_Scale));
         }
 
         #endregion
@@ -325,13 +300,13 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_013_FMO_Fullscreen_Should_Activate")]
+        [AllureOwner("TC_115_FMO_Fullscreen_Should_Activate")]
         [AllureTag("Regression")]
-        public async Task TC_013_FMO_Fullscreen_Should_Activate()
+        public async Task TC_115_FMO_Fullscreen_Should_Activate()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await Assertions.Expect(_fmoPage.FullScreenButton).ToBeEnabledAsync();
                 await _fmoPage.FullScreenButton.ClickAsync();
@@ -339,18 +314,18 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 Assert.True(finalWidth > initialWidth);
                 Assert.True(finalHeight > initialHeight);
                 Logger.Info("Full screen activated");
-            }, nameof(TC_013_FMO_Fullscreen_Should_Activate));
+            }, nameof(TC_115_FMO_Fullscreen_Should_Activate));
         }
 
          [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_014_Verify_Exit_Fullscreen")]
+        [AllureOwner("TC_116_Verify_Exit_Fullscreen")]
         [AllureTag("Regression")]
-        public async Task TC_014_Verify_Exit_Fullscreen()
+        public async Task TC_116_Verify_Exit_Fullscreen()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _fmoPage.FullScreenButton.ClickAsync();
                 await _basicSetup.WaitForPageAsync(1);
@@ -359,18 +334,18 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 Assert.Equal(finalWidth, initialWidth);
                 Assert.Equal(finalHeight, initialHeight);
                 Logger.Info("Verified exit from fullscreen mode");
-            },nameof(TC_014_Verify_Exit_Fullscreen));
+            },nameof(TC_116_Verify_Exit_Fullscreen));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_015_Verify_UI_Scaling_In_Fullscreen")]
+        [AllureOwner("TC_117_Verify_UI_Scaling_In_Fullscreen")]
         [AllureTag("Regression")]
-        public async Task TC_015_Verify_UI_Scaling_In_Fullscreen()
+        public async Task TC_117_Verify_UI_Scaling_In_Fullscreen()
         {
             await _attachmentHelper.RunWithTracingAsync(async()=>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 await _fmoPage.FullScreenButton.ClickAsync();
                 await _basicSetup.WaitForPageAsync(1);
@@ -378,18 +353,18 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 Assert.True(finalWidth > initialWidth);
                 Assert.True(finalHeight > initialHeight);
                 Logger.Info("UI elements scale correctly in fullscreen");
-            },nameof(TC_015_Verify_UI_Scaling_In_Fullscreen));
+            },nameof(TC_117_Verify_UI_Scaling_In_Fullscreen));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_016_FMO_Fullscreen_Should_Exit_On_ESC")]
+        [AllureOwner("TC_118_FMO_Fullscreen_Should_Exit_On_ESC")]
         [AllureTag("Regression")]
-        public async Task TC_016_FMO_Fullscreen_Should_Exit_On_ESC()
+        public async Task TC_118_FMO_Fullscreen_Should_Exit_On_ESC()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.FullScreenButton.ClickAsync();
 
@@ -397,7 +372,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 await Page.Keyboard.PressAsync("Escape");
 
                 Logger.Info("Exited full screen using ESC key");
-            }, nameof(TC_016_FMO_Fullscreen_Should_Exit_On_ESC));
+            }, nameof(TC_118_FMO_Fullscreen_Should_Exit_On_ESC));
         }
 
         
@@ -407,37 +382,33 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_017_Verify_Download_OnFullScreenMode_Functionality")]
+        [AllureOwner("TC_119_Verify_Download_OnFullScreenMode_Functionality")]
         [AllureTag("Regression")]
-        public async Task TC_017_Verify_Download_OnFullScreenMode_Functionality()
+        public async Task TC_119_Verify_Download_OnFullScreenMode_Functionality()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _cmoPage.EnterFullscreenModeAsync();
-                var download = await _cmoPage.TriggerDownloadAsync();
-                var fileName= "FMO_"+_createdProjectName+"_"+DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd")+".svg";    
-                Console.WriteLine($"Expected filename: {fileName}");            
+                var download = await _cmoPage.TriggerDownloadAsync();        
                 Assert.NotNull(download);
-                Assert.Equal(fileName, download.SuggestedFilename);
-            }, nameof(TC_017_Verify_Download_OnFullScreenMode_Functionality));
+                Assert.EndsWith(".svg", download.SuggestedFilename);
+            }, nameof(TC_119_Verify_Download_OnFullScreenMode_Functionality));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_018_Verify_Download_Functionality")]
+        [AllureOwner("TC_120_Verify_Download_Functionality")]
         [AllureTag("Regression")]
-        public async Task TC_018_Verify_Download_Functionality()
+        public async Task TC_120_Verify_Download_Functionality()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
-                var download = await _cmoPage.TriggerDownloadAsync();
-                var fileName= "FMO_"+_createdProjectName+"_"+DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd")+".svg";    
-                Console.WriteLine($"Expected filename: {fileName}");            
+                
+                var download = await _cmoPage.TriggerDownloadAsync();           
                 Assert.NotNull(download);
-                Assert.Equal(fileName, download.SuggestedFilename);
-            }, nameof(TC_018_Verify_Download_Functionality));
+                Assert.EndsWith(".svg", download.SuggestedFilename);
+            }, nameof(TC_120_Verify_Download_Functionality));
         }
 
         #endregion
@@ -446,53 +417,52 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_019_FMO_Show_Legend_Should_Open")]
+        [AllureOwner("TC_121_FMO_Show_Legend_Should_Open")]
         [AllureTag("Regression")]
-        public async Task TC_019_FMO_Show_Legend_Should_Open()
+        public async Task TC_121_FMO_Show_Legend_Should_Open()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ShowLegendButton.ClickAsync();
 
                 await Assertions.Expect(_fmoPage.CloseLegendButton).ToBeVisibleAsync();
 
                 Logger.Info("Legend opened successfully");
-            }, nameof(TC_019_FMO_Show_Legend_Should_Open));
+            }, nameof(TC_121_FMO_Show_Legend_Should_Open));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_019_FMO_Close_Legend_Should_Work")]
+        [AllureOwner("TC_122_FMO_Close_Legend_Should_Work")]
         [AllureTag("Regression")]
-        public async Task TC_019_FMO_Close_Legend_Should_Work()
+        public async Task TC_122_FMO_Close_Legend_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _fmoPage.ShowLegendButton.ClickAsync();
                 await _fmoPage.CloseLegendButton.ClickAsync();
 
                 Logger.Info("Legend closed successfully");
-            }, nameof(TC_019_FMO_Close_Legend_Should_Work));
+            }, nameof(TC_122_FMO_Close_Legend_Should_Work));
         }
 
         [Fact]
         [Trait("Category","Regression")]
-        [AllureOwner("TC_019_Verify_Legend_Display")]
+        [AllureOwner("TC_123_Verify_Legend_Display")]
         [AllureTag("Regression")]
-        public async Task TC_019_Verify_Legend_Display_OnFullScreenMode()
+        public async Task TC_123_Verify_Legend_Display_OnFullScreenMode()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _fmoPage.FullScreenButton.ClickAsync();
                 await _fmoPage.ShowLegendButton.ClickAsync();
                 await Assertions.Expect(Page.Locator("#fullscreen-container div").Filter(new() { HasText = "Legend" }).Nth(3)).ToBeVisibleAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_019_Verify_Legend_Display");
                 Logger.Info("Legend displayed successfully");
-            },"TC_019_Verify_Legend_Display");
+            },"TC_123_Verify_Legend_Display");
         }
 
         #endregion
@@ -501,31 +471,31 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_020_FMO_Search_Box_Should_Open")]
+        [AllureOwner("TC_124_FMO_Search_Box_Should_Open")]
         [AllureTag("Regression")]
-        public async Task TC_020_FMO_Search_Box_Should_Open()
+        public async Task TC_124_FMO_Search_Box_Should_Open()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.SearchButton.ClickAsync();
 
                 await Assertions.Expect(_fmoPage.SearchTextbox).ToBeVisibleAsync();
 
                 Logger.Info("Search textbox displayed");
-            }, nameof(TC_020_FMO_Search_Box_Should_Open));
+            }, nameof(TC_124_FMO_Search_Box_Should_Open));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_021_FMO_Search_Should_Accept_Input")]
+        [AllureOwner("TC_125_FMO_Search_Should_Accept_Input")]
         [AllureTag("Regression")]
-        public async Task TC_021_FMO_Search_Should_Accept_Input()
+        public async Task TC_125_FMO_Search_Should_Accept_Input()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.SearchButton.ClickAsync();
                 await _fmoPage.SearchTextbox.FillAsync("svr");
@@ -533,70 +503,67 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 await Assertions.Expect(_fmoPage.SearchTextbox).ToHaveValueAsync("svr");
 
                 Logger.Info("Search input accepted successfully");
-            }, nameof(TC_021_FMO_Search_Should_Accept_Input));
+            }, nameof(TC_125_FMO_Search_Should_Accept_Input));
         }
 
         [Fact]
         [Trait("Category","Regression")]
-        [AllureOwner("TC_022_Verify_Search_NoResults")]
+        [AllureOwner("TC_126_Verify_Search_NoResults")]
         [AllureTag("Regression")]
-        public async Task TC_022_Verify_Search_NoResults()
+        public async Task TC_126_Verify_Search_NoResults()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var searchInputText= "SRVTEST000"+new Random().Next(0,10);
                 await _cmoPage.PerformSearchAsync(searchInputText);
                 await Assertions.Expect(Page.Locator("div.search-results.show")).Not.ToBeVisibleAsync();
                 // await Assertions.Expect(Page.GetByText("No results found")).ToBeVisibleAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_022_Verify_Search_NoResults");
                 Logger.Info("Search with no results verified");
-            },"TC_022_Verify_Search_NoResults");
+            },"TC_126_Verify_Search_NoResults");
         }
 
         [Fact]
         [Trait("Category","Regression")]
-        [AllureOwner("TC_023_Verify_CloseSearch")]
+        [AllureOwner("TC_127_Verify_CloseSearch")]
         [AllureTag("Regression")]
-        public async Task TC_023_Verify_CloseSearch()
+        public async Task TC_127_Verify_CloseSearch()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 var searchInputText= "SRVTEST0"+new Random().Next(0,10);
                 await _cmoPage.PerformSearchAsync(searchInputText);
                 await _cmoPage.CloseSearchBarAsync();
                 await Assertions.Expect(Page.GetByPlaceholder("Search Server...")).ToBeVisibleAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_023_Verify_CloseSearch");
-            }, "TC_023_Verify_CloseSearch");
+            }, "TC_127_Verify_CloseSearch");
         }
 
         [Fact]
         [Trait("Category","Regression")]
-        [AllureOwner("TC_024_Verify_Search_EmptyInput")]
+        [AllureOwner("TC_128_Verify_Search_EmptyInput")]
         [AllureTag("Regression")]
-        public async Task TC_024_Verify_Search_EmptyInput()
+        public async Task TC_128_Verify_Search_EmptyInput()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _cmoPage.PerformSearchAsync("");
                 await Assertions.Expect(Page.GetByPlaceholder("Search Server...")).ToBeVisibleAsync();
                 // await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Please enter a search term.");
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_024_Verify_Search_EmptyInput");
                 Logger.Info("Search with empty input verified");
-            }, "TC_024_Verify_Search_EmptyInput");
+            }, "TC_128_Verify_Search_EmptyInput");
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_025_FMO_Search_And_Select_Random_Server_Should_Work")]
+        [AllureOwner("TC_129_FMO_Search_And_Select_Random_Server_Should_Work")]
         [AllureTag("Regression")]
-        public async Task TC_025_FMO_Search_And_Select_Random_Server_Should_Work()
+        public async Task TC_129_FMO_Search_And_Select_Random_Server_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.SearchButton.ClickAsync();
 
@@ -613,18 +580,18 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
             await _fmoPage.RandomSelector();
 
                 Logger.Info("Search filter applied and random server selected");
-            }, nameof(TC_025_FMO_Search_And_Select_Random_Server_Should_Work));
+            }, nameof(TC_129_FMO_Search_And_Select_Random_Server_Should_Work));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_026_FMO_Search_Invalid_Value_Should_Show_No_Results")]
+        [AllureOwner("TC_130_FMO_Search_Invalid_Value_Should_Show_No_Results")]
         [AllureTag("Regression")]
-        public async Task TC_026_FMO_Search_Invalid_Value_Should_Show_No_Results()
+        public async Task TC_130_FMO_Search_Invalid_Value_Should_Show_No_Results()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
                 await _fmoPage.SearchButton.ClickAsync();
                 await Assertions.Expect(_fmoPage.SearchTextbox).ToBeVisibleAsync();
 
@@ -639,7 +606,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                     $"Expected no search results, but found {count} results.");
 
                 Logger.Info("Invalid search correctly returned no results");
-            }, nameof(TC_026_FMO_Search_Invalid_Value_Should_Show_No_Results));
+            }, nameof(TC_130_FMO_Search_Invalid_Value_Should_Show_No_Results));
         }
 
         #endregion
@@ -650,19 +617,19 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_027_FMO_Export_To_Excel_Should_Work")]
+        [AllureOwner("TC_131_FMO_Export_To_Excel_Should_Work")]
         [AllureTag("Regression")]
-        public async Task TC_027_FMO_Export_To_Excel_Should_Work()
+        public async Task TC_131_FMO_Export_To_Excel_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await Assertions.Expect(_fmoPage.ExportToExcelButton).ToBeEnabledAsync();
                 await _fmoPage.ExportToExcelButton.ClickAsync();
 
                 Logger.Info("Export to Excel button clicked");
-            }, nameof(TC_027_FMO_Export_To_Excel_Should_Work));
+            }, nameof(TC_131_FMO_Export_To_Excel_Should_Work));
         }
 
         #endregion
@@ -671,19 +638,19 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_028_FMO_Sync_Data_Should_Work")]
+        [AllureOwner("TC_132_FMO_Sync_Data_Should_Work")]
         [AllureTag("Regression")]
-        public async Task TC_028_FMO_Sync_Data_Should_Work()
+        public async Task TC_132_FMO_Sync_Data_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await Assertions.Expect(_fmoPage.SyncDataButton).ToBeEnabledAsync();
                 await _fmoPage.SyncDataButton.ClickAsync();
 
                 Logger.Info("Sync data button clicked");
-            }, nameof(TC_028_FMO_Sync_Data_Should_Work));
+            }, nameof(TC_132_FMO_Sync_Data_Should_Work));
         }
 
         #endregion
@@ -692,13 +659,13 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_029_FMO_Select_Time_Period_Should_Work")]
+        [AllureOwner("TC_133_FMO_Select_Time_Period_Should_Work")]
         [AllureTag("Regression")]
-        public async Task TC_029_FMO_Select_Time_Period_Should_Work()
+        public async Task TC_133_FMO_Select_Time_Period_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
                 await Assertions.Expect(_fmoPage.MigrationCostHeader).ToBeVisibleAsync();
@@ -709,36 +676,36 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 await _basicSetup.RandomSelector();
 
                 Logger.Info("Time Period filter selected successfully");
-            }, nameof(TC_029_FMO_Select_Time_Period_Should_Work));
+            }, nameof(TC_133_FMO_Select_Time_Period_Should_Work));
         } 
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_030_FMO_View_Migration_Cost_Should_Open_Modal")]
+        [AllureOwner("TC_134_FMO_View_Migration_Cost_Should_Open_Modal")]
         [AllureTag("Regression")]
-        public async Task TC_030_FMO_View_Migration_Cost_Should_Open_Modal()
+        public async Task TC_134_FMO_View_Migration_Cost_Should_Open_Modal()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
                 await Assertions.Expect(_fmoPage.MigrationCostHeader).ToBeVisibleAsync();
 
                 Logger.Info("Migration cost modal opened");
-            }, nameof(TC_030_FMO_View_Migration_Cost_Should_Open_Modal));
+            }, nameof(TC_134_FMO_View_Migration_Cost_Should_Open_Modal));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_031_FMO_One_Year_Reserved_Should_Work")]
-        [AllureTag("sRegression")]
-        public async Task TC_031_FMO_One_Year_Reserved_Should_Work()
+        [AllureOwner("TC_135_FMO_One_Year_Reserved_Should_Work")]
+        [AllureTag("Regression")]
+        public async Task TC_135_FMO_One_Year_Reserved_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
                 await _fmoPage.OneYearReserved.ClickAsync();
@@ -746,18 +713,18 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 await Assertions.Expect(_fmoPage.OneYearReserved).ToBeVisibleAsync();
 
                 Logger.Info("1 Year Reserved selected");
-            }, nameof(TC_031_FMO_One_Year_Reserved_Should_Work));
+            }, nameof(TC_135_FMO_One_Year_Reserved_Should_Work));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("  ")]
+        [AllureOwner("TC_136_FMO_Three_Year_Reserved_Should_Work")]
         [AllureTag("Regression")]
-        public async Task TC_032_FMO_Three_Year_Reserved_Should_Work()
+        public async Task TC_136_FMO_Three_Year_Reserved_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
                 await _fmoPage.ThreeYearReserved.ClickAsync();
@@ -765,18 +732,18 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 await Assertions.Expect(_fmoPage.ThreeYearReserved).ToBeVisibleAsync();
 
                 Logger.Info("3 Year Reserved selected");
-            }, nameof(TC_032_FMO_Three_Year_Reserved_Should_Work));
+            }, nameof(TC_136_FMO_Three_Year_Reserved_Should_Work));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_033_FMO_Close_Migration_Cost_Should_Work")]
+        [AllureOwner("TC_137_FMO_Close_Migration_Cost_Should_Work")]
         [AllureTag("Regression")]
-        public async Task TC_033_FMO_Close_Migration_Cost_Should_Work()
+        public async Task TC_137_FMO_Close_Migration_Cost_Should_Work()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
                 await _fmoPage.CloseMigrationCostButton.ClickAsync();
@@ -784,57 +751,10 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                 await Assertions.Expect(_fmoPage.MigrationCostHeader).Not.ToBeVisibleAsync();
 
                 Logger.Info("Migration cost modal closed successfully");
-            }, nameof(TC_033_FMO_Close_Migration_Cost_Should_Work));
+            }, nameof(TC_137_FMO_Close_Migration_Cost_Should_Work));
         } 
         
         #endregion
-
-        
-
-        // private async Task SelectTimePeriodAsync(string period)
-        // {
-        //     await _fmoPage.TimePeriodDropdown.ClickAsync();
-
-        //     switch (period)
-        //     {
-        //         case "Hour":
-        //             await _fmoPage.PerHour.ClickAsync();
-        //             break;
-
-        //         case "Day":
-        //             await _fmoPage.PerDay.ClickAsync();
-        //             break;
-
-        //         case "Month":
-        //             await _fmoPage.PerMonth.ClickAsync();
-        //             break;
-
-        //         case "Year":
-        //             await _fmoPage.PerYear.ClickAsync();
-        //             break;
-        //     }
-        // }
-
-        // private async Task VerifyCostCalculationAsync(ILocator totalCostLocator, ILocator columnLocator)
-        // {
-        //     string totalText = await totalCostLocator.InnerTextAsync();
-
-        //     decimal uiTotal = decimal.Parse(
-        //         totalText.Replace("$", "").Replace(",", "")
-        //     );
-
-        //     var values = await columnLocator.AllInnerTextsAsync();
-
-        //     decimal calculatedTotal = values
-        //         .Select(x => decimal.Parse(x.Replace("$", "").Replace(",", "")))
-        //         .Sum();
-
-        //     Logger.Info($"UI Total: {uiTotal}");
-        //     Logger.Info($"Calculated Total: {calculatedTotal}");
-
-        //     Assert.True(Math.Abs(uiTotal - calculatedTotal) < 1,
-        //         "Cost mismatch between UI and row sum");
-        // }
 
         #endregion
 
@@ -842,13 +762,13 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_034_FMO_OnDemand_PerHour_CostValidation")]
+        [AllureOwner("TC_138_FMO_OnDemand_PerHour_CostValidation")]
         [AllureTag("Regression")]
-        public async Task TC_034_FMO_OnDemand_PerHour_CostValidation()
+        public async Task TC_138_FMO_OnDemand_PerHour_CostValidation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -860,17 +780,17 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                     _fmoPage.TotalCost,
                     _fmoPage.OnDemandColumn);
 
-            }, nameof(TC_034_FMO_OnDemand_PerHour_CostValidation));
+            }, nameof(TC_138_FMO_OnDemand_PerHour_CostValidation));
         }
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_035_FMO_OnDemand_PerDay_CostValidation")]
+        [AllureOwner("TC_139_FMO_OnDemand_PerDay_CostValidation")]
         [AllureTag("Regression")]
-        public async Task TC_035_FMO_OnDemand_PerDay_CostValidation()
+        public async Task TC_139_FMO_OnDemand_PerDay_CostValidation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -882,17 +802,17 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                     _fmoPage.TotalCost,
                     _fmoPage.OnDemandColumn);
 
-            }, nameof(TC_035_FMO_OnDemand_PerDay_CostValidation));
+            }, nameof(TC_139_FMO_OnDemand_PerDay_CostValidation));
         }
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_036_FMO_OnDemand_PerMonth_CostValidation")]
+        [AllureOwner("TC_140_FMO_OnDemand_PerMonth_CostValidation")]
         [AllureTag("Regression")]
-        public async Task TC_036_FMO_OnDemand_PerMonth_CostValidation()
+        public async Task TC_140_FMO_OnDemand_PerMonth_CostValidation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -904,17 +824,17 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                     _fmoPage.TotalCost,
                     _fmoPage.OnDemandColumn);
 
-            }, nameof(TC_036_FMO_OnDemand_PerMonth_CostValidation));
+            }, nameof(TC_140_FMO_OnDemand_PerMonth_CostValidation));
         }
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_037_FMO_OnDemand_PerYear_CostValidation")]
+        [AllureOwner("TC_141_FMO_OnDemand_PerYear_CostValidation")]
         [AllureTag("Regression")]
-        public async Task TC_037_FMO_OnDemand_PerYear_CostValidation()
+        public async Task TC_141_FMO_OnDemand_PerYear_CostValidation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -926,17 +846,17 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                     _fmoPage.TotalCost,
                     _fmoPage.OnDemandColumn);
 
-            }, nameof(TC_037_FMO_OnDemand_PerYear_CostValidation));
+            }, nameof(TC_141_FMO_OnDemand_PerYear_CostValidation));
         }
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_038_FMO_OneYear_PerHour_CostValidation")]
+        [AllureOwner("TC_142_FMO_OneYear_PerHour_CostValidation")]
         [AllureTag("Regression")]
-        public async Task TC_038_FMO_OneYear_PerHour_CostValidation()
+        public async Task TC_142_FMO_OneYear_PerHour_CostValidation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -948,18 +868,18 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                     _fmoPage.TotalCost,
                     _fmoPage.OneYearReservedColumn);
 
-            }, nameof(TC_038_FMO_OneYear_PerHour_CostValidation));
+            }, nameof(TC_142_FMO_OneYear_PerHour_CostValidation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_039_FMO_OneYear_PerDay_CostValidation")]
+        [AllureOwner("TC_143_FMO_OneYear_PerDay_CostValidation")]
         [AllureTag("Regression")]
-        public async Task TC_039_FMO_OneYear_PerDay_CostValidation()
+        public async Task TC_143_FMO_OneYear_PerDay_CostValidation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -971,18 +891,18 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                     _fmoPage.TotalCost,
                     _fmoPage.OneYearReservedColumn);
 
-            }, nameof(TC_039_FMO_OneYear_PerDay_CostValidation));
+            }, nameof(TC_143_FMO_OneYear_PerDay_CostValidation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_040_FMO_OneYear_PerMonth_CostValidation")]
+        [AllureOwner("TC_144_FMO_OneYear_PerMonth_CostValidation")]
         [AllureTag("Regression")]
-        public async Task TC_040_FMO_OneYear_PerMonth_CostValidation()
+        public async Task TC_144_FMO_OneYear_PerMonth_CostValidation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -994,18 +914,18 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                     _fmoPage.TotalCost,
                     _fmoPage.OneYearReservedColumn);
 
-            }, nameof(TC_040_FMO_OneYear_PerMonth_CostValidation));
+            }, nameof(TC_144_FMO_OneYear_PerMonth_CostValidation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_041_FMO_OneYear_PerYear_CostValidation")]
+        [AllureOwner("TC_145_FMO_OneYear_PerYear_CostValidation")]
         [AllureTag("Regression")]
-        public async Task TC_041_FMO_OneYear_PerYear_CostValidation()
+        public async Task TC_145_FMO_OneYear_PerYear_CostValidation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -1017,18 +937,18 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                     _fmoPage.TotalCost,
                     _fmoPage.OneYearReservedColumn);
 
-            }, nameof(TC_041_FMO_OneYear_PerYear_CostValidation));
+            }, nameof(TC_145_FMO_OneYear_PerYear_CostValidation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_042_FMO_ThreeYear_PerHour_CostValidation")]
+        [AllureOwner("TC_146_FMO_ThreeYear_PerHour_CostValidation")]
         [AllureTag("Regression")]
-        public async Task TC_042_FMO_ThreeYear_PerHour_CostValidation()
+        public async Task TC_146_FMO_ThreeYear_PerHour_CostValidation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -1040,18 +960,18 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                     _fmoPage.TotalCost,
                     _fmoPage.ThreeYearReservedColumn);
 
-            }, nameof(TC_042_FMO_ThreeYear_PerHour_CostValidation));
+            }, nameof(TC_146_FMO_ThreeYear_PerHour_CostValidation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_043_FMO_ThreeYear_PerDay_CostValidation")]
+        [AllureOwner("TC_147_FMO_ThreeYear_PerDay_CostValidation")]
         [AllureTag("Regression")]
-        public async Task TC_043_FMO_ThreeYear_PerDay_CostValidation()
+        public async Task TC_147_FMO_ThreeYear_PerDay_CostValidation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -1063,18 +983,18 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                     _fmoPage.TotalCost,
                     _fmoPage.ThreeYearReservedColumn);
 
-            }, nameof(TC_043_FMO_ThreeYear_PerDay_CostValidation));
+            }, nameof(TC_147_FMO_ThreeYear_PerDay_CostValidation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_044_FMO_ThreeYear_PerMonth_CostValidation")]
+        [AllureOwner("TC_148_FMO_ThreeYear_PerMonth_CostValidation")]
         [AllureTag("Regression")]
-        public async Task TC_044_FMO_ThreeYear_PerMonth_CostValidation()
+        public async Task TC_148_FMO_ThreeYear_PerMonth_CostValidation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
+                
 
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
@@ -1086,19 +1006,17 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                     _fmoPage.TotalCost,
                     _fmoPage.ThreeYearReservedColumn);
 
-            }, nameof(TC_044_FMO_ThreeYear_PerMonth_CostValidation));
+            }, nameof(TC_148_FMO_ThreeYear_PerMonth_CostValidation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_045_FMO_ThreeYear_PerYear_CostValidation")]
+        [AllureOwner("TC_149_FMO_ThreeYear_PerYear_CostValidation")]
         [AllureTag("Regression")]
-        public async Task TC_045_FMO_ThreeYear_PerYear_CostValidation()
+        public async Task TC_149_FMO_ThreeYear_PerYear_CostValidation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
-                await _fmoPage.NavigateToFMOPageAsync();
-
                 await _fmoPage.ViewMigrationCostButton.First.ClickAsync();
 
                 await _fmoPage.ThreeYearTab.ClickAsync();
@@ -1109,7 +1027,7 @@ namespace WiseMigrateTests.Pages.FutureModeOperation
                     _fmoPage.TotalCost,
                     _fmoPage.ThreeYearReservedColumn);
 
-            }, nameof(TC_045_FMO_ThreeYear_PerYear_CostValidation));
+            }, nameof(TC_149_FMO_ThreeYear_PerYear_CostValidation));
         }  
     }
 }

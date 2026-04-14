@@ -1,0 +1,964 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="b5ad6f6f-668a-42ea-b6ac-767d292e652a" name="dell@DESKTOP-2S45JFU 2026-04-03 15:45:17" runUser="DESKTOP-2S45JFU\dell" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-04-03T15:45:17.8137892+05:30" queuing="2026-04-03T15:45:17.8137895+05:30" start="2026-04-03T15:43:55.7996055+05:30" finish="2026-04-03T15:55:12.5299700+05:30" />
+  <TestSettings name="default" id="2ae86f81-8603-420e-bbe5-2b03df020697">
+    <Deployment runDeploymentRoot="dell_DESKTOP-2S45JFU_2026-04-03_15_45_17" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="1541b111-5284-4aa9-acc7-8cec7b44295e" testId="e79eca3b-1a10-4ff6-b310-b1b9453d3be8" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_038_FMO_OneYear_PerHour_CostValidation" computerName="DESKTOP-2S45JFU" duration="00:00:32.7568414" startTime="2026-04-03T15:55:04.4238124+05:30" endTime="2026-04-03T15:55:04.4238127+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1541b111-5284-4aa9-acc7-8cec7b44295e">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("1 Year Reserved")</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_038_FMO_OneYear_PerHour_CostValidation&gt;b__46_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 941&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_038_FMO_OneYear_PerHour_CostValidation() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 935&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="07793c9c-15ce-48dd-8716-e111981d4c14" testId="7a93eb59-505c-01bc-1226-d652b15dc1ed" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_033_FMO_Close_Migration_Cost_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:01.8262973" startTime="2026-04-03T15:54:29.0213967+05:30" endTime="2026-04-03T15:54:29.0213969+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="07793c9c-15ce-48dd-8716-e111981d4c14" />
+    <UnitTestResult executionId="cd79014c-7b0d-4fd7-b1c9-e8e193ca816c" testId="3f286455-835f-7696-188d-aa70e3ce3b76" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_036_FMO_OnDemand_PerMonth_CostValidation" computerName="DESKTOP-2S45JFU" duration="00:00:03.1037583" startTime="2026-04-03T15:50:20.7443922+05:30" endTime="2026-04-03T15:50:20.7443924+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cd79014c-7b0d-4fd7-b1c9-e8e193ca816c" />
+    <UnitTestResult executionId="a74e0c73-7366-4e4b-8fbe-cc996eddbac3" testId="137b7668-8e8b-a531-d3fa-5a1c3b5d2f3a" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_015_Verify_UI_Scaling_In_Fullscreen" computerName="DESKTOP-2S45JFU" duration="00:00:01.7324450" startTime="2026-04-03T15:53:45.2328240+05:30" endTime="2026-04-03T15:53:45.2328241+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a74e0c73-7366-4e4b-8fbe-cc996eddbac3" />
+    <UnitTestResult executionId="057221d2-2637-4c16-a2c7-2a05d5bba824" testId="eaea21e7-3079-5b55-59dc-e94c1169f481" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_043_FMO_ThreeYear_PerDay_CostValidation" computerName="DESKTOP-2S45JFU" duration="00:00:31.2874785" startTime="2026-04-03T15:46:48.2921732+05:30" endTime="2026-04-03T15:46:48.2921735+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="057221d2-2637-4c16-a2c7-2a05d5bba824">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("3 Year Reserved")</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_043_FMO_ThreeYear_PerDay_CostValidation&gt;b__51_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 1056&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_043_FMO_ThreeYear_PerDay_CostValidation() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 1050&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="363ea2f6-8a35-4afd-936e-6cfd32eb9cb3" testId="4272687a-7a90-2d6d-480a-55e837607189" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_042_FMO_ThreeYear_PerHour_CostValidation" computerName="DESKTOP-2S45JFU" duration="00:00:30.8300999" startTime="2026-04-03T15:50:13.3775820+05:30" endTime="2026-04-03T15:50:13.3775826+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="363ea2f6-8a35-4afd-936e-6cfd32eb9cb3">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("3 Year Reserved")</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_042_FMO_ThreeYear_PerHour_CostValidation&gt;b__50_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 1033&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_042_FMO_ThreeYear_PerHour_CostValidation() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 1027&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="96032e98-947c-491b-a129-271939b0ce5f" testId="4a687c18-0410-cd3c-c0d4-cea8e3110cf8" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_028_FMO_Sync_Data_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:00.8696416" startTime="2026-04-03T15:46:53.3649845+05:30" endTime="2026-04-03T15:46:53.3649850+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="96032e98-947c-491b-a129-271939b0ce5f" />
+    <UnitTestResult executionId="6538ab20-46c4-41d8-84fc-6b6440e0be5b" testId="c669ce42-10ee-fb20-a37e-541029821911" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_035_FMO_OnDemand_PerDay_CostValidation" computerName="DESKTOP-2S45JFU" duration="00:00:03.2655425" startTime="2026-04-03T15:52:10.7362397+05:30" endTime="2026-04-03T15:52:10.7362433+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6538ab20-46c4-41d8-84fc-6b6440e0be5b" />
+    <UnitTestResult executionId="90dea43d-6fc8-41b5-97e0-e764ec3c0691" testId="5f35bcb6-73e1-e22e-79bd-b182cba41f53" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_039_FMO_OneYear_PerDay_CostValidation" computerName="DESKTOP-2S45JFU" duration="00:00:30.8425143" startTime="2026-04-03T15:54:23.5044808+05:30" endTime="2026-04-03T15:54:23.5044811+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="90dea43d-6fc8-41b5-97e0-e764ec3c0691">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("1 Year Reserved")</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_039_FMO_OneYear_PerDay_CostValidation&gt;b__47_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 964&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_039_FMO_OneYear_PerDay_CostValidation() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 958&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="301cf01c-2e67-4ff4-bbc7-c87fee4265a8" testId="450e40c6-6791-f3f2-d4e5-12dd64e9976d" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_007_Verify_ZoomOut_MouseScroll" computerName="DESKTOP-2S45JFU" duration="00:00:01.5764388" startTime="2026-04-03T15:49:30.4137241+05:30" endTime="2026-04-03T15:49:30.4137243+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="301cf01c-2e67-4ff4-bbc7-c87fee4265a8" />
+    <UnitTestResult executionId="6a01e68d-6520-4581-a241-6498abfeabb6" testId="a24a869d-c67c-4415-651b-5118875fb8be" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_026_FMO_Search_Invalid_Value_Should_Show_No_Results" computerName="DESKTOP-2S45JFU" duration="00:00:02.2001809" startTime="2026-04-03T15:53:21.9247127+05:30" endTime="2026-04-03T15:53:21.9247129+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6a01e68d-6520-4581-a241-6498abfeabb6" />
+    <UnitTestResult executionId="b3a7bc78-2427-496e-a4c9-f8f8453830eb" testId="f287816d-fb09-4cf2-6a97-c309eb5522dd" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_045_FMO_ThreeYear_PerYear_CostValidation" computerName="DESKTOP-2S45JFU" duration="00:00:30.8778147" startTime="2026-04-03T15:53:15.9520553+05:30" endTime="2026-04-03T15:53:15.9520556+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b3a7bc78-2427-496e-a4c9-f8f8453830eb">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("3 Year Reserved")</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_045_FMO_ThreeYear_PerYear_CostValidation&gt;b__53_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 1102&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_045_FMO_ThreeYear_PerYear_CostValidation() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 1096&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e4c4da9d-8f34-4a2e-9626-6407174b154b" testId="b92239e3-1d40-b97a-5834-f68c998a02b6" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons" computerName="DESKTOP-2S45JFU" duration="00:00:00.6215811" startTime="2026-04-03T15:52:18.4350993+05:30" endTime="2026-04-03T15:52:18.4350995+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e4c4da9d-8f34-4a2e-9626-6407174b154b" />
+    <UnitTestResult executionId="7e9ce8bb-7865-403f-a3de-9c807cc84bb0" testId="f1c89b38-8f88-9ee0-a92e-51b9f4b86da5" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_037_FMO_OnDemand_PerYear_CostValidation" computerName="DESKTOP-2S45JFU" duration="00:00:04.0471191" startTime="2026-04-03T15:55:11.6405061+05:30" endTime="2026-04-03T15:55:11.6405063+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e9ce8bb-7865-403f-a3de-9c807cc84bb0" />
+    <UnitTestResult executionId="9fe4fbdc-1772-4792-8fdf-dd5ef8c7a270" testId="15ce4eab-40c7-9b01-cc2c-1ce270d3e41b" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_010_FMO_Reset_Zoom_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:01.5829992" startTime="2026-04-03T15:51:17.8316578+05:30" endTime="2026-04-03T15:51:17.8316580+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9fe4fbdc-1772-4792-8fdf-dd5ef8c7a270" />
+    <UnitTestResult executionId="cdc086bc-675a-41b8-ab62-056094e430f4" testId="53523866-49f4-9310-d3b0-65016ca2f461" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_019_Verify_Legend_Display_OnFullScreenMode" computerName="DESKTOP-2S45JFU" duration="00:00:01.9442153" startTime="2026-04-03T15:49:40.1365027+05:30" endTime="2026-04-03T15:49:40.1365030+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cdc086bc-675a-41b8-ab62-056094e430f4" />
+    <UnitTestResult executionId="303cf819-fd52-4cf2-a14e-4d8b3822cb02" testId="05ba1b21-0608-7c38-bd38-cadb7fcd8ce7" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_031_FMO_One_Year_Reserved_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:30.8515183" startTime="2026-04-03T15:51:12.6111297+05:30" endTime="2026-04-03T15:51:12.6111301+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="303cf819-fd52-4cf2-a14e-4d8b3822cb02">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("1 Year Reserved")</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_031_FMO_One_Year_Reserved_Should_Work&gt;b__39_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 742&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_031_FMO_One_Year_Reserved_Should_Work() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 737&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="de0f36ec-6a95-4130-adb7-984b87cdd4be" testId="4318dd1d-82b2-4f23-9b16-78208812b5e7" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_020_FMO_Search_Box_Should_Open" computerName="DESKTOP-2S45JFU" duration="00:00:01.3192505" startTime="2026-04-03T15:48:47.6180796+05:30" endTime="2026-04-03T15:48:47.6180799+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="de0f36ec-6a95-4130-adb7-984b87cdd4be" />
+    <UnitTestResult executionId="1e051be7-4eb7-448c-8e92-34b9749c0dd4" testId="b04db49b-8473-5b62-f0a5-a8ec61e25a8f" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_032_FMO_Three_Year_Reserved_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:31.0045303" startTime="2026-04-03T15:47:39.2273551+05:30" endTime="2026-04-03T15:47:39.2273554+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1e051be7-4eb7-448c-8e92-34b9749c0dd4">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("3 Year Reserved")</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_032_FMO_Three_Year_Reserved_Should_Work&gt;b__40_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 761&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_032_FMO_Three_Year_Reserved_Should_Work() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 756&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="698c09ff-bd88-419e-9af5-654078b60bd1" testId="a81b6711-5d9b-5d6f-5de2-b74ae1978e45" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_006_Verify_Max_Zoom_Limit" computerName="DESKTOP-2S45JFU" duration="00:00:23.5928078" startTime="2026-04-03T15:49:25.0992792+05:30" endTime="2026-04-03T15:49:25.0992795+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="698c09ff-bd88-419e-9af5-654078b60bd1" />
+    <UnitTestResult executionId="0756280e-abbe-42b5-a5a6-3bae4088ed65" testId="b27d4f86-97ef-555b-e5f0-90c58333d175" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_008_FMO_Zoom_Out_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:02.9614181" startTime="2026-04-03T15:52:24.0342673+05:30" endTime="2026-04-03T15:52:24.0342675+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0756280e-abbe-42b5-a5a6-3bae4088ed65" />
+    <UnitTestResult executionId="e37757db-a8b6-4e13-a9d0-56567b8e5ff3" testId="f9666d45-750e-d2b8-59a3-910f3a3c42fe" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_001_FMO_Page_UI_Should_Load" computerName="DESKTOP-2S45JFU" duration="00:00:00.9639555" startTime="2026-04-03T15:46:57.9036067+05:30" endTime="2026-04-03T15:46:57.9036070+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e37757db-a8b6-4e13-a9d0-56567b8e5ff3" />
+    <UnitTestResult executionId="8d5e4d09-3812-443a-b28b-cb414a244685" testId="d3ff008e-6dbc-7443-847f-ccd55e0faaa0" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_016_FMO_Fullscreen_Should_Exit_On_ESC" computerName="DESKTOP-2S45JFU" duration="00:00:01.1573889" startTime="2026-04-03T15:48:29.3749472+05:30" endTime="2026-04-03T15:48:29.3749474+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8d5e4d09-3812-443a-b28b-cb414a244685" />
+    <UnitTestResult executionId="56fe7559-77e5-4ee2-a3bd-a164fb6185f8" testId="8fabf198-48f5-2696-871d-3f4509d82c1a" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_041_FMO_OneYear_PerYear_CostValidation" computerName="DESKTOP-2S45JFU" duration="00:00:30.8938924" startTime="2026-04-03T15:51:56.6770878+05:30" endTime="2026-04-03T15:51:56.6770881+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="56fe7559-77e5-4ee2-a3bd-a164fb6185f8">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("1 Year Reserved")</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_041_FMO_OneYear_PerYear_CostValidation&gt;b__49_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 1010&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_041_FMO_OneYear_PerYear_CostValidation() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 1004&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="62caff4b-0e89-4376-b121-f0ec602e19ba" testId="299c6af3-3faa-c8aa-ca9e-7146dac273b4" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_018_Verify_Download_Functionality" computerName="DESKTOP-2S45JFU" duration="00:00:02.3624970" startTime="2026-04-03T15:53:50.0489818+05:30" endTime="2026-04-03T15:53:50.0489821+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="62caff4b-0e89-4376-b121-f0ec602e19ba">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Strings differ&#xD;
+               ↓ (pos 4)&#xD;
+Expected: "FMO__2026-04-03.svg"&#xD;
+Actual:   "FMO_TC_Project_20260403_154535_2026-04-03"···&#xD;
+               ↑ (pos 4)</Message>
+          <StackTrace>   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_018_Verify_Download_Functionality&gt;b__24_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 437&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_018_Verify_Download_Functionality() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 430&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="382882a1-58df-406e-97a0-0eed413beb32" testId="8c3b4fba-81d7-2379-03de-0e656e863efe" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_003_CMO_Verify_Pan_Functionality" computerName="DESKTOP-2S45JFU" duration="00:00:01.4694217" startTime="2026-04-03T15:51:23.1506267+05:30" endTime="2026-04-03T15:51:23.1506269+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="382882a1-58df-406e-97a0-0eed413beb32" />
+    <UnitTestResult executionId="77fc1c10-3da6-4534-81fe-5fc970a617ee" testId="92250d2c-95b8-318f-458c-7dfc8fbe8323" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_030_FMO_View_Migration_Cost_Should_Open_Modal" computerName="DESKTOP-2S45JFU" duration="00:00:02.1448834" startTime="2026-04-03T15:53:37.0284387+05:30" endTime="2026-04-03T15:53:37.0284389+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="77fc1c10-3da6-4534-81fe-5fc970a617ee" />
+    <UnitTestResult executionId="d35e2698-55f9-4b2d-8bed-3a9c36575593" testId="a6f6ded6-444b-e752-53b3-ba5149a112fd" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_022_Verify_Search_NoResults" computerName="DESKTOP-2S45JFU" duration="00:00:01.9744515" startTime="2026-04-03T15:52:15.2387565+05:30" endTime="2026-04-03T15:52:15.2387566+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d35e2698-55f9-4b2d-8bed-3a9c36575593" />
+    <UnitTestResult executionId="ad3d17a7-a9b9-4043-8ee4-ef5498d798b1" testId="fc41a3a4-dc09-1277-87e0-9ec5b9d19474" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_024_Verify_Search_EmptyInput" computerName="DESKTOP-2S45JFU" duration="00:00:01.9188635" startTime="2026-04-03T15:49:34.9844593+05:30" endTime="2026-04-03T15:49:34.9844594+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ad3d17a7-a9b9-4043-8ee4-ef5498d798b1" />
+    <UnitTestResult executionId="2fe8ed0d-6a19-47ec-bdf8-a504f622b737" testId="25c09807-2342-63d8-0399-0a7f380003ed" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_019_FMO_Close_Legend_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:02.1593700" startTime="2026-04-03T15:46:13.6518780+05:30" endTime="2026-04-03T15:46:13.6518783+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2fe8ed0d-6a19-47ec-bdf8-a504f622b737" />
+    <UnitTestResult executionId="04f8e51f-c3c8-4700-ad62-90df664ba451" testId="68698847-fb26-8b86-8f19-fa572e7a41ef" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_017_Verify_Download_OnFullScreenMode_Functionality" computerName="DESKTOP-2S45JFU" duration="00:00:03.3958508" startTime="2026-04-03T15:52:04.9377852+05:30" endTime="2026-04-03T15:52:04.9377855+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="04f8e51f-c3c8-4700-ad62-90df664ba451">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Equal() Failure: Strings differ&#xD;
+               ↓ (pos 4)&#xD;
+Expected: "FMO__2026-04-03.svg"&#xD;
+Actual:   "FMO_TC_Project_20260403_154535_2026-04-03"···&#xD;
+               ↑ (pos 4)</Message>
+          <StackTrace>   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_017_Verify_Download_OnFullScreenMode_Functionality&gt;b__23_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 420&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_017_Verify_Download_OnFullScreenMode_Functionality() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 412&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4ee3dad1-243f-4733-a54d-56836e20f2d8" testId="77951f41-4b47-c964-db2a-b9d8bdab05cf" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_044_FMO_ThreeYear_PerMonth_CostValidation" computerName="DESKTOP-2S45JFU" duration="00:00:30.9529581" startTime="2026-04-03T15:48:19.6462077+05:30" endTime="2026-04-03T15:48:19.6462079+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4ee3dad1-243f-4733-a54d-56836e20f2d8">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("3 Year Reserved")</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_044_FMO_ThreeYear_PerMonth_CostValidation&gt;b__52_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 1079&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_044_FMO_ThreeYear_PerMonth_CostValidation() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 1073&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="03180feb-c6dd-452d-b20b-bcbb6146c5c3" testId="08f873c8-ee9d-ef89-11ea-a9adf29d0dc7" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_014_Verify_Exit_Fullscreen" computerName="DESKTOP-2S45JFU" duration="00:00:03.6921219" startTime="2026-04-03T15:47:04.2474417+05:30" endTime="2026-04-03T15:47:04.2474422+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="03180feb-c6dd-452d-b20b-bcbb6146c5c3" />
+    <UnitTestResult executionId="27208a21-f945-4d71-afe8-65c6a92f823f" testId="ee212a2a-621a-de86-c554-880b31756b81" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_034_FMO_OnDemand_PerHour_CostValidation" computerName="DESKTOP-2S45JFU" duration="00:00:03.4617996" startTime="2026-04-03T15:48:58.6653311+05:30" endTime="2026-04-03T15:48:58.6653322+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="27208a21-f945-4d71-afe8-65c6a92f823f" />
+    <UnitTestResult executionId="10a4194b-7fe9-4ba5-a8b9-3615234bc2c7" testId="6572a805-ae00-71b4-1edb-a90b52fb8ce1" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_011_Verify_ResetOnZoom_Functionality" computerName="DESKTOP-2S45JFU" duration="00:00:05.3629889" startTime="2026-04-03T15:50:29.0875693+05:30" endTime="2026-04-03T15:50:29.0875695+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="10a4194b-7fe9-4ba5-a8b9-3615234bc2c7" />
+    <UnitTestResult executionId="01174be7-35b1-4072-9e96-3ff23e1f8fab" testId="fdbb9aff-b0d2-d958-b587-09a4632697dc" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_040_FMO_OneYear_PerMonth_CostValidation" computerName="DESKTOP-2S45JFU" duration="00:00:00.0010000" startTime="2026-04-03T15:45:17.7120897+05:30" endTime="2026-04-03T15:45:17.7122730+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="01174be7-35b1-4072-9e96-3ff23e1f8fab">
+      <Output>
+        <ErrorInfo>
+          <Message>System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByRole(AriaRole.Button, new() { Name = "View Architecture" })</Message>
+          <StackTrace>   at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls) in /_/src/Playwright/Transport/Connection.cs:line 201&#xD;
+   at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title) in /_/src/Playwright/Transport/Connection.cs:line 499&#xD;
+   at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPage.ViewArchitectureAsync() in C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPage.cs:line 151&#xD;
+   at WiseMigrateTests.Pages.PreRequisites.BasicSetup.InfrastructureUploadPageSetupAsync() in C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs:line 153&#xD;
+   at WiseMigrateTests.TestHooks.TestBaseFixture.&lt;&gt;c.&lt;&lt;InitializeAsync&gt;b__14_0&gt;d.MoveNext() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 36&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at WiseMigrateTests.TestHooks.SharedContextFixture.EnsureInitializedAsync(IBrowser browser, Func`2 setupLogic) in C:\Users\dell\WiseMigrateTests\TestHooks\SharedContextTestFixture.cs:line 23&#xD;
+   at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync() in C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs:line 28&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.InitializeAsync() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 25</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="51227efe-4fd2-43a6-8e55-63c95fd954d6" testId="c166047a-ddbc-509a-ddf3-96456550d86d" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_025_FMO_Search_And_Select_Random_Server_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:06.4315517" startTime="2026-04-03T15:48:38.4003371+05:30" endTime="2026-04-03T15:48:38.4003374+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="51227efe-4fd2-43a6-8e55-63c95fd954d6">
+      <Output>
+        <ErrorInfo>
+          <Message>Microsoft.Playwright.PlaywrightException : Locator expected to be visible 
+Call log:
+  - Expect "ToBeVisibleAsync" with timeout 5000ms
+  - waiting for Locator("#fullscreen-container div").Filter(new() { HasText = "Found" }).Nth(3)</Message>
+          <StackTrace>   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title) in /_/src/Playwright/Core/AssertionsBase.cs:line 85&#xD;
+   at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options) in /_/src/Playwright/Core/AssertionsBase.cs:line 65&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_025_FMO_Search_And_Select_Random_Server_Should_Work&gt;b__33_0() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 610&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 100&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 136&#xD;
+   at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName) in C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs:line 141&#xD;
+   at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_025_FMO_Search_And_Select_Random_Server_Should_Work() in C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs:line 595&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ad25575b-eeba-47fc-aa6f-649f1bb3712c" testId="ac2307c6-f05c-ca99-49b4-a08ba5516622" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_004_Verify_ZoomIn_MouseScroll" computerName="DESKTOP-2S45JFU" duration="00:00:01.5607766" startTime="2026-04-03T15:53:32.4891430+05:30" endTime="2026-04-03T15:53:32.4891432+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ad25575b-eeba-47fc-aa6f-649f1bb3712c" />
+    <UnitTestResult executionId="c325b176-a518-46a3-abb4-904f42e8a2d6" testId="93ff5b9c-d972-e7ec-8fe3-8cdc5f72921d" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_009_Verify_Min_Zoom_Limit" computerName="DESKTOP-2S45JFU" duration="00:00:15.2317960" startTime="2026-04-03T15:52:42.5366967+05:30" endTime="2026-04-03T15:52:42.5366970+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c325b176-a518-46a3-abb4-904f42e8a2d6" />
+    <UnitTestResult executionId="d0fcadbf-fec0-4299-80c6-5bcf3a2d4c39" testId="5f474ece-cd80-88ba-f4f2-294f980766e7" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_019_FMO_Show_Legend_Should_Open" computerName="DESKTOP-2S45JFU" duration="00:00:01.6666049" startTime="2026-04-03T15:48:43.2114415+05:30" endTime="2026-04-03T15:48:43.2114417+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d0fcadbf-fec0-4299-80c6-5bcf3a2d4c39" />
+    <UnitTestResult executionId="0ea06ac8-0f6d-47b9-875d-0c0b26e28248" testId="4c3a39d6-4136-e29e-fbca-c978977de1fc" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_029_FMO_Select_Time_Period_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:02.8255681" startTime="2026-04-03T15:50:39.2570758+05:30" endTime="2026-04-03T15:50:39.2570761+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0ea06ac8-0f6d-47b9-875d-0c0b26e28248" />
+    <UnitTestResult executionId="dbd6c1b4-a2b5-4de7-acac-bd0b8e22dd4c" testId="f2f66fc6-5730-742f-1f2d-b4befeee4438" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_021_FMO_Search_Should_Accept_Input" computerName="DESKTOP-2S45JFU" duration="00:00:01.6337868" startTime="2026-04-03T15:48:51.7372828+05:30" endTime="2026-04-03T15:48:51.7372830+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dbd6c1b4-a2b5-4de7-acac-bd0b8e22dd4c" />
+    <UnitTestResult executionId="37c90ef9-e004-412c-9fe2-d4c03c69f7de" testId="1dd0544f-5d2c-3265-57b9-ac644956536e" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_005_FMO_Zoom_In_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:01.6761516" startTime="2026-04-03T15:48:25.4650849+05:30" endTime="2026-04-03T15:48:25.4650851+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="37c90ef9-e004-412c-9fe2-d4c03c69f7de" />
+    <UnitTestResult executionId="c0abbab0-4afd-4cdd-b250-6f7b12ec293b" testId="b5b6aa28-3af7-b7b3-c061-69fc724973f2" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_012_Verify_Reset_Does_Not_Impact_Scale" computerName="DESKTOP-2S45JFU" duration="00:00:02.9753889" startTime="2026-04-03T15:53:27.3389429+05:30" endTime="2026-04-03T15:53:27.3389430+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c0abbab0-4afd-4cdd-b250-6f7b12ec293b" />
+    <UnitTestResult executionId="b328627f-7297-40bf-be0d-e0abb450b49d" testId="ca7c3dd8-0f87-e053-58a3-9992ba30256f" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_023_Verify_CloseSearch" computerName="DESKTOP-2S45JFU" duration="00:00:02.3913387" startTime="2026-04-03T15:47:45.4378563+05:30" endTime="2026-04-03T15:47:45.4378566+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b328627f-7297-40bf-be0d-e0abb450b49d" />
+    <UnitTestResult executionId="e07813da-6e5d-4a70-93f5-170c6a5820b0" testId="4830d65f-77d9-f690-aa38-2a5401f0107b" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_027_FMO_Export_To_Excel_Should_Work" computerName="DESKTOP-2S45JFU" duration="00:00:00.7690617" startTime="2026-04-03T15:53:40.7547903+05:30" endTime="2026-04-03T15:53:40.7547905+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e07813da-6e5d-4a70-93f5-170c6a5820b0" />
+    <UnitTestResult executionId="e6708580-8692-4a24-a2c8-091e24ef90ec" testId="777605ab-47ea-5311-5616-716662560ff2" testName="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_013_FMO_Fullscreen_Should_Activate" computerName="DESKTOP-2S45JFU" duration="00:00:00.8627197" startTime="2026-04-03T15:50:33.1829642+05:30" endTime="2026-04-03T15:50:33.1829650+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e6708580-8692-4a24-a2c8-091e24ef90ec" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_003_CMO_Verify_Pan_Functionality" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="8c3b4fba-81d7-2379-03de-0e656e863efe">
+      <Execution id="382882a1-58df-406e-97a0-0eed413beb32" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_003_CMO_Verify_Pan_Functionality" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_035_FMO_OnDemand_PerDay_CostValidation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="c669ce42-10ee-fb20-a37e-541029821911">
+      <Execution id="6538ab20-46c4-41d8-84fc-6b6440e0be5b" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_035_FMO_OnDemand_PerDay_CostValidation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_018_Verify_Download_Functionality" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="299c6af3-3faa-c8aa-ca9e-7146dac273b4">
+      <Execution id="62caff4b-0e89-4376-b121-f0ec602e19ba" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_018_Verify_Download_Functionality" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_038_FMO_OneYear_PerHour_CostValidation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="e79eca3b-1a10-4ff6-b310-b1b9453d3be8">
+      <Execution id="1541b111-5284-4aa9-acc7-8cec7b44295e" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_038_FMO_OneYear_PerHour_CostValidation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_025_FMO_Search_And_Select_Random_Server_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="c166047a-ddbc-509a-ddf3-96456550d86d">
+      <Execution id="51227efe-4fd2-43a6-8e55-63c95fd954d6" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_025_FMO_Search_And_Select_Random_Server_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_039_FMO_OneYear_PerDay_CostValidation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="5f35bcb6-73e1-e22e-79bd-b182cba41f53">
+      <Execution id="90dea43d-6fc8-41b5-97e0-e764ec3c0691" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_039_FMO_OneYear_PerDay_CostValidation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_034_FMO_OnDemand_PerHour_CostValidation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="ee212a2a-621a-de86-c554-880b31756b81">
+      <Execution id="27208a21-f945-4d71-afe8-65c6a92f823f" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_034_FMO_OnDemand_PerHour_CostValidation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_027_FMO_Export_To_Excel_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="4830d65f-77d9-f690-aa38-2a5401f0107b">
+      <Execution id="e07813da-6e5d-4a70-93f5-170c6a5820b0" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_027_FMO_Export_To_Excel_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_009_Verify_Min_Zoom_Limit" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="93ff5b9c-d972-e7ec-8fe3-8cdc5f72921d">
+      <Execution id="c325b176-a518-46a3-abb4-904f42e8a2d6" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_009_Verify_Min_Zoom_Limit" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_019_FMO_Close_Legend_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="25c09807-2342-63d8-0399-0a7f380003ed">
+      <Execution id="2fe8ed0d-6a19-47ec-bdf8-a504f622b737" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_019_FMO_Close_Legend_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_041_FMO_OneYear_PerYear_CostValidation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="8fabf198-48f5-2696-871d-3f4509d82c1a">
+      <Execution id="56fe7559-77e5-4ee2-a3bd-a164fb6185f8" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_041_FMO_OneYear_PerYear_CostValidation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_011_Verify_ResetOnZoom_Functionality" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="6572a805-ae00-71b4-1edb-a90b52fb8ce1">
+      <Execution id="10a4194b-7fe9-4ba5-a8b9-3615234bc2c7" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_011_Verify_ResetOnZoom_Functionality" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_020_FMO_Search_Box_Should_Open" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="4318dd1d-82b2-4f23-9b16-78208812b5e7">
+      <Execution id="de0f36ec-6a95-4130-adb7-984b87cdd4be" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_020_FMO_Search_Box_Should_Open" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_023_Verify_CloseSearch" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="ca7c3dd8-0f87-e053-58a3-9992ba30256f">
+      <Execution id="b328627f-7297-40bf-be0d-e0abb450b49d" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_023_Verify_CloseSearch" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_026_FMO_Search_Invalid_Value_Should_Show_No_Results" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="a24a869d-c67c-4415-651b-5118875fb8be">
+      <Execution id="6a01e68d-6520-4581-a241-6498abfeabb6" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_026_FMO_Search_Invalid_Value_Should_Show_No_Results" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_007_Verify_ZoomOut_MouseScroll" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="450e40c6-6791-f3f2-d4e5-12dd64e9976d">
+      <Execution id="301cf01c-2e67-4ff4-bbc7-c87fee4265a8" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_007_Verify_ZoomOut_MouseScroll" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_033_FMO_Close_Migration_Cost_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="7a93eb59-505c-01bc-1226-d652b15dc1ed">
+      <Execution id="07793c9c-15ce-48dd-8716-e111981d4c14" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_033_FMO_Close_Migration_Cost_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_004_Verify_ZoomIn_MouseScroll" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="ac2307c6-f05c-ca99-49b4-a08ba5516622">
+      <Execution id="ad25575b-eeba-47fc-aa6f-649f1bb3712c" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_004_Verify_ZoomIn_MouseScroll" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_019_FMO_Show_Legend_Should_Open" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="5f474ece-cd80-88ba-f4f2-294f980766e7">
+      <Execution id="d0fcadbf-fec0-4299-80c6-5bcf3a2d4c39" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_019_FMO_Show_Legend_Should_Open" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_015_Verify_UI_Scaling_In_Fullscreen" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="137b7668-8e8b-a531-d3fa-5a1c3b5d2f3a">
+      <Execution id="a74e0c73-7366-4e4b-8fbe-cc996eddbac3" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_015_Verify_UI_Scaling_In_Fullscreen" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_010_FMO_Reset_Zoom_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="15ce4eab-40c7-9b01-cc2c-1ce270d3e41b">
+      <Execution id="9fe4fbdc-1772-4792-8fdf-dd5ef8c7a270" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_010_FMO_Reset_Zoom_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_019_Verify_Legend_Display_OnFullScreenMode" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="53523866-49f4-9310-d3b0-65016ca2f461">
+      <Execution id="cdc086bc-675a-41b8-ab62-056094e430f4" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_019_Verify_Legend_Display_OnFullScreenMode" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_001_FMO_Page_UI_Should_Load" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="f9666d45-750e-d2b8-59a3-910f3a3c42fe">
+      <Execution id="e37757db-a8b6-4e13-a9d0-56567b8e5ff3" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_001_FMO_Page_UI_Should_Load" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_008_FMO_Zoom_Out_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="b27d4f86-97ef-555b-e5f0-90c58333d175">
+      <Execution id="0756280e-abbe-42b5-a5a6-3bae4088ed65" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_008_FMO_Zoom_Out_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_017_Verify_Download_OnFullScreenMode_Functionality" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="68698847-fb26-8b86-8f19-fa572e7a41ef">
+      <Execution id="04f8e51f-c3c8-4700-ad62-90df664ba451" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_017_Verify_Download_OnFullScreenMode_Functionality" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_042_FMO_ThreeYear_PerHour_CostValidation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="4272687a-7a90-2d6d-480a-55e837607189">
+      <Execution id="363ea2f6-8a35-4afd-936e-6cfd32eb9cb3" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_042_FMO_ThreeYear_PerHour_CostValidation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_040_FMO_OneYear_PerMonth_CostValidation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="fdbb9aff-b0d2-d958-b587-09a4632697dc">
+      <Execution id="01174be7-35b1-4072-9e96-3ff23e1f8fab" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_040_FMO_OneYear_PerMonth_CostValidation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_013_FMO_Fullscreen_Should_Activate" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="777605ab-47ea-5311-5616-716662560ff2">
+      <Execution id="e6708580-8692-4a24-a2c8-091e24ef90ec" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_013_FMO_Fullscreen_Should_Activate" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_021_FMO_Search_Should_Accept_Input" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="f2f66fc6-5730-742f-1f2d-b4befeee4438">
+      <Execution id="dbd6c1b4-a2b5-4de7-acac-bd0b8e22dd4c" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_021_FMO_Search_Should_Accept_Input" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_030_FMO_View_Migration_Cost_Should_Open_Modal" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="92250d2c-95b8-318f-458c-7dfc8fbe8323">
+      <Execution id="77fc1c10-3da6-4534-81fe-5fc970a617ee" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_030_FMO_View_Migration_Cost_Should_Open_Modal" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_006_Verify_Max_Zoom_Limit" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="a81b6711-5d9b-5d6f-5de2-b74ae1978e45">
+      <Execution id="698c09ff-bd88-419e-9af5-654078b60bd1" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_006_Verify_Max_Zoom_Limit" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_022_Verify_Search_NoResults" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="a6f6ded6-444b-e752-53b3-ba5149a112fd">
+      <Execution id="d35e2698-55f9-4b2d-8bed-3a9c36575593" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_022_Verify_Search_NoResults" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_031_FMO_One_Year_Reserved_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="05ba1b21-0608-7c38-bd38-cadb7fcd8ce7">
+      <Execution id="303cf819-fd52-4cf2-a14e-4d8b3822cb02" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_031_FMO_One_Year_Reserved_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="b92239e3-1d40-b97a-5834-f68c998a02b6">
+      <Execution id="e4c4da9d-8f34-4a2e-9626-6407174b154b" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_005_FMO_Zoom_In_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="1dd0544f-5d2c-3265-57b9-ac644956536e">
+      <Execution id="37c90ef9-e004-412c-9fe2-d4c03c69f7de" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_005_FMO_Zoom_In_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_032_FMO_Three_Year_Reserved_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="b04db49b-8473-5b62-f0a5-a8ec61e25a8f">
+      <Execution id="1e051be7-4eb7-448c-8e92-34b9749c0dd4" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_032_FMO_Three_Year_Reserved_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_012_Verify_Reset_Does_Not_Impact_Scale" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="b5b6aa28-3af7-b7b3-c061-69fc724973f2">
+      <Execution id="c0abbab0-4afd-4cdd-b250-6f7b12ec293b" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_012_Verify_Reset_Does_Not_Impact_Scale" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_037_FMO_OnDemand_PerYear_CostValidation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="f1c89b38-8f88-9ee0-a92e-51b9f4b86da5">
+      <Execution id="7e9ce8bb-7865-403f-a3de-9c807cc84bb0" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_037_FMO_OnDemand_PerYear_CostValidation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_043_FMO_ThreeYear_PerDay_CostValidation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="eaea21e7-3079-5b55-59dc-e94c1169f481">
+      <Execution id="057221d2-2637-4c16-a2c7-2a05d5bba824" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_043_FMO_ThreeYear_PerDay_CostValidation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_016_FMO_Fullscreen_Should_Exit_On_ESC" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="d3ff008e-6dbc-7443-847f-ccd55e0faaa0">
+      <Execution id="8d5e4d09-3812-443a-b28b-cb414a244685" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_016_FMO_Fullscreen_Should_Exit_On_ESC" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_014_Verify_Exit_Fullscreen" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="08f873c8-ee9d-ef89-11ea-a9adf29d0dc7">
+      <Execution id="03180feb-c6dd-452d-b20b-bcbb6146c5c3" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_014_Verify_Exit_Fullscreen" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_029_FMO_Select_Time_Period_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="4c3a39d6-4136-e29e-fbca-c978977de1fc">
+      <Execution id="0ea06ac8-0f6d-47b9-875d-0c0b26e28248" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_029_FMO_Select_Time_Period_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_028_FMO_Sync_Data_Should_Work" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="4a687c18-0410-cd3c-c0d4-cea8e3110cf8">
+      <Execution id="96032e98-947c-491b-a129-271939b0ce5f" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_028_FMO_Sync_Data_Should_Work" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_045_FMO_ThreeYear_PerYear_CostValidation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="f287816d-fb09-4cf2-6a97-c309eb5522dd">
+      <Execution id="b3a7bc78-2427-496e-a4c9-f8f8453830eb" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_045_FMO_ThreeYear_PerYear_CostValidation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_036_FMO_OnDemand_PerMonth_CostValidation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="3f286455-835f-7696-188d-aa70e3ce3b76">
+      <Execution id="cd79014c-7b0d-4fd7-b1c9-e8e193ca816c" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_036_FMO_OnDemand_PerMonth_CostValidation" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_024_Verify_Search_EmptyInput" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="fc41a3a4-dc09-1277-87e0-9ec5b9d19474">
+      <Execution id="ad3d17a7-a9b9-4043-8ee4-ef5498d798b1" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_024_Verify_Search_EmptyInput" />
+    </UnitTest>
+    <UnitTest name="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_044_FMO_ThreeYear_PerMonth_CostValidation" storage="c:\users\dell\wisemigratetests\bin\debug\net8.0\wisemigratetests.dll" id="77951f41-4b47-c964-db2a-b9d8bdab05cf">
+      <Execution id="4ee3dad1-243f-4733-a54d-56836e20f2d8" />
+      <TestMethod codeBase="C:\Users\dell\WiseMigrateTests\bin\Debug\net8.0\WiseMigrateTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests" name="TC_044_FMO_ThreeYear_PerMonth_CostValidation" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="e79eca3b-1a10-4ff6-b310-b1b9453d3be8" executionId="1541b111-5284-4aa9-acc7-8cec7b44295e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7a93eb59-505c-01bc-1226-d652b15dc1ed" executionId="07793c9c-15ce-48dd-8716-e111981d4c14" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3f286455-835f-7696-188d-aa70e3ce3b76" executionId="cd79014c-7b0d-4fd7-b1c9-e8e193ca816c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="137b7668-8e8b-a531-d3fa-5a1c3b5d2f3a" executionId="a74e0c73-7366-4e4b-8fbe-cc996eddbac3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eaea21e7-3079-5b55-59dc-e94c1169f481" executionId="057221d2-2637-4c16-a2c7-2a05d5bba824" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4272687a-7a90-2d6d-480a-55e837607189" executionId="363ea2f6-8a35-4afd-936e-6cfd32eb9cb3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4a687c18-0410-cd3c-c0d4-cea8e3110cf8" executionId="96032e98-947c-491b-a129-271939b0ce5f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c669ce42-10ee-fb20-a37e-541029821911" executionId="6538ab20-46c4-41d8-84fc-6b6440e0be5b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5f35bcb6-73e1-e22e-79bd-b182cba41f53" executionId="90dea43d-6fc8-41b5-97e0-e764ec3c0691" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="450e40c6-6791-f3f2-d4e5-12dd64e9976d" executionId="301cf01c-2e67-4ff4-bbc7-c87fee4265a8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a24a869d-c67c-4415-651b-5118875fb8be" executionId="6a01e68d-6520-4581-a241-6498abfeabb6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f287816d-fb09-4cf2-6a97-c309eb5522dd" executionId="b3a7bc78-2427-496e-a4c9-f8f8453830eb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b92239e3-1d40-b97a-5834-f68c998a02b6" executionId="e4c4da9d-8f34-4a2e-9626-6407174b154b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f1c89b38-8f88-9ee0-a92e-51b9f4b86da5" executionId="7e9ce8bb-7865-403f-a3de-9c807cc84bb0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="15ce4eab-40c7-9b01-cc2c-1ce270d3e41b" executionId="9fe4fbdc-1772-4792-8fdf-dd5ef8c7a270" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="53523866-49f4-9310-d3b0-65016ca2f461" executionId="cdc086bc-675a-41b8-ab62-056094e430f4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="05ba1b21-0608-7c38-bd38-cadb7fcd8ce7" executionId="303cf819-fd52-4cf2-a14e-4d8b3822cb02" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4318dd1d-82b2-4f23-9b16-78208812b5e7" executionId="de0f36ec-6a95-4130-adb7-984b87cdd4be" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b04db49b-8473-5b62-f0a5-a8ec61e25a8f" executionId="1e051be7-4eb7-448c-8e92-34b9749c0dd4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a81b6711-5d9b-5d6f-5de2-b74ae1978e45" executionId="698c09ff-bd88-419e-9af5-654078b60bd1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b27d4f86-97ef-555b-e5f0-90c58333d175" executionId="0756280e-abbe-42b5-a5a6-3bae4088ed65" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f9666d45-750e-d2b8-59a3-910f3a3c42fe" executionId="e37757db-a8b6-4e13-a9d0-56567b8e5ff3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d3ff008e-6dbc-7443-847f-ccd55e0faaa0" executionId="8d5e4d09-3812-443a-b28b-cb414a244685" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8fabf198-48f5-2696-871d-3f4509d82c1a" executionId="56fe7559-77e5-4ee2-a3bd-a164fb6185f8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="299c6af3-3faa-c8aa-ca9e-7146dac273b4" executionId="62caff4b-0e89-4376-b121-f0ec602e19ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8c3b4fba-81d7-2379-03de-0e656e863efe" executionId="382882a1-58df-406e-97a0-0eed413beb32" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="92250d2c-95b8-318f-458c-7dfc8fbe8323" executionId="77fc1c10-3da6-4534-81fe-5fc970a617ee" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a6f6ded6-444b-e752-53b3-ba5149a112fd" executionId="d35e2698-55f9-4b2d-8bed-3a9c36575593" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fc41a3a4-dc09-1277-87e0-9ec5b9d19474" executionId="ad3d17a7-a9b9-4043-8ee4-ef5498d798b1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="25c09807-2342-63d8-0399-0a7f380003ed" executionId="2fe8ed0d-6a19-47ec-bdf8-a504f622b737" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="68698847-fb26-8b86-8f19-fa572e7a41ef" executionId="04f8e51f-c3c8-4700-ad62-90df664ba451" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="77951f41-4b47-c964-db2a-b9d8bdab05cf" executionId="4ee3dad1-243f-4733-a54d-56836e20f2d8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="08f873c8-ee9d-ef89-11ea-a9adf29d0dc7" executionId="03180feb-c6dd-452d-b20b-bcbb6146c5c3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ee212a2a-621a-de86-c554-880b31756b81" executionId="27208a21-f945-4d71-afe8-65c6a92f823f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6572a805-ae00-71b4-1edb-a90b52fb8ce1" executionId="10a4194b-7fe9-4ba5-a8b9-3615234bc2c7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fdbb9aff-b0d2-d958-b587-09a4632697dc" executionId="01174be7-35b1-4072-9e96-3ff23e1f8fab" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c166047a-ddbc-509a-ddf3-96456550d86d" executionId="51227efe-4fd2-43a6-8e55-63c95fd954d6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ac2307c6-f05c-ca99-49b4-a08ba5516622" executionId="ad25575b-eeba-47fc-aa6f-649f1bb3712c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="93ff5b9c-d972-e7ec-8fe3-8cdc5f72921d" executionId="c325b176-a518-46a3-abb4-904f42e8a2d6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5f474ece-cd80-88ba-f4f2-294f980766e7" executionId="d0fcadbf-fec0-4299-80c6-5bcf3a2d4c39" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4c3a39d6-4136-e29e-fbca-c978977de1fc" executionId="0ea06ac8-0f6d-47b9-875d-0c0b26e28248" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f2f66fc6-5730-742f-1f2d-b4befeee4438" executionId="dbd6c1b4-a2b5-4de7-acac-bd0b8e22dd4c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1dd0544f-5d2c-3265-57b9-ac644956536e" executionId="37c90ef9-e004-412c-9fe2-d4c03c69f7de" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b5b6aa28-3af7-b7b3-c061-69fc724973f2" executionId="c0abbab0-4afd-4cdd-b250-6f7b12ec293b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ca7c3dd8-0f87-e053-58a3-9992ba30256f" executionId="b328627f-7297-40bf-be0d-e0abb450b49d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4830d65f-77d9-f690-aa38-2a5401f0107b" executionId="e07813da-6e5d-4a70-93f5-170c6a5820b0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="777605ab-47ea-5311-5616-716662560ff2" executionId="e6708580-8692-4a24-a2c8-091e24ef90ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="47" executed="47" passed="34" failed="13" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.5.3.1+6b60a9e56a (64-bit .NET 8.0.25)&#xD;
+[xUnit.net 00:00:00.57] Allure.Xunit: XunitTestRunner's Void .ctor(Xunit.Abstractions.ITest, Xunit.Sdk.IMessageBus, System.Type, System.Object[], System.Reflection.MethodInfo, System.Object[], System.String, System.Collections.Generic.IReadOnlyList`1[Xunit.Sdk.BeforeAfterTestAttribute], Xunit.Sdk.ExceptionAggregator, System.Threading.CancellationTokenSource) has been patched&#xD;
+[xUnit.net 00:00:00.60] Allure.Xunit: Allure reporter enabled&#xD;
+[xUnit.net 00:00:00.69]   Discovering: WiseMigrateTests&#xD;
+[xUnit.net 00:00:00.81]   Discovered:  WiseMigrateTests&#xD;
+[xUnit.net 00:00:00.82]   Starting:    WiseMigrateTests&#xD;
+[xUnit.net 00:01:21.26]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByRole(AriaRole.Button, new() { Name = "View Architecture" })&#xD;
+[xUnit.net 00:01:21.27]       Stack Trace:&#xD;
+[xUnit.net 00:01:21.27]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:01:21.27]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:01:21.27]         C:\Users\dell\WiseMigrateTests\Pages\InfrastructureUpload\InfrastructureUploadPage.cs(151,0): at WiseMigrateTests.Pages.InfrastructureUpload.InfrastructureUploadPage.ViewArchitectureAsync()&#xD;
+[xUnit.net 00:01:21.27]         C:\Users\dell\WiseMigrateTests\Pages\PreRequisites\BasicSetup.cs(153,0): at WiseMigrateTests.Pages.PreRequisites.BasicSetup.InfrastructureUploadPageSetupAsync()&#xD;
+[xUnit.net 00:01:21.27]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(36,0): at WiseMigrateTests.TestHooks.TestBaseFixture.&lt;&gt;c.&lt;&lt;InitializeAsync&gt;b__14_0&gt;d.MoveNext()&#xD;
+[xUnit.net 00:01:21.27]         --- End of stack trace from previous location ---&#xD;
+[xUnit.net 00:01:21.27]         C:\Users\dell\WiseMigrateTests\TestHooks\SharedContextTestFixture.cs(23,0): at WiseMigrateTests.TestHooks.SharedContextFixture.EnsureInitializedAsync(IBrowser browser, Func`2 setupLogic)&#xD;
+[xUnit.net 00:01:21.27]         C:\Users\dell\WiseMigrateTests\TestHooks\TestBaseFixture.cs(28,0): at WiseMigrateTests.TestHooks.TestBaseFixture.InitializeAsync()&#xD;
+[xUnit.net 00:01:21.27]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(25,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.InitializeAsync()&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_019_FMO_Close_Legend_Should_Work_PASSED_20260403-154612.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_043_FMO_ThreeYear_PerDay_CostValidation_FAILED_20260403-154647.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:02:51.85]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("3 Year Reserved")&#xD;
+[xUnit.net 00:02:51.85]       Stack Trace:&#xD;
+[xUnit.net 00:02:51.85]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:02:51.85]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:02:51.85]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(1056,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_043_FMO_ThreeYear_PerDay_CostValidation&gt;b__51_0()&#xD;
+[xUnit.net 00:02:51.85]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:02:51.85]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:02:51.85]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:02:51.85]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(1050,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_043_FMO_ThreeYear_PerDay_CostValidation()&#xD;
+[xUnit.net 00:02:51.85]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_028_FMO_Sync_Data_Should_Work_PASSED_20260403-154652.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_001_FMO_Page_UI_Should_Load_PASSED_20260403-154657.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_014_Verify_Exit_Fullscreen_PASSED_20260403-154703.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_032_FMO_Three_Year_Reserved_Should_Work_FAILED_20260403-154738.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:03:42.79]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("3 Year Reserved")&#xD;
+[xUnit.net 00:03:42.79]       Stack Trace:&#xD;
+[xUnit.net 00:03:42.79]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:03:42.79]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:03:42.79]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(761,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_032_FMO_Three_Year_Reserved_Should_Work&gt;b__40_0()&#xD;
+[xUnit.net 00:03:42.79]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:03:42.79]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:03:42.79]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:03:42.79]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(756,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_032_FMO_Three_Year_Reserved_Should_Work()&#xD;
+[xUnit.net 00:03:42.79]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_023_Verify_CloseSearch_20260403-154744.png&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_023_Verify_CloseSearch_PASSED_20260403-154744.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_044_FMO_ThreeYear_PerMonth_CostValidation_FAILED_20260403-154819.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:04:23.21]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("3 Year Reserved")&#xD;
+[xUnit.net 00:04:23.21]       Stack Trace:&#xD;
+[xUnit.net 00:04:23.21]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:04:23.21]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:04:23.21]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(1079,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_044_FMO_ThreeYear_PerMonth_CostValidation&gt;b__52_0()&#xD;
+[xUnit.net 00:04:23.21]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:04:23.21]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:04:23.21]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:04:23.21]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(1073,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_044_FMO_ThreeYear_PerMonth_CostValidation()&#xD;
+[xUnit.net 00:04:23.21]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+Initial dimensions: 718x600, Final dimensions: 858.102x717.0769&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_005_FMO_Zoom_In_Should_Work_PASSED_20260403-154824.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_016_FMO_Fullscreen_Should_Exit_On_ESC_PASSED_20260403-154829.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_025_FMO_Search_And_Select_Random_Server_Should_Work_FAILED_20260403-154837.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:04:41.96]       Microsoft.Playwright.PlaywrightException : Locator expected to be visible 
+Call log:
+  - Expect "ToBeVisibleAsync" with timeout 5000ms
+  - waiting for Locator("#fullscreen-container div").Filter(new() { HasText = "Found" }).Nth(3)&#xD;
+[xUnit.net 00:04:41.96]       Stack Trace:&#xD;
+[xUnit.net 00:04:41.96]         /_/src/Playwright/Core/AssertionsBase.cs(85,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, FrameExpectOptions expectOptions, Object expected, String message, String title)&#xD;
+[xUnit.net 00:04:41.96]         /_/src/Playwright/Core/AssertionsBase.cs(65,0): at Microsoft.Playwright.Core.AssertionsBase.ExpectImplAsync(String expression, ExpectedTextValue[] expectedText, Object expected, String message, String title, FrameExpectOptions options)&#xD;
+[xUnit.net 00:04:41.96]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(610,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_025_FMO_Search_And_Select_Random_Server_Should_Work&gt;b__33_0()&#xD;
+[xUnit.net 00:04:41.96]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:04:41.96]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:04:41.96]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:04:41.96]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(595,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_025_FMO_Search_And_Select_Random_Server_Should_Work()&#xD;
+[xUnit.net 00:04:41.96]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_019_FMO_Show_Legend_Should_Open_PASSED_20260403-154842.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_020_FMO_Search_Box_Should_Open_PASSED_20260403-154846.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_021_FMO_Search_Should_Accept_Input_PASSED_20260403-154850.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_034_FMO_OnDemand_PerHour_CostValidation_PASSED_20260403-154857.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_006_Verify_Max_Zoom_Limit_20260403-154923.png&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_006_Verify_Max_Zoom_Limit_PASSED_20260403-154924.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+Initial dimensions: 718x600, Final dimensions: 631.8331x527.9942&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_007_Verify_ZoomOut_MouseScroll_PASSED_20260403-154929.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_024_Verify_Search_EmptyInput_20260403-154933.png&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_024_Verify_Search_EmptyInput_PASSED_20260403-154934.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_019_Verify_Legend_Display_20260403-154939.png&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_019_Verify_Legend_Display_PASSED_20260403-154939.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_042_FMO_ThreeYear_PerHour_CostValidation_FAILED_20260403-155012.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:06:16.94]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("3 Year Reserved")&#xD;
+[xUnit.net 00:06:16.94]       Stack Trace:&#xD;
+[xUnit.net 00:06:16.94]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:06:16.94]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:06:16.94]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(1033,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_042_FMO_ThreeYear_PerHour_CostValidation&gt;b__50_0()&#xD;
+[xUnit.net 00:06:16.94]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:06:16.94]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:06:16.94]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:06:16.94]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(1027,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_042_FMO_ThreeYear_PerHour_CostValidation()&#xD;
+[xUnit.net 00:06:16.94]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_036_FMO_OnDemand_PerMonth_CostValidation_PASSED_20260403-155020.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_011_Verify_ResetOnZoom_Functionality_PASSED_20260403-155028.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_013_FMO_Fullscreen_Should_Activate_PASSED_20260403-155032.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_029_FMO_Select_Time_Period_Should_Work_PASSED_20260403-155038.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_031_FMO_One_Year_Reserved_Should_Work_FAILED_20260403-155112.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:07:16.17]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("1 Year Reserved")&#xD;
+[xUnit.net 00:07:16.17]       Stack Trace:&#xD;
+[xUnit.net 00:07:16.17]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:07:16.17]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:07:16.17]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(742,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_031_FMO_One_Year_Reserved_Should_Work&gt;b__39_0()&#xD;
+[xUnit.net 00:07:16.17]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:07:16.17]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:07:16.17]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:07:16.17]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(737,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_031_FMO_One_Year_Reserved_Should_Work()&#xD;
+[xUnit.net 00:07:16.17]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_010_FMO_Reset_Zoom_Should_Work_PASSED_20260403-155116.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_003_CMO_Verify_Pan_Functionality_PASSED_20260403-155122.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_041_FMO_OneYear_PerYear_CostValidation_FAILED_20260403-155156.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:08:00.24]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("1 Year Reserved")&#xD;
+[xUnit.net 00:08:00.24]       Stack Trace:&#xD;
+[xUnit.net 00:08:00.24]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:08:00.24]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:08:00.24]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(1010,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_041_FMO_OneYear_PerYear_CostValidation&gt;b__49_0()&#xD;
+[xUnit.net 00:08:00.24]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:08:00.24]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:08:00.24]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:08:00.24]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(1004,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_041_FMO_OneYear_PerYear_CostValidation()&#xD;
+[xUnit.net 00:08:00.24]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+Expected filename: FMO__2026-04-03.svg&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_017_Verify_Download_OnFullScreenMode_Functionality_FAILED_20260403-155204.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:08:08.50]       Assert.Equal() Failure: Strings differ&#xD;
+[xUnit.net 00:08:08.50]                      ↓ (pos 4)&#xD;
+[xUnit.net 00:08:08.50]       Expected: "FMO__2026-04-03.svg"&#xD;
+[xUnit.net 00:08:08.50]       Actual:   "FMO_TC_Project_20260403_154535_2026-04-03"···&#xD;
+[xUnit.net 00:08:08.50]                      ↑ (pos 4)&#xD;
+[xUnit.net 00:08:08.50]       Stack Trace:&#xD;
+[xUnit.net 00:08:08.50]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(420,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_017_Verify_Download_OnFullScreenMode_Functionality&gt;b__23_0()&#xD;
+[xUnit.net 00:08:08.50]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:08:08.50]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:08:08.50]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:08:08.50]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(412,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_017_Verify_Download_OnFullScreenMode_Functionality()&#xD;
+[xUnit.net 00:08:08.50]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_035_FMO_OnDemand_PerDay_CostValidation_PASSED_20260403-155210.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_022_Verify_Search_NoResults_20260403-155213.png&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_022_Verify_Search_NoResults_PASSED_20260403-155214.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_002_FMO_Page_Should_Have_Clickable_Navigation_Buttons_PASSED_20260403-155217.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+Initial dimensions: 861.60004x720, Final dimensions: 729.14343x609.3121&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_008_FMO_Zoom_Out_Should_Work_PASSED_20260403-155223.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+Initial dimensions: 80.416016x67.20001, Final dimensions: 80.416016x67.20001&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_009_Verify_Min_Zoom_Limit_20260403-155241.png&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_009_Verify_Min_Zoom_Limit_PASSED_20260403-155241.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_045_FMO_ThreeYear_PerYear_CostValidation_FAILED_20260403-155315.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:09:19.51]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("3 Year Reserved")&#xD;
+[xUnit.net 00:09:19.51]       Stack Trace:&#xD;
+[xUnit.net 00:09:19.51]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:09:19.51]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:09:19.51]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(1102,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_045_FMO_ThreeYear_PerYear_CostValidation&gt;b__53_0()&#xD;
+[xUnit.net 00:09:19.51]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:09:19.51]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:09:19.51]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:09:19.51]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(1096,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_045_FMO_ThreeYear_PerYear_CostValidation()&#xD;
+[xUnit.net 00:09:19.51]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_026_FMO_Search_Invalid_Value_Should_Show_No_Results_PASSED_20260403-155321.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_012_Verify_Reset_Does_Not_Impact_Scale_PASSED_20260403-155326.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+Initial dimensions: 718x600, Final dimensions: 804.21545x672.0463&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_004_Verify_ZoomIn_MouseScroll_PASSED_20260403-155331.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_030_FMO_View_Migration_Cost_Should_Open_Modal_PASSED_20260403-155336.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_027_FMO_Export_To_Excel_Should_Work_PASSED_20260403-155340.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_015_Verify_UI_Scaling_In_Fullscreen_PASSED_20260403-155345.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+Expected filename: FMO__2026-04-03.svg&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_018_Verify_Download_Functionality_FAILED_20260403-155349.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:09:53.61]       Assert.Equal() Failure: Strings differ&#xD;
+[xUnit.net 00:09:53.61]                      ↓ (pos 4)&#xD;
+[xUnit.net 00:09:53.61]       Expected: "FMO__2026-04-03.svg"&#xD;
+[xUnit.net 00:09:53.61]       Actual:   "FMO_TC_Project_20260403_154535_2026-04-03"···&#xD;
+[xUnit.net 00:09:53.61]                      ↑ (pos 4)&#xD;
+[xUnit.net 00:09:53.61]       Stack Trace:&#xD;
+[xUnit.net 00:09:53.61]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(437,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_018_Verify_Download_Functionality&gt;b__24_0()&#xD;
+[xUnit.net 00:09:53.61]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:09:53.61]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:09:53.61]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:09:53.61]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(430,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_018_Verify_Download_Functionality()&#xD;
+[xUnit.net 00:09:53.61]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_039_FMO_OneYear_PerDay_CostValidation_FAILED_20260403-155423.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:10:27.07]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("1 Year Reserved")&#xD;
+[xUnit.net 00:10:27.07]       Stack Trace:&#xD;
+[xUnit.net 00:10:27.07]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:10:27.07]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:10:27.07]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(964,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_039_FMO_OneYear_PerDay_CostValidation&gt;b__47_0()&#xD;
+[xUnit.net 00:10:27.07]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:10:27.07]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:10:27.07]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:10:27.07]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(958,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_039_FMO_OneYear_PerDay_CostValidation()&#xD;
+[xUnit.net 00:10:27.07]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_033_FMO_Close_Migration_Cost_Should_Work_PASSED_20260403-155427.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_038_FMO_OneYear_PerHour_CostValidation_FAILED_20260403-155503.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:11:07.98]       System.TimeoutException : Timeout 30000ms exceeded.
+Call log:
+  - waiting for GetByText("1 Year Reserved")&#xD;
+[xUnit.net 00:11:07.98]       Stack Trace:&#xD;
+[xUnit.net 00:11:07.98]         /_/src/Playwright/Transport/Connection.cs(201,0): at Microsoft.Playwright.Transport.Connection.InnerSendMessageToServerAsync[T](ChannelOwner object, String method, Dictionary`2 dictionary, Boolean keepNulls)&#xD;
+[xUnit.net 00:11:07.98]         /_/src/Playwright/Transport/Connection.cs(499,0): at Microsoft.Playwright.Transport.Connection.WrapApiCallAsync[T](Func`1 action, Boolean isInternal, String title)&#xD;
+[xUnit.net 00:11:07.98]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(941,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.&lt;TC_038_FMO_OneYear_PerHour_CostValidation&gt;b__46_0()&#xD;
+[xUnit.net 00:11:07.98]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(100,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:11:07.98]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(136,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:11:07.98]         C:\Users\dell\WiseMigrateTests\Utils\AttachmentHelper.cs(141,0): at WiseMigrateTests.Utils.AttachmentHelper.RunWithTracingAsync(Func`1 testAction, String testName)&#xD;
+[xUnit.net 00:11:07.98]         C:\Users\dell\WiseMigrateTests\Pages\FutureModeOperation\FutureModeOperationPageTests.cs(935,0): at WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_038_FMO_OneYear_PerHour_CostValidation()&#xD;
+[xUnit.net 00:11:07.98]         --- End of stack trace from previous location ---&#xD;
+Navigating to: https://migrate.wisework.in/fmoarch?project_id=4e1ac063-1820-4824-b1e4-5b55b9e6425f&#xD;
+Successfully loaded page: /fmoarch&#xD;
+[SCREENSHOT] SAVED: C:\Users\dell\WiseMigrateTests\Reports/Screenshots\TC_037_FMO_OnDemand_PerYear_CostValidation_PASSED_20260403-155510.png&#xD;
+DISPOSEASYNC STARTED&#xD;
+DISPOSEASYNC - Class Level Reset (Shared Context)&#xD;
+[xUnit.net 00:11:15.92]   Finished:    WiseMigrateTests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-03T15:45:17.7012107+05:30">
+        <Text>[xUnit.net 00:01:21.26]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_040_FMO_OneYear_PerMonth_CostValidation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-03T15:46:48.2887759+05:30">
+        <Text>[xUnit.net 00:02:51.85]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_043_FMO_ThreeYear_PerDay_CostValidation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-03T15:47:39.2256559+05:30">
+        <Text>[xUnit.net 00:03:42.79]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_032_FMO_Three_Year_Reserved_Should_Work [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-03T15:48:19.6452885+05:30">
+        <Text>[xUnit.net 00:04:23.21]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_044_FMO_ThreeYear_PerMonth_CostValidation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-03T15:48:38.3988618+05:30">
+        <Text>[xUnit.net 00:04:41.96]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_025_FMO_Search_And_Select_Random_Server_Should_Work [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-03T15:50:13.3768912+05:30">
+        <Text>[xUnit.net 00:06:16.94]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_042_FMO_ThreeYear_PerHour_CostValidation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-03T15:51:12.6108938+05:30">
+        <Text>[xUnit.net 00:07:16.17]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_031_FMO_One_Year_Reserved_Should_Work [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-03T15:51:56.6761298+05:30">
+        <Text>[xUnit.net 00:08:00.24]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_041_FMO_OneYear_PerYear_CostValidation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-03T15:52:04.9373304+05:30">
+        <Text>[xUnit.net 00:08:08.50]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_017_Verify_Download_OnFullScreenMode_Functionality [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-03T15:53:15.9510216+05:30">
+        <Text>[xUnit.net 00:09:19.51]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_045_FMO_ThreeYear_PerYear_CostValidation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-03T15:53:50.0481858+05:30">
+        <Text>[xUnit.net 00:09:53.61]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_018_Verify_Download_Functionality [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-03T15:54:23.5042711+05:30">
+        <Text>[xUnit.net 00:10:27.07]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_039_FMO_OneYear_PerDay_CostValidation [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="DESKTOP-2S45JFU" outcome="Error" timestamp="2026-04-03T15:55:04.4234727+05:30">
+        <Text>[xUnit.net 00:11:07.98]     WiseMigrateTests.Pages.FutureModeOperation.FutureModeOpertionPageTests.TC_038_FMO_OneYear_PerHour_CostValidation [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

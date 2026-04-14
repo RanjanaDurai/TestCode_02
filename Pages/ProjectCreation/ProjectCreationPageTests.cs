@@ -39,9 +39,9 @@ namespace WiseMigrateTests.Pages.ProjectCreation
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_001_Create_Project_Successfully")]
+        [AllureOwner("TC_046_Create_Project_Successfully")]
         [AllureTag("Smoke")]
-        public async Task TC_001_Create_Project_Successfully()
+        public async Task TC_046_Create_Project_Successfully()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -53,14 +53,14 @@ namespace WiseMigrateTests.Pages.ProjectCreation
                 await Assertions.Expect(
                     Page.GetByText("Upload Infrastructure Data")
                 ).ToBeVisibleAsync();
-            }, nameof(TC_001_Create_Project_Successfully));
+            }, nameof(TC_046_Create_Project_Successfully));
         }
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_002_Project_Should_Appear_On_Dashboard")]
+        [AllureOwner("TC_047_Project_Should_Appear_On_Dashboard")]
         [AllureTag("Smoke")]
-        public async Task TC_002_Project_Should_Appear_On_Dashboard()
+        public async Task TC_047_Project_Should_Appear_On_Dashboard()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -75,16 +75,16 @@ namespace WiseMigrateTests.Pages.ProjectCreation
                 await _projectList.WaitForDashboardToBeReadyAsync();
 
                 await _projectList.AssertProjectVisibleAsync(projectName);
-            }, nameof(TC_002_Project_Should_Appear_On_Dashboard));
+            }, nameof(TC_047_Project_Should_Appear_On_Dashboard));
         }
 
         // Regression TEST CASES
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_003_SelectRandomTargetCloudeProvider")]
+        [AllureOwner("TC_048_SelectRandomTargetCloudeProvider")]
         [AllureTag("Regression")]
-        public async Task TC_003_SelectRandomTargetCloudeProvider()
+        public async Task TC_048_SelectRandomTargetCloudeProvider()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -92,14 +92,14 @@ namespace WiseMigrateTests.Pages.ProjectCreation
                 await _projectCreation.RandomTargetCloudeProvider();
 
                 Logger.Info("Seleced random cloude provider Successfully");
-            }, nameof(TC_003_SelectRandomTargetCloudeProvider));
+            }, nameof(TC_048_SelectRandomTargetCloudeProvider));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_004_ClickBackTodashboard")]
+        [AllureOwner("TC_049_ClickBackTodashboard")]
         [AllureTag("Regression")]
-        public async Task TC_004_ClickBackTodashboard()
+        public async Task TC_049_ClickBackTodashboard()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -107,7 +107,7 @@ namespace WiseMigrateTests.Pages.ProjectCreation
                 await _projectCreation.ClickBackToDashBoardButton();
 
                 Logger.Info("Clicked Back To Dashboard Button");
-            }, nameof(TC_004_ClickBackTodashboard));
+            }, nameof(TC_049_ClickBackTodashboard));
         }
 
     }

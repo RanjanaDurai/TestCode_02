@@ -3,6 +3,7 @@ using WiseMigrateTests.Pages.PreRequisites;
 using WiseMigrateTests.Pages.Login;
 using WiseMigrateTests.Pages.Project;
 using WiseMigrateTests.Pages.ProjectInventory;
+using WiseMigrateTests.Pages.MigrationPlanTracking;
 using WiseMigrateTests.TestHooks;
 using WiseMigrateTests.Utils;
 using Allure.Xunit.Attributes;
@@ -17,32 +18,32 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
     [AllureSuite("Migration Control Centre Tests")]
     public class MigrationControlCentreTests : TestBaseFixture, IAsyncLifetime
     {
-        private LoginPage _loginPage = null!;
-        private ProjectListPage _projectListPage = null!;
+        private MigrationPlanTrackingPage _migrationPlanTrackingPage = null!;
         private MigrationControlCentrePage _migrationControlCentrePage = null!;
-        
+        private ProjectInventoryPage _projectInventoryPage = null!;
+        protected override bool UseClassLevelGrouping => true;
         public async Task InitializeAsync()
         {
             await base.InitializeAsync();
 
-            _loginPage = new LoginPage(Page);
             _basicSetup = new BasicSetup(Page);
-            _projectListPage = new ProjectListPage(Page);
+            _projectInventoryPage = new ProjectInventoryPage(Page);
+            _migrationPlanTrackingPage = new MigrationPlanTrackingPage(Page);
             _migrationControlCentrePage = new MigrationControlCentrePage(Page);
 
-            await _loginPage.ValidateMigrateAdminAccount(Page);
-            await _projectListPage.ClickCreateNewProjectAsync();
-            await _basicSetup.CreateProjectAsync();
-            _createdProjectName = _basicSetup.projectName;
-            await _migrationControlCentrePage.NavigateToMigrationControlCentreAsync();
-            // await _migrationPlanTrackingPage.NavigateToMigrationPlanTrackingAsync();
+            await NavigateToPageAsync("/inventory");
+            await _basicSetup.WaitForPageAsync(3);
+            await _projectInventoryPage.InitiateMigrationFromInventoryAsync();
+            await _basicSetup.WaitForPageAsync(2);
+            await _migrationPlanTrackingPage.ClickViewPlanDetailsAsync();
+            await _basicSetup.WaitForPageAsync(1);
         }
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_001_MigrationControlCentre_Page_UI_Should_Load")]
+        [AllureOwner("TC_163_MigrationControlCentre_Page_UI_Should_Load")]
         [AllureTag("Smoke")]
-        public async Task TC_001_MigrationControlCentre_Page_UI_Should_Load()
+        public async Task TC_163_MigrationControlCentre_Page_UI_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -50,14 +51,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Control Center" }))
                     .ToBeVisibleAsync();
                 Logger.Info("Migration Control Centre page loaded");
-            }, nameof(TC_001_MigrationControlCentre_Page_UI_Should_Load));
+            }, nameof(TC_163_MigrationControlCentre_Page_UI_Should_Load));
         }
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_002_Navigate_To_Timeline_Tab")]
+        [AllureOwner("TC_164_Navigate_To_Timeline_Tab")]
         [AllureTag("Smoke")]
-        public async Task TC_002_Navigate_To_Timeline_Tab()
+        public async Task TC_164_Navigate_To_Timeline_Tab()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -65,29 +66,29 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await Assertions.Expect(Page.GetByText("Wave Execution Schedule"))
                     .ToBeVisibleAsync();
                 Logger.Info("Timeline tab loaded");
-            }, nameof(TC_002_Navigate_To_Timeline_Tab));
+            }, nameof(TC_164_Navigate_To_Timeline_Tab));
         }
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_003_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab")]
+        [AllureOwner("TC_165_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab")]
         [AllureTag("Smoke")]
-        public async Task TC_003_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab()
+        public async Task TC_165_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
             await _migrationControlCentrePage.OpenDetailedPlanningTabAsync();
             await Assertions.Expect(Page.GetByText("Migration Planning")).ToBeVisibleAsync();
             Logger.Info("Detailed Planning tab loaded");
-            }, nameof(TC_003_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab));
+            }, nameof(TC_165_MigrationControlCentre_Navigate_To_Detailed_Planning_Tab));
         }
         
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_003_Navigate_To_Manage_Tab")]
+        [AllureOwner("TC_166_Navigate_To_Manage_Tab")]
         [AllureTag("Smoke")]
-        public async Task TC_003_Navigate_To_Manage_Tab()
+        public async Task TC_166_Navigate_To_Manage_Tab()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -95,14 +96,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await Assertions.Expect(Page.GetByText("Wave Plan Management"))
                     .ToBeVisibleAsync();
                 Logger.Info("Manage tab loaded");
-            }, nameof(TC_003_Navigate_To_Manage_Tab));
+            }, nameof(TC_166_Navigate_To_Manage_Tab));
         }
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_004_Navigate_To_PoliciesAndRisk_Tab")]
+        [AllureOwner("TC_167_Navigate_To_PoliciesAndRisk_Tab")]
         [AllureTag("Smoke")]
-        public async Task TC_004_Navigate_To_PoliciesAndRisk_Tab()
+        public async Task TC_167_Navigate_To_PoliciesAndRisk_Tab()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -110,30 +111,30 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await Assertions.Expect(Page.GetByText("Migration Policies"))
                     .ToBeVisibleAsync();
                 Logger.Info("Policies and Risk tab loaded");
-            }, nameof(TC_004_Navigate_To_PoliciesAndRisk_Tab));
+            }, nameof(TC_167_Navigate_To_PoliciesAndRisk_Tab));
         }
 
         #region Breadcrumb Navigation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_001_Verify_Home_Breadcrumb_Navigation")]
+        [AllureOwner("TC_168_Verify_Home_Breadcrumb_Navigation")]
         [AllureTag("Regression")]
-        public async Task TC_001_Verify_Home_Breadcrumb_Navigation()
+        public async Task TC_168_Verify_Home_Breadcrumb_Navigation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _migrationControlCentrePage.ClickBreadcrumbAsync("Home");
                 await Assertions.Expect(Page.GetByText("Project DashBoard")).ToBeVisibleAsync(new() { Timeout = 10000 });
                 Logger.Info("Breadcrumb navigation to CMO Architecture successful");
-            }, nameof(TC_001_Verify_Home_Breadcrumb_Navigation));
+            }, nameof(TC_168_Verify_Home_Breadcrumb_Navigation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_002_Verify_ProjectCreation_Breadcrumb_Navigation")]
+        [AllureOwner("TC_169_Verify_ProjectCreation_Breadcrumb_Navigation")]
         [AllureTag("Regression")]
-        public async Task TC_002_Verify_ProjectCreation_Breadcrumb_Navigation()
+        public async Task TC_169_Verify_ProjectCreation_Breadcrumb_Navigation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -141,14 +142,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.ClickBreadcrumbAsync("Project Creation");
                 await Assertions.Expect(Page.GetByText("Project Initialization")).ToBeVisibleAsync(new() { Timeout = 10000 });
                 Logger.Info("Breadcrumb navigation to Project Creation successful");
-            }, nameof(TC_002_Verify_ProjectCreation_Breadcrumb_Navigation));
+            }, nameof(TC_169_Verify_ProjectCreation_Breadcrumb_Navigation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_003_Verify_SSOT_Breadcrumb_Navigation")]
+        [AllureOwner("TC_170_Verify_SSOT_Breadcrumb_Navigation")]
         [AllureTag("Regression")]
-        public async Task TC_003_Verify_SSOT_Breadcrumb_Navigation()
+        public async Task TC_170_Verify_SSOT_Breadcrumb_Navigation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -156,14 +157,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.ClickBreadcrumbAsync("SSOT Integration");
                 await Assertions.Expect(Page.GetByText("SSOT Integration")).ToBeVisibleAsync(new() { Timeout = 10000 });
                 Logger.Info("Breadcrumb navigation to SSOT Integration successful");
-            }, nameof(TC_003_Verify_SSOT_Breadcrumb_Navigation));
+            }, nameof(TC_170_Verify_SSOT_Breadcrumb_Navigation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_004_Verify_CMO_Breadcrumb_Navigation")]
+        [AllureOwner("TC_171_Verify_CMO_Breadcrumb_Navigation")]
         [AllureTag("Regression")]
-        public async Task TC_004_Verify_CMO_Breadcrumb_Navigation()
+        public async Task TC_171_Verify_CMO_Breadcrumb_Navigation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -171,14 +172,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.ClickBreadcrumbAsync("CMO Architecture");
                 await Assertions.Expect(Page.GetByText("CMO Architecture")).ToBeVisibleAsync(new() { Timeout = 10000 });
                 Logger.Info("Breadcrumb navigation to CMO Architecture successful");
-            }, nameof(TC_004_Verify_CMO_Breadcrumb_Navigation));
+            }, nameof(TC_171_Verify_CMO_Breadcrumb_Navigation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_005_Verify_FMO_Breadcrumb_Navigation")]
+        [AllureOwner("TC_172_Verify_FMO_Breadcrumb_Navigation")]
         [AllureTag("Regression")]
-        public async Task TC_005_Verify_FMO_Breadcrumb_Navigation()
+        public async Task TC_172_Verify_FMO_Breadcrumb_Navigation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -186,14 +187,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.ClickBreadcrumbAsync("FMO Architecture");
                 await Assertions.Expect(Page.GetByText("Future Mode of Operation - Architectural View")).ToBeVisibleAsync(new() { Timeout = 10000 });
                 Logger.Info("Breadcrumb navigation to FMO Architecture successful");
-            }, nameof(TC_005_Verify_FMO_Breadcrumb_Navigation));
+            }, nameof(TC_172_Verify_FMO_Breadcrumb_Navigation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_006_Verify_Inventory_Breadcrumb_Navigation")]
+        [AllureOwner("TC_173_Verify_Inventory_Breadcrumb_Navigation")]
         [AllureTag("Regression")]
-        public async Task TC_006_Verify_Inventory_Breadcrumb_Navigation()
+        public async Task TC_173_Verify_Inventory_Breadcrumb_Navigation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -201,14 +202,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.ClickBreadcrumbAsync("CMO/FMO Inventory");
                 await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "CMO/FMO Inventory" })).ToBeVisibleAsync();
                 Logger.Info("Breadcrumb navigation to Inventory Management successful");
-            }, nameof(TC_006_Verify_Inventory_Breadcrumb_Navigation));
+            }, nameof(TC_173_Verify_Inventory_Breadcrumb_Navigation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_007_Verify_MigrationPlanTracking_Breadcrumb_Navigation")]
+        [AllureOwner("TC_174_Verify_MigrationPlanTracking_Breadcrumb_Navigation")]
         [AllureTag("Regression")]
-        public async Task TC_007_Verify_MigrationPlanTracking_Breadcrumb_Navigation()
+        public async Task TC_174_Verify_MigrationPlanTracking_Breadcrumb_Navigation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -216,14 +217,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.ClickBreadcrumbAsync("Migration Plan Tracking");
                 await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Plan Tracking" })).ToBeVisibleAsync();
                 Logger.Info("Breadcrumb navigation to Migration Plan Tracking successful");
-            }, nameof(TC_007_Verify_MigrationPlanTracking_Breadcrumb_Navigation));
+            }, nameof(TC_174_Verify_MigrationPlanTracking_Breadcrumb_Navigation));
         }
         
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_008_Verify_MigrationControlCenter_Breadcrumb_Navigation")]
+        [AllureOwner("TC_175_Verify_MigrationControlCenter_Breadcrumb_Navigation")]
         [AllureTag("Regression")]
-        public async Task TC_008_Verify_MigrationControlCenter_Breadcrumb_Navigation()
+        public async Task TC_175_Verify_MigrationControlCenter_Breadcrumb_Navigation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -232,7 +233,7 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 var Text=await Page.Locator("li.mud-breadcrumb-item.mud-disabled").TextContentAsync();
                 Assert.Equal("Migration Control Center", Text);
                 Logger.Info("Breadcrumb navigation to Migration Control Center successful");
-            }, nameof(TC_008_Verify_MigrationControlCenter_Breadcrumb_Navigation));
+            }, nameof(TC_175_Verify_MigrationControlCenter_Breadcrumb_Navigation));
         }
 
         #endregion
@@ -240,9 +241,9 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
         #region Text Search
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_009_Verify_Valid_TextSearch")]
+        [AllureOwner("TC_176_Verify_Valid_TextSearch")]
         [AllureTag("Regression")]
-        public async Task TC_009_Verify_Valid_TextSearch()
+        public async Task TC_176_Verify_Valid_TextSearch()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -260,14 +261,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 }
                 await Assertions.Expect(Page.GetByText(searchInputText)).ToBeVisibleAsync();
                 Logger.Info("Search returned matching items");
-            }, nameof(TC_009_Verify_Valid_TextSearch));
+            }, nameof(TC_176_Verify_Valid_TextSearch));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_010_Verify_TextSearch_NoResultsFound")]
+        [AllureOwner("TC_177_Verify_TextSearch_NoResultsFound")]
         [AllureTag("Regression")]
-        public async Task TC_010_Verify_TextSearch_NoResultsFound()
+        public async Task TC_177_Verify_TextSearch_NoResultsFound()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -276,7 +277,7 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _basicSetup.WaitForPageAsync(1);
                 await Assertions.Expect(Page.GetByText("No records found matching the search criteria")).ToBeVisibleAsync();
                 Logger.Info("No results message displayed correctly");
-            }, nameof(TC_010_Verify_TextSearch_NoResultsFound));
+            }, nameof(TC_177_Verify_TextSearch_NoResultsFound));
         }
 
         #endregion
@@ -285,23 +286,23 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_011_Verify_FilterStatus_Default")]
+        [AllureOwner("TC_178_Verify_FilterStatus_Default")]
         [AllureTag("Regression")]
-        public async Task TC_011_Verify_FilterStatus_Default()
+        public async Task TC_178_Verify_FilterStatus_Default()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _migrationControlCentrePage.SelectFilterStatusAsync("All");
                 await Assertions.Expect(Page.Locator("tr")).ToHaveCountAsync(_migrationControlCentrePage.WaveCount); 
                 Logger.Info("Filter by All status applied");
-            }, nameof(TC_011_Verify_FilterStatus_Default));
+            }, nameof(TC_178_Verify_FilterStatus_Default));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_012_Verify_FilterStatus_Planned")]
+        [AllureOwner("TC_179_Verify_FilterStatus_Planned")]
         [AllureTag("Regression")]
-        public async Task TC_012_Verify_FilterStatus_Planned()
+        public async Task TC_179_Verify_FilterStatus_Planned()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -312,14 +313,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 }
                 await Assertions.Expect(Page.GetByText("No records found matching the search criteria.")).ToBeVisibleAsync();
                 Logger.Info("Filter by Planned status applied");
-            }, nameof(TC_012_Verify_FilterStatus_Planned));
+            }, nameof(TC_179_Verify_FilterStatus_Planned));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_013_Verify_FilterStatus_Pending")]
+        [AllureOwner("TC_180_Verify_FilterStatus_Pending")]
         [AllureTag("Regression")]
-        public async Task TC_013_Verify_FilterStatus_Pending()
+        public async Task TC_180_Verify_FilterStatus_Pending()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -340,14 +341,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                     await Assertions.Expect(Page.GetByText("No records found matching the search criteria.")).ToBeVisibleAsync();
                 }
                 Logger.Info("Filter by Pending status applied");
-            }, nameof(TC_013_Verify_FilterStatus_Pending));
+            }, nameof(TC_180_Verify_FilterStatus_Pending));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_014_Verify_FilterStatus_InProgress")]
+        [AllureOwner("TC_181_Verify_FilterStatus_InProgress")]
         [AllureTag("Regression")]
-        public async Task TC_014_Verify_FilterStatus_InProgress()
+        public async Task TC_181_Verify_FilterStatus_InProgress()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -362,14 +363,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await Assertions.Expect(Page.GetByText("No records found matching the search criteria.")).ToBeVisibleAsync();
                 }
                 Logger.Info("Filter by In Progress status applied");
-            }, nameof(TC_014_Verify_FilterStatus_InProgress));
+            }, nameof(TC_181_Verify_FilterStatus_InProgress));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_015_Verify_FilterStatus_Completed")]
+        [AllureOwner("TC_182_Verify_FilterStatus_Completed")]
         [AllureTag("Regression")]
-        public async Task TC_015_Verify_FilterStatus_Completed()
+        public async Task TC_182_Verify_FilterStatus_Completed()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -384,14 +385,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await Assertions.Expect(Page.GetByText("No records found matching the search criteria.")).ToBeVisibleAsync();
                 }
                 Logger.Info("Filter by Completed status applied");
-            }, nameof(TC_015_Verify_FilterStatus_Completed));
+            }, nameof(TC_182_Verify_FilterStatus_Completed));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_016_Verify_FilterStatus_Failed")]
+        [AllureOwner("TC_183_Verify_FilterStatus_Failed")]
         [AllureTag("Regression")]
-        public async Task TC_016_Verify_FilterStatus_Failed()
+        public async Task TC_183_Verify_FilterStatus_Failed()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -408,30 +409,30 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 }
                 
                 Logger.Info("Filter by Failed status applied");
-            }, nameof(TC_016_Verify_FilterStatus_Failed));
+            }, nameof(TC_183_Verify_FilterStatus_Failed));
         }
         #endregion
         
         #region Edit Details
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_017_Verify_EditButtonOperation")]
+        [AllureOwner("TC_184_Verify_EditButtonOperation")]
         [AllureTag("Regression")]
-        public async Task TC_017_Verify_EditButtonOperation()
+        public async Task TC_184_Verify_EditButtonOperation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _migrationControlCentrePage.ClickEditDetailsAsync();
                 await Assertions.Expect(Page.GetByText("Actions")).ToBeVisibleAsync();
                 Logger.Info("Filter by All status applied");
-            }, nameof(TC_017_Verify_EditButtonOperation));
+            }, nameof(TC_184_Verify_EditButtonOperation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_018_Verify_EditOperation_Status")]
+        [AllureOwner("TC_185_Verify_EditOperation_Status")]
         [AllureTag("Regression")]
-        public async Task TC_018_Verify_EditOperation_WaveStatus()
+        public async Task TC_185_Verify_EditOperation_WaveStatus()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -442,14 +443,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.SaveEditsAsync(waveName);
                 await Assertions.Expect(Page.GetByText("Wave status updated successfully.")).ToBeVisibleAsync();
                 Logger.Info("Filter by All status applied");
-            }, nameof(TC_018_Verify_EditOperation_WaveStatus));
+            }, nameof(TC_185_Verify_EditOperation_WaveStatus));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_019_Verify_EditOperation_GroupStatus")]
+        [AllureOwner("TC_186_Verify_EditOperation_GroupStatus")]
         [AllureTag("Regression")]
-        public async Task TC_019_Verify_EditOperation_GroupStatus()
+        public async Task TC_186_Verify_EditOperation_GroupStatus()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -463,14 +464,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.SaveEditsAsync(groupName);
                 await Assertions.Expect(Page.GetByText("Group status updated successfully.")).ToBeVisibleAsync();
                 Logger.Info("Filter by All status applied");
-            }, nameof(TC_019_Verify_EditOperation_GroupStatus));
+            }, nameof(TC_186_Verify_EditOperation_GroupStatus));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_020_Verify_WaveRescheduleOperation")]
+        [AllureOwner("TC_187_Verify_WaveRescheduleOperation")]
         [AllureTag("Regression")]
-        public async Task TC_020_Verify_WaveRescheduleOperation()
+        public async Task TC_187_Verify_WaveRescheduleOperation()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -483,14 +484,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _basicSetup.WaitForPageAsync(2);
                 await _migrationControlCentrePage.SaveEditsAsync(waveName);
                 Logger.Info("Filter by All status applied");
-            }, nameof(TC_020_Verify_WaveRescheduleOperation));
+            }, nameof(TC_187_Verify_WaveRescheduleOperation));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_021_WaveRescheduleOperation__PastDate")]
+        [AllureOwner("TC_188_WaveRescheduleOperation__PastDate")]
         [AllureTag("Regression")]
-        public async Task TC_021_WaveRescheduleOperation_PastDate()
+        public async Task TC_188_WaveRescheduleOperation_PastDate()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -498,27 +499,18 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
 
                 string waveName = "Wave 1";
                 await _migrationControlCentrePage.OpenRescheduleCalendarAsync(waveName);
-                string pastDate = DateTime.UtcNow.AddDays(-1).ToString("dd");
+                string pastDate = DateTime.UtcNow.AddDays(-1).Day.ToString();
+                Console.WriteLine($"Attempting to select past date: {pastDate}");
                 await _migrationControlCentrePage.DatePicker.ClickAsync();
-                var pastDayButton = Page.GetByRole(AriaRole.Button, new(){Name=pastDate});
-                bool isDisabled = await pastDayButton.GetAttributeAsync("disabled") != null ||
-                                  await pastDayButton.EvaluateAsync<bool>("el => el.classList.contains('disabled') || el.ariaDisabled === 'true'");
-
-                if (!isDisabled)
-                {
-                    await pastDayButton.ClickAsync(new() { Timeout = 5000 });
-                    await Page.GetByRole(AriaRole.Button, new() { Name = "Reschedule" }).ClickAsync();
-                    await _basicSetup.WaitForPageAsync(2);
-                    await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Planned Start Date cannot be in the past");
-                }
-                else
-                {
-                    Assert.True(isDisabled);
-                    Logger.Info("Past date selection allowed for Planned Start Date");
-                }
-
+                var pastDayButton = Page.GetByRole(AriaRole.Button, new(){Name=pastDate}).First;
+                                
+                await pastDayButton.ClickAsync(new() { Timeout = 5000 });
+                await Page.GetByRole(AriaRole.Button, new() { Name = "Reschedule" }).ClickAsync();
+                await _basicSetup.WaitForPageAsync(2);
+                await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Planned Start Date cannot be in the past");
+                
                 Logger.Info("Past date selection correctly blocked or produces validation error");
-            }, nameof(TC_021_WaveRescheduleOperation_PastDate));
+            }, nameof(TC_188_WaveRescheduleOperation_PastDate));
         }
 
 
@@ -527,23 +519,23 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
         #region Schedule Migration
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_022_Open_Schedule_Migration")]
+        [AllureOwner("TC_189_Open_Schedule_Migration")]
         [AllureTag("Rregression")]
-        public async Task TC_022_Open_Schedule_Migration()
+        public async Task TC_189_Open_Schedule_Migration()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _migrationControlCentrePage.OpenScheduleMigrationModalAsync();
                 await Assertions.Expect(Page.GetByRole(AriaRole.Dialog).GetByRole(AriaRole.Heading, new() { Name = "Timeline Scheduler"})).ToBeVisibleAsync();
                 Logger.Info("Schedule Migration modal opened successfully");
-            }, nameof(TC_022_Open_Schedule_Migration));
+            }, nameof(TC_189_Open_Schedule_Migration));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_023_ScheduleMigration_ProjectStartDate")]
+        [AllureOwner("TC_190_ScheduleMigration_ProjectStartDate")]
         [AllureTag("Regression")]
-        public async Task TC_023_ScheduleMigration_ProjectStartDate()
+        public async Task TC_190_ScheduleMigration_ProjectStartDate()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -553,14 +545,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _basicSetup.WaitForPageAsync(1);
                 await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Migration schedule generated successfully.");
                 Logger.Info("Future start date selected");
-            }, nameof(TC_023_ScheduleMigration_ProjectStartDate));
+            }, nameof(TC_190_ScheduleMigration_ProjectStartDate));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_024_Verify_AddManualHoliday")]
+        [AllureOwner("TC_191_Verify_AddManualHoliday")]
         [AllureTag("Regression")]
-        public async Task TC_024_Verify_AddManualHoliday()
+        public async Task TC_191_Verify_AddManualHoliday()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -569,14 +561,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 var isAdded = await _migrationControlCentrePage.IsHolidayInTableAsync("Christmas Day");
                 Assert.True(isAdded);
                 Logger.Info("Manual holiday added and visible in table");
-            }, nameof(TC_024_Verify_AddManualHoliday));
+            }, nameof(TC_191_Verify_AddManualHoliday));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_025_Add_Manual_Holiday_Missing_Required_Field_Negative")]
+        [AllureOwner("TC_192_Add_Manual_Holiday_Missing_Required_Field_Negative")]
         [AllureTag("Regression")]
-        public async Task TC_025_AddManualHoliday_MissingRequiredField_Negative()
+        public async Task TC_192_AddManualHoliday_MissingRequiredField_Negative()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -592,14 +584,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 Assert.True(hasError, "Validation error should appear when required fields are missing");
 
                 Logger.Info("Attempt to add manual holiday without date/name correctly blocked");
-            }, nameof(TC_025_AddManualHoliday_MissingRequiredField_Negative));
+            }, nameof(TC_192_AddManualHoliday_MissingRequiredField_Negative));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_026_Upload_Valid_HolidayFile")]
+        [AllureOwner("TC_193_Upload_Valid_HolidayFile")]
         [AllureTag("Regression")]
-        public async Task TC_026_Upload_Valid_HolidayFile()
+        public async Task TC_193_Upload_Valid_HolidayFile()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -607,14 +599,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.HoliDayFileUploadOperationAsync();
                 await Assertions.Expect(Page.Locator("tr.mud-table-row").Nth(1).GetByText("Wave Name Sequence Planned")).Not.ToBeVisibleAsync();
                 Logger.Info("Valid CSV holidays uploaded and displayed");
-            }, nameof(TC_026_Upload_Valid_HolidayFile));
+            }, nameof(TC_193_Upload_Valid_HolidayFile));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_027_Upload_Invalid_File_Format_Negative")]
+        [AllureOwner("TC_194_Upload_Invalid_File_Format_Negative")]
         [AllureTag("Regression")]
-        public async Task TC_027_Upload_Invalid_File_Format_Negative()
+        public async Task TC_194_Upload_Invalid_File_Format_Negative()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -626,14 +618,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await Page.SetInputFilesAsync("input[id='holiday-file']", invalidFilePath);   
                 await Assertions.Expect(Page.Locator("role=alert").Last).ToHaveTextAsync("Oops! We only support CSV and JSON files right now. Please upload one of those.");
                 Logger.Info("Invalid file upload correctly rejected");
-            }, nameof(TC_027_Upload_Invalid_File_Format_Negative));
+            }, nameof(TC_194_Upload_Invalid_File_Format_Negative));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_028_Verify_FormatHelpAccess")]
+        [AllureOwner("TC_195_Verify_FormatHelpAccess")]
         [AllureTag("Regression")]
-        public async Task TC_028_Verify_FormatHelpAccess()
+        public async Task TC_195_Verify_FormatHelpAccess()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -644,14 +636,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.CloseFormatHelpAsync();
                 await Assertions.Expect(_migrationControlCentrePage.FormatHelpDialog).Not.ToBeVisibleAsync();
                 Logger.Info("Verified Format help access successfully");
-            }, nameof(TC_028_Verify_FormatHelpAccess));
+            }, nameof(TC_195_Verify_FormatHelpAccess));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_029_Cancel_ScheduleMigration")]
+        [AllureOwner("TC_196_Cancel_ScheduleMigration")]
         [AllureTag("Regression")]
-        public async Task TC_029_Cancel_ScheduleMigration()
+        public async Task TC_196_Cancel_ScheduleMigration()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -659,7 +651,7 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.CancelSchedulerAsync();
                 await Assertions.Expect(Page.GetByRole(AriaRole.Dialog).GetByRole(AriaRole.Heading, new() { Name = "Timeline Scheduler"})).Not.ToBeVisibleAsync();
                 Logger.Info("Migration scheduling cancelled successfully");
-            }, nameof(TC_029_Cancel_ScheduleMigration));
+            }, nameof(TC_196_Cancel_ScheduleMigration));
         }
 
         #endregion
@@ -667,23 +659,23 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
         #region Parameter Configuration
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_030__Verify_ParameterConfgurationSection")]
+        [AllureOwner("TC_197__Verify_ParameterConfgurationSection")]
         [AllureTag("Regression")]
-        public async Task TC_030__Verify_ParameterConfgurationSection()
+        public async Task TC_197__Verify_ParameterConfgurationSection()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _migrationControlCentrePage.OpenParameterConfiguration();
                 await Assertions.Expect(Page.GetByRole(AriaRole.Dialog).GetByRole(AriaRole.Heading, new(){Name="Configure and Generate"})).ToBeVisibleAsync();
                 Logger.Info("Valid parameter values saved successfully");
-            }, nameof(TC_030__Verify_ParameterConfgurationSection));
+            }, nameof(TC_197__Verify_ParameterConfgurationSection));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_031_ConfigureParameters_ValidInput")]
+        [AllureOwner("TC_198_ConfigureParameters_ValidInput")]
         [AllureTag("Regression")]
-        public async Task TC_031_ConfigureParameters_ValidInput()
+        public async Task TC_198_ConfigureParameters_ValidInput()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -693,14 +685,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.GenerateMigrationScheduleAsync();
                 await Assertions.Expect(Page.GetByText("Migration plan generated successfully")).ToBeVisibleAsync();
                 Logger.Info("Valid parameter values saved successfully");
-            }, nameof(TC_031_ConfigureParameters_ValidInput));
+            }, nameof(TC_198_ConfigureParameters_ValidInput));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_032_ConfigureParameters_InValidInput")]
+        [AllureOwner("TC_199_ConfigureParameters_InValidInput")]
         [AllureTag("Regression")]
-        public async Task TC_032_ConfigureParameters_InValidInput()
+        public async Task TC_199_ConfigureParameters_InValidInput()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -714,14 +706,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.GenerateMigrationScheduleAsync();
                 await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("The input value cannot be lesser than the default value.");
                 Logger.Info("Valid parameter values saved successfully");
-            }, nameof(TC_032_ConfigureParameters_InValidInput));
+            }, nameof(TC_199_ConfigureParameters_InValidInput));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_033_Export_Scheduled_Plan")]
+        [AllureOwner("TC_200_Export_Scheduled_Plan")]
         [AllureTag("regression")]
-        public async Task TC_033_Export_Scheduled_Plan()
+        public async Task TC_200_Export_Scheduled_Plan()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -731,14 +723,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 Assert.NotNull(download);
                 Assert.EndsWith(".xlsx", download.SuggestedFilename);
                 Logger.Info("Migration plan exported as Excel successfully");
-            }, nameof(TC_033_Export_Scheduled_Plan));
+            }, nameof(TC_200_Export_Scheduled_Plan));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_034_Verify_Statistics_Display")]
+        [AllureOwner("TC_201_Verify_Statistics_Display")]
         [AllureTag("Regression")]
-        public async Task TC_034_Verify_Statistics_Display()
+        public async Task TC_201_Verify_Statistics_Display()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -746,14 +738,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await Assertions.Expect(Page.GetByRole(AriaRole.Dialog)
                     .GetByRole(AriaRole.Heading, new() {Name ="Migration Plan Summary"})).ToBeVisibleAsync();
                 Logger.Info("Statistics panel displays server/wave/group counts");
-            }, nameof(TC_034_Verify_Statistics_Display));
+            }, nameof(TC_201_Verify_Statistics_Display));
         }
         
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_035_Verify_ExpandWave")]
+        [AllureOwner("TC_202_Verify_ExpandWave")]
         [AllureTag("Regression")]
-        public async Task TC_035_Verify_ExpandGroup()
+        public async Task TC_202_Verify_ExpandGroup()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -768,14 +760,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.ExpandWaveInTimelineAsync(waveName);
                 await Assertions.Expect(Page.GetByRole(AriaRole.Columnheader,new() {Name="Server Name"}).First).ToBeVisibleAsync();
                 Logger.Info("Group expanded and servers visible in timeline");
-            }, nameof(TC_035_Verify_ExpandGroup));
+            }, nameof(TC_202_Verify_ExpandGroup));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_036_MoveGroup_AcrossWave")]
+        [AllureOwner("TC_203_MoveGroup_AcrossWave")]
         [AllureTag("Regression")]
-        public async Task TC_036_MoveGroup_AcrossWave()
+        public async Task TC_203_MoveGroup_AcrossWave()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -790,14 +782,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 var waveContainer = waveHeading.Locator("xpath=ancestor::div[contains(@class,'mud-paper') " +  "and contains(@class,'pa-6')][1]");
                 await _basicSetup.WaitForPageAsync(2);
                 await Assertions.Expect(waveContainer.Locator(".mud-card-content").GetByText(sourceGroupName)).ToBeVisibleAsync();
-            }, nameof(TC_036_MoveGroup_AcrossWave));
+            }, nameof(TC_203_MoveGroup_AcrossWave));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_037")]
+        [AllureOwner("TC_204")]
         [AllureTag("Regression")]
-        public async Task TC_037_Verify_BackloggedGroup()
+        public async Task TC_204_Verify_BackloggedGroup()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -811,14 +803,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await Assertions.Expect(groupTitle).ToBeVisibleAsync();
                 await Assertions.Expect(Page.GetByText("Groups moved to backlog successfully.")).ToBeVisibleAsync();            
                 Logger.Info("Group backlogged successfully");
-            }, nameof(TC_037_Verify_BackloggedGroup));
+            }, nameof(TC_204_Verify_BackloggedGroup));
         }
 
          [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_038_Rollback_BackloggedGroupToTargetWave")]
+        [AllureOwner("TC_205_Rollback_BackloggedGroupToTargetWave")]
         [AllureTag("Regression")]
-        public async Task TC_038_Rollback_BackloggedGroup()
+        public async Task TC_205_Rollback_BackloggedGroup()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -840,14 +832,14 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await Assertions.Expect(waveContainer.Locator(".mud-card-content").GetByText(sourceGroupName)).ToBeVisibleAsync();
                 await Assertions.Expect(Page.GetByText($"Group {sourceGroupName} restored successfully.")).ToBeVisibleAsync();
                 Logger.Info("Backlogged group rolled back successfully");
-            }, nameof( TC_038_Rollback_BackloggedGroup));
+            }, nameof( TC_205_Rollback_BackloggedGroup));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_039_Rollback_BackloggedGroupToTargetWave")]
+        [AllureOwner("TC_206_Rollback_BackloggedGroupToTargetWave")]
         [AllureTag("Regression")]
-        public async Task TC_039_Rollback_BackloggedGroupToTargetWave()
+        public async Task TC_206_Rollback_BackloggedGroupToTargetWave()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -857,26 +849,30 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 var groupValue=new Random().Next(1,await Page.GetByText(string.Concat("Wave ",waveValue," Group ")).CountAsync());  
                 var sourceGroupName=string.Concat("Wave ",waveValue," Group ",groupValue);
                 var targetWaveName="Wave "+ (waveValue+1);
-
                 await _migrationControlCentrePage.BacklogGroupAsync(sourceGroupName);
                 await _basicSetup.WaitForPageAsync(1);
                 await _migrationControlCentrePage.RollbackGroupToTargetWaveAsync(targetWaveName);
 
+                await Assertions.Expect(Page.GetByText($"Group {sourceGroupName} restored successfully.")).ToBeVisibleAsync();
+
                 var waveHeading = Page.Locator("h5.mud-typography-h5").Filter(new() { HasText = targetWaveName });
                 await _basicSetup.WaitForPageAsync(2);
+                await waveHeading.HighlightAsync();
                 var waveContainer = waveHeading.Locator("xpath=ancestor::div[contains(@class,'mud-paper') " +  "and contains(@class,'pa-6')][1]");
                 await _basicSetup.WaitForPageAsync(2);
-                await Assertions.Expect(waveContainer.Locator(".mud-card-content").GetByText(sourceGroupName)).ToBeVisibleAsync();
-                await Assertions.Expect(Page.GetByText($"Group {sourceGroupName} restored successfully.")).ToBeVisibleAsync();
+                await waveContainer.ScrollIntoViewIfNeededAsync();
+                await waveContainer.HighlightAsync();
+                await Assertions.Expect(Page.Locator($"h5:has-text('{targetWaveName}') ~ .mud-paper .mud-card-content p:has-text('{sourceGroupName}')")).ToBeVisibleAsync();
+                
                 Logger.Info("Backlogged group rolled back successfully");
-            }, nameof( TC_039_Rollback_BackloggedGroupToTargetWave));
+            }, nameof( TC_206_Rollback_BackloggedGroupToTargetWave));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_040_Configure_Parameters_ZeroEdgeValue")]
+        [AllureOwner("TC_207_Configure_Parameters_ZeroEdgeValue")]
         [AllureTag("Regression")]
-        public async Task TC_040_Configure_Parameters_ZeroEdgeValue()
+        public async Task TC_207_Configure_Parameters_ZeroEdgeValue()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -890,15 +886,15 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.GenerateMigrationScheduleAsync();
                 await Assertions.Expect(Page.Locator("role=alert")).ToContainTextAsync("The input value cannot be lesser than the deafult value.");
                 Logger.Info("Valid parameter values saved successfully");
-            }, nameof(TC_040_Configure_Parameters_ZeroEdgeValue));
+            }, nameof(TC_207_Configure_Parameters_ZeroEdgeValue));
                
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_041_Configure_Parameters_NonIntegerInput")]
+        [AllureOwner("TC_208_Configure_Parameters_NonIntegerInput")]
         [AllureTag("regression")]
-        public async Task TC_041_Configure_Parameters_NonIntegerInput()
+        public async Task TC_208_Configure_Parameters_NonIntegerInput()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -909,10 +905,9 @@ namespace WiseMigrateTests.Pages.MigrationControlCentre
                 await _migrationControlCentrePage.SetParameterValueAsync("Maximum Servers per Move Group","2.5");
                 await _migrationControlCentrePage.SetParameterValueAsync("Minimum Move Groups per Wave*","2.5");
                 await _migrationControlCentrePage.SetParameterValueAsync("Maximum Move Groups per Wave*","3.5");
-                await _migrationControlCentrePage.GenerateMigrationScheduleAsync();
-                await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("The input value cannot be lesser than the default value.");
-                Logger.Info("Valid parameter values saved successfully");
-            }, nameof(TC_041_Configure_Parameters_NonIntegerInput));
+                await Assertions.Expect(Page.GetByText("Not a valid number").First).ToBeVisibleAsync();
+            
+            }, nameof(TC_208_Configure_Parameters_NonIntegerInput));
         }
 
         #endregion
