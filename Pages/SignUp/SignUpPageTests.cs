@@ -16,11 +16,6 @@ namespace WiseMigrateTests.Pages.SignUp
         private SignUpPage _signUpPage = null!;
         private BasicSetup _setup=null!;
 
-        public SignUpPageTests()
-        {
-            
-        }
-
         public new async Task InitializeAsync()
         {
             await base.InitializeAsync();
@@ -31,26 +26,23 @@ namespace WiseMigrateTests.Pages.SignUp
             await _setup.WaitForPageAsync(5);
         }
 
-
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
-        [AllureOwner("TC_001_SignUpPage_Should_Load_Successfully")]
+        [AllureOwner("TC_209_SignUpPage_Should_Load_Successfully")]
         [AllureTag("Smoke")]
         [Trait("Category", "Smoke")]
         [Fact]
-        public async Task TC_001_SignUpPage_Should_Load_Successfully()
+        public async Task TC_209_SignUpPage_Should_Load_Successfully()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 Logger.Info("TC_SIGNUP_01: Sign Up page loaded successfully.");
-            }, nameof(TC_001_SignUpPage_Should_Load_Successfully));
+            }, nameof(TC_209_SignUpPage_Should_Load_Successfully));
         }
 
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
-        [AllureOwner("TC_002_SignUpPage_Should_Have_Clickable_Buttons")]
+        [AllureOwner("TC_210_SignUpPage_Should_Have_Clickable_Buttons")]
         [AllureTag("Smoke")]
         [Trait("Category", "Smoke")]
         [Fact]
-        public async Task TC_002_SignUpPage_Should_Have_Clickable_Buttons()
+        public async Task TC_210_SignUpPage_Should_Have_Clickable_Buttons()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -59,15 +51,14 @@ namespace WiseMigrateTests.Pages.SignUp
                 {
                     Logger.Info("Sign Up button is clickable");
                 }
-            }, nameof(TC_002_SignUpPage_Should_Have_Clickable_Buttons));
+            }, nameof(TC_210_SignUpPage_Should_Have_Clickable_Buttons));
         }
 
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
-        [AllureOwner("TC_003_Validate_Registeration_Empty_UserName_Field")]
+        [AllureOwner("TC_211_Validate_Registeration_Empty_UserName_Field")]
         [AllureTag("Smoke")]
         [Trait("Category", "Smoke")]
         [Fact]
-        public async Task TC_003_Validate_Registeration_Empty_UserName_Field()
+        public async Task TC_211_Validate_Registeration_Empty_UserName_Field()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -77,15 +68,14 @@ namespace WiseMigrateTests.Pages.SignUp
                 await Assertions.Expect(Page.Locator("role=alert"))
                     .ToHaveTextAsync("Registration failed. Please try again or contact support if the issue persists.");
                 Logger.Info("TC_SIGNUP_03: Registeration with empty user name field attempted unsuccessfully.");
-            }, nameof(TC_003_Validate_Registeration_Empty_UserName_Field));
+            }, nameof(TC_211_Validate_Registeration_Empty_UserName_Field));
         }
 
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
-        [AllureOwner("TC_004_Validate_Registeration_Empty_Password_Field")]
+        [AllureOwner("TC_212_Validate_Registeration_Empty_Password_Field")]
         [AllureTag("Smoke")]
         [Trait("Category", "Smoke")]
         [Fact]
-        public async Task TC_004_Validate_Registeration_Empty_Password_Field()
+        public async Task TC_212_Validate_Registeration_Empty_Password_Field()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -95,15 +85,14 @@ namespace WiseMigrateTests.Pages.SignUp
                 await Assertions.Expect(Page.Locator("role=alert"))
                     .ToHaveTextAsync("Registration failed. Please try again or contact support if the issue persists.");
                 Logger.Info("TC_SIGNUP_04: Registeration with empty password field attempted unsuccessfully.");
-            }, nameof(TC_004_Validate_Registeration_Empty_Password_Field));
+            }, nameof(TC_212_Validate_Registeration_Empty_Password_Field));
         }
 
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
-        [AllureOwner("TC_005_Validate_Registeration_Duplicate_Email")]
+        [AllureOwner("TC_213_Validate_Registeration_Duplicate_Email")]
         [AllureTag("Smoke")]
         [Trait("Category", "Smoke")]
         [Fact]
-        public async Task TC_005_Validate_Registeration_Duplicate_Email()
+        public async Task TC_213_Validate_Registeration_Duplicate_Email()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -113,15 +102,14 @@ namespace WiseMigrateTests.Pages.SignUp
                     .ToHaveTextAsync("Registration failed. Please try again or contact support if the issue persists.");
                 await Assertions.Expect(Page).ToHaveTitleAsync("Register");
                 Logger.Info("TC_SIGNUP_05: Registeration with duplicate email attempted unsuccessfully.");
-            }, nameof(TC_005_Validate_Registeration_Duplicate_Email));
+            }, nameof(TC_213_Validate_Registeration_Duplicate_Email));
         }
 
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
-        [AllureOwner("TC_006_Validate_Registeration_Valid_Credentials")]
+        [AllureOwner("TC_214_Validate_Registeration_Valid_Credentials")]
         [AllureTag("Smoke")]
         [Trait("Category", "Smoke")]
         [Fact]
-        public async Task TC_006_Validate_Registeration_Valid_Credentials()
+        public async Task TC_214_Validate_Registeration_Valid_Credentials()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -129,15 +117,14 @@ namespace WiseMigrateTests.Pages.SignUp
                 await _setup.WaitForPageAsync(3);
                 await Assertions.Expect(Page).ToHaveTitleAsync("Register");
                 Logger.Info("TC_SIGNUP_06: Registeration with valid credentials attempted successfully.");
-            }, nameof(TC_006_Validate_Registeration_Valid_Credentials));
+            }, nameof(TC_214_Validate_Registeration_Valid_Credentials));
         }
 
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
-        [AllureOwner("TC_007_Validate_Registeration_Mismatching_Password")]
+        [AllureOwner("TC_215_Validate_Registeration_Mismatching_Password")]
         [AllureTag("Smoke")]
         [Trait("Category", "Smoke")]
         [Fact]
-        public async Task TC_007_Validate_Registeration_Mismatching_Password()
+        public async Task TC_215_Validate_Registeration_Mismatching_Password()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -147,15 +134,14 @@ namespace WiseMigrateTests.Pages.SignUp
                 await Assertions.Expect(Page.Locator("role=alert"))
                     .ToHaveTextAsync("Passwords do not match. Please ensure both passwords are identical.");
                 Logger.Info("TC_SIGNUP_07: Registeration with mismatching passwords attempted unsuccessfully.");
-            }, nameof(TC_007_Validate_Registeration_Mismatching_Password));
+            }, nameof(TC_215_Validate_Registeration_Mismatching_Password));
         }
 
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
-        [AllureOwner("TC_008_Validate_Registeration_Empty_Organization")]
+        [AllureOwner("TC_216_Validate_Registeration_Empty_Organization")]
         [AllureTag("Smoke")]
         [Trait("Category", "Smoke")]
         [Fact]
-        public async Task TC_008_Validate_Registeration_Empty_Organization()
+        public async Task TC_216_Validate_Registeration_Empty_Organization()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -165,7 +151,7 @@ namespace WiseMigrateTests.Pages.SignUp
                     .ToHaveTextAsync("Invalid organization selected. Please choose a valid option.");
                 await Assertions.Expect(Page).ToHaveTitleAsync("Register");
                 Logger.Info("TC_SIGNUP_08: Registeration with empty organization attempted successfully.");
-            }, nameof(TC_008_Validate_Registeration_Empty_Organization));
+            }, nameof(TC_216_Validate_Registeration_Empty_Organization));
         }   
     }
 }

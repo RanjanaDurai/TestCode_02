@@ -3,12 +3,13 @@ using WiseMigrateTests.Pages.PreRequisites;
 using WiseMigrateTests.Pages.Login;      
 using WiseMigrateTests.Pages.Project;
 using System.Collections.Generic;
+using System.Reflection;
 using WiseMigrateTests.Utils;
 using Xunit;
 
 namespace WiseMigrateTests.TestHooks
 {
-    public class TestBaseFixture : IClassFixture<GlobalTestFixture>,IClassFixture<SharedContextFixture>, IAsyncLifetime
+    public class TestBaseFixture : IClassFixture<GlobalTestFixture>, IAsyncLifetime
     {
         protected IBrowserContext Context { get; private set; } = null!;
         protected IPage Page { get; private set; } = null!;
@@ -17,11 +18,23 @@ namespace WiseMigrateTests.TestHooks
         protected string? _createdProjectName; 
         protected virtual bool UseClassLevelGrouping => false;
         private static readonly Dictionary<Type, SharedContextFixture> _classFixtures = new();
+
+        private static readonly Dictionary<Type, int> _testsExecuted = new Dictionary<Type, int>();
+        private static readonly Dictionary<Type, int> _totalTestsInClass = new Dictionary<Type, int>();
         public async Task InitializeAsync()
         {
+            var currentClassType = this.GetType();
+
+            if (!_totalTestsInClass.ContainsKey(currentClassType))
+            {
+                _totalTestsInClass[currentClassType] = GetTestMethodCount(currentClassType);
+                Console.WriteLine($"[REFLECTION] Found {_totalTestsInClass[currentClassType]} test methods in class {currentClassType.Name}");
+            }
+
             if (UseClassLevelGrouping)
             {
                 var type = this.GetType();
+
                 if (!_classFixtures.ContainsKey(type)) _classFixtures[type] = new SharedContextFixture();
                 
                 var shared = _classFixtures[type];
@@ -94,6 +107,14 @@ namespace WiseMigrateTests.TestHooks
                 ?? throw new InvalidOperationException("Could not extract project_id from URL");
         }
 
+         private static int GetTestMethodCount(Type testClassType)
+        {
+            return testClassType.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+                                .Count(method =>
+                                    method.GetCustomAttributes(typeof(FactAttribute), true).Any() ||
+                                    method.GetCustomAttributes(typeof(TheoryAttribute), true).Any());
+        }
+
 
         protected async Task RunTestAsync(Func<Task> testBody, string testName)
         {
@@ -121,15 +142,55 @@ namespace WiseMigrateTests.TestHooks
 
             try
             {
-                if (UseClassLevelGrouping)
+                 if (UseClassLevelGrouping)
                 {
-                    Console.WriteLine("DISPOSEASYNC - Class Level Reset (Shared Context)");                     
+                    var classType = this.GetType();                                 // Line A
+
+                    _testsExecuted[classType] = _testsExecuted.GetValueOrDefault(classType) + 1;   // Line B
+
+                    int completed = _testsExecuted[classType];                     // Line C
+                    int total = _totalTestsInClass.GetValueOrDefault(classType, 1); // Line D
+
+                    Console.WriteLine($"DISPOSEASYNC - Class Level Reset | Tests: {completed}/{total}");
                     await Page.WaitForLoadStateAsync(LoadState.NetworkIdle, new PageWaitForLoadStateOptions
                     {
-                        Timeout = 10000
+                        Timeout = 1000
                     });
+                    
+
+                    if (completed == total)                                         // Line E
+                    {
+                        Console.WriteLine(">>> FINAL CLASS CLEANUP - Deleting shared project after last test <<<");
+
+                        if (_classFixtures.TryGetValue(classType, out var shared) && shared?.ProjectName != null)
+                        {
+                            try
+                            {
+                                var basicSetup = new BasicSetup(shared.Page!);
+                                Page.GotoAsync(basicSetup.AppUrl + "/projects", new()
+                                {
+                                    WaitUntil = WaitUntilState.NetworkIdle,
+                                    Timeout = 60000
+                                }).GetAwaiter().GetResult();
+                                await basicSetup.DeleteProjectAsync(shared.ProjectName);
+
+                                Console.WriteLine($"[SHARED CLEANUP] Successfully deleted project: {shared.ProjectName}");
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"[SHARED CLEANUP] Failed to delete '{shared.ProjectName}': {ex.Message}");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Cleanup skipped - waiting for remaining tests ({completed}/{total})");
+                    }
+
+                    await Page.WaitForLoadStateAsync(LoadState.NetworkIdle, new PageWaitForLoadStateOptions { Timeout = 5000 });
         
                 }
+
                 else
                 {
 

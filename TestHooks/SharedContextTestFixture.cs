@@ -75,34 +75,34 @@ namespace WiseMigrateTests.TestHooks
         {
            Console.WriteLine("SharedContextFixture.DisposeAsync() - Cleaning up shared project");
 
-            if (!string.IsNullOrEmpty(ProjectName) && Context != null)
-            {
-                var cleanupPage = await Context.NewPageAsync();
-                try
-                {
+            // if (!string.IsNullOrEmpty(ProjectName) && Context != null)
+            // {
+            //     var cleanupPage = await Context.NewPageAsync();
+            //     try
+            //     {
                     
-                    await cleanupPage.GotoAsync(Utils.ConfigReader.Get("AppUrl") + "/projects", new PageGotoOptions
-                    {
-                        WaitUntil = WaitUntilState.NetworkIdle,
-                        Timeout = 60000
-                    });
+            //         await cleanupPage.GotoAsync(Utils.ConfigReader.Get("AppUrl") + "/projects", new PageGotoOptions
+            //         {
+            //             WaitUntil = WaitUntilState.NetworkIdle,
+            //             Timeout = 60000
+            //         });
 
-                    await DeleteSharedProjectAsync(cleanupPage);
+            //         await DeleteSharedProjectAsync(cleanupPage);
 
-                    Console.WriteLine($"[SHARED CLEANUP] Successfully deleted projects");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"[SHARED CLEANUP] Failed to delete projects : {ex.Message}");
-                }
-                finally
-                {
-                    if (cleanupPage != null)
-                    {
-                        await cleanupPage.CloseAsync();
-                    }
-                }
-            }
+            //         Console.WriteLine($"[SHARED CLEANUP] Successfully deleted projects");
+            //     }
+            //     catch (Exception ex)
+            //     {
+            //         Console.WriteLine($"[SHARED CLEANUP] Failed to delete projects : {ex.Message}");
+            //     }
+            //     finally
+            //     {
+            //         if (cleanupPage != null)
+            //         {
+            //             await cleanupPage.CloseAsync();
+            //         }
+            //     }
+            // }
             if (Context != null) await Context.CloseAsync();
         }
     }

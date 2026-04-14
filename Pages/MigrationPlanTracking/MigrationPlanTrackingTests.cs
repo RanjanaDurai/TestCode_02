@@ -35,9 +35,9 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_001_MigrationPlanTracking_Page_UI_Should_Load")]
+        [AllureOwner("TC_161_MigrationPlanTracking_Page_UI_Should_Load")]
         [AllureTag("Smoke")]
-        public async Task TC_001_MigrationPlanTracking_Page_UI_Should_Load()
+        public async Task TC_161_MigrationPlanTracking_Page_UI_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -46,14 +46,14 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
                 ).ToBeVisibleAsync();
 
                 Logger.Info("Migration Plan Tracking page loaded");
-            }, nameof(TC_001_MigrationPlanTracking_Page_UI_Should_Load));
+            }, nameof(TC_161_MigrationPlanTracking_Page_UI_Should_Load));
         }
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons")]
+        [AllureOwner("TC_162_MigrationPlanTracking_Should_Have_Clickable_Buttons")]
         [AllureTag("Smoke")]
-        public async Task TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons()
+        public async Task TC_162_MigrationPlanTracking_Should_Have_Clickable_Buttons()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -64,7 +64,7 @@ namespace WiseMigrateTests.Pages.MigrationPlanTracking
 
                 await Assertions.Expect(viewPlanButton).ToBeEnabledAsync();
                 Logger.Info("Migration Plan Tracking page has clickable buttons");
-            }, nameof(TC_002_MigrationPlanTracking_Should_Have_Clickable_Buttons));
+            }, nameof(TC_162_MigrationPlanTracking_Should_Have_Clickable_Buttons));
         } 
     }
 }    

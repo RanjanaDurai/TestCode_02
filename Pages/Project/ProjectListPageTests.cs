@@ -32,23 +32,23 @@ namespace WiseMigrateTests.Pages.Project
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_001_Project_Dashboard_Should_Load")]
+        [AllureOwner("TC_013_Project_Dashboard_Should_Load")]
         [AllureTag("Smoke")]
-        public async Task TC_001_Project_Dashboard_Should_Load()
+        public async Task TC_013_Project_Dashboard_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.WaitForDashboardToBeReadyAsync();
                 await Assertions.Expect(Page.GetByText("Project Dashboard")).ToBeVisibleAsync();
                 Logger.Info("Dashboard loaded");
-            }, nameof(TC_001_Project_Dashboard_Should_Load));
+            }, nameof(TC_013_Project_Dashboard_Should_Load));
         }
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_002_Navigate_To_Create_Project_Page")]
+        [AllureOwner("TC_014_Navigate_To_Create_Project_Page")]
         [AllureTag("Smoke")]
-        public async Task TC_002_Navigate_To_Create_Project_Page()
+        public async Task TC_014_Navigate_To_Create_Project_Page()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -57,14 +57,14 @@ namespace WiseMigrateTests.Pages.Project
                 await _projectList.ClickCreateNewProjectAsync();
                 await Page.WaitForURLAsync("**/project-creation");
                 Logger.Info("Navigated to Create Project page");
-            }, nameof(TC_002_Navigate_To_Create_Project_Page));
+            }, nameof(TC_014_Navigate_To_Create_Project_Page));
         }
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_003_Project_Creation_UI_Should_Load")]
+        [AllureOwner("TC_015_Project_Creation_UI_Should_Load")]
         [AllureTag("Smoke")]
-        public async Task TC_003_Project_Creation_UI_Should_Load()
+        public async Task TC_015_Project_Creation_UI_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -77,107 +77,107 @@ namespace WiseMigrateTests.Pages.Project
                 await Assertions.Expect(Page.GetByLabel("Description")).ToBeVisibleAsync();
 
                 Logger.Info("Project creation UI is visible");
-            }, nameof(TC_003_Project_Creation_UI_Should_Load));
+            }, nameof(TC_015_Project_Creation_UI_Should_Load));
         }
         
         //  Regression TEST CASES 
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_004_ViewUploadedData")]
+        [AllureOwner("TC_016_ViewUploadedData")]
         [AllureTag("Regression")]
-        public async Task TC_004_ViewUploadedData()
+        public async Task TC_016_ViewUploadedData()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ViewDataUploadedFile();
                 Logger.Info("Click View upload data button");
-            }, nameof(TC_004_ViewUploadedData));
+            }, nameof(TC_016_ViewUploadedData));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_005_ClickProjectCreationStatusButton")]
+        [AllureOwner("TC_017_ClickProjectCreationStatusButton")]
         [AllureTag("Regression")]
-        public async Task TC_005_ClickProjectCreationStatusButton()
+        public async Task TC_017_ClickProjectCreationStatusButton()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickProjectCreationStatus();
                 Logger.Info("Click Project Creation stutus button");
-            }, nameof(TC_005_ClickProjectCreationStatusButton));
+            }, nameof(TC_017_ClickProjectCreationStatusButton));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_006_ClickGatheringClientInfradata")]
+        [AllureOwner("TC_018_ClickGatheringClientInfradata")]
         [AllureTag("Regression")]
-        public async Task TC_006_ClickGatheringClientInfradata()
+        public async Task TC_018_ClickGatheringClientInfradata()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickGatheringClientInfradata();
                 Logger.Info("Click Project Creation stutus button");
-            }, nameof(TC_006_ClickGatheringClientInfradata));
+            }, nameof(TC_018_ClickGatheringClientInfradata));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_007_Open_Current_Mode")]
+        [AllureOwner("TC_019_Open_Current_Mode")]
         [AllureTag("Regression")]
-        public async Task TC_007_Open_Current_Mode()
+        public async Task TC_019_Open_Current_Mode()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickCurrentModeAsync();
                 Logger.Info("Current mode verified");
-            }, nameof(TC_007_Open_Current_Mode));
+            }, nameof(TC_019_Open_Current_Mode));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_008_Open_Future_Mode")]
+        [AllureOwner("TC_020_Open_Future_Mode")]
         [AllureTag("Regression")]
-        public async Task TC_008_Open_Future_Mode()
+        public async Task TC_020_Open_Future_Mode()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickFutureModeAsync();
                 Logger.Info("Future Mode verified");
-            }, nameof(TC_008_Open_Future_Mode));
+            }, nameof(TC_020_Open_Future_Mode));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_009_Open_Inventory")]
+        [AllureOwner("TC_021_Open_Inventory")]
         [AllureTag("Regression")]
-        public async Task TC_009_Open_Inventory()
+        public async Task TC_021_Open_Inventory()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickInventorySpecificationsAsync();
                 Logger.Info("Inventory Specifications Verified ");
-            }, nameof(TC_009_Open_Inventory));
+            }, nameof(TC_021_Open_Inventory));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_010_Open_Track_Plan")]
+        [AllureOwner("TC_022_Open_Track_Plan")]
         [AllureTag("Regression")]
-        public async Task TC_010_Open_Track_Plan()
+        public async Task TC_022_Open_Track_Plan()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickTrackPlanAsync();
                 Logger.Info("Track Paln Verified");
-            }, nameof(TC_010_Open_Track_Plan));
+            }, nameof(TC_022_Open_Track_Plan));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_011_Open_Wave_And_Move")]
+        [AllureOwner("TC_023_Open_Wave_And_Move")]
         [AllureTag("Regression")]
-        public async Task TC_011_Open_Wave_And_Move()
+        public async Task TC_023_Open_Wave_And_Move()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -185,267 +185,267 @@ namespace WiseMigrateTests.Pages.Project
                 await _projectList.ClickWaveAndMoveGroupingPlanAsync();
                 Logger.Info("Wave_And_Move Page opend successfully");
                 Logger.Info("TC_PROJECT_008 completed successfully");
-            }, nameof(TC_011_Open_Wave_And_Move));
+            }, nameof(TC_023_Open_Wave_And_Move));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_012_Verify_Project_Actions_Menu")]
+        [AllureOwner("TC_024_Verify_Project_Actions_Menu")]
         [AllureTag("Regression")]
-        public async Task TC_012_Verify_Project_Actions_Menu()
+        public async Task TC_024_Verify_Project_Actions_Menu()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.VerifyProjectActionsMenuAsync();
                 Logger.Info("Verified_Project_Actions_Menu successfully");
-            }, nameof(TC_012_Verify_Project_Actions_Menu));
+            }, nameof(TC_024_Verify_Project_Actions_Menu));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_013_Verify_Total_Projects_Filter")]
+        [AllureOwner("TC_025_Verify_Total_Projects_Filter")]
         [AllureTag("Regression")]
-        public async Task TC_013_Verify_Total_Projects_Filter()
+        public async Task TC_025_Verify_Total_Projects_Filter()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickTotalProjectsFilter();
                 Logger.Info("Verified_Total_Projects_Filter");
-            }, nameof(TC_013_Verify_Total_Projects_Filter));
+            }, nameof(TC_025_Verify_Total_Projects_Filter));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_014_Verify_Completed_Filter")]
+        [AllureOwner("TC_026_Verify_Completed_Filter")]
         [AllureTag("Regression")]
-        public async Task TC_014_Verify_Completed_Filter()
+        public async Task TC_026_Verify_Completed_Filter()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickCompletedProjectFilter();
                 Logger.Info("Verified_Completed_project_Filter");
-            }, nameof(TC_014_Verify_Completed_Filter));
+            }, nameof(TC_026_Verify_Completed_Filter));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_015_Verify_InProgress_Filter")]
+        [AllureOwner("TC_027_Verify_InProgress_Filter")]
         [AllureTag("Regression")]
-        public async Task TC_015_Verify_InProgress_Filter()
+        public async Task TC_027_Verify_InProgress_Filter()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickInProgressProjectFilter();
-                Logger.Info("Verified_Completed_project_Filter");
-            }, nameof(TC_015_Verify_InProgress_Filter));
+                Logger.Info("Verified_InProgress_project_Filter");
+            }, nameof(TC_027_Verify_InProgress_Filter));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_016_Verify_filter_DropDown")]
+        [AllureOwner("TC_028_Verify_filter_DropDown")]
         [AllureTag("Regression")]
-        public async Task TC_016_Verify_filter_DropDown()
+        public async Task TC_028_Verify_filter_DropDown()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickFilterByType();
                 Logger.Info("Verified_filter_Dropdown_Button");
-            }, nameof(TC_016_Verify_filter_DropDown));
+            }, nameof(TC_028_Verify_filter_DropDown));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_017_ViewActivityLog")]
+        [AllureOwner("TC_029_ViewActivityLog")]
         [AllureTag("Regression")]
-        public async Task TC_017_ViewActivityLog()
+        public async Task TC_029_ViewActivityLog()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickActionButton();
                 await _projectList.CilckActivityLogButton();
                 Logger.Info("Verified_Avtivity_log");
-            }, nameof(TC_017_ViewActivityLog));
+            }, nameof(TC_029_ViewActivityLog));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_018_ManageColaborator")]
+        [AllureOwner("TC_030_ManageColaborator")]
         [AllureTag("Regression")]
-        public async Task TC_018_ManageColaborator()
+        public async Task TC_030_ManageColaborator()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickActionButton();
                 await _projectList.ClickManageCollaborators();
                 Logger.Info("Verified Manage Collaborator");
-            }, nameof(TC_018_ManageColaborator));
+            }, nameof(TC_030_ManageColaborator));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_019_Select_Organization")]
+        [AllureOwner("TC_031_Select_Organization")]
         [AllureTag("Regression")]
-        public async Task TC_019_Select_Organization()
+        public async Task TC_031_Select_Organization()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.OrganizationStatus();
                 Logger.Info("Verified Select Organization");
-            }, nameof(TC_019_Select_Organization));
+            }, nameof(TC_031_Select_Organization));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_020_Delete_Project")]
+        [AllureOwner("TC_032_Delete_Project")]
         [AllureTag("Regression")]
-        public async Task TC_020_Delete_Project()
+        public async Task TC_032_Delete_Project()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickActionButton();
                 await _projectList.DeleteProjectButton();
                 Logger.Info("Project Deleted");
-            }, nameof(TC_020_Delete_Project));
+            }, nameof(TC_032_Delete_Project));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_21_Logout")]
+        [AllureOwner("TC_033_Logout")]
         [AllureTag("Regression")]
-        public async Task TC_021_Logout()
+        public async Task TC_033_Logout()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.Logout();
                 Logger.Info("Logout Successful");
-            }, nameof(TC_021_Logout));
+            }, nameof(TC_033_Logout));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_022_CancelLogout")]
+        [AllureOwner("TC_034_CancelLogout")]
         [AllureTag("Regression")]
-        public async Task TC_022_CancelLogout()
+        public async Task TC_034_CancelLogout()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.CancelLogout();
                 Logger.Info("Cancel Lagout");
-            }, nameof(TC_022_CancelLogout));
+            }, nameof(TC_034_CancelLogout));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_023_CloseLogout")]
+        [AllureOwner("TC_035_CloseLogout")]
         [AllureTag("Regression")]
-        public async Task TC_023_CloseLogout()
+        public async Task TC_035_CloseLogout()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.CloseLogout();
                 Logger.Info("Close  Lagout");
-            }, nameof(TC_023_CloseLogout));
+            }, nameof(TC_035_CloseLogout));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_024_CreateUser")]
+        [AllureOwner("TC_036_CreateUser")]
         [AllureTag("Regression")]
-        public async Task TC_024_CreateUser()
+        public async Task TC_036_CreateUser()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.CreateUser();
                 Logger.Info("Created user");
-            }, nameof(TC_024_CreateUser));
+            }, nameof(TC_036_CreateUser));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_025_ApplyFilter")]
+        [AllureOwner("TC_037_ApplyFilter")]
         [AllureTag("Regression")]
-        public async Task TC_025_ApplyFilter()
+        public async Task TC_037_ApplyFilter()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ApplyFiletr();
                 Logger.Info("Filter Aplied");
-            }, nameof(TC_025_ApplyFilter));
+            }, nameof(TC_037_ApplyFilter));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_026_SelectRandomPageSizeAsync")]
+        [AllureOwner("TC_038_SelectRandomPageSizeAsync")]
         [AllureTag("Regression")]
-        public async Task TC_026_SelectRandomPageSizeAsync()
+        public async Task TC_038_SelectRandomPageSizeAsync()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.SelectRandomPageSizeAsync();
                 Logger.Info("Slected Randon Page Size ");
-            }, nameof(TC_026_SelectRandomPageSizeAsync));
+            }, nameof(TC_038_SelectRandomPageSizeAsync));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_027_ClickSyncDataButton")]
+        [AllureOwner("TC_039_ClickSyncDataButton")]
         [AllureTag("Regression")]
-        public async Task TC_027_ClickSyncDataButton()
+        public async Task TC_039_ClickSyncDataButton()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickSyncData();
                 Logger.Info("Clicked Sync Button Successfully");
-            }, nameof(TC_027_ClickSyncDataButton));
+            }, nameof(TC_039_ClickSyncDataButton));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_028_Filter_user_in_log")]
+        [AllureOwner("TC_040_Filter_user_in_log")]
         [AllureTag("Regression")]
-        public async Task TC_028_Filter_user_in_log()
+        public async Task TC_040_Filter_user_in_log()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickViewActivityLogs();
                 await _projectList.SelectRandomUser();
                 Logger.Info("Filtered user in activity log");
-            }, nameof(TC_028_Filter_user_in_log));
+            }, nameof(TC_040_Filter_user_in_log));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_029_Filter_Project_In_log")]
+        [AllureOwner("TC_041_Filter_Project_In_log")]
         [AllureTag("Regression")]
-        public async Task TC_029_Filter_Project_In_log()
+        public async Task TC_041_Filter_Project_In_log()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickViewActivityLogs();
                 await _projectList.SelectRandomProject();
                 Logger.Info("Filterd Project in activity log");
-            }, nameof(TC_029_Filter_Project_In_log));
+            }, nameof(TC_041_Filter_Project_In_log));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_030_Filter_Projects_Status_In_Log")]
+        [AllureOwner("TC_042_Filter_Projects_Status_In_Log")]
         [AllureTag("Regression")]
-        public async Task TC_030_Filter_Projects_Status_In_Log()
+        public async Task TC_042_Filter_Projects_Status_In_Log()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickViewActivityLogs();
                 await _projectList.SelectRandomStatus();
                 Logger.Info("Filterd Status in Avtivity log");
-            }, nameof(TC_030_Filter_Projects_Status_In_Log));
+            }, nameof(TC_042_Filter_Projects_Status_In_Log));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_031_Select_Date_Range")]
+        [AllureOwner("TC_043_Select_Date_Range")]
         [AllureTag("Regression")]
-        public async Task TC_031_Select_Date_Range()
+        public async Task TC_043_Select_Date_Range()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -453,35 +453,35 @@ namespace WiseMigrateTests.Pages.Project
                 await _projectList.SelectDateRange();
                 await _basicSetup.SelectDaysRangeAsync();
                 Logger.Info("Selected Date range Successfully");
-            }, nameof(TC_031_Select_Date_Range));
+            }, nameof(TC_043_Select_Date_Range));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_032_Clear_Filter_In_activity_log")]
+        [AllureOwner("TC_044_Clear_Filter_In_activity_log")]
         [AllureTag("Regression")]
-        public async Task TC_032_Clear_Filter_In_activity_log()
+        public async Task TC_044_Clear_Filter_In_activity_log()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickViewActivityLogs();
                 await _projectList.ClearAllFilter();
                 Logger.Info("Clicked Clear filetr Button Successfully");
-            }, nameof(TC_032_Clear_Filter_In_activity_log));
+            }, nameof(TC_044_Clear_Filter_In_activity_log));
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_033_ClickSyncDataButtonInLog")]
+        [AllureOwner("TC_045_ClickSyncDataButtonInLog")]
         [AllureTag("Regression")]
-        public async Task TC_033_ClickSyncDataButtonInLog()
+        public async Task TC_045_ClickSyncDataButtonInLog()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 await _projectList.ClickViewActivityLogs();
                 await _projectList.ClickSync();
                 Logger.Info("Clicked Sync Button in activity log Successfully");
-            }, nameof(TC_033_ClickSyncDataButtonInLog));
+            }, nameof(TC_045_ClickSyncDataButtonInLog));
         }  
     }
 }

@@ -40,57 +40,53 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
         #region Smoke Tests
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_001_CMO_Page_UI_Should_Load")]
+        [AllureOwner("TC_075_CMO_Page_UI_Should_Load")]
         [AllureTag("Smoke")]
-        public async Task TC_001_CMO_Page_UI_Should_Load()
+        public async Task TC_075_CMO_Page_UI_Should_Load()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 
                 await Assertions.Expect(Page.GetByText("Current Mode of Operation - Architectural View")).ToBeVisibleAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_001_CMO_Page_UI");
                 Logger.Info("CMO Page UI loaded successfully");
-            }, "TC_001_CMO_Page_UI_Should_Load");
+            }, "TC_075_CMO_Page_UI_Should_Load");
         }
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons")]
+        [AllureOwner("TC_076_CMO_Page_Should_Have_Clickable_Navigation_Buttons")]
         [AllureTag("Smoke")]
-        public async Task TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons()
+        public async Task TC_076_CMO_Page_Should_Have_Clickable_Navigation_Buttons()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 
                 await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).First).ToBeEnabledAsync();
-                await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).Last).ToBeEnabledAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons");
-                Logger.Info("CMO Page has clickable navigation buttons");
-            }, "TC_002_CMO_Page_Should_Have_Clickable_Navigation_Buttons");
+                await Assertions.Expect(Page.Locator(".mr-3").GetByRole(AriaRole.Button).Last).ToBeEnabledAsync();                Logger.Info("CMO Page has clickable navigation buttons");
+            }, "TC_076_CMO_Page_Should_Have_Clickable_Navigation_Buttons");
         } 
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_003_Verify_CMO_Architecture_Display")]
+        [AllureOwner("TC_077_Verify_CMO_Architecture_Display")]
         [AllureTag("Smoke")]
-        public async Task TC_CMO_003_Verify_CMO_Architecture_Display()
+        public async Task TC_077_Verify_CMO_Architecture_Display()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 
                 await Assertions.Expect(_cmoPage.CMOArchitectureContainer).ToBeVisibleAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_003_Verify_CMO_Architecture_Display");
                 Logger.Info("CMO architecture displayed correctly");
-            }, "TC_CMO_003_Verify_CMO_Architecture_Display");
+            }, "TC_077_Verify_CMO_Architecture_Display");
         }
 
         #endregion
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_004_Verify_Pan_Functionality")]
+        [AllureOwner("TC_078_Verify_Pan_Functionality")]
         [AllureTag("Regression")]
-        public async Task TC_CMO_004_Verify_Pan_Functionality()
+        public async Task TC_078_Verify_Pan_Functionality()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -106,18 +102,17 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 }");
                 Assert.NotEqual(initialX, (int)mousePosition.x);
                 Assert.NotEqual(initialY, (int)mousePosition.y);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_CMO_004_Pan_Functionality");
                 Logger.Info("Pan functionality verified");
-            }, "TC_CMO_004_Verify_Pan_Functionality");
+            }, "TC_078_Verify_Pan_Functionality");
         }
 
         #region Zoom In
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_005_Verify_ZoomIn_MouseScroll")]
+        [AllureOwner("TC_079_Verify_ZoomIn_MouseScroll")]
         [AllureTag("Regression")]
-        public async Task TC_005_Verify_ZoomIn_MouseScroll()
+        public async Task TC_079_Verify_ZoomIn_MouseScroll()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -127,16 +122,15 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Console.WriteLine($"Initial dimensions: {initialWidth}x{initialHeight}, Final dimensions: {finalWidth}x{finalHeight}");
                 Assert.True(finalHeight > initialHeight);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_005_Verify_ZoomIn_MouseScroll");
                 Logger.Info("Zoom In via mouse scroll verified");
-            }, "TC_005_Verify_ZoomIn_MouseScroll");
+            }, "TC_079_Verify_ZoomIn_MouseScroll");
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_006_Verify_ZoomIn_Button")]
+        [AllureOwner("TC_080_Verify_ZoomIn_Button")]
         [AllureTag("Regression")]
-        public async Task TC_006_Verify_ZoomIn_Button()
+        public async Task TC_080_Verify_ZoomIn_Button()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -147,16 +141,15 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Console.WriteLine($"Initial dimensions: {initialWidth}x{initialHeight}, Final dimensions: {finalWidth}x{finalHeight}");
                 Assert.True(finalHeight > initialHeight);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_006_Verify_ZoomIn_Button");
                 Logger.Info("Zoom In via button verified");
-            }, "TC_006_Verify_ZoomIn_Button");
+            }, "TC_080_Verify_ZoomIn_Button");
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_007_Verify_Max_Zoom_Limit")]
+        [AllureOwner("TC_081_Verify_Max_Zoom_Limit")]
         [AllureTag("Regression")]
-        public async Task TC_007_Verify_Max_Zoom_Limit()
+        public async Task TC_081_Verify_Max_Zoom_Limit()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -166,9 +159,8 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 await _cmoPage.PerformZoomInAsync();
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Assert.Equal(finalHeight, initialHeight);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_007_Verify_Max_Zoom_Limit");
                 Logger.Info("Maximum zoom in level verified");
-            }, "TC_007_Verify_Max_Zoom_Limit");
+            }, "TC_081_Verify_Max_Zoom_Limit");
         
         }
 
@@ -178,9 +170,9 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_008_Verify_ZoomOut_MouseScroll")]
+        [AllureOwner("TC_082_Verify_ZoomOut_MouseScroll")]
         [AllureTag("Regression")]
-        public async Task TC_008_Verify_ZoomOut_MouseScroll()
+        public async Task TC_082_Verify_ZoomOut_MouseScroll()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -190,16 +182,15 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Console.WriteLine($"Initial dimensions: {initialWidth}x{initialHeight}, Final dimensions: {finalWidth}x{finalHeight}");
                 Assert.True(finalHeight < initialHeight);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_008_Verify_ZoomOut_MouseScroll");
                 Logger.Info("Zoom Out via mouse scroll verified");
-            }, "TC_008_Verify_ZoomOut_MouseScroll");
+            }, "TC_082_Verify_ZoomOut_MouseScroll");
         }
  
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_009_Verify_ZoomOut_Button")]
+        [AllureOwner("TC_083_Verify_ZoomOut_Button")]
         [AllureTag("Regression")]
-        public async Task TC_009_Verify_ZoomOut_Button()
+        public async Task TC_083_Verify_ZoomOut_Button()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {                          
@@ -210,16 +201,15 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 Console.WriteLine($"Initial dimensions: {initialWidth}x{initialHeight}, Final dimensions: {finalWidth}x{finalHeight}");
                 Assert.True(finalWidth < initialWidth);
                 Assert.True(finalHeight < initialHeight);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_009_Verify_ZoomOut_Button");
                 Logger.Info("Zoom Out via button verified");
-            }, "TC_009_Verify_ZoomOut_Button");
+            }, "TC_083_Verify_ZoomOut_Button");
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_010_Verify_Min_Zoom_Limit")]
+        [AllureOwner("TC_084_Verify_Min_Zoom_Limit")]
         [AllureTag("Regression")]
-        public async Task TC_010_Verify_Min_Zoom_Limit()
+        public async Task TC_084_Verify_Min_Zoom_Limit()
         {
             await _attachmentHelper.RunWithTracingAsync(async ()=>
             {
@@ -230,9 +220,8 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Console.WriteLine($"Initial dimensions: {initialWidth}x{initialHeight}, Final dimensions: {finalWidth}x{finalHeight}");
                 Assert.Equal(finalHeight, initialHeight);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_010_Verify_Min_Zoom_Limit");
                 Logger.Info("Minimum zoom out limit verified");
-            }, "TC_010_Verify_Min_Zoom_Limit");
+            }, "TC_084_Verify_Min_Zoom_Limit");
             
         }
 
@@ -242,9 +231,9 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_012_Verify_ResetOnZoom_Functionality")]
+        [AllureOwner("TC_085_Verify_ResetOnZoom_Functionality")]
         [AllureTag("Regression")]
-        public async Task TC_012_Verify_ResetOnZoom_Functionality()
+        public async Task TC_085_Verify_ResetOnZoom_Functionality()
         {
             
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -257,16 +246,15 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 Assert.Equal(finalWidth, initialWidth);
                 Assert.Equal(finalHeight, initialHeight);
                 await Assertions.Expect(_cmoPage.CMOArchitectureContainer).ToBeVisibleAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_012_Verify_ResetOnZoom_Functionality");
                 Logger.Info("Reset functionality verified");
-            }, "TC_012_Verify_ResetOnZoom_Functionality");
+            }, "TC_085_Verify_ResetOnZoom_Functionality");
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_013_Verify_ResetOnZoomOut_Functionality")]
+        [AllureOwner("TC_086_Verify_ResetOnZoomOut_Functionality")]
         [AllureTag("Regression")]
-        public async Task TC_013_Verify_ResetOnZoomOut_Functionality()
+        public async Task TC_086_Verify_ResetOnZoomOut_Functionality()
         {
             
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -279,16 +267,15 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 Assert.Equal(finalWidth, initialWidth);
                 Assert.Equal(finalHeight, initialHeight);
                 await Assertions.Expect(_cmoPage.CMOArchitectureContainer).ToBeVisibleAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_013_Verify_ResetOnZoomOut_Functionality");
                 Logger.Info("Reset functionality verified");
-            }, "TC_013_Verify_ResetOnZoomOut_Functionality");
+            }, "TC_086_Verify_ResetOnZoomOut_Functionality");
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_014_Verify_ResetOnZoom_Functionality")]
+        [AllureOwner("TC_087_Verify_ResetOnZoom_Functionality")]
         [AllureTag("Regression")]
-        public async Task TC_014_Verify_ResetOnZoom_Functionality()
+        public async Task TC_087_Verify_ResetOnZoom_Functionality()
         {
             
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -311,16 +298,15 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 Assert.Equal(finalWidth, initialWidth);
                 Assert.Equal(finalHeight, initialHeight);
                 await Assertions.Expect(_cmoPage.CMOArchitectureContainer).ToBeVisibleAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_014_Verify_ResetOnZoomCombination_Functionality");
                 Logger.Info("Reset functionality verified");
-            }, "TC_014_Verify_ResetOnZoomCombination_Functionality");
+            }, "TC_087_Verify_ResetOnZoomCombination_Functionality");
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_015_Verify_Reset_Does_Not_Impact_Scale")]
+        [AllureOwner("TC_088_Verify_Reset_Does_Not_Impact_Scale")]
         [AllureTag("Regression")]
-        public async Task TC_015_Verify_Reset_Does_Not_Impact_Scale()
+        public async Task TC_088_Verify_Reset_Does_Not_Impact_Scale()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -331,9 +317,8 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Assert.Equal(finalWidth, initialWidth);
                 Assert.Equal(finalHeight, initialHeight);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_015_Verify_Reset_Does_Not_Impact_Scale");
                 Logger.Info("No error on multiple reset clicks");
-            }, "TC_015_Verify_Reset_Does_Not_Impact_Scale");
+            }, "TC_088_Verify_Reset_Does_Not_Impact_Scale");
         }
 
         #endregion
@@ -342,9 +327,9 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_016_Verify_Enter_Fullscreen")]
+        [AllureOwner("TC_089_Verify_Enter_Fullscreen")]
         [AllureTag("Regression")]
-        public async Task TC_016_Verify_Enter_Fullscreen()
+        public async Task TC_089_Verify_Enter_Fullscreen()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -354,38 +339,15 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Assert.True(finalWidth > initialWidth);
                 Assert.True(finalHeight > initialHeight);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_016_Verify_Enter_Fullscreen");
                 Logger.Info("Entered fullscreen mode successfully");
-            }, "TC_016_Verify_Enter_Fullscreen");
+            }, "TC_089_Verify_Enter_Fullscreen");
         }
 
-        // [Fact]
-        // [Trait("Category", "Regression")]
-        // [AllureOwner("TC_017_Verify_Exit_Fullscreen_ESC")]
-        // [AllureTag("Regression")]
-        // public async Task TC_017_Verify_Exit_Fullscreen_ESC()
-        // {
-        //     await _attachmentHelper.RunWithTracingAsync(async () =>
-        //     {
-        //         
-        //         var (initialWidth, initialHeight) = await _cmoPage.RetrieveDimensionsAsync();
-        //         await _cmoPage.EnterFullscreenModeAsync();  
-        //         await _basicSetup.WaitForPageAsync(2);
-        //         await Page.Keyboard.PressAsync("Escape");    
-        //         await _basicSetup.WaitForPageAsync(3);      
-        //         var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
-        //         Console.WriteLine($"Initial dimensions: {initialWidth}x{initialHeight}, Final dimensions: {finalWidth}x{finalHeight}");
-        //         Assert.Equal(finalHeight, initialHeight);
-        //         await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_017_Verify_Exit_Fullscreen_ESC");
-        //         Logger.Info("Verified exit from fullscreen mode");
-        //     },"TC_017_Verify_Exit_Fullscreen_ESC");
-        // }
-
-         [Fact]
+        [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_018_Verify_Exit_Fullscreen")]
+        [AllureOwner("TC_090_Verify_Exit_Fullscreen")]
         [AllureTag("Regression")]
-        public async Task TC_018_Verify_Exit_Fullscreen()
+        public async Task TC_090_Verify_Exit_Fullscreen()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -397,16 +359,15 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 var (finalWidth, finalHeight) = await _cmoPage.RetrieveDimensionsAsync();
                 Assert.Equal(finalWidth, initialWidth);
                 Assert.Equal(finalHeight, initialHeight);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_018_Verify_Exit_Fullscreen");
                 Logger.Info("Verified exit from fullscreen mode");
-            },"TC_018_Verify_Exit_Fullscreen");
+            },"TC_090_Verify_Exit_Fullscreen");
         }
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_019_Verify_UI_Scaling_In_Fullscreen")]
+        [AllureOwner("TC_091_Verify_UI_Scaling_In_Fullscreen")]
         [AllureTag("Regression")]
-        public async Task TC_019_Verify_UI_Scaling_In_Fullscreen()
+        public async Task TC_091_Verify_UI_Scaling_In_Fullscreen()
         {
             await _attachmentHelper.RunWithTracingAsync(async ()=>
             {
@@ -418,7 +379,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 Assert.True(finalWidth > initialWidth);
                 Assert.True(finalHeight > initialHeight);
                 Logger.Info("UI elements scale correctly in fullscreen");
-            },"TC_019_Verify_UI_Scaling_In_Fullscreen");
+            },"TC_091_Verify_UI_Scaling_In_Fullscreen");
         }
 
         #endregion
@@ -427,9 +388,9 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
 
         [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_020_Verify_Download_Functionality")]
+        [AllureOwner("TC_092_Verify_Download_Functionality")]
         [AllureTag("Regression")]
-        public async Task TC_020_Verify_Download_Functionality()
+        public async Task TC_092_Verify_Download_Functionality()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -439,14 +400,14 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 Console.WriteLine($"Expected filename: {fileName}");            
                 Assert.NotNull(download);
                 Assert.Equal(fileName, download.SuggestedFilename);
-            }, "TC_020_Verify_Download_Functionality");
+            }, "TC_092_Verify_Download_Functionality");
         }
 
-         [Fact]
+        [Fact]
         [Trait("Category", "Regression")]
-        [AllureOwner("TC_021_Verify_Download_OnFullScreenMode_Functionality")]
+        [AllureOwner("TC_093_Verify_Download_OnFullScreenMode_Functionality")]
         [AllureTag("Regression")]
-        public async Task TC_021_Verify_Download_OnFullScreenMode_Functionality()
+        public async Task TC_093_Verify_Download_OnFullScreenMode_Functionality()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -457,7 +418,7 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 Console.WriteLine($"Expected filename: {fileName}");            
                 Assert.NotNull(download);
                 Assert.Equal(fileName, download.SuggestedFilename);
-            }, "TC_021_Verify_Download_OnFullScreenMode_Functionality");
+            }, "TC_093_Verify_Download_OnFullScreenMode_Functionality");
         }
         #endregion
 
@@ -465,25 +426,24 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
 
         [Fact]
         [Trait("Category","Regression")]
-        [AllureOwner("TC_022_Verify_Legend_Display")]
+        [AllureOwner("TC_094_Verify_Legend_Display")]
         [AllureTag("Regression")]
-        public async Task TC_022_Verify_Legend_Display()
+        public async Task TC_094_Verify_Legend_Display()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 
                 await _cmoPage.ClickLegendIconAsync();
                 await Assertions.Expect(Page.Locator(" .legend-container")).ToBeVisibleAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_022_Verify_Legend_Display");
                 Logger.Info("Legend displayed successfully");
-            },"TC_022_Verify_Legend_Display");
+            },"TC_094_Verify_Legend_Display");
         }
 
         [Fact]
         [Trait("Category","Regression")]
-        [AllureOwner("TC_023_Verify_Legend_Display")]
+        [AllureOwner("TC_095_Verify_Legend_Display")]
         [AllureTag("Regression")]
-        public async Task TC_023_Verify_Legend_Display_OnFullScreenMode()
+        public async Task TC_095_Verify_Legend_Display_OnFullScreenMode()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -491,16 +451,15 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 await _cmoPage.EnterFullscreenModeAsync();
                 await _cmoPage.ClickLegendIconAsync();
                 await Assertions.Expect(Page.Locator(" .legend-container")).ToBeVisibleAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_023_Verify_Legend_Display");
                 Logger.Info("Legend displayed successfully");
-            },"TC_023_Verify_Legend_Display");
+            },"TC_095_Verify_Legend_Display_OnFullScreenMode");
         }
 
         [Fact]
         [Trait("Category","Regression")]
-        [AllureOwner("TC_024_Verify_ToggleLegend_Operation")]
+        [AllureOwner("TC_096_Verify_ToggleLegend_Operation")]
         [AllureTag("Regression")]
-        public async Task TC_024_Verify_ToggleLegend_Operation()
+        public async Task TC_096_Verify_ToggleLegend_Operation()
         {
             await _attachmentHelper.RunWithTracingAsync( async()=>
             {
@@ -509,9 +468,8 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 await Assertions.Expect(Page.Locator(" .legend-container")).ToBeVisibleAsync();
                 await _cmoPage.ClickLegendIconAsync();
                 await Assertions.Expect(Page.Locator(" .legend-wrapper")).Not.ToBeVisibleAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_024_Verify_ToggleLegend_Operation");
                 Logger.Info("Legend toggle operation verified successfully");   
-            },"TC_024_Verify_ToggleLegend_Operation");
+            },"TC_096_Verify_ToggleLegend_Operation");
         }
 
         #endregion
@@ -520,9 +478,9 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
 
         [Fact]
         [Trait("Category","Regression")]
-        [AllureOwner("TC_025_Verify_Search_Functionality")]
+        [AllureOwner("TC_097_Verify_Search_Functionality")]
         [AllureTag("Regression")]
-        public async Task TC_025_Verify_Search_Functionality()
+        public async Task TC_097_Verify_Search_Functionality()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -532,15 +490,14 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 await Assertions.Expect(Page.Locator("div.search-results.show")).ToBeVisibleAsync();
                 await Task.Delay(100);
                 await Assertions.Expect(Page.GetByText("Found 1 match")).ToBeVisibleAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_025_Verify_Search_Functionality");
-            },"TC_025_Verify_Search_Functionality");
+            },"TC_097_Verify_Search_Functionality");
         }
 
         [Fact]
         [Trait("Category","Regression")]
-        [AllureOwner("TC_026_Verify_SearchNavigation_Functionality")]
+        [AllureOwner("TC_098_Verify_SearchNavigation_Functionality")]
         [AllureTag("Regression")]
-        public async Task TC_026_Verify_SearchNavigation_Functionality()
+        public async Task TC_098_Verify_SearchNavigation_Functionality()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -565,15 +522,14 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                     activeSearchItem = await Page.Locator(".search-results .search-item.selected-node.keyboard-selected").InnerTextAsync();
                 }
                 Assert.NotEqual(initalSearchItem, activeSearchItem);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_026_Verify_SearchNavigation_Functionality");
-            },"TC_026_Verify_SearchNavigation_Functionality");
+            },"TC_098_Verify_SearchNavigation_Functionality");
         }
 
         [Fact]
         [Trait("Category","Regression")]
-        [AllureOwner("TC_027_Verify_Search_RandomSelectedNode")]
+        [AllureOwner("TC_099_Verify_Search_RandomSelectedNode")]
         [AllureTag("Regression")] 
-        public async Task TC_027_Verify_Search_RandomSelectedNode()
+        public async Task TC_099_Verify_Search_RandomSelectedNode()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -585,17 +541,15 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 Console.WriteLine($"Randomly selected search item: {searchInputText}");
                 await _basicSetup.WaitForPageAsync(1);
                 await Page.Locator($".search-results .search-item:has-text('{searchInputText}')").ClickAsync();
-                //await Assertions.Expect(Page.Locator($"#node{NodeId}.title")).ToContainTextAsync(searchInputText);
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_027_Verify_Search_RandomSelectedNode");
                 Logger.Info("Random search item selection and navigation verified");
-            },"TC_027_Verify_Search_RandomSelectedNode");
+            },"TC_099_Verify_Search_RandomSelectedNode");
         }
     
         [Fact]
         [Trait("Category","Regression")]
-        [AllureOwner("TC_028_Verify_Search_NoResults")]
+        [AllureOwner("TC_100_Verify_Search_NoResults")]
         [AllureTag("Regression")]
-        public async Task TC_028_Verify_Search_NoResults()
+        public async Task TC_100_Verify_Search_NoResults()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -605,14 +559,14 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 await Assertions.Expect(Page.Locator("div.search-results.show")).Not.ToBeVisibleAsync();
                 // await Assertions.Expect(Page.GetByText("No results found")).ToBeVisibleAsync();
                 Logger.Info("Search with no results verified");
-            },"TC_028_Verify_Search_NoResults");
+            },"TC_100_Verify_Search_NoResults");
         }
 
         [Fact]
         [Trait("Category","Regression")]
-        [AllureOwner("TC_029_Verify_CloseSearch")]
+        [AllureOwner("TC_101_Verify_CloseSearch")]
         [AllureTag("Regression")]
-        public async Task TC_029_Verify_CloseSearch()
+        public async Task TC_101_Verify_CloseSearch()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -621,24 +575,22 @@ namespace WiseMigrateTests.Pages.ClientModeOperation
                 await _cmoPage.PerformSearchAsync(searchInputText);
                 await _cmoPage.CloseSearchBarAsync();
                 await Assertions.Expect(Page.GetByPlaceholder("Search Server...")).ToBeVisibleAsync();
-                await ScreenshotHelper.TakeScreenshotAsync(Page, "TC_029_Verify_CloseSearch");
-            }, "TC_029_Verify_CloseSearch");
+            }, "TC_101_Verify_CloseSearch");
         }
 
         [Fact]
         [Trait("Category","Regression")]
-        [AllureOwner("TC_030_Verify_Search_EmptyInput")]
+        [AllureOwner("TC_102_Verify_Search_EmptyInput")]
         [AllureTag("Regression")]
-        public async Task TC_030_Verify_Search_EmptyInput()
+        public async Task TC_102_Verify_Search_EmptyInput()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
                 
                 await _cmoPage.PerformSearchAsync("");
                 await Assertions.Expect(Page.GetByPlaceholder("Search Server...")).ToBeVisibleAsync();
-                // await Assertions.Expect(Page.Locator("role=alert")).ToHaveTextAsync("Please enter a search term.");
                 Logger.Info("Search with empty input verified");
-            }, "TC_030_Verify_Search_EmptyInput");
+            }, "TC_102_Verify_Search_EmptyInput");
         }
 
         #endregion

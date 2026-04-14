@@ -34,13 +34,11 @@ namespace WiseMigrateTests.Pages.ProjectInventory
             Logger.Info("Project dashboard ready for Project Actions tests");
         }
 
-        public new Task DisposeAsync() => Task.CompletedTask;
-
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_001_Inventory_Page_Should_Load_Sucessfully")]
+        [AllureOwner("TC_150_Inventory_Page_Should_Load_Sucessfully")]
         [AllureTag("Smoke")]
-        public async Task TC_001_Inventory_Page_Should_Load_Sucessfully()
+        public async Task TC_150_Inventory_Page_Should_Load_Sucessfully()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -50,14 +48,14 @@ namespace WiseMigrateTests.Pages.ProjectInventory
                 ).ToBeVisibleAsync();
                 await _basicSetup.WaitForPageAsync(2);
                 Logger.Info("TC_Inventory_001 completed successfully");
-            }, nameof(TC_001_Inventory_Page_Should_Load_Sucessfully));
+            }, nameof(TC_150_Inventory_Page_Should_Load_Sucessfully));
         }
 
         [Fact]
         [Trait("Category", "Smoke")]
-        [AllureOwner("TC_002_Verify_Migration_Control_Center_Flow")]
+        [AllureOwner("TC_151_Verify_Migration_Control_Center_Flow")]
         [AllureTag("Smoke")]
-        public async Task TC_002_Verify_Migration_Control_Center_Flow()
+        public async Task TC_151_Verify_Migration_Control_Center_Flow()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
             {
@@ -65,11 +63,11 @@ namespace WiseMigrateTests.Pages.ProjectInventory
                 await _basicSetup.WaitForPageAsync(2);
                 await _projectInventoryPage.InitiateMigrationFromInventoryAsync();
                 await Assertions.Expect(
-                    Page.GetByRole(AriaRole.Heading, new() { Name = "Migration Plan Tracking" })
+                    Page.GetByRole(AriaRole.Heading, new() { Name = "M*(xwhvigration Plan Tracking" })
                 ).ToBeVisibleAsync();
 
-                Logger.Info("TC_Inventory_002 verification of Migration Control Center flow completed successfully");
-            }, nameof(TC_002_Verify_Migration_Control_Center_Flow));
+                Logger.Info("TC_Inventory_151 verification of Migration Control Center flow completed successfully");
+            }, nameof(TC_151_Verify_Migration_Control_Center_Flow));
         }
     }
 }

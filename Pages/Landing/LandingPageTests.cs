@@ -27,11 +27,11 @@ namespace WiseMigrateTests.Pages.Landing
         }
     
     
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
+
+        [Fact]
+        [Trait("Category", "Smoke")]
         [AllureOwner("TC_001_LandingPage_Should_Load_Successfully")]
         [AllureTag("Smoke")]
-        [Trait("Category", "Smoke")]
-        [Fact]
         public async Task TC_001_LandingPage_Should_Load_Successfully()
         {
             await _attachmentHelper.RunWithTracingAsync(async () =>
@@ -43,7 +43,6 @@ namespace WiseMigrateTests.Pages.Landing
             }, nameof(TC_001_LandingPage_Should_Load_Successfully));
         }
 
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
         [AllureOwner("TC_002_LandingPage_Should_Have_Clickable_Buttons")]
         [AllureTag("Smoke")]
         [Trait("Category", "Smoke")]
@@ -64,7 +63,7 @@ namespace WiseMigrateTests.Pages.Landing
             }, nameof(TC_002_LandingPage_Should_Have_Clickable_Buttons));
         }
 
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
+        
         [AllureOwner("TC_003_Click_GenerateMigrationPlan_Button_Should_Navigate_Correctly")]
         [AllureTag("Smoke")]
         [Trait("Category", "Smoke")]
@@ -82,7 +81,7 @@ namespace WiseMigrateTests.Pages.Landing
             }, nameof(TC_003_Click_GenerateMigrationPlan_Button_Should_Navigate_Correctly));
         }
 
-        [AllureSeverity(Allure.Net.Commons.SeverityLevel.critical)]
+      
         [AllureOwner("TC_004_Click_StartMigrationAssessment_Button_Should_Navigate_Correctly")]
         [AllureTag("Smoke")]
         [Trait("Category", "Smoke")]
@@ -100,21 +99,5 @@ namespace WiseMigrateTests.Pages.Landing
             }, nameof(TC_004_Click_StartMigrationAssessment_Button_Should_Navigate_Correctly));
         }
 
-        /*
-        [Fact]
-        [Trait("Category", "UI")]
-        public async Task LandingPage_Should_Have_Logo()
-        {   
-            await _attachmentHelper.RunWithTracingAsync(async () =>
-            {
-                await Assertions.Expect(Page).ToHaveURLAsync(ConfigReader.Get("AppUrl"));
-                await _setup.WaitForPageAsync(5);
-                var logo = Page.Locator("img[alt='/.*Wise.*Migrate.*Icon/i']");
-                await Assertions.Expect(logo).ToBeVisibleAsync();
-                Logger.Info("Company logo is visible on landing page");
-            }, nameof(LandingPage_Should_Have_Logo));
-
-        }
-        */
     }
 }
