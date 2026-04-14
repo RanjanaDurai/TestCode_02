@@ -47,7 +47,7 @@ stages:
               --configuration Release
               --no-build
               --logger trx
-              --filter "TestCategory=$(testCategory)"
+              --filter "Category=$(testCategory)"
               --results-directory $(Build.ArtifactStagingDirectory)/TestResults
             workingDirectory: $(Build.SourcesDirectory)
             displayName: "Run Tests"
