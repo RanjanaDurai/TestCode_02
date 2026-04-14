@@ -54,5 +54,5 @@ stages:
               testResultsFiles: '**/*.trx'
               searchFolder: '$(Build.ArtifactStagingDirectory)/TestResults' 
               failTaskOnFailedTests: true
-              testRunTitle: 'Test Run - $(Build.BuildNumber)'  # bonus: named runs
+              testRunTitle: 'Test Run - $(Build.BuildNumber)'  
             displayName: "Publish Test Results"
