@@ -1,0 +1,58 @@
+trigger:
+  branches:
+    include:
+      - main
+
+variables:
+  testCategory: 'Smoke'
+
+stages:
+  - stage: BuildAndTest
+    displayName: "Build and Run Tests"
+    jobs:
+      - job: Build
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          # 1. Checkout the test repo (explicit is better)
+          - checkout: self
+            displayName: "Checkout Test Repository"
+
+          # 2. Install .NET SDK
+          - task: UseDotNet@2
+            inputs:
+              packageType: 'sdk'
+              version: '9.0.x'
+            displayName: "Install .NET 9 SDK"
+
+          # 3. Restore dependencies
+          - script: dotnet restore
+            workingDirectory: $(Build.SourcesDirectory)   # explicit path
+            displayName: "Restore NuGet Packages"
+
+          # 4. Build solution
+          - script: dotnet build --configuration Release --no-restore
+            workingDirectory: $(Build.SourcesDirectory)
+            displayName: "Build Solution"
+
+          # 5. Run Tests
+          - script: >
+              dotnet test
+              --configuration Release
+              --no-build
+              --logger trx
+              --filter "TestCategory=$(testCategory)"
+              --results-directory $(Build.ArtifactStagingDirectory)/TestResults
+            workingDirectory: $(Build.SourcesDirectory)
+            displayName: "Run Tests"
+
+          # 6. Publish Test Results — always runs even if tests fail
+          - task: PublishTestResults@2
+            condition: always()                            
+            inputs:
+              testResultsFormat: 'VSTest'
+              testResultsFiles: '**/*.trx'
+              searchFolder: '$(Build.ArtifactStagingDirectory)/TestResults' 
+              failTaskOnFailedTests: true
+              testRunTitle: 'Test Run - $(Build.BuildNumber)'  # bonus: named runs
+            displayName: "Publish Test Results"
