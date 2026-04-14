@@ -22,8 +22,8 @@ stages:
           - task: UseDotNet@2
             inputs:
               packageType: 'sdk'
-              version: '9.0.x'
-            displayName: "Install .NET 9 SDK"
+              version: '8.0.x'
+            displayName: "Install .NET 8 SDK"
 
           # 3. Restore dependencies
           - script: dotnet restore
