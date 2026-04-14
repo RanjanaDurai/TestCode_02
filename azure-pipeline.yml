@@ -49,6 +49,7 @@ stages:
               --logger trx
               --filter "Category=$(testCategory)"
               --results-directory $(Build.ArtifactStagingDirectory)/TestResults
+              -- xUnit.ReporterSwitch=allure
             workingDirectory: $(Build.SourcesDirectory)
             displayName: "Run Tests"
 
