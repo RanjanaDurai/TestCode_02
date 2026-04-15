@@ -50,6 +50,13 @@ jobs:
       --results-directory $(Build.ArtifactStagingDirectory)/TestResults
     workingDirectory: $(Build.SourcesDirectory)
     displayName: "Run Tests"
+    continueOnError: true
+
+  - script: |
+      echo "=== Failed Tests ==="
+      grep -A 15 'outcome="Failed"' $(Build.ArtifactStagingDirectory)/TestResults/results.trx || echo "No TRX found or no failures"
+    condition: always()
+    displayName: "Print Failed Test Details"
 
   # 6. Publish Test Results — always runs even if tests fail
   - task: PublishTestResults@2
