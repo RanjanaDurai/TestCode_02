@@ -39,6 +39,17 @@ jobs:
   - script: dotnet build --configuration Release --no-restore
     workingDirectory: $(Build.SourcesDirectory)
     displayName: "Build Solution"
+  
+  - script: |
+      # Find playwright.ps1 generated after build
+      PLAYWRIGHT_SCRIPT=$(find $(Build.SourcesDirectory) -name "playwright.ps1" | head -1)
+      SCRIPT_DIR=$(dirname "$PLAYWRIGHT_SCRIPT")
+      
+      echo "Found playwright script at: $PLAYWRIGHT_SCRIPT"
+      
+      # Use dotnet to execute the playwright dll directly 
+      dotnet "$SCRIPT_DIR/playwright.dll" install chromium --with-deps
+    displayName: "Install Playwright via dotnet exec (no pwsh)"
 
   # 5. Run Tests
   - script: >
