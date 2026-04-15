@@ -41,15 +41,17 @@ jobs:
     displayName: "Build Solution"
   
   - script: |
-      # Find playwright.ps1 generated after build
-      PLAYWRIGHT_SCRIPT=$(find $(Build.SourcesDirectory) -name "playwright.ps1" | head -1)
-      SCRIPT_DIR=$(dirname "$PLAYWRIGHT_SCRIPT")
+      PLAYWRIGHT_SCRIPT=$(find $(Build.SourcesDirectory) -name "playwright.ps1" \
+        -path "*/bin/Release/*" | head -1)
+        
+      if [ -z "$PLAYWRIGHT_SCRIPT" ]; then
+        echo "playwright.ps1 not found!"
+        exit 1
+      fi
       
-      echo "Found playwright script at: $PLAYWRIGHT_SCRIPT"
-      
-      # Use dotnet to execute the playwright dll directly 
-      dotnet "$SCRIPT_DIR/playwright.dll" install chromium --with-deps
-    displayName: "Install Playwright via dotnet exec (no pwsh)"
+      echo "Found: $PLAYWRIGHT_SCRIPT"
+      pwsh "$PLAYWRIGHT_SCRIPT" install chromium --with-deps
+    displayName: "Install Playwright Chromium"
 
   # 5. Run Tests
   - script: >
