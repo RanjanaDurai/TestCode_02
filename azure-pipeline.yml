@@ -5,59 +5,188 @@ trigger:
 
 variables:
   testCategory: 'Smoke'
+  testResultsDir: '$(Build.ArtifactStagingDirectory)/TestResults'
+  allureResultsDir: '$(Build.SourcesDirectory)/allure-results'
+  allureReportDir: '$(Build.ArtifactStagingDirectory)/allure-report'
 
-stages:
-  - stage: BuildAndTest
-    displayName: "Build and Run Tests"
-    jobs:
-      - job: Build
-        pool:
-          vmImage: 'ubuntu-latest'
-        steps:
-          # 1. Checkout the test repo (explicit is better)
-          - checkout: self
-            displayName: "Checkout Test Repository"
 
-          # 2. Install .NET SDK
-          - task: UseDotNet@2
-            inputs:
-              packageType: 'sdk'
-              version: '8.0.x'
-            displayName: "Install .NET 8 SDK"
-          
-          - task: UseDotNet@2
-            inputs:
-              packageType: 'sdk'
-              version: '9.0.x'
-            displayName: "Install .NET 9 SDK"
+jobs:
+- job: BuildAndTest_WiseMigrate
+  displayName: "Build and Run Tests in WiseMigrate"
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  # 1. Checkout the test repo
+  - checkout: self
+    displayName: "Checkout Test Repository"
 
-          # 3. Restore dependencies
-          - script: dotnet restore
-            workingDirectory: $(Build.SourcesDirectory)   # explicit path
-            displayName: "Restore NuGet Packages"
+  # 2. Install .NET SDK    
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '8.0.x'
+    displayName: "Install .NET 8 SDK"
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '9.0.x'
+    displayName: "Install .NET 9 SDK"
+  
+  # 2.A Install JDK
+  - script: |
+      echo "=== Checking JDK 17 ==="
+      if java -version 2>&1 | grep -q "17\."; then
+        echo "JDK 17 already installed:"
+        java -version
+      else
+        echo "Installing JDK 17..."
+        apt-get update -qq
+        apt-get install -y openjdk-17-jdk
+        echo "JDK 17 installed."
+      fi
 
-          # 4. Build solution
-          - script: dotnet build --configuration Release --no-restore
-            workingDirectory: $(Build.SourcesDirectory)
-            displayName: "Build Solution"
+      echo "--- Verify ---"
+      java -version 2>&1 | grep "17\." || { echo "JDK 17 not found after install"; exit 1; }
+      echo "JAVA_HOME: $(dirname $(dirname $(readlink -f $(which java))))"
+    displayName: "Check & Install JDK 17"
+  
+  # 2.B Install Node.js & npm (for Allure CLI install)
+  - script: |
+      echo "=== Checking Node.js ==="
+      if command -v node &>/dev/null && node --version | grep -qE "^v1[89]\.|^v2[0-9]\."; then
+        echo "Node.js already installed:"
+        node --version
+        npm --version
+      else
+        echo "Installing Node.js 20 LTS..."
+        curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+        apt-get install -y nodejs
+        echo "Node.js installed."
+      fi
 
-          # 5. Run Tests
-          - script: >
-              dotnet test
-              --configuration Release
-              --no-build
-              --filter "Category=$(testCategory)"
-              --results-directory $(Build.ArtifactStagingDirectory)/TestResults
-            workingDirectory: $(Build.SourcesDirectory)
-            displayName: "Run Tests"
+      echo "--- Verify ---"
+      node --version || { echo "Node.js not found after install"; exit 1; }
+      npm --version  || { echo "npm not found after install"; exit 1; }
+    displayName: "Check & Install Node.js & npm"
 
-          # 6. Publish Test Results — always runs even if tests fail
-          - task: PublishTestResults@2
-            condition: always()                            
-            inputs:
-              testResultsFormat: 'VSTest'
-              testResultsFiles: '**/*.trx'
-              searchFolder: '$(Build.ArtifactStagingDirectory)/TestResults' 
-              failTaskOnFailedTests: true
-              testRunTitle: 'Test Run - $(Build.BuildNumber)'  
-            displayName: "Publish Test Results"
+  # 2.C Allure CLI
+  - script: |
+      echo "=== Checking Allure CLI ==="
+      if command -v allure &>/dev/null; then
+        echo "Allure already installed:"
+        allure --version
+      else
+        echo "Installing Allure CLI via npm..."
+        npm install -g allure-commandline
+        echo "Allure CLI installed."
+      fi
+
+      echo "--- Verify ---"
+      allure --version || { echo "Allure CLI not found after install"; exit 1; }
+    displayName: "Check & Install Allure CLI"
+
+  # 3. Restore dependencies
+  - script: dotnet restore
+    workingDirectory: $(Build.SourcesDirectory)
+    displayName: "Restore NuGet Packages"
+
+  # 4. Build solution
+  - script: dotnet build --configuration Release --no-restore
+    workingDirectory: $(Build.SourcesDirectory)
+    displayName: "Build Solution"
+  
+  # ── Verify TestData copied into build output ──────────────────
+  - script: |
+      echo "=== Verifying TestData in Build Output ==="
+      TESTDATA_PATH=$(find $(Build.SourcesDirectory) \
+        -type d -name "TestData" -path "*/bin/Release/*" | head -1)
+
+      if [ -z "$TESTDATA_PATH" ]; then
+        echo "##vso[task.logissue type=error]TestData directory NOT found in build output."
+        exit 1
+      fi
+
+      echo "TestData found at: $TESTDATA_PATH"
+      echo "--- Files included ---"
+      find "$TESTDATA_PATH" -type f | sort
+    displayName: "Verify TestData in Build Output"
+  
+  # Install Playwright Chromium
+  - script: |
+      PLAYWRIGHT_SCRIPT=$(find $(Build.SourcesDirectory) -name "playwright.ps1" \
+        -path "*/bin/Release/*" | head -1)
+        
+      if [ -z "$PLAYWRIGHT_SCRIPT" ]; then
+        echo "playwright.ps1 not found!"
+        exit 1
+      fi
+      
+      echo "Found: $PLAYWRIGHT_SCRIPT"
+      pwsh "$PLAYWRIGHT_SCRIPT" install chromium --with-deps
+    displayName: "Install Playwright Chromium"
+
+  # 5. Run Tests
+  - script: >
+      dotnet test
+      --configuration Release
+      --no-build
+      --filter "Category=$(testCategory)"
+      --logger "trx;LogFileName=results.trx"
+      --results-directory $(Build.ArtifactStagingDirectory)/TestResults
+    workingDirectory: $(Build.SourcesDirectory)
+    displayName: "Run Tests"
+    continueOnError: true
+  
+  # 6. REPORTING
+  - script: |
+      TRX=$(find $(testResultsDir) -name "*.trx" | head -1)
+      if [ -z "$TRX" ]; then
+        echo "No TRX file found — tests may not have run."
+      else
+        echo "=== Failed Tests ==="
+        grep -A 15 'outcome="Failed"' "$TRX" || echo "No failures found in TRX."
+      fi
+    condition: always()
+    displayName: "Print Failed Test Details"
+
+  - script: |
+      echo "=== Generating Allure HTML Report ==="
+      if [ -d "$(allureResultsDir)" ] && [ "$(ls -A $(allureResultsDir) 2>/dev/null)" ]; then
+        allure generate $(allureResultsDir) \
+          --output $(allureReportDir) \
+          --clean
+        echo "Allure report generated at: $(allureReportDir)"
+      else
+        echo "##vso[task.logissue type=warning]allure-results directory empty or missing — skipping report."
+        echo "Expected at: $(allureResultsDir)"
+      fi
+    condition: always()
+    displayName: "Generate Allure HTML Report"
+
+ 
+  # 7. PUBLISH ARTIFACTS
+  - task: PublishTestResults@2
+    condition: always()
+    displayName: "Publish TRX Test Results"
+    inputs:
+      testResultsFormat: 'VSTest'
+      testResultsFiles: '**/*.trx'
+      searchFolder: '$(testResultsDir)'
+      failTaskOnFailedTests: true
+      testRunTitle: 'Test Run - $(Build.BuildNumber)'
+
+  - task: PublishBuildArtifacts@1
+    condition: always()
+    displayName: "Publish Allure HTML Report"
+    inputs:
+      PathtoPublish: '$(allureReportDir)'
+      ArtifactName: 'AllureReport'
+      publishLocation: 'Container'
+
+  - task: PublishBuildArtifacts@1
+    condition: always()
+    displayName: "Publish Raw Test Results"
+    inputs:
+      PathtoPublish: '$(testResultsDir)'
+      ArtifactName: 'TestResults'
+      publishLocation: 'Container'

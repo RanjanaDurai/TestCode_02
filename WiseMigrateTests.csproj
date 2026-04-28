@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-  <None Update="allureConfig.json">
+  <None Update="Config\**\*.*">
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
   </None>
   </ItemGroup>
@@ -37,12 +37,10 @@
     <Folder Include="Reports\Screenshots\" />
   </ItemGroup>
 
-   <ItemGroup>
-       <None Update="Config\appsettings.json">
-		   <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	   </None>
-   </ItemGroup>
-
-
+  <ItemGroup>
+  <None Update="TestData\**\*.*">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+  </ItemGroup>
 
 </Project>
