@@ -6,18 +6,29 @@ pool:
 
 variables:
   WEB_SERVICE_URL: 'https://playwright-testrunner.services-internal.wisework.in/tests/run/pipeline'
+
 stages:
   - stage: TriggerMigrateTestsWebService
-    displayName: 'Trigger Migrate E2E VM test runner'
+    displayName: 'Trigger Migrate E2E test api runner'
     jobs:
       - job: HitAndExit
-        displayName: 'Send POST resquest to web server to trigger the '
+        displayName: 'Send POST request to api to trigger the tests'
         steps:
           - task: Bash@3
             displayName: 'Collect PR info and POST to VM'
             inputs:
               targetType: 'inline'
               script: |
+                # ── Guard: skip if no PR context (e.g. manual run) ──────────────
+                PR_ID="$(System.PullRequest.PullRequestId)"
+
+                if [[ -z "$PR_ID" ]]; then
+                  echo "##vso[task.logissue type=warning]No PR context found — pipeline was triggered manually or without a PR."
+                  echo "Skipping POST request. Exiting gracefully."
+                  exit 0
+                fi
+                # ─────────────────────────────────────────────────────────────────
+
                 PAYLOAD=$(cat <<EOF
                 {
                   "category": "Smoke",
@@ -30,7 +41,7 @@ stages:
                     "buildId": "$(Build.BuildId)",
                     "buildNumber": "$(Build.BuildNumber)",
                     "prId": "$(System.PullRequest.PullRequestId)",
-                    "sourceBranch": "$(Build.PullRequest.SourceBranch)",
+                    "sourceBranch": "$(System.PullRequest.SourceBranch)",
                     "targetBranch": "$(System.PullRequest.TargetBranch)"
                   }
                 }
